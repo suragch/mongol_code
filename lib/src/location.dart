@@ -1,0 +1,1 @@
+enum Location { ISOLATE, INITIAL, MEDIAL, FINAL }
