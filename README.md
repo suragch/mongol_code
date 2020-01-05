@@ -1,22 +1,22 @@
-A library for Dart developers.
+## mongol_code
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+Unicode conversion library in Dart for traditional Mongolian script 
 
 ## Usage
 
 A simple usage example:
 
 ```dart
-import 'package:mongol_code/mongol_code.dart';
+MongolCode converter = MongolCode.instance;
 
-main() {
-  var awesome = new Awesome();
-}
+// Unicode to Menksoft code
+String unicodeInput = 'ᠮᠣᠩᠭᠣᠯ';
+String menksoftResult = converter.unicodeToMenksoft(unicodeInput);
+print(menksoftResult);
+
+// Menksoft code to Unicode
+String menksoftInput = "\uE2C1\uE27F\uE317\uE27E\uE2E8"; // bichig
+String unicodeResult = converter.menksoftToUnicode(menksoftInput);
+print(unicodeResult);
 ```
 
-## Features and bugs
-
-Please file feature requests and bugs at the [issue tracker][tracker].
-
-[tracker]: http://example.com/issues/replaceme
