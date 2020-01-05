@@ -7,14 +7,14 @@ import 'unicode.dart';
 
 extension StringInsersion on StringBuffer {
   void insertCharCodeAtStart(int codeUnit) {
-    final end = this.toString();
-    this.clear();
-    this.writeCharCode(codeUnit);
-    this.write(end);
+    final end = toString();
+    clear();
+    writeCharCode(codeUnit);
+    write(end);
   }
 
   int codeUnitAt(int index) {
-    return this.toString().codeUnitAt(index);
+    return toString().codeUnitAt(index);
   }
 }
 
