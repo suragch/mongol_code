@@ -2,7 +2,6 @@
 /// old Menksoft fonts. Unlike Mongolian Unicode, they encode text
 /// according to the written shape.
 class Menksoft {
-
   static const int MENKSOFT_START = 0xE234;
   static const int MENKSOFT_END = 0xE34F;
 
@@ -50,7 +49,7 @@ class Menksoft {
   static const int RIGHT_WHITE_CORNER_BRACKET = 0xE25C;
   static const int FULL_WIDTH_COMMA = 0xE25D;
   static const int X = 0xE25E;
-  static const int REFERENCE_MARK = 0xE25F;                   // 0x203b
+  static const int REFERENCE_MARK = 0xE25F; // 0x203b
   static const int EN_DASH = 0xE260; // TODO is that what this is?
   static const int EM_DASH = 0xE261; // TODO is that what this is?
   static const int UNKNOWN_SPACE = 0xE262; // TODO what is this?
@@ -111,15 +110,15 @@ class Menksoft {
   static const int MEDI_O_FVS1 = 0xE288;
   static const int FINA_O_FVS1 = 0xE286;
 
-  static const int U_START = 0xE28B;  // Using Init U gliph
-  static const int ISOL_U = 0xE28C;  // Using Init U gliph
+  static const int U_START = 0xE28B; // Using Init U gliph
+  static const int ISOL_U = 0xE28C; // Using Init U gliph
   static const int INIT_U = 0xE28C;
   static const int MEDI_U = 0xE291;
   static const int MEDI_U_BP = 0xE292; // gv
   static const int FINA_U = 0xE28D;
   static const int FINA_U_BP = 0xE28F; // gv
   static const int MEDI_U_FVS1 = 0xE290;
-  static const int FINA_U_FVS1 = 0xE28E;  // FIXME not defined in Unicode 10.0
+  static const int FINA_U_FVS1 = 0xE28E; // FIXME not defined in Unicode 10.0
 
   static const int OE_START = 0xE293;
   static const int ISOL_OE = 0xE293;
@@ -171,7 +170,8 @@ class Menksoft {
   static const int MEDI_NA_FVS1_STEM = 0xE2B9;
   static const int MEDI_NA_FVS1_NG = 0xE2BF;
   static const int MEDI_NA_FVS2 = 0xE2B6; // MVS
-  static const int MEDI_NA_FVS3 = 0xE2B7; // Tod Mongol N; FIXME: no glyph, substituting medial dotted n
+  static const int MEDI_NA_FVS3 =
+      0xE2B7; // Tod Mongol N; FIXME: no glyph, substituting medial dotted n
 
   static const int ANG_START = 0xE2BB;
   static const int ISOL_ANG = 0xE2BC;
@@ -179,8 +179,10 @@ class Menksoft {
   static const int INIT_ANG_ROUND = 0xE2BD;
   static const int INIT_ANG_STEM = 0xE2BE;
   static const int MEDI_ANG_TOOTH = 0xE2BC; // good for following tooth
-  static const int MEDI_ANG_ROUND = 0xE2BD; // good for following round letter like B P H K
-  static const int MEDI_ANG_STEM = 0xE2BE; // good for following stem letter like J CH R
+  static const int MEDI_ANG_ROUND =
+      0xE2BD; // good for following round letter like B P H K
+  static const int MEDI_ANG_STEM =
+      0xE2BE; // good for following stem letter like J CH R
   static const int FINA_ANG = 0xE2BB;
   static const int ANG_END = 0xE2BE;
 
@@ -243,10 +245,13 @@ class Menksoft {
   static const int INIT_GA_FVS1_STEM = 0xE2E5;
   static const int MEDI_GA_FVS1_TOOTH = 0xE2EA;
   static const int MEDI_GA_FVS1_STEM = 0xE2EC;
+
   // This deviation is necessary to override context rules.
   // This follows the WG2 decision: https://r12a.github.io/mongolian-variants/
-  static const int FINA_GA_FVS1 = 0xE2E7; // masculine context override FIXME Deviating from Unicode 10.0 !!!
-  static const int FINA_GA_FVS2 = 0xE2E8; // feminine const form FIXME Deviating from Unicode 10.0 !!!
+  static const int FINA_GA_FVS1 =
+      0xE2E7; // masculine context override FIXME Deviating from Unicode 10.0 !!!
+  static const int FINA_GA_FVS2 =
+      0xE2E8; // feminine const form FIXME Deviating from Unicode 10.0 !!!
   static const int MEDI_GA_FVS2 = 0xE2E9;
   static const int MEDI_GA_FVS3_TOOTH = 0xE2EF;
   static const int MEDI_GA_FVS3_STEM = 0xE2F0;
@@ -256,8 +261,10 @@ class Menksoft {
   static const int INIT_MA_TOOTH = 0xE2F1;
   static const int INIT_MA_STEM_LONG = 0xE2F2;
   static const int MEDI_MA_TOOTH = 0xE2F4;
-  static const int MEDI_MA_STEM_LONG = 0xE2F5; // long stem GV, use this if M or L follows
-  static const int MEDI_MA_BP = 0xE2F6; // GV use this if following a B, P, H, K, etc.
+  static const int MEDI_MA_STEM_LONG =
+      0xE2F5; // long stem GV, use this if M or L follows
+  static const int MEDI_MA_BP =
+      0xE2F6; // GV use this if following a B, P, H, K, etc.
   static const int FINA_MA = 0xE2F3;
 
   static const int LA_START = 0xE2F7;
@@ -265,8 +272,10 @@ class Menksoft {
   static const int INIT_LA_TOOTH = 0xE2F7;
   static const int INIT_LA_STEM_LONG = 0xE2F8;
   static const int MEDI_LA_TOOTH = 0xE2FA;
-  static const int MEDI_LA_STEM_LONG = 0xE2FB; // long stem GV, use this if M or L follows
-  static const int MEDI_LA_BP = 0xE2FC; // GV use this if following a B, P, H, K, etc.
+  static const int MEDI_LA_STEM_LONG =
+      0xE2FB; // long stem GV, use this if M or L follows
+  static const int MEDI_LA_BP =
+      0xE2FC; // GV use this if following a B, P, H, K, etc.
   static const int FINA_LA = 0xE2F9;
 
   static const int SA_START = 0xE2FD;
@@ -277,7 +286,8 @@ class Menksoft {
   static const int MEDI_SA_STEM = 0xE302;
   static const int FINA_SA = 0xE2FF;
   static const int FINA_SA_FVS1 = 0xE300;
-  static const int FINA_SA_FVS2 = 0xE2FF; //0x100CE; FIXME: glyph is not in Menksoft PUA, substituting first form
+  static const int FINA_SA_FVS2 =
+      0xE2FF; //0x100CE; FIXME: glyph is not in Menksoft PUA, substituting first form
 
   static const int SHA_START = 0xE303;
   static const int ISOL_SHA = 0xE304;
@@ -323,10 +333,12 @@ class Menksoft {
   static const int YA_START = 0xE31E;
   static const int ISOL_YA = 0xE31E;
   static const int INIT_YA = 0xE31E;
+
   //static const int MEDI_YA = 0xE320; // hooked (Unicode 9.0)
   static const int MEDI_YA = 0xE321; // straight (Unicode 10.0)
   static const int FINA_YA = 0xE31F;
   static const int INIT_YA_FVS1 = 0xE321;
+
   //static const int MEDI_YA_FVS1 = 0xE321; // straight (Unicode 9.0)
   static const int MEDI_YA_FVS1 = 0xE320; // hooked (Unicode 10.0)
   static const int MEDI_YA_FVS2 = 0xE31F;
@@ -425,5 +437,4 @@ class Menksoft {
         codeUnit == Menksoft.UNKNOWN_SPACE ||
         codeUnit == SPACE;
   }
-
 }

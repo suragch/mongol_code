@@ -5,7 +5,6 @@ import 'menksoft_word.dart';
 import 'mongol_word.dart';
 import 'unicode.dart';
 
-
 extension StringInsersion on StringBuffer {
   void insertCharCodeAtStart(int codeUnit) {
     final end = this.toString();
@@ -47,17 +46,17 @@ class MongolCode {
   static final MongolCode instance = MongolCode._privateConstructor();
 
   // strange exception where the first UE does not get a long tooth
-  static const String _BUU_EXCEPTION = "\u182A\u1826\u1826";
+  static const String _BUU_EXCEPTION = '\u182A\u1826\u1826';
 
   String unicodeToMenksoft(String inputString) {
-    String menksoftWithSpacingChars = unicodeToMenksoftSameIndex(inputString);
+    final menksoftWithSpacingChars = unicodeToMenksoftSameIndex(inputString);
     return _stripControlChars(menksoftWithSpacingChars);
   }
 
   String _stripControlChars(String stringWithControlChars) {
-    int length = stringWithControlChars.length;
-    StringBuffer strippedString = StringBuffer();
-    for (int i = 0; i < length; i++) {
+    final length = stringWithControlChars.length;
+    final strippedString = StringBuffer();
+    for (var i = 0; i < length; i++) {
       if (!_shouldBeStripped(stringWithControlChars, i)) {
         strippedString.writeCharCode(stringWithControlChars.codeUnitAt(i));
       }
@@ -94,14 +93,14 @@ class MongolCode {
   }
 
   String unicodeToMenksoftSameIndex(String inputString) {
-    if (inputString == null || inputString.length == 0) return '';
+    if (inputString == null || inputString.isEmpty) return '';
 
-    StringBuffer outputString = StringBuffer();
-    StringBuffer mongolWord = StringBuffer();
+    final outputString = StringBuffer();
+    final mongolWord = StringBuffer();
 
     // Loop through characters in string
-    int length = inputString.length;
-    for (int i = 0; i < length; i++) {
+    final length = inputString.length;
+    for (var i = 0; i < length; i++) {
       final codeUnit = inputString.codeUnitAt(i);
       if (isMongolian(codeUnit)) {
         mongolWord.writeCharCode(codeUnit);
@@ -137,19 +136,20 @@ class MongolCode {
   }
 
   void _appendMongolWord(StringBuffer outputString, StringBuffer mongolWord) {
-    String renderedWord = MongolWord(mongolWord.toString()).convertToMenksoftCode();
+    final renderedWord =
+        MongolWord(mongolWord.toString()).convertToMenksoftCode();
     outputString.write(renderedWord);
   }
 
   String menksoftToUnicode(String inputString) {
-    if (inputString == null || inputString.length == 0) return '';
+    if (inputString == null || inputString.isEmpty) return '';
 
-    StringBuffer outputString = StringBuffer();
-    StringBuffer menksoftWord = StringBuffer();
+    final outputString = StringBuffer();
+    final menksoftWord = StringBuffer();
 
     // Loop through characters in string
-    int length = inputString.length;
-    for (int i = 0; i < length; i++) {
+    final length = inputString.length;
+    for (var i = 0; i < length; i++) {
       final codeUnit = inputString.codeUnitAt(i);
       if (isMenksoft(codeUnit) && !Menksoft.isMenksoftSpace(codeUnit)) {
         menksoftWord.writeCharCode(codeUnit);
@@ -172,17 +172,17 @@ class MongolCode {
     }
 
     // Add any final substring
-    if (menksoftWord.length > 0)
+    if (menksoftWord.length > 0) {
       _appendMenksoftWord(outputString, menksoftWord);
+    }
 
     return outputString.toString();
   }
 
-
-
   void _appendMenksoftWord(
       StringBuffer outputString, StringBuffer menksoftWord) {
-    String unicodeWord = MenksoftWord(menksoftWord.toString()).convertToUnicode();
+    final unicodeWord =
+        MenksoftWord(menksoftWord.toString()).convertToUnicode();
     outputString.write(unicodeWord);
   }
 
@@ -192,17 +192,17 @@ class MongolCode {
     textBefore ??= '';
     textAfter ??= '';
 
-    bool beforeIsMongolian = false;
-    bool afterIsMongolian = false;
+    var beforeIsMongolian = false;
+    var afterIsMongolian = false;
 
-    int length = textBefore.length;
+    var length = textBefore.length;
     if (length > 0 && isMongolian(textBefore.codeUnitAt(length - 1))) {
       beforeIsMongolian = true;
     }
 
     length = textAfter.length;
 
-    for (int i = 0; i < length; i++) {
+    for (var i = 0; i < length; i++) {
       final currentChar = textAfter.codeUnitAt(i);
       if (isFVS(currentChar) || currentChar == Unicode.MVS) {
         continue;
@@ -212,18 +212,20 @@ class MongolCode {
       break;
     }
 
-    if (beforeIsMongolian && afterIsMongolian)
+    if (beforeIsMongolian && afterIsMongolian) {
       return Location.MEDIAL;
-    else if (!beforeIsMongolian && afterIsMongolian)
+    } else if (!beforeIsMongolian && afterIsMongolian) {
       return Location.INITIAL;
-    else if (beforeIsMongolian)
+    } else if (beforeIsMongolian) {
       return Location.FINAL;
-    else
+    } else {
       return Location.ISOLATE;
+    }
   }
 
   static bool isMenksoft(int codeUnit) {
-    return codeUnit >= Menksoft.MENKSOFT_START && codeUnit <= Menksoft.MENKSOFT_END;
+    return codeUnit >= Menksoft.MENKSOFT_START &&
+        codeUnit <= Menksoft.MENKSOFT_END;
   }
 
   bool _isConvertiblePunctuation(int codeUnit) {
@@ -257,7 +259,9 @@ class MongolCode {
   }
 
   static bool isMasculineVowel(int codeUnit) {
-    return (codeUnit == Unicode.A || codeUnit == Unicode.O || codeUnit == Unicode.U);
+    return (codeUnit == Unicode.A ||
+        codeUnit == Unicode.O ||
+        codeUnit == Unicode.U);
   }
 
   static bool isFeminineVowel(int codeUnit) {
@@ -293,7 +297,8 @@ class MongolCode {
   }
 
   static bool isTodoAlphabet(int codeUnit) {
-    return codeUnit >= Unicode.TODO_LONG_VOWEL_SIGN && codeUnit <= Unicode.TODO_DZA;
+    return codeUnit >= Unicode.TODO_LONG_VOWEL_SIGN &&
+        codeUnit <= Unicode.TODO_DZA;
   }
 
   static bool isBGDRS(int codeUnit) {
@@ -325,11 +330,10 @@ class MongolCode {
   }
 
   static bool needsLongToothU(String word, int uIndex) {
-
     if (uIndex < 0) return false;
 
-    if (word.codeUnitAt(uIndex) != Unicode.OE
-        && word.codeUnitAt(uIndex) != Unicode.UE) return false;
+    if (word.codeUnitAt(uIndex) != Unicode.OE &&
+        word.codeUnitAt(uIndex) != Unicode.UE) return false;
 
     if (uIndex == 0) return true;
 
@@ -342,7 +346,8 @@ class MongolCode {
 
     //noinspection SimplifiableIfStatement
     if (uIndex == 2) {
-      return isConsonant(word.codeUnitAt(0)) && MongolCode.isFVS(word.codeUnitAt(1));
+      return isConsonant(word.codeUnitAt(0)) &&
+          MongolCode.isFVS(word.codeUnitAt(1));
     }
 
     return false;
@@ -354,17 +359,4 @@ class MongolCode {
   static Gender getWordGender(String word) {
     return MongolWord.getGender(word);
   }
-
-
 }
-
-
- 
-
-
-
-
-
-
-
-

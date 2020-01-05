@@ -1,8 +1,7 @@
-
 /// Convenience class for the Mongolian Unicode values used in this package.
 class Unicode {
-
-  static const int WJ = 0x2060; // Word joiner (replaces deprecated Zero-width no-break space)
+  static const int WJ =
+      0x2060; // Word joiner (replaces deprecated Zero-width no-break space)
   //static const int ZWS = 0x200B; // Zero-width space
   static const int ZWNJ = 0x200C; // Zero-width non joiner
   static const int ZWJ = 0x200D; // Zero-width joiner
@@ -51,7 +50,6 @@ class Unicode {
   static const int QUESTION_EXCLAMATION_MARK = 0x2048;
   static const int EXCLAMATION_QUESTION_MARK = 0x2049;
   static const int PUNCTUATION_X = 0x00D7; // TODO is this right?
-
 
   // Unicode Mongolian Values
   static const int MONGOLIAN_BIRGA = 0x1800;
