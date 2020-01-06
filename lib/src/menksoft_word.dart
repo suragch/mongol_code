@@ -15,8 +15,8 @@ class MenksoftWord {
   }
 
   void _updateLocation(int charAbove, int charBelow) {
-    final isTop = !_isMenksoftLetter(charAbove);
-    final isBottom = !_isMenksoftLetter(charBelow);
+    final isTop = !Menksoft.isMenksoftLetter(charAbove);
+    final isBottom = !Menksoft.isMenksoftLetter(charBelow);
     if (isTop) {
       if (isBottom) {
         _location = Location.ISOLATE;
@@ -30,18 +30,6 @@ class MenksoftWord {
         _location = Location.MEDIAL;
       }
     }
-  }
-
-  bool _isMenksoftLetter(int character) {
-    return character >= Menksoft.A_START && character <= Menksoft.MENKSOFT_END;
-  }
-
-  bool _isMenksoftConsonant(int character) {
-    return character >= Menksoft.NA_START && character <= Menksoft.FINA_CHI;
-  }
-
-  bool _isMenksoftVowel(int character) {
-    return _isMenksoftLetter(character) && !_isMenksoftConsonant(character);
   }
 
   String convertToUnicode() {
@@ -89,7 +77,7 @@ class MenksoftWord {
       } else if (currentChar < Menksoft.NA_START) {
         // EE
         _handleEE(outputString, currentChar, charAbove, charBelow);
-      } else if (_isANG(currentChar)) {
+      } else if (Menksoft.isMenksoftANG(currentChar)) {
         // ANG
         // handling ANG before NA because NA is appears
         // before and after ANG
@@ -177,8 +165,8 @@ class MenksoftWord {
       charAbove = currentChar;
 
       // fix missing space
-      if (_isMenksoftFinalIsolateGlyph(currentChar) &&
-          _isMenksoftInitialIsolateGlyph(charBelow)) {
+      if (Menksoft.isMenksoftFinalIsolateGlyph(currentChar) &&
+          Menksoft.isMenksoftInitialIsolateGlyph(charBelow)) {
         outputString.writeCharCode(SPACE);
         charAbove = 0;
       }
@@ -187,166 +175,6 @@ class MenksoftWord {
     }
 
     return outputString.toString();
-  }
-
-  bool _isMenksoftInitialIsolateGlyph(int character) {
-    //noinspection SimplifiableIfStatement
-    if (character == 0) return false;
-    return character == Menksoft.ISOL_A ||
-        character == Menksoft.ISOL_A_FVS1 ||
-        character == Menksoft.INIT_A ||
-        character == Menksoft.MEDI_A_FVS2 ||
-        character == Menksoft.ISOL_E ||
-        character == Menksoft.INIT_E ||
-        character == Menksoft.INIT_E_FVS1 ||
-        character == Menksoft.ISOL_I ||
-        character == Menksoft.ISOL_I_SUFFIX ||
-        character == Menksoft.INIT_I ||
-        character == Menksoft.INIT_O ||
-        character == Menksoft.ISOL_O ||
-        character == Menksoft.ISOL_U ||
-        character == Menksoft.U_START ||
-        character == Menksoft.ISOL_OE ||
-        character == Menksoft.INIT_OE ||
-        character == Menksoft.ISOL_OE_FVS1 ||
-        character == Menksoft.INIT_UE ||
-        character == Menksoft.UE_START ||
-        character == Menksoft.ISOL_UE_FVS1 ||
-        character == Menksoft.ISOL_EE ||
-        character == Menksoft.INIT_EE ||
-        character == Menksoft.INIT_NA_STEM ||
-        character == Menksoft.INIT_NA_TOOTH ||
-        character == Menksoft.INIT_NA_FVS1_STEM ||
-        character == Menksoft.INIT_NA_FVS1_TOOTH ||
-        character == Menksoft.INIT_BA ||
-        character == Menksoft.INIT_BA_OU ||
-        character == Menksoft.INIT_BA_STEM ||
-        character == Menksoft.INIT_PA ||
-        character == Menksoft.INIT_PA_OU ||
-        character == Menksoft.INIT_PA_STEM ||
-        character == Menksoft.INIT_QA_FEM ||
-        character == Menksoft.INIT_QA_FEM_OU ||
-        character == Menksoft.INIT_QA_FVS1_FEM ||
-        character == Menksoft.INIT_QA_FVS1_FEM_OU ||
-        character == Menksoft.INIT_QA_FVS1_STEM ||
-        character == Menksoft.INIT_QA_FVS1_TOOTH ||
-        character == Menksoft.INIT_QA_STEM ||
-        character == Menksoft.INIT_QA_TOOTH ||
-        character == Menksoft.INIT_GA_FEM ||
-        character == Menksoft.INIT_GA_FEM_OU ||
-        character == Menksoft.INIT_GA_FVS1_STEM ||
-        character == Menksoft.INIT_GA_FVS1_TOOTH ||
-        character == Menksoft.INIT_GA_STEM ||
-        character == Menksoft.INIT_GA_TOOTH ||
-        character == Menksoft.INIT_MA_TOOTH ||
-        character == Menksoft.INIT_MA_STEM_LONG ||
-        character == Menksoft.INIT_LA_TOOTH ||
-        character == Menksoft.INIT_LA_STEM_LONG ||
-        character == Menksoft.INIT_SA_STEM ||
-        character == Menksoft.INIT_SA_TOOTH ||
-        character == Menksoft.INIT_SHA_STEM ||
-        character == Menksoft.INIT_SHA_TOOTH ||
-        character == Menksoft.INIT_TA_STEM ||
-        character == Menksoft.INIT_TA_TOOTH ||
-        character == Menksoft.INIT_DA_FVS1 ||
-        character == Menksoft.INIT_DA_STEM ||
-        character == Menksoft.INIT_DA_TOOTH ||
-        character == Menksoft.INIT_CHA ||
-        character == Menksoft.INIT_JA_STEM ||
-        character == Menksoft.INIT_JA_TOOTH ||
-        character == Menksoft.INIT_YA ||
-        character == Menksoft.INIT_YA_FVS1 ||
-        character == Menksoft.INIT_RA_STEM ||
-        character == Menksoft.INIT_RA_TOOTH ||
-        character == Menksoft.INIT_WA ||
-        character == Menksoft.INIT_FA ||
-        character == Menksoft.INIT_FA_OU ||
-        character == Menksoft.INIT_FA_STEM ||
-        character == Menksoft.INIT_KA ||
-        character == Menksoft.INIT_KA_OU ||
-        character == Menksoft.INIT_KHA ||
-        character == Menksoft.INIT_KHA_OU ||
-        character == Menksoft.INIT_TSA ||
-        character == Menksoft.INIT_ZA ||
-        character == Menksoft.INIT_HAA ||
-        character == Menksoft.INIT_ZRA ||
-        character == Menksoft.INIT_LHA;
-  }
-
-  bool _isMenksoftFinalIsolateGlyph(int character) {
-    //noinspection SimplifiableIfStatement
-    if (character == 0) return false;
-    return character == Menksoft.ISOL_A ||
-        character == Menksoft.ISOL_A_FVS1 ||
-        character == Menksoft.FINA_A ||
-        character == Menksoft.FINA_A_BP ||
-        character == Menksoft.FINA_A_FVS1 ||
-        character == Menksoft.FINA_A_MVS ||
-        character == Menksoft.ISOL_E ||
-        character == Menksoft.FINA_E ||
-        character == Menksoft.FINA_E_BP ||
-        character == Menksoft.FINA_E_MVS ||
-        character == Menksoft.ISOL_I ||
-        character == Menksoft.ISOL_I_SUFFIX ||
-        character == Menksoft.FINA_I ||
-        character == Menksoft.FINA_I_BP ||
-        character == Menksoft.ISOL_O ||
-        character == Menksoft.FINA_O ||
-        character == Menksoft.FINA_O_FVS1 ||
-        character == Menksoft.ISOL_U ||
-        character == Menksoft.FINA_U ||
-        character == Menksoft.FINA_U_BP ||
-        character == Menksoft.FINA_U_FVS1 ||
-        character == Menksoft.ISOL_OE ||
-        character == Menksoft.ISOL_OE_FVS1 ||
-        character == Menksoft.FINA_OE ||
-        character == Menksoft.FINA_OE_BP ||
-        character == Menksoft.FINA_OE_FVS1 ||
-        character == Menksoft.FINA_OE_FVS1_BP ||
-        character == Menksoft.FINA_OE_FVS2 ||
-        character == Menksoft.ISOL_UE ||
-        character == Menksoft.ISOL_UE_FVS1 ||
-        character == Menksoft.FINA_UE ||
-        character == Menksoft.FINA_UE_BP ||
-        character == Menksoft.FINA_UE_FVS1 ||
-        character == Menksoft.FINA_UE_FVS1_BP ||
-        character == Menksoft.FINA_UE_FVS2 ||
-        character == Menksoft.ISOL_EE ||
-        character == Menksoft.FINA_EE ||
-        character == Menksoft.FINA_NA ||
-        character == Menksoft.FINA_ANG ||
-        character == Menksoft.FINA_BA ||
-        character == Menksoft.FINA_BA_FVS1 ||
-        character == Menksoft.FINA_PA ||
-        character == Menksoft.FINA_QA ||
-        character == Menksoft.FINA_GA ||
-        character == Menksoft.FINA_GA_FVS2 ||
-        character == Menksoft.FINA_MA ||
-        character == Menksoft.FINA_LA ||
-        character == Menksoft.FINA_SA ||
-        character == Menksoft.FINA_SA_FVS1 ||
-        character == Menksoft.FINA_SHA ||
-        character == Menksoft.FINA_TA ||
-        character == Menksoft.FINA_DA ||
-        character == Menksoft.FINA_DA_FVS1 ||
-        character == Menksoft.FINA_CHA ||
-        character == Menksoft.FINA_JA ||
-        character == Menksoft.FINA_YA ||
-        character == Menksoft.FINA_RA ||
-        character == Menksoft.FINA_WA ||
-        character == Menksoft.FINA_WA_FVS1 ||
-        character == Menksoft.FINA_FA ||
-        character == Menksoft.FINA_KA ||
-        character == Menksoft.FINA_KHA ||
-        character == Menksoft.FINA_TSA ||
-        character == Menksoft.FINA_ZA ||
-        character == Menksoft.FINA_HAA ||
-        character == Menksoft.FINA_ZRA;
-  }
-
-  bool _isANG(int currentChar) {
-    return (currentChar >= Menksoft.ANG_START &&
-        currentChar <= Menksoft.ANG_END);
   }
 
   bool _startsWithNnbsSuffix(StringBuffer outputString) {
@@ -1078,7 +906,8 @@ class MenksoftWord {
         break;
       case Location.MEDIAL:
         // replace EE between two vowels with W
-        if (_isMenksoftVowel(charAbove) && _isMenksoftVowel(charBelow)) {
+        if (Menksoft.isMenksoftVowel(charAbove) &&
+            Menksoft.isMenksoftVowel(charBelow)) {
           outputString.writeCharCode(Unicode.WA);
         } else {
           outputString.writeCharCode(Unicode.EE);
@@ -1164,7 +993,8 @@ class MenksoftWord {
           case Menksoft.MEDI_NA_STEM:
           case Menksoft.MEDI_NA_TOOTH:
             outputString.writeCharCode(Unicode.NA);
-            if (_isMenksoftVowel(charAbove) && _isMenksoftVowel(charBelow)) {
+            if (Menksoft.isMenksoftVowel(charAbove) &&
+                Menksoft.isMenksoftVowel(charBelow)) {
               outputString.writeCharCode(Unicode.ZWJ);
             }
             break;
@@ -1172,7 +1002,7 @@ class MenksoftWord {
           case Menksoft.MEDI_NA_FVS1_STEM:
           case Menksoft.MEDI_NA_FVS1_TOOTH:
             outputString.writeCharCode(Unicode.NA);
-            if (_isMenksoftConsonant(charBelow)) {
+            if (Menksoft.isMenksoftConsonant(charBelow)) {
               outputString.writeCharCode(Unicode.FVS1);
             }
             break;
@@ -1321,7 +1151,7 @@ class MenksoftWord {
           case Menksoft.MEDI_QA_FEM_CONSONANT:
             // If a medial Q is being used like a G before
             // a consonant, then interpret it as a G.
-            if (_isMenksoftConsonant(charBelow)) {
+            if (Menksoft.isMenksoftConsonant(charBelow)) {
               outputString.writeCharCode(Unicode.GA);
             } else {
               outputString.writeCharCode(Unicode.QA);
@@ -1967,7 +1797,8 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_YA_FVS1:
             outputString.writeCharCode(Unicode.YA);
-            if (_isMenksoftVowel(charAbove) && _isMenksoftI(charBelow)) {
+            if (Menksoft.isMenksoftVowel(charAbove) &&
+                Menksoft.isMenksoftI(charBelow)) {
               // override context rule that would make a normal Y straight
               outputString.writeCharCode(Unicode.FVS1);
             }
@@ -1989,10 +1820,6 @@ class MenksoftWord {
         }
         break;
     }
-  }
-
-  bool _isMenksoftI(int character) {
-    return character >= Menksoft.ISOL_I && character <= Menksoft.ISOL_I_SUFFIX;
   }
 
   void _handleRa(StringBuffer outputString, int currentChar) {
@@ -2053,8 +1880,8 @@ class MenksoftWord {
         break;
       case Location.MEDIAL:
         // replace W between two consonants with EE
-        if (_isMenksoftConsonant(charAbove) &&
-            _isMenksoftConsonant(charBelow)) {
+        if (Menksoft.isMenksoftConsonant(charAbove) &&
+            Menksoft.isMenksoftConsonant(charBelow)) {
           outputString.writeCharCode(Unicode.EE);
         } else {
           outputString.writeCharCode(Unicode.WA);

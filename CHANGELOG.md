@@ -1,3 +1,8 @@
+## 0.2.0
+
+- Exported more of the internal classes
+- Moved Menksoft methods to Menksoft class
+
 ## 0.1.2
 
 - Fixed warnings

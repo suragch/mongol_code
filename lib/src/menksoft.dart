@@ -433,8 +433,181 @@ class Menksoft {
   static const int SPACE = 0x0020;
 
   static bool isMenksoftSpace(int codeUnit) {
-    return codeUnit == Menksoft.SUFFIX_SPACE ||
-        codeUnit == Menksoft.UNKNOWN_SPACE ||
+    return codeUnit == SUFFIX_SPACE ||
+        codeUnit == UNKNOWN_SPACE ||
         codeUnit == SPACE;
+  }
+
+  static bool isMenksoftLetter(int character) {
+    return character >= A_START && character <= MENKSOFT_END;
+  }
+
+  static bool isMenksoftConsonant(int character) {
+    return character >= NA_START && character <= FINA_CHI;
+  }
+
+  static bool isMenksoftVowel(int character) {
+    return isMenksoftLetter(character) && !isMenksoftConsonant(character);
+  }
+
+  static bool isMenksoftInitialIsolateGlyph(int character) {
+    if (character == 0) return false;
+    return character == ISOL_A ||
+        character == ISOL_A_FVS1 ||
+        character == INIT_A ||
+        character == MEDI_A_FVS2 ||
+        character == ISOL_E ||
+        character == INIT_E ||
+        character == INIT_E_FVS1 ||
+        character == ISOL_I ||
+        character == ISOL_I_SUFFIX ||
+        character == INIT_I ||
+        character == INIT_O ||
+        character == ISOL_O ||
+        character == ISOL_U ||
+        character == U_START ||
+        character == ISOL_OE ||
+        character == INIT_OE ||
+        character == ISOL_OE_FVS1 ||
+        character == INIT_UE ||
+        character == UE_START ||
+        character == ISOL_UE_FVS1 ||
+        character == ISOL_EE ||
+        character == INIT_EE ||
+        character == INIT_NA_STEM ||
+        character == INIT_NA_TOOTH ||
+        character == INIT_NA_FVS1_STEM ||
+        character == INIT_NA_FVS1_TOOTH ||
+        character == INIT_BA ||
+        character == INIT_BA_OU ||
+        character == INIT_BA_STEM ||
+        character == INIT_PA ||
+        character == INIT_PA_OU ||
+        character == INIT_PA_STEM ||
+        character == INIT_QA_FEM ||
+        character == INIT_QA_FEM_OU ||
+        character == INIT_QA_FVS1_FEM ||
+        character == INIT_QA_FVS1_FEM_OU ||
+        character == INIT_QA_FVS1_STEM ||
+        character == INIT_QA_FVS1_TOOTH ||
+        character == INIT_QA_STEM ||
+        character == INIT_QA_TOOTH ||
+        character == INIT_GA_FEM ||
+        character == INIT_GA_FEM_OU ||
+        character == INIT_GA_FVS1_STEM ||
+        character == INIT_GA_FVS1_TOOTH ||
+        character == INIT_GA_STEM ||
+        character == INIT_GA_TOOTH ||
+        character == INIT_MA_TOOTH ||
+        character == INIT_MA_STEM_LONG ||
+        character == INIT_LA_TOOTH ||
+        character == INIT_LA_STEM_LONG ||
+        character == INIT_SA_STEM ||
+        character == INIT_SA_TOOTH ||
+        character == INIT_SHA_STEM ||
+        character == INIT_SHA_TOOTH ||
+        character == INIT_TA_STEM ||
+        character == INIT_TA_TOOTH ||
+        character == INIT_DA_FVS1 ||
+        character == INIT_DA_STEM ||
+        character == INIT_DA_TOOTH ||
+        character == INIT_CHA ||
+        character == INIT_JA_STEM ||
+        character == INIT_JA_TOOTH ||
+        character == INIT_YA ||
+        character == INIT_YA_FVS1 ||
+        character == INIT_RA_STEM ||
+        character == INIT_RA_TOOTH ||
+        character == INIT_WA ||
+        character == INIT_FA ||
+        character == INIT_FA_OU ||
+        character == INIT_FA_STEM ||
+        character == INIT_KA ||
+        character == INIT_KA_OU ||
+        character == INIT_KHA ||
+        character == INIT_KHA_OU ||
+        character == INIT_TSA ||
+        character == INIT_ZA ||
+        character == INIT_HAA ||
+        character == INIT_ZRA ||
+        character == INIT_LHA;
+  }
+
+  static bool isMenksoftFinalIsolateGlyph(int character) {
+    if (character == 0) return false;
+    return character == ISOL_A ||
+        character == ISOL_A_FVS1 ||
+        character == FINA_A ||
+        character == FINA_A_BP ||
+        character == FINA_A_FVS1 ||
+        character == FINA_A_MVS ||
+        character == ISOL_E ||
+        character == FINA_E ||
+        character == FINA_E_BP ||
+        character == FINA_E_MVS ||
+        character == ISOL_I ||
+        character == ISOL_I_SUFFIX ||
+        character == FINA_I ||
+        character == FINA_I_BP ||
+        character == ISOL_O ||
+        character == FINA_O ||
+        character == FINA_O_FVS1 ||
+        character == ISOL_U ||
+        character == FINA_U ||
+        character == FINA_U_BP ||
+        character == FINA_U_FVS1 ||
+        character == ISOL_OE ||
+        character == ISOL_OE_FVS1 ||
+        character == FINA_OE ||
+        character == FINA_OE_BP ||
+        character == FINA_OE_FVS1 ||
+        character == FINA_OE_FVS1_BP ||
+        character == FINA_OE_FVS2 ||
+        character == ISOL_UE ||
+        character == ISOL_UE_FVS1 ||
+        character == FINA_UE ||
+        character == FINA_UE_BP ||
+        character == FINA_UE_FVS1 ||
+        character == FINA_UE_FVS1_BP ||
+        character == FINA_UE_FVS2 ||
+        character == ISOL_EE ||
+        character == FINA_EE ||
+        character == FINA_NA ||
+        character == FINA_ANG ||
+        character == FINA_BA ||
+        character == FINA_BA_FVS1 ||
+        character == FINA_PA ||
+        character == FINA_QA ||
+        character == FINA_GA ||
+        character == FINA_GA_FVS2 ||
+        character == FINA_MA ||
+        character == FINA_LA ||
+        character == FINA_SA ||
+        character == FINA_SA_FVS1 ||
+        character == FINA_SHA ||
+        character == FINA_TA ||
+        character == FINA_DA ||
+        character == FINA_DA_FVS1 ||
+        character == FINA_CHA ||
+        character == FINA_JA ||
+        character == FINA_YA ||
+        character == FINA_RA ||
+        character == FINA_WA ||
+        character == FINA_WA_FVS1 ||
+        character == FINA_FA ||
+        character == FINA_KA ||
+        character == FINA_KHA ||
+        character == FINA_TSA ||
+        character == FINA_ZA ||
+        character == FINA_HAA ||
+        character == FINA_ZRA;
+  }
+
+  static bool isMenksoftANG(int currentChar) {
+    return (currentChar >= ANG_START && currentChar <= ANG_END);
+  }
+
+  static bool isMenksoftI(int character) {
+    return character >= ISOL_I && character <= ISOL_I_SUFFIX;
   }
 }
