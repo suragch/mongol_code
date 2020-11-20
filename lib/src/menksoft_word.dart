@@ -7,8 +7,8 @@ import 'unicode.dart';
 class MenksoftWord {
   static const int SPACE = 0x0020;
 
-  String _inputWord;
-  Location _location;
+  late String _inputWord;
+  late Location _location;
 
   MenksoftWord(String menksoftWord) {
     _inputWord = menksoftWord;
@@ -35,7 +35,7 @@ class MenksoftWord {
   String convertToUnicode() {
     final outputString = StringBuffer();
 
-    if (_inputWord == null || _inputWord.isEmpty) {
+    if (_inputWord.isEmpty) {
       return '';
     }
 

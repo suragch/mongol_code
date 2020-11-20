@@ -6,13 +6,13 @@ import 'shape.dart';
 import 'unicode.dart';
 
 class MongolWord {
-  Gender _gender;
-  Location _location;
-  int _length;
-  bool _isSuffix;
-  String _inputWord;
-  int _fvs;
-  Shape _glyphShapeBelow;
+  Gender? _gender;
+  late Location _location;
+  late int _length;
+  late bool _isSuffix;
+  late String _inputWord;
+  late int _fvs;
+  late Shape _glyphShapeBelow;
 
   MongolWord(String mongolWord) {
     _inputWord = mongolWord;
@@ -1915,9 +1915,9 @@ class MongolWord {
   // Starts at the end of the word and works up
   // if mixed genders only reports the first one from the bottom
   // returns null if word does not end in a valid Mongolian character
-  static Gender getGender(String word) {
+  static Gender? getGender(String word) {
     // check that word is valid mongolian
-    if (word == null || word.isEmpty) return null;
+    if (word.isEmpty) return null;
     final length = word.length;
     final lastChar = word.codeUnitAt(length - 1);
     if (!MongolCode.isMongolian(lastChar)) return null;

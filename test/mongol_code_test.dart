@@ -29,13 +29,6 @@ void main() {
       expect(expected, result);
     });
 
-    test('nullString', () async {
-      final unicode = null;
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(expected, result);
-    });
-
     test('english character', () async {
       final unicode = 'a';
       final result = convertUnicodeToMenksoft(unicode);
@@ -5299,13 +5292,6 @@ void main() {
   group('Menksoft -> Unicode: non-Menksoft strings', () {
     test('emptyString', () async {
       final unicode = '';
-      final result = convertMenksoftToUnicode(unicode);
-      final expected = '';
-      expect(expected, result);
-    });
-
-    test('nullString', () async {
-      final unicode = null;
       final result = convertMenksoftToUnicode(unicode);
       final expected = '';
       expect(expected, result);

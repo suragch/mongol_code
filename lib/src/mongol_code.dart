@@ -93,7 +93,7 @@ class MongolCode {
   }
 
   String unicodeToMenksoftSameIndex(String inputString) {
-    if (inputString == null || inputString.isEmpty) return '';
+    if (inputString.isEmpty) return '';
 
     final outputString = StringBuffer();
     final mongolWord = StringBuffer();
@@ -142,7 +142,7 @@ class MongolCode {
   }
 
   String menksoftToUnicode(String inputString) {
-    if (inputString == null || inputString.isEmpty) return '';
+    if (inputString.isEmpty) return '';
 
     final outputString = StringBuffer();
     final menksoftWord = StringBuffer();
@@ -187,11 +187,6 @@ class MongolCode {
   }
 
   static Location getLocation(String textBefore, String textAfter) {
-    // TODO should we be using this in convertWordToMenksoftCode?
-
-    textBefore ??= '';
-    textAfter ??= '';
-
     var beforeIsMongolian = false;
     var afterIsMongolian = false;
 
@@ -356,7 +351,7 @@ class MongolCode {
   // Starts at the end of the word and works up
   // if mixed genders only reports the first one from the bottom
   // returns null if word does not end in a valid Mongolian character
-  static Gender getWordGender(String word) {
+  static Gender? getWordGender(String word) {
     return MongolWord.getGender(word);
   }
 }
