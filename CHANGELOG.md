@@ -1,3 +1,7 @@
+## 0.3.0
+
+- Null safety release
+
 ## 0.3.0-nullsafety.0
 
 - Null safety pre-release
