@@ -119,8 +119,9 @@ class MongolCode {
       }
 
       if (_isConvertiblePunctuation(codeUnit)) {
-        final menksoftPunctuation =
-            MongolWord.convertPunctuationToMenksoftCode(codeUnit);
+        final menksoftPunctuation = MongolWord.convertPunctuationToMenksoftCode(
+          codeUnit,
+        );
         outputString.writeCharCode(menksoftPunctuation);
         continue;
       }
@@ -180,7 +181,9 @@ class MongolCode {
   }
 
   void _appendMenksoftWord(
-      StringBuffer outputString, StringBuffer menksoftWord) {
+    StringBuffer outputString,
+    StringBuffer menksoftWord,
+  ) {
     final unicodeWord =
         MenksoftWord(menksoftWord.toString()).convertToUnicode();
     outputString.write(unicodeWord);
@@ -328,7 +331,8 @@ class MongolCode {
     if (uIndex < 0) return false;
 
     if (word.codeUnitAt(uIndex) != Unicode.OE &&
-        word.codeUnitAt(uIndex) != Unicode.UE) return false;
+        word.codeUnitAt(uIndex) != Unicode.UE)
+      return false;
 
     if (uIndex == 0) return true;
 

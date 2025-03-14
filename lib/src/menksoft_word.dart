@@ -347,8 +347,12 @@ class MenksoftWord {
     }
   }
 
-  void _handleI(StringBuffer outputString, int currentChar, int charAbove,
-      int charBelow) {
+  void _handleI(
+    StringBuffer outputString,
+    int currentChar,
+    int charAbove,
+    int charBelow,
+  ) {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
@@ -870,8 +874,12 @@ class MenksoftWord {
     }
   }
 
-  void _handleEE(StringBuffer outputString, int currentChar, int charAbove,
-      int charBelow) {
+  void _handleEE(
+    StringBuffer outputString,
+    int currentChar,
+    int charAbove,
+    int charBelow,
+  ) {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
@@ -934,8 +942,12 @@ class MenksoftWord {
     outputString.writeCharCode(Unicode.ANG);
   }
 
-  void _handleNa(StringBuffer outputString, int currentChar, int charAbove,
-      int charBelow) {
+  void _handleNa(
+    StringBuffer outputString,
+    int currentChar,
+    int charAbove,
+    int charBelow,
+  ) {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
@@ -1761,8 +1773,12 @@ class MenksoftWord {
     }
   }
 
-  void _handleYa(StringBuffer outputString, int currentChar, int charAbove,
-      int charBelow) {
+  void _handleYa(
+    StringBuffer outputString,
+    int currentChar,
+    int charAbove,
+    int charBelow,
+  ) {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
@@ -1856,8 +1872,12 @@ class MenksoftWord {
     }
   }
 
-  void _handleWa(StringBuffer outputString, int currentChar, int charAbove,
-      int charBelow) {
+  void _handleWa(
+    StringBuffer outputString,
+    int currentChar,
+    int charAbove,
+    int charBelow,
+  ) {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
@@ -2168,8 +2188,9 @@ class MenksoftWord {
         outputString.writeCharCode(Unicode.MONGOLIAN_TODO_SOFT_HYPHEN);
         break;
       case Menksoft.SIBE_SYLLABLE_BOUNDARY_MARKER:
-        outputString
-            .writeCharCode(Unicode.MONGOLIAN_SIBE_SYLLABLE_BOUNDARY_MARKER);
+        outputString.writeCharCode(
+          Unicode.MONGOLIAN_SIBE_SYLLABLE_BOUNDARY_MARKER,
+        );
         break;
       case Menksoft.MANCHU_COMMA:
         outputString.writeCharCode(Unicode.MONGOLIAN_MANCHU_COMMA);
@@ -2253,12 +2274,14 @@ class MenksoftWord {
         outputString.writeCharCode(Unicode.VERTICAL_RIGHT_ANGLE_BRACKET);
         break;
       case Menksoft.LEFT_TORTOISE_SHELL_BRACKET:
-        outputString
-            .writeCharCode(Unicode.VERTICAL_LEFT_TORTOISE_SHELL_BRACKET);
+        outputString.writeCharCode(
+          Unicode.VERTICAL_LEFT_TORTOISE_SHELL_BRACKET,
+        );
         break;
       case Menksoft.RIGHT_TORTOISE_SHELL_BRACKET:
-        outputString
-            .writeCharCode(Unicode.VERTICAL_RIGHT_TORTOISE_SHELL_BRACKET);
+        outputString.writeCharCode(
+          Unicode.VERTICAL_RIGHT_TORTOISE_SHELL_BRACKET,
+        );
         break;
       case Menksoft.LEFT_DOUBLE_ANGLE_BRACKET:
         outputString.writeCharCode(Unicode.VERTICAL_LEFT_DOUBLE_ANGLE_BRACKET);
@@ -2276,8 +2299,9 @@ class MenksoftWord {
         outputString.writeCharCode(Unicode.VERTICAL_COMMA);
         break;
       case Menksoft.X:
-        outputString
-            .writeCharCode(0x00D7); // FIXME using the multiplication sign?
+        outputString.writeCharCode(
+          0x00D7,
+        ); // FIXME using the multiplication sign?
         break;
       case Menksoft.REFERENCE_MARK:
         outputString.writeCharCode(Unicode.REFERENCE_MARK);
