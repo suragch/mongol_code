@@ -119,9 +119,7 @@ class MongolCode {
       }
 
       if (_isConvertiblePunctuation(codeUnit)) {
-        final menksoftPunctuation = MongolWord.convertPunctuationToMenksoftCode(
-          codeUnit,
-        );
+        final menksoftPunctuation = MongolWord.convertPunctuationToMenksoftCode(codeUnit);
         outputString.writeCharCode(menksoftPunctuation);
         continue;
       }
@@ -137,8 +135,7 @@ class MongolCode {
   }
 
   void _appendMongolWord(StringBuffer outputString, StringBuffer mongolWord) {
-    final renderedWord =
-        MongolWord(mongolWord.toString()).convertToMenksoftCode();
+    final renderedWord = MongolWord(mongolWord.toString()).convertToMenksoftCode();
     outputString.write(renderedWord);
   }
 
@@ -180,12 +177,8 @@ class MongolCode {
     return outputString.toString();
   }
 
-  void _appendMenksoftWord(
-    StringBuffer outputString,
-    StringBuffer menksoftWord,
-  ) {
-    final unicodeWord =
-        MenksoftWord(menksoftWord.toString()).convertToUnicode();
+  void _appendMenksoftWord(StringBuffer outputString, StringBuffer menksoftWord) {
+    final unicodeWord = MenksoftWord(menksoftWord.toString()).convertToUnicode();
     outputString.write(unicodeWord);
   }
 
@@ -222,8 +215,7 @@ class MongolCode {
   }
 
   static bool isMenksoft(int codeUnit) {
-    return codeUnit >= Menksoft.MENKSOFT_START &&
-        codeUnit <= Menksoft.MENKSOFT_END;
+    return codeUnit >= Menksoft.MENKSOFT_START && codeUnit <= Menksoft.MENKSOFT_END;
   }
 
   bool _isConvertiblePunctuation(int codeUnit) {
@@ -238,18 +230,15 @@ class MongolCode {
   }
 
   bool _isVerticalPresentationForm(int codeUnit) {
-    return (codeUnit >= Unicode.VERTICAL_COMMA &&
-        codeUnit <= Unicode.VERTICAL_RIGHT_SQUARE_BRACKET);
+    return (codeUnit >= Unicode.VERTICAL_COMMA && codeUnit <= Unicode.VERTICAL_RIGHT_SQUARE_BRACKET);
   }
 
   bool _isMongolianPunctuation(int codeUnit) {
-    return (codeUnit >= Unicode.MONGOLIAN_BIRGA &&
-        codeUnit <= Unicode.MONGOLIAN_MANCHU_FULL_STOP);
+    return (codeUnit >= Unicode.MONGOLIAN_BIRGA && codeUnit <= Unicode.MONGOLIAN_MANCHU_FULL_STOP);
   }
 
   bool _isMongolianDigit(int codeUnit) {
-    return (codeUnit >= Unicode.MONGOLIAN_DIGIT_ZERO &&
-        codeUnit <= Unicode.MONGOLIAN_DIGIT_NINE);
+    return (codeUnit >= Unicode.MONGOLIAN_DIGIT_ZERO && codeUnit <= Unicode.MONGOLIAN_DIGIT_NINE);
   }
 
   static bool isVowel(int codeUnit) {
@@ -257,16 +246,11 @@ class MongolCode {
   }
 
   static bool isMasculineVowel(int codeUnit) {
-    return (codeUnit == Unicode.A ||
-        codeUnit == Unicode.O ||
-        codeUnit == Unicode.U);
+    return (codeUnit == Unicode.A || codeUnit == Unicode.O || codeUnit == Unicode.U);
   }
 
   static bool isFeminineVowel(int codeUnit) {
-    return (codeUnit == Unicode.E ||
-        codeUnit == Unicode.EE ||
-        codeUnit == Unicode.OE ||
-        codeUnit == Unicode.UE);
+    return (codeUnit == Unicode.E || codeUnit == Unicode.EE || codeUnit == Unicode.OE || codeUnit == Unicode.UE);
   }
 
   static bool isConsonant(int codeUnit) {
@@ -295,8 +279,7 @@ class MongolCode {
   }
 
   static bool isTodoAlphabet(int codeUnit) {
-    return codeUnit >= Unicode.TODO_LONG_VOWEL_SIGN &&
-        codeUnit <= Unicode.TODO_DZA;
+    return codeUnit >= Unicode.TODO_LONG_VOWEL_SIGN && codeUnit <= Unicode.TODO_DZA;
   }
 
   static bool isBGDRS(int codeUnit) {
@@ -330,9 +313,9 @@ class MongolCode {
   static bool needsLongToothU(String word, int uIndex) {
     if (uIndex < 0) return false;
 
-    if (word.codeUnitAt(uIndex) != Unicode.OE &&
-        word.codeUnitAt(uIndex) != Unicode.UE)
+    if (word.codeUnitAt(uIndex) != Unicode.OE && word.codeUnitAt(uIndex) != Unicode.UE) {
       return false;
+    }
 
     if (uIndex == 0) return true;
 
@@ -345,8 +328,7 @@ class MongolCode {
 
     //noinspection SimplifiableIfStatement
     if (uIndex == 2) {
-      return isConsonant(word.codeUnitAt(0)) &&
-          MongolCode.isFVS(word.codeUnitAt(1));
+      return isConsonant(word.codeUnitAt(0)) && MongolCode.isFVS(word.codeUnitAt(1));
     }
 
     return false;
