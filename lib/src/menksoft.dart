@@ -55,7 +55,10 @@ class Menksoft {
   static const int UNKNOWN_SPACE = 0xE262; // TODO what is this?
   static const int SUFFIX_SPACE = 0xE263;
 
-  // These are in the order of the Unicode 9 specs sheet
+  // These are in the order of the China National Standards committee 2023
+  // document for Mongolian presentation characters. This should be the same
+  // Unicode encoding as the Baiti font.
+
   // BP = looks better after B, P (and other rounded like Q, G, F, K, KH)
   // MVS = final glyph variant for MVS
   // gv = glyph variant, same basic glyph form as the one it follows.
@@ -63,18 +66,20 @@ class Menksoft {
   // STEM = the ending of this character matches a following character that starts with a vertical stem
   // ROUND = the ending of this character matches a round following character (feminine QG)
   static const int A_START = 0xE264;
-  static const int ISOL_A = 0xE264;
-  static const int INIT_A = 0xE266;
+  static const int ISOL_A = 0xE264; // also FVS3
+  static const int ISOL_A_FVS1 = 0xE265;
+  static const int ISOL_A_FVS2 = 0xE26A;
+  static const int INIT_A = 0xE266; // also FVS2
+  static const int INIT_A_FVS1 = 0xE267;
   static const int MEDI_A = 0xE26C;
   static const int MEDI_A_BP = 0xE26D; // gv
-  static const int FINA_A = 0xE268;
-  static const int FINA_A_BP = 0xE26B; // const A following BPKF
-  static const int ISOL_A_FVS1 = 0xE265;
   static const int MEDI_A_FVS1 = 0xE26E;
+  static const int MEDI_A_UNKNOWN = 0xE26F;
+  static const int FINA_A = 0xE268; // also FVS2
+  static const int FINA_A_BP = 0xE26B; // const A following BPKF
   static const int FINA_A_FVS1 = 0xE269;
   static const int FINA_A_MVS = 0xE26A; // gv for MVS + A
-  static const int MEDI_A_FVS2 = 0xE267; // A of ACHA suffix
-  static const int MEDI_A_UNKNOWN = 0xE26F;
+  // static const int MEDI_A_FVS2 = 0xE267; // A of ACHA suffix
 
   static const int E_START = 0xE270;
   static const int ISOL_E = 0xE270;
@@ -170,8 +175,7 @@ class Menksoft {
   static const int MEDI_NA_FVS1_STEM = 0xE2B9;
   static const int MEDI_NA_FVS1_NG = 0xE2BF;
   static const int MEDI_NA_FVS2 = 0xE2B6; // MVS
-  static const int MEDI_NA_FVS3 =
-      0xE2B7; // Tod Mongol N; FIXME: no glyph, substituting medial dotted n
+  static const int MEDI_NA_FVS3 = 0xE2B7; // Tod Mongol N; FIXME: no glyph, substituting medial dotted n
 
   static const int ANG_START = 0xE2BB;
   static const int ISOL_ANG = 0xE2BC;
@@ -179,10 +183,8 @@ class Menksoft {
   static const int INIT_ANG_ROUND = 0xE2BD;
   static const int INIT_ANG_STEM = 0xE2BE;
   static const int MEDI_ANG_TOOTH = 0xE2BC; // good for following tooth
-  static const int MEDI_ANG_ROUND =
-      0xE2BD; // good for following round letter like B P H K
-  static const int MEDI_ANG_STEM =
-      0xE2BE; // good for following stem letter like J CH R
+  static const int MEDI_ANG_ROUND = 0xE2BD; // good for following round letter like B P H K
+  static const int MEDI_ANG_STEM = 0xE2BE; // good for following stem letter like J CH R
   static const int FINA_ANG = 0xE2BB;
   static const int ANG_END = 0xE2BE;
 
@@ -248,10 +250,8 @@ class Menksoft {
 
   // This deviation is necessary to override context rules.
   // This follows the WG2 decision: https://r12a.github.io/mongolian-variants/
-  static const int FINA_GA_FVS1 =
-      0xE2E7; // masculine context override FIXME Deviating from Unicode 10.0 !!!
-  static const int FINA_GA_FVS2 =
-      0xE2E8; // feminine const form FIXME Deviating from Unicode 10.0 !!!
+  static const int FINA_GA_FVS1 = 0xE2E7; // masculine context override FIXME Deviating from Unicode 10.0 !!!
+  static const int FINA_GA_FVS2 = 0xE2E8; // feminine const form FIXME Deviating from Unicode 10.0 !!!
   static const int MEDI_GA_FVS2 = 0xE2E9;
   static const int MEDI_GA_FVS3_TOOTH = 0xE2EF;
   static const int MEDI_GA_FVS3_STEM = 0xE2F0;
@@ -261,10 +261,8 @@ class Menksoft {
   static const int INIT_MA_TOOTH = 0xE2F1;
   static const int INIT_MA_STEM_LONG = 0xE2F2;
   static const int MEDI_MA_TOOTH = 0xE2F4;
-  static const int MEDI_MA_STEM_LONG =
-      0xE2F5; // long stem GV, use this if M or L follows
-  static const int MEDI_MA_BP =
-      0xE2F6; // GV use this if following a B, P, H, K, etc.
+  static const int MEDI_MA_STEM_LONG = 0xE2F5; // long stem GV, use this if M or L follows
+  static const int MEDI_MA_BP = 0xE2F6; // GV use this if following a B, P, H, K, etc.
   static const int FINA_MA = 0xE2F3;
 
   static const int LA_START = 0xE2F7;
@@ -272,10 +270,8 @@ class Menksoft {
   static const int INIT_LA_TOOTH = 0xE2F7;
   static const int INIT_LA_STEM_LONG = 0xE2F8;
   static const int MEDI_LA_TOOTH = 0xE2FA;
-  static const int MEDI_LA_STEM_LONG =
-      0xE2FB; // long stem GV, use this if M or L follows
-  static const int MEDI_LA_BP =
-      0xE2FC; // GV use this if following a B, P, H, K, etc.
+  static const int MEDI_LA_STEM_LONG = 0xE2FB; // long stem GV, use this if M or L follows
+  static const int MEDI_LA_BP = 0xE2FC; // GV use this if following a B, P, H, K, etc.
   static const int FINA_LA = 0xE2F9;
 
   static const int SA_START = 0xE2FD;
@@ -286,8 +282,7 @@ class Menksoft {
   static const int MEDI_SA_STEM = 0xE302;
   static const int FINA_SA = 0xE2FF;
   static const int FINA_SA_FVS1 = 0xE300;
-  static const int FINA_SA_FVS2 =
-      0xE2FF; //0x100CE; FIXME: glyph is not in Menksoft PUA, substituting first form
+  static const int FINA_SA_FVS2 = 0xE2FF; //0x100CE; FIXME: glyph is not in Menksoft PUA, substituting first form
 
   static const int SHA_START = 0xE303;
   static const int ISOL_SHA = 0xE304;
@@ -433,9 +428,7 @@ class Menksoft {
   static const int SPACE = 0x0020;
 
   static bool isMenksoftSpace(int codeUnit) {
-    return codeUnit == SUFFIX_SPACE ||
-        codeUnit == UNKNOWN_SPACE ||
-        codeUnit == SPACE;
+    return codeUnit == SUFFIX_SPACE || codeUnit == UNKNOWN_SPACE || codeUnit == SPACE;
   }
 
   static bool isMenksoftLetter(int character) {
@@ -455,7 +448,7 @@ class Menksoft {
     return character == ISOL_A ||
         character == ISOL_A_FVS1 ||
         character == INIT_A ||
-        character == MEDI_A_FVS2 ||
+        character == INIT_A_FVS1 ||
         character == ISOL_E ||
         character == INIT_E ||
         character == INIT_E_FVS1 ||

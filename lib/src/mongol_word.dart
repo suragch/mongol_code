@@ -304,22 +304,20 @@ class MongolWord {
       case Location.ISOLATE:
         if (_fvs == Unicode.FVS1) {
           renderedWord.insertCharCodeAtStart(Menksoft.ISOL_A_FVS1); // left sweeping tail
+        } else if (_fvs == Unicode.FVS2) {
+          renderedWord.insertCharCodeAtStart(Menksoft.ISOL_A_FVS2);
         } else {
           renderedWord.insertCharCodeAtStart(Menksoft.ISOL_A); // normal
         }
-        break;
       case Location.INITIAL:
-        if (_isSuffix) {
-          renderedWord.insertCharCodeAtStart(Menksoft.MEDI_A_FVS2); // A of ACHA   *** suffix rule ***
+        if (_isSuffix || _fvs == Unicode.FVS1) {
+          renderedWord.insertCharCodeAtStart(Menksoft.INIT_A_FVS1); // A of ACHA   *** suffix rule ***
         } else {
           renderedWord.insertCharCodeAtStart(Menksoft.INIT_A); // normal
         }
-        break;
       case Location.MEDIAL:
         if (_fvs == Unicode.FVS1) {
           renderedWord.insertCharCodeAtStart(Menksoft.MEDI_A_FVS1); // 2 teeth
-        } else if (_fvs == Unicode.FVS2) {
-          renderedWord.insertCharCodeAtStart(Menksoft.MEDI_A_FVS2); // A of ACHA suffix
         } else {
           if (_isRoundLetter(charAbove)) {
             renderedWord.insertCharCodeAtStart(Menksoft.MEDI_A_BP); // After BPFK
@@ -328,7 +326,6 @@ class MongolWord {
           }
         }
         _glyphShapeBelow = Shape.TOOTH;
-        break;
       case Location.FINAL:
         if (_fvs == Unicode.FVS1) {
           renderedWord.insertCharCodeAtStart(Menksoft.FINA_A_FVS1); // left sweeping tail
@@ -345,7 +342,6 @@ class MongolWord {
             _glyphShapeBelow = Shape.STEM;
           }
         }
-        break;
     }
   }
 

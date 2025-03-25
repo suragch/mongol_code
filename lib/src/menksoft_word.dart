@@ -165,8 +165,7 @@ class MenksoftWord {
       charAbove = currentChar;
 
       // fix missing space
-      if (Menksoft.isMenksoftFinalIsolateGlyph(currentChar) &&
-          Menksoft.isMenksoftInitialIsolateGlyph(charBelow)) {
+      if (Menksoft.isMenksoftFinalIsolateGlyph(currentChar) && Menksoft.isMenksoftInitialIsolateGlyph(charBelow)) {
         outputString.writeCharCode(SPACE);
         charAbove = 0;
       }
@@ -178,8 +177,7 @@ class MenksoftWord {
   }
 
   bool _startsWithNnbsSuffix(StringBuffer outputString) {
-    return (outputString.length != 0) &&
-        outputString.codeUnitAt(0) == Unicode.NNBS;
+    return (outputString.length != 0) && outputString.codeUnitAt(0) == Unicode.NNBS;
   }
 
   void _handleA(StringBuffer outputString, int currentChar) {
@@ -194,9 +192,9 @@ class MenksoftWord {
             outputString.writeCharCode(Unicode.A);
             outputString.writeCharCode(Unicode.ZWJ);
             break;
-          case Menksoft.MEDI_A_FVS2:
+          case Menksoft.INIT_A_FVS1:
             outputString.writeCharCode(Unicode.A);
-            outputString.writeCharCode(Unicode.FVS2);
+            outputString.writeCharCode(Unicode.FVS1);
             outputString.writeCharCode(Unicode.ZWJ);
             break;
           case Menksoft.FINA_A:
@@ -347,12 +345,7 @@ class MenksoftWord {
     }
   }
 
-  void _handleI(
-    StringBuffer outputString,
-    int currentChar,
-    int charAbove,
-    int charBelow,
-  ) {
+  void _handleI(StringBuffer outputString, int currentChar, int charAbove, int charBelow) {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
@@ -463,13 +456,11 @@ class MenksoftWord {
   }
 
   bool _isMenksoftA(int character) {
-    return character >= Menksoft.A_START &&
-        character <= Menksoft.MEDI_A_UNKNOWN;
+    return character >= Menksoft.A_START && character <= Menksoft.MEDI_A_UNKNOWN;
   }
 
   bool _isMenksoftM(int character) {
-    return character >= Menksoft.INIT_MA_TOOTH &&
-        character <= Menksoft.MEDI_MA_BP;
+    return character >= Menksoft.INIT_MA_TOOTH && character <= Menksoft.MEDI_MA_BP;
   }
 
   void _handleO(StringBuffer outputString, int currentChar) {
@@ -874,12 +865,7 @@ class MenksoftWord {
     }
   }
 
-  void _handleEE(
-    StringBuffer outputString,
-    int currentChar,
-    int charAbove,
-    int charBelow,
-  ) {
+  void _handleEE(StringBuffer outputString, int currentChar, int charAbove, int charBelow) {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
@@ -914,8 +900,7 @@ class MenksoftWord {
         break;
       case Location.MEDIAL:
         // replace EE between two vowels with W
-        if (Menksoft.isMenksoftVowel(charAbove) &&
-            Menksoft.isMenksoftVowel(charBelow)) {
+        if (Menksoft.isMenksoftVowel(charAbove) && Menksoft.isMenksoftVowel(charBelow)) {
           outputString.writeCharCode(Unicode.WA);
         } else {
           outputString.writeCharCode(Unicode.EE);
@@ -942,12 +927,7 @@ class MenksoftWord {
     outputString.writeCharCode(Unicode.ANG);
   }
 
-  void _handleNa(
-    StringBuffer outputString,
-    int currentChar,
-    int charAbove,
-    int charBelow,
-  ) {
+  void _handleNa(StringBuffer outputString, int currentChar, int charAbove, int charBelow) {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
@@ -1005,8 +985,7 @@ class MenksoftWord {
           case Menksoft.MEDI_NA_STEM:
           case Menksoft.MEDI_NA_TOOTH:
             outputString.writeCharCode(Unicode.NA);
-            if (Menksoft.isMenksoftVowel(charAbove) &&
-                Menksoft.isMenksoftVowel(charBelow)) {
+            if (Menksoft.isMenksoftVowel(charAbove) && Menksoft.isMenksoftVowel(charBelow)) {
               outputString.writeCharCode(Unicode.ZWJ);
             }
             break;
@@ -1773,12 +1752,7 @@ class MenksoftWord {
     }
   }
 
-  void _handleYa(
-    StringBuffer outputString,
-    int currentChar,
-    int charAbove,
-    int charBelow,
-  ) {
+  void _handleYa(StringBuffer outputString, int currentChar, int charAbove, int charBelow) {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
@@ -1813,8 +1787,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_YA_FVS1:
             outputString.writeCharCode(Unicode.YA);
-            if (Menksoft.isMenksoftVowel(charAbove) &&
-                Menksoft.isMenksoftI(charBelow)) {
+            if (Menksoft.isMenksoftVowel(charAbove) && Menksoft.isMenksoftI(charBelow)) {
               // override context rule that would make a normal Y straight
               outputString.writeCharCode(Unicode.FVS1);
             }
@@ -1872,12 +1845,7 @@ class MenksoftWord {
     }
   }
 
-  void _handleWa(
-    StringBuffer outputString,
-    int currentChar,
-    int charAbove,
-    int charBelow,
-  ) {
+  void _handleWa(StringBuffer outputString, int currentChar, int charAbove, int charBelow) {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
@@ -1900,8 +1868,7 @@ class MenksoftWord {
         break;
       case Location.MEDIAL:
         // replace W between two consonants with EE
-        if (Menksoft.isMenksoftConsonant(charAbove) &&
-            Menksoft.isMenksoftConsonant(charBelow)) {
+        if (Menksoft.isMenksoftConsonant(charAbove) && Menksoft.isMenksoftConsonant(charBelow)) {
           outputString.writeCharCode(Unicode.EE);
         } else {
           outputString.writeCharCode(Unicode.WA);
@@ -2138,7 +2105,7 @@ class MenksoftWord {
     }
 
     switch (charBelow) {
-      case Menksoft.MEDI_A_FVS2:
+      case Menksoft.INIT_A_FVS1:
       case Menksoft.FINA_I:
       case Menksoft.MEDI_I:
       case Menksoft.MEDI_I_SUFFIX:
@@ -2188,9 +2155,7 @@ class MenksoftWord {
         outputString.writeCharCode(Unicode.MONGOLIAN_TODO_SOFT_HYPHEN);
         break;
       case Menksoft.SIBE_SYLLABLE_BOUNDARY_MARKER:
-        outputString.writeCharCode(
-          Unicode.MONGOLIAN_SIBE_SYLLABLE_BOUNDARY_MARKER,
-        );
+        outputString.writeCharCode(Unicode.MONGOLIAN_SIBE_SYLLABLE_BOUNDARY_MARKER);
         break;
       case Menksoft.MANCHU_COMMA:
         outputString.writeCharCode(Unicode.MONGOLIAN_MANCHU_COMMA);
@@ -2274,14 +2239,10 @@ class MenksoftWord {
         outputString.writeCharCode(Unicode.VERTICAL_RIGHT_ANGLE_BRACKET);
         break;
       case Menksoft.LEFT_TORTOISE_SHELL_BRACKET:
-        outputString.writeCharCode(
-          Unicode.VERTICAL_LEFT_TORTOISE_SHELL_BRACKET,
-        );
+        outputString.writeCharCode(Unicode.VERTICAL_LEFT_TORTOISE_SHELL_BRACKET);
         break;
       case Menksoft.RIGHT_TORTOISE_SHELL_BRACKET:
-        outputString.writeCharCode(
-          Unicode.VERTICAL_RIGHT_TORTOISE_SHELL_BRACKET,
-        );
+        outputString.writeCharCode(Unicode.VERTICAL_RIGHT_TORTOISE_SHELL_BRACKET);
         break;
       case Menksoft.LEFT_DOUBLE_ANGLE_BRACKET:
         outputString.writeCharCode(Unicode.VERTICAL_LEFT_DOUBLE_ANGLE_BRACKET);
@@ -2299,9 +2260,7 @@ class MenksoftWord {
         outputString.writeCharCode(Unicode.VERTICAL_COMMA);
         break;
       case Menksoft.X:
-        outputString.writeCharCode(
-          0x00D7,
-        ); // FIXME using the multiplication sign?
+        outputString.writeCharCode(0x00D7); // FIXME using the multiplication sign?
         break;
       case Menksoft.REFERENCE_MARK:
         outputString.writeCharCode(Unicode.REFERENCE_MARK);
@@ -2318,8 +2277,6 @@ class MenksoftWord {
   }
 
   bool _isMenksoftSpaceChar(int character) {
-    return character == SPACE ||
-        character == Menksoft.SUFFIX_SPACE ||
-        character == Menksoft.UNKNOWN_SPACE;
+    return character == SPACE || character == Menksoft.SUFFIX_SPACE || character == Menksoft.UNKNOWN_SPACE;
   }
 }

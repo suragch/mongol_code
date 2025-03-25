@@ -5,7 +5,7 @@ import 'menksoft_word.dart';
 import 'mongol_word.dart';
 import 'unicode.dart';
 
-extension StringInsersion on StringBuffer {
+extension StringInsertion on StringBuffer {
   void insertCharCodeAtStart(int codeUnit) {
     final end = toString();
     clear();
