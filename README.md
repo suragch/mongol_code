@@ -20,3 +20,8 @@ final unicodeResult = converter.menksoftToUnicode(menksoftInput);
 print(unicodeResult);
 ```
 
+## Menksoft code
+
+Menksoft code encodes glyph forms and letter values in the Unicode Private Use Area. Here are the glyphs from the font:
+
+![Menksoft font glyphs](supplemental/images/menksoft.png)
