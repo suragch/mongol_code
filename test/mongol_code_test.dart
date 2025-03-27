@@ -63,16 +63,16 @@ void main() {
 
   group('Unicode -> Menksoft: all combinations of Unicode+FVS', () {
     test('aIsol', () async {
-      final unicode = 'ᠠ';
+      final unicode = String.fromCharCode(Unicode.A);
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
+      final expected = String.fromCharCode(Menksoft.ISOL_A);
       expect(expected, result);
     });
 
     test('aInit', () async {
-      final unicode = 'ᠠ‍';
+      final unicode = String.fromCharCodes([Unicode.A, Unicode.MONGOLIAN_NIRUGU]);
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
+      final expected = String.fromCharCode(Menksoft.INIT_A);
       expect(expected, result);
     });
 
@@ -5654,7 +5654,7 @@ void main() {
     test('isolateE267', () async {
       final menksoft = '\uE267';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.A, Unicode.FVS2, Unicode.ZWJ]);
+      final expected = String.fromCharCodes([Unicode.A, Unicode.FVS1, Unicode.MONGOLIAN_NIRUGU]);
       expect(expected, result);
     });
 

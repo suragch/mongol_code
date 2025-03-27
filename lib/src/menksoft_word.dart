@@ -355,7 +355,7 @@ class MenksoftWord {
             break;
           case Menksoft.FINA_I:
           case Menksoft.FINA_I_BP:
-          case Menksoft.ISOL_I_SUFFIX:
+          case Menksoft.ISOL_I_FVS1:
             if (!_startsWithNnbsSuffix(outputString)) {
               outputString.writeCharCode(Unicode.ZWJ);
             }
@@ -363,7 +363,7 @@ class MenksoftWord {
             break;
           case Menksoft.MEDI_I:
           case Menksoft.MEDI_I_BP:
-          case Menksoft.MEDI_I_SUFFIX:
+          case Menksoft.INIT_I_FVS1:
             outputString.writeCharCode(Unicode.ZWJ);
             outputString.writeCharCode(Unicode.I);
             outputString.writeCharCode(Unicode.ZWJ);
@@ -374,7 +374,7 @@ class MenksoftWord {
             outputString.writeCharCode(Unicode.FVS1);
             outputString.writeCharCode(Unicode.ZWJ);
             break;
-          case Menksoft.MEDI_I_DOUBLE_TOOTH:
+          case Menksoft.MEDI_I_FVS2:
             outputString.writeCharCode(Unicode.ZWJ);
             outputString.writeCharCode(Unicode.YA);
             outputString.writeCharCode(Unicode.I);
@@ -388,7 +388,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_I:
           case Menksoft.MEDI_I_BP:
-          case Menksoft.MEDI_I_SUFFIX:
+          case Menksoft.INIT_I_FVS1:
             if (!_startsWithNnbsSuffix(outputString)) {
               outputString.writeCharCode(Unicode.ZWJ);
             }
@@ -399,7 +399,7 @@ class MenksoftWord {
             outputString.writeCharCode(Unicode.I);
             outputString.writeCharCode(Unicode.FVS1);
             break;
-          case Menksoft.MEDI_I_DOUBLE_TOOTH:
+          case Menksoft.MEDI_I_FVS2:
             outputString.writeCharCode(Unicode.ZWJ);
             outputString.writeCharCode(Unicode.YA);
             outputString.writeCharCode(Unicode.I);
@@ -430,7 +430,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_I:
           case Menksoft.MEDI_I_BP:
-          case Menksoft.MEDI_I_SUFFIX:
+          case Menksoft.INIT_I_FVS1:
             outputString.writeCharCode(Unicode.I);
             outputString.writeCharCode(Unicode.ZWJ);
             break;
@@ -439,7 +439,7 @@ class MenksoftWord {
             outputString.writeCharCode(Unicode.FVS1);
             outputString.writeCharCode(Unicode.ZWJ);
             break;
-          case Menksoft.MEDI_I_DOUBLE_TOOTH:
+          case Menksoft.MEDI_I_FVS2:
             outputString.writeCharCode(Unicode.YA);
             outputString.writeCharCode(Unicode.I);
             outputString.writeCharCode(Unicode.ZWJ);
@@ -562,7 +562,7 @@ class MenksoftWord {
             outputString.writeCharCode(Unicode.U);
             break;
           case Menksoft.FINA_U_FVS1:
-          case Menksoft.FINA_U_BP:
+          case Menksoft.FINA_U_FVS1_BP:
             outputString.writeCharCode(Unicode.ZWJ);
             outputString.writeCharCode(Unicode.U);
             outputString.writeCharCode(Unicode.FVS1);
@@ -2108,8 +2108,8 @@ class MenksoftWord {
       case Menksoft.INIT_A_FVS1:
       case Menksoft.FINA_I:
       case Menksoft.MEDI_I:
-      case Menksoft.MEDI_I_SUFFIX:
-      case Menksoft.ISOL_I_SUFFIX:
+      case Menksoft.INIT_I_FVS1:
+      case Menksoft.ISOL_I_FVS1:
       case Menksoft.MEDI_O:
       case Menksoft.MEDI_O_BP:
       case Menksoft.FINA_O:

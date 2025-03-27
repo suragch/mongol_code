@@ -79,81 +79,87 @@ class Menksoft {
   static const int FINA_A_BP = 0xE26B; // const A following BPKF
   static const int FINA_A_FVS1 = 0xE269;
   static const int FINA_A_MVS = 0xE26A; // gv for MVS + A
-  // static const int MEDI_A_FVS2 = 0xE267; // A of ACHA suffix
 
   static const int E_START = 0xE270;
   static const int ISOL_E = 0xE270;
+  static const int ISOL_E_FVS1 = 0xE274;
   static const int INIT_E = 0xE271;
+  static const int INIT_E_FVS1 = 0xE272;
   static const int MEDI_E = 0xE276;
   static const int MEDI_E_BP = 0xE277;
+  static const int MEDI_E_UNKNOWN = 0xE278;
   static const int FINA_E = 0xE273;
   static const int FINA_E_BP = 0xE275; // const E following BPKF
-  static const int INIT_E_FVS1 = 0xE272;
   static const int FINA_E_FVS1 = 0xE269; // no E glyph so using A
   static const int FINA_E_MVS = 0xE274; // gv for MVS + E
-  static const int MEDI_E_UNKNOWN = 0xE278;
 
   static const int I_START = 0xE279;
   static const int ISOL_I = 0xE279;
-  static const int ISOL_I_SUFFIX = 0xE282;
+  static const int ISOL_I_FVS1 = 0xE282; // suffix
   static const int INIT_I = 0xE27A;
+  static const int INIT_I_FVS1 = 0xE280; // suffix
   static const int MEDI_I = 0xE27E;
-  static const int MEDI_I_SUFFIX = 0xE280;
   static const int MEDI_I_BP = 0xE27F; // gv
-  static const int MEDI_I_DOUBLE_TOOTH = 0xE281; // gv
+  static const int MEDI_I_FVS1 = 0xE27D; // short then long tooth
+  static const int MEDI_I_FVS2 = 0xE281; // double long tooth
   static const int FINA_I = 0xE27B;
   static const int FINA_I_BP = 0xE27C; // gv
-  static const int MEDI_I_FVS1 = 0xE27D; //
 
   static const int O_START = 0xE283;
   static const int ISOL_O = 0xE283;
   static const int INIT_O = 0xE284;
   static const int MEDI_O = 0xE289;
   static const int MEDI_O_BP = 0xE28A;
-  static const int FINA_O = 0xE285;
-  static const int FINA_O_BP = 0xE287; // gv
   static const int MEDI_O_FVS1 = 0xE288;
+  static const int FINA_O = 0xE285;
+  static const int FINA_O_BP = 0xE287;
   static const int FINA_O_FVS1 = 0xE286;
 
-  static const int U_START = 0xE28B; // Using Init U gliph
-  static const int ISOL_U = 0xE28C; // Using Init U gliph
+  static const int U_START = 0xE28B;
+  static const int ISOL_U = 0xE28B;
+  static const int ISOL_U_FVS1 = 0xE28D; // suffix
   static const int INIT_U = 0xE28C;
+  static const int INIT_U_FVS1 = 0xE291; // suffix
   static const int MEDI_U = 0xE291;
-  static const int MEDI_U_BP = 0xE292; // gv
-  static const int FINA_U = 0xE28D;
-  static const int FINA_U_BP = 0xE28F; // gv
+  static const int MEDI_U_BP = 0xE292;
   static const int MEDI_U_FVS1 = 0xE290;
-  static const int FINA_U_FVS1 = 0xE28E; // FIXME not defined in Unicode 10.0
+  static const int FINA_U = 0xE28D;
+  static const int FINA_U_FVS1 = 0xE28E;
+  static const int FINA_U_FVS1_BP = 0xE28F;
 
   static const int OE_START = 0xE293;
   static const int ISOL_OE = 0xE293;
-  static const int ISOL_OE_FVS1 = 0xE294; // not defined in unicode
+  static const int ISOL_OE_FVS1 = 0xE294;
   static const int INIT_OE = 0xE295;
   static const int MEDI_OE = 0xE29E;
-  static const int MEDI_OE_BP = 0xE29F; // gv
-  static const int FINA_OE = 0xE296;
-  static const int FINA_OE_BP = 0xE29A; // gv
+  static const int MEDI_OE_BP = 0xE29F;
   static const int MEDI_OE_FVS1 = 0xE29C;
   static const int MEDI_OE_FVS1_BP = 0xE29D;
-  static const int FINA_OE_FVS1 = 0xE297;
-  static const int FINA_OE_FVS1_BP = 0xE298; // gv
-  static const int FINA_OE_FVS2 = 0xE299; // undefined in Unicode
   static const int MEDI_OE_FVS2 = 0xE29B;
+  static const int FINA_OE = 0xE296;
+  static const int FINA_OE_BP = 0xE29A;
+  static const int FINA_OE_FVS1 = 0xE297;
+  static const int FINA_OE_FVS1_BP = 0xE298;
+  static const int FINA_OE_FVS2 = 0xE299;
+  static const int FINA_OE_FVS2_BP = 0xE29A;
 
   static const int UE_START = 0xE2A0;
-  static const int ISOL_UE = 0xE2A2; // Using initial glyph
+  static const int ISOL_UE = 0xE2A0;
+  static const int ISOL_UE_FVS1 = 0xE2A1;
+  static const int ISOL_UE_FVS2 = 0xE2A3;
   static const int INIT_UE = 0xE2A2;
+  static const int INIT_UE_FVS1 = 0xE2AB;
   static const int MEDI_UE = 0xE2AB;
   static const int MEDI_UE_BP = 0xE2AC;
-  static const int FINA_UE = 0xE2A3;
-  static const int FINA_UE_BP = 0xE2A7;
-  static const int ISOL_UE_FVS1 = 0xE2A1;
   static const int MEDI_UE_FVS1 = 0xE2A9;
   static const int MEDI_UE_FVS1_BP = 0xE2AA;
+  static const int MEDI_UE_FVS2 = 0xE2A8;
+  static const int FINA_UE = 0xE2A3;
+  static const int FINA_UE_BP = 0xE2A7;
   static const int FINA_UE_FVS1 = 0xE2A4;
   static const int FINA_UE_FVS1_BP = 0xE2A5;
-  static const int FINA_UE_FVS2 = 0xE2A6; // undefined in unicode
-  static const int MEDI_UE_FVS2 = 0xE2A8;
+  static const int FINA_UE_FVS2 = 0xE2A6;
+  static const int FINA_UE_FVS2_BP = 0xE2A7;
 
   static const int EE_START = 0xE2AD;
   static const int ISOL_EE = 0xE2AD;
@@ -163,19 +169,21 @@ class Menksoft {
 
   static const int NA_START = 0xE2B1;
   static const int ISOL_NA = 0xE2B3;
+  static const int ISOL_NA_FVS1 = 0xE2B4;
   static const int INIT_NA_TOOTH = 0xE2B1;
   static const int INIT_NA_STEM = 0xE2B3;
-  static const int MEDI_NA_TOOTH = 0xE2B8;
-  static const int MEDI_NA_STEM = 0xE2BA;
-  static const int MEDI_NA_NG = 0xE2C0;
-  static const int FINA_NA = 0xE2B5;
   static const int INIT_NA_FVS1_TOOTH = 0xE2B2;
   static const int INIT_NA_FVS1_STEM = 0xE2B4;
+  static const int MEDI_NA_TOOTH = 0xE2B8;
+  static const int MEDI_NA_STEM = 0xE2BA;
   static const int MEDI_NA_FVS1_TOOTH = 0xE2B7;
   static const int MEDI_NA_FVS1_STEM = 0xE2B9;
+  static const int MEDI_NA_FVS1_MVS = 0xE2B6;
+  static const int MEDI_NA_FVS2_MVS = 0xE2B5;
+  static const int MEDI_NA_NG = 0xE2C0;
   static const int MEDI_NA_FVS1_NG = 0xE2BF;
-  static const int MEDI_NA_FVS2 = 0xE2B6; // MVS
-  static const int MEDI_NA_FVS3 = 0xE2B7; // Tod Mongol N; FIXME: no glyph, substituting medial dotted n
+  static const int FINA_NA = 0xE2B5;
+  static const int FINA_NA_FVS1 = 0xE2B6;
 
   static const int ANG_START = 0xE2BB;
   static const int ISOL_ANG = 0xE2BC;
@@ -453,7 +461,7 @@ class Menksoft {
         character == INIT_E ||
         character == INIT_E_FVS1 ||
         character == ISOL_I ||
-        character == ISOL_I_SUFFIX ||
+        character == ISOL_I_FVS1 ||
         character == INIT_I ||
         character == INIT_O ||
         character == ISOL_O ||
@@ -539,7 +547,7 @@ class Menksoft {
         character == FINA_E_BP ||
         character == FINA_E_MVS ||
         character == ISOL_I ||
-        character == ISOL_I_SUFFIX ||
+        character == ISOL_I_FVS1 ||
         character == FINA_I ||
         character == FINA_I_BP ||
         character == ISOL_O ||
@@ -547,7 +555,7 @@ class Menksoft {
         character == FINA_O_FVS1 ||
         character == ISOL_U ||
         character == FINA_U ||
-        character == FINA_U_BP ||
+        character == FINA_U_FVS1_BP ||
         character == FINA_U_FVS1 ||
         character == ISOL_OE ||
         character == ISOL_OE_FVS1 ||
@@ -601,6 +609,6 @@ class Menksoft {
   }
 
   static bool isMenksoftI(int character) {
-    return character >= ISOL_I && character <= ISOL_I_SUFFIX;
+    return character >= ISOL_I && character <= ISOL_I_FVS1;
   }
 }

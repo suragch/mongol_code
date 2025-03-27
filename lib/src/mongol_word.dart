@@ -390,14 +390,14 @@ class MongolWord {
     switch (_location) {
       case Location.ISOLATE:
         if (_isSuffix) {
-          renderedWord.insertCharCodeAtStart(Menksoft.ISOL_I_SUFFIX); // I  *** suffix rule ***
+          renderedWord.insertCharCodeAtStart(Menksoft.ISOL_I_FVS1); // I  *** suffix rule ***
         } else {
           renderedWord.insertCharCodeAtStart(Menksoft.ISOL_I); // normal
         }
         break;
       case Location.INITIAL:
         if (_isSuffix && charBelow == Unicode.YA) {
-          renderedWord.insertCharCodeAtStart(Menksoft.MEDI_I_SUFFIX); // I of IYEN   *** suffix rule ***
+          renderedWord.insertCharCodeAtStart(Menksoft.INIT_I_FVS1); // I of IYEN   *** suffix rule ***
         } else {
           renderedWord.insertCharCodeAtStart(Menksoft.INIT_I); // normal
         }
@@ -425,7 +425,7 @@ class MongolWord {
         // *** AI, EI, OI, UI, OEI, UEI
         // medial double tooth I diphthong rule ***
         if (_contextCallsForDoubleToothI(positionInWord, charAbove, charBelow)) {
-          renderedWord.insertCharCodeAtStart(Menksoft.MEDI_I_DOUBLE_TOOTH); // double tooth
+          renderedWord.insertCharCodeAtStart(Menksoft.MEDI_I_FVS2); // double tooth
           break;
         }
 
@@ -529,7 +529,7 @@ class MongolWord {
           renderedWord.insertCharCodeAtStart(Menksoft.FINA_U_FVS1); // round o
         } else {
           if (_isRoundLetter(charAbove)) {
-            renderedWord.insertCharCodeAtStart(Menksoft.FINA_U_BP); // After BPFK
+            renderedWord.insertCharCodeAtStart(Menksoft.FINA_U_FVS1_BP); // After BPFK
           } else {
             renderedWord.insertCharCodeAtStart(Menksoft.FINA_U); // normal
           }
@@ -1408,7 +1408,7 @@ class MongolWord {
             if (charBelow == Unicode.I) {
               renderedWord.insertCharCodeAtStart(Menksoft.MEDI_YA); // no hook
             } else if (MongolCode.isConsonant(charBelow)) {
-              renderedWord.insertCharCodeAtStart(Menksoft.MEDI_I_DOUBLE_TOOTH); // double tooth
+              renderedWord.insertCharCodeAtStart(Menksoft.MEDI_I_FVS2); // double tooth
             } else {
               renderedWord.insertCharCodeAtStart(Menksoft.MEDI_YA_FVS1); // hook
             }

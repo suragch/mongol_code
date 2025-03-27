@@ -1,7 +1,6 @@
 /// Convenience class for the Mongolian Unicode values used in this package.
 class Unicode {
-  static const int WJ =
-      0x2060; // Word joiner (replaces deprecated Zero-width no-break space)
+  static const int WJ = 0x2060; // Word joiner (replaces deprecated Zero-width no-break space)
   //static const int ZWS = 0x200B; // Zero-width space
   static const int ZWNJ = 0x200C; // Zero-width non joiner
   static const int ZWJ = 0x200D; // Zero-width joiner
@@ -67,6 +66,7 @@ class Unicode {
   static const int FVS2 = 0x180c;
   static const int FVS3 = 0x180d;
   static const int MVS = 0x180e; // MONGOLIAN_VOWEL_SEPARATOR
+  static const int FVS4 = 0x180f;
   static const int MONGOLIAN_DIGIT_ZERO = 0x1810;
   static const int MONGOLIAN_DIGIT_ONE = 0x1811;
   static const int MONGOLIAN_DIGIT_TWO = 0x1812;
