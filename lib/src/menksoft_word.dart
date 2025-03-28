@@ -1072,10 +1072,10 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.ISOL_QA_FVS1:
-          case Menksoft.INIT_QA_FVS1_FEM_OU:
-          case Menksoft.MEDI_QA_FVS1_FEM:
-          case Menksoft.MEDI_QA_FVS1_FEM_OU:
-          case Menksoft.MEDI_QA_FEM_CONSONANT_DOTTED:
+          case Menksoft.INIT_QA_FVS4_OU:
+          case Menksoft.MEDI_QA_FVS4:
+          case Menksoft.MEDI_QA_FVS4_OU:
+          case Menksoft.MEDI_QA_FVS4_CONS:
             outputString.writeCharCode(Unicode.QA);
             outputString.writeCharCode(Unicode.FVS1);
             break;
@@ -1088,7 +1088,7 @@ class MenksoftWord {
             outputString.writeCharCode(Unicode.ZWJ);
             outputString.writeCharCode(Unicode.QA);
             break;
-          case Menksoft.MEDI_QA_FEM_CONSONANT:
+          case Menksoft.MEDI_QA_FVS2_CONS:
             outputString.writeCharCode(Unicode.ZWJ);
             outputString.writeCharCode(Unicode.GA);
             outputString.writeCharCode(Unicode.FVS3);
@@ -1100,7 +1100,7 @@ class MenksoftWord {
             outputString.writeCharCode(Unicode.GA);
             outputString.writeCharCode(Unicode.ZWJ);
             break;
-          case Menksoft.MEDI_QA_FVS2:
+          case Menksoft.MEDI_QA_FVS1_MVS:
             // treat the dotted masculine Q as a G
             outputString.writeCharCode(Unicode.ZWJ);
             outputString.writeCharCode(Unicode.GA);
@@ -1139,7 +1139,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_QA_STEM:
           case Menksoft.MEDI_QA_TOOTH:
-          case Menksoft.MEDI_QA_FEM_CONSONANT:
+          case Menksoft.MEDI_QA_FVS2_CONS:
             // If a medial Q is being used like a G before
             // a consonant, then interpret it as a G.
             if (Menksoft.isMenksoftConsonant(charBelow)) {
@@ -1149,7 +1149,7 @@ class MenksoftWord {
             }
             break;
           case Menksoft.MEDI_QA_FVS1:
-          case Menksoft.MEDI_QA_FVS2:
+          case Menksoft.MEDI_QA_FVS1_MVS:
             // treat the dotted masculine Q as a G
             outputString.writeCharCode(Unicode.GA);
             break;
@@ -1160,7 +1160,7 @@ class MenksoftWord {
         break;
       case Location.FINAL:
         switch (currentChar) {
-          case Menksoft.MEDI_QA_FEM_CONSONANT:
+          case Menksoft.MEDI_QA_FVS2_CONS:
             outputString.writeCharCode(Unicode.GA);
             outputString.writeCharCode(Unicode.FVS3);
             outputString.writeCharCode(Unicode.ZWJ);
@@ -1170,7 +1170,7 @@ class MenksoftWord {
             outputString.writeCharCode(Unicode.GA);
             outputString.writeCharCode(Unicode.ZWJ);
             break;
-          case Menksoft.MEDI_QA_FVS2:
+          case Menksoft.MEDI_QA_FVS1_MVS:
             // treat the dotted masculine Q as a G
             outputString.writeCharCode(Unicode.GA);
             outputString.writeCharCode(Unicode.FVS2);
@@ -1220,14 +1220,14 @@ class MenksoftWord {
             outputString.writeCharCode(Unicode.FVS1);
             outputString.writeCharCode(Unicode.ZWJ);
             break;
-          case Menksoft.MEDI_GA_FVS2:
+          case Menksoft.MEDI_GA_FVS3_MVS:
             outputString.writeCharCode(Unicode.ZWJ);
             outputString.writeCharCode(Unicode.GA);
             outputString.writeCharCode(Unicode.FVS2);
             outputString.writeCharCode(Unicode.ZWJ);
             break;
-          case Menksoft.MEDI_GA_FVS3_STEM:
-          case Menksoft.MEDI_GA_FVS3_TOOTH:
+          case Menksoft.MEDI_GA_FVS2_STEM:
+          case Menksoft.MEDI_GA_FVS2_TOOTH:
             outputString.writeCharCode(Unicode.ZWJ);
             outputString.writeCharCode(Unicode.GA);
             outputString.writeCharCode(Unicode.FVS3);
@@ -1252,8 +1252,8 @@ class MenksoftWord {
         break;
       case Location.MEDIAL:
         switch (currentChar) {
-          case Menksoft.MEDI_GA_FVS3_TOOTH:
-          case Menksoft.MEDI_GA_FVS3_STEM:
+          case Menksoft.MEDI_GA_FVS2_TOOTH:
+          case Menksoft.MEDI_GA_FVS2_STEM:
             outputString.writeCharCode(Unicode.GA);
             if (gender == Gender.MASCULINE) {
               outputString.writeCharCode(Unicode.FVS3);
@@ -1285,12 +1285,12 @@ class MenksoftWord {
             outputString.writeCharCode(Unicode.FVS1);
             outputString.writeCharCode(Unicode.ZWJ);
             break;
-          case Menksoft.MEDI_GA_FVS2:
+          case Menksoft.MEDI_GA_FVS3_MVS:
             outputString.writeCharCode(Unicode.FVS2);
             outputString.writeCharCode(Unicode.ZWJ);
             break;
-          case Menksoft.MEDI_GA_FVS3_STEM:
-          case Menksoft.MEDI_GA_FVS3_TOOTH:
+          case Menksoft.MEDI_GA_FVS2_STEM:
+          case Menksoft.MEDI_GA_FVS2_TOOTH:
             outputString.writeCharCode(Unicode.FVS3);
             outputString.writeCharCode(Unicode.ZWJ);
             break;
@@ -1700,7 +1700,7 @@ class MenksoftWord {
             outputString.writeCharCode(Unicode.JA);
             outputString.writeCharCode(Unicode.ZWJ);
             break;
-          case Menksoft.MEDI_JA_FVS1:
+          case Menksoft.MEDI_JA_MVS:
             // ignoring ancient form,
             // it looks like a final I so make it one
             outputString.writeCharCode(Unicode.ZWJ);
@@ -1740,7 +1740,7 @@ class MenksoftWord {
             outputString.writeCharCode(Unicode.JA);
             outputString.writeCharCode(Unicode.ZWJ);
             break;
-          case Menksoft.MEDI_JA_FVS1:
+          case Menksoft.MEDI_JA_MVS:
             // ignoring ancient form,
             // it looks like a final I so make it one
             outputString.writeCharCode(Unicode.I);
@@ -1853,7 +1853,7 @@ class MenksoftWord {
             outputString.writeCharCode(Unicode.ZWJ);
             outputString.writeCharCode(Unicode.WA);
             break;
-          case Menksoft.FINA_WA_FVS1:
+          case Menksoft.FINA_WA_MVS:
             // an isolate final WA looks like a final U so make it one
             outputString.writeCharCode(Unicode.ZWJ);
             outputString.writeCharCode(Unicode.U);
@@ -1876,7 +1876,7 @@ class MenksoftWord {
         break;
       case Location.FINAL:
         switch (currentChar) {
-          case Menksoft.FINA_WA_FVS1:
+          case Menksoft.FINA_WA_MVS:
             outputString.writeCharCode(Unicode.WA);
             outputString.writeCharCode(Unicode.FVS1);
             break;

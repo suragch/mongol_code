@@ -198,7 +198,7 @@ class Menksoft {
 
   static const int BA_START = 0xE2C1;
   static const int ISOL_BA = 0xE2C1;
-  static const int INIT_BA = 0xE2C1;
+  static const int INIT_BA_TOOTH = 0xE2C1;
   static const int INIT_BA_OU = 0xE2C2;
   static const int INIT_BA_STEM = 0xE2C7; // using medial stem
   static const int MEDI_BA_TOOTH = 0xE2C5;
@@ -209,7 +209,7 @@ class Menksoft {
 
   static const int PA_START = 0xE2C8;
   static const int ISOL_PA = 0xE2C8;
-  static const int INIT_PA = 0xE2C8;
+  static const int INIT_PA_TOOTH = 0xE2C8;
   static const int INIT_PA_OU = 0xE2C9;
   static const int INIT_PA_STEM = 0xE2CD; // using medial stem
   static const int MEDI_PA_TOOTH = 0xE2CB;
@@ -219,50 +219,60 @@ class Menksoft {
 
   static const int QA_START = 0xE2CE;
   static const int ISOL_QA = 0xE2D2;
+  static const int ISOL_QA_FVS1 = 0xE2D3;
+  static const int ISOL_QA_FVS2 = 0xE2D0;
+  static const int ISOL_QA_FVS4 = 0xE2D1; // dotted feminine
   static const int INIT_QA_TOOTH = 0xE2CE;
   static const int INIT_QA_STEM = 0xE2D2;
-  static const int INIT_QA_FEM = 0xE2D0; // GV FEMININE
-  static const int INIT_QA_FEM_OU = 0xE2D4;
-  static const int MEDI_QA_TOOTH = 0xE2D8;
-  static const int MEDI_QA_STEM = 0xE2DC;
-  static const int MEDI_QA_FEM = 0xE2DA;
-  static const int MEDI_QA_FEM_CONSONANT = 0xE2DF;
-  static const int MEDI_QA_FEM_CONSONANT_DOTTED = 0xE2E0;
-  static const int MEDI_QA_FEM_OU = 0xE2DD;
+  static const int INIT_QA_FVS1_TOOTH = 0xE2CF; // dotted masculine
+  static const int INIT_QA_FVS1_STEM = 0xE2D3; // dotted masculine
+  static const int INIT_QA_FVS2 = 0xE2D0; // feminine
+  static const int INIT_QA_FVS2_OU = 0xE2D4; // feminine
+  static const int INIT_QA_FVS4 = 0xE2D1; // dotted feminine
+  static const int INIT_QA_FVS4_OU = 0xE2D5; // dotted feminine
+  static const int MEDI_QA_TOOTH = 0xE2D8; // two teeth
+  static const int MEDI_QA_STEM = 0xE2DC; // two teeth
+  static const int MEDI_QA_FVS1 = 0xE2D9; // dotted teeth
+  static const int MEDI_QA_FVS2 = 0xE2DA; // feminine
+  static const int MEDI_QA_FVS2_OU = 0xE2DD; // feminine
+  static const int MEDI_QA_FVS2_CONS = 0xE2DF; // feminine before consonant
+  static const int MEDI_QA_FVS4 = 0xE2DB; // dotted feminine
+  static const int MEDI_QA_FVS4_OU = 0xE2DE;
+  static const int MEDI_QA_FVS4_CONS = 0xE2E0; // dotted feminine before consonant
+  static const int MEDI_QA_MVS = 0xE2D6;
+  static const int MEDI_QA_FVS1_MVS = 0xE2D7; // dotted
   static const int FINA_QA = 0xE2D6;
-  static const int INIT_QA_FVS1_TOOTH = 0xE2CF;
-  static const int INIT_QA_FVS1_STEM = 0xE2D3;
-  static const int INIT_QA_FVS1_FEM = 0xE2D1;
-  static const int INIT_QA_FVS1_FEM_OU = 0xE2D5;
-  static const int MEDI_QA_FVS1 = 0xE2D9;
-  static const int MEDI_QA_FVS1_FEM = 0xE2DB;
-  static const int MEDI_QA_FVS1_FEM_OU = 0xE2DE;
-  static const int ISOL_QA_FVS1 = 0xE2D1; // feminine with 2 dots
-  static const int MEDI_QA_FVS2 = 0xE2D7;
-  static const int MEDI_QA_FVS3 = 0xE2D6;
+  static const int FINA_QA_FVS1 = 0xE2D7; // dotted
 
   static const int GA_START = 0xE2E1;
   static const int ISOL_GA = 0xE2E4;
+  static const int ISOL_GA_FVS1 = 0xE2E5;
+  static const int ISOL_GA_FVS2 = 0xE2E3; // feminine
+  static const int ISOL_GA_FVS4 = 0xE2D1; // dotted feminine (using QA glyph)
   static const int INIT_GA_TOOTH = 0xE2E1;
   static const int INIT_GA_STEM = 0xE2E4;
-  static const int INIT_GA_FEM = 0xE2E3;
-  static const int INIT_GA_FEM_OU = 0xE2E6;
+  static const int INIT_GA_FVS1_TOOTH = 0xE2E2; // non-dotted masculine
+  static const int INIT_GA_FVS1_STEM = 0xE2E5; // non-dotted masculine
+  static const int INIT_GA_FVS2 = 0xE2E3;
+  static const int INIT_GA_FVS2_OU = 0xE2E6;
+  static const int INIT_GA_FVS4 = 0xE2D1; // dotted feminine (using QA glyph)
+  static const int INIT_GA_FVS4_OU = 0xE2D5; // dotted feminine (using QA glyph)
   static const int MEDI_GA = 0xE2EE;
-  static const int MEDI_GA_FEM = 0xE2EB;
-  static const int MEDI_GA_FEM_OU = 0xE2ED;
-  static const int FINA_GA = 0xE2E7;
-  static const int INIT_GA_FVS1_TOOTH = 0xE2E2;
-  static const int INIT_GA_FVS1_STEM = 0xE2E5;
   static const int MEDI_GA_FVS1_TOOTH = 0xE2EA;
   static const int MEDI_GA_FVS1_STEM = 0xE2EC;
-
-  // This deviation is necessary to override context rules.
-  // This follows the WG2 decision: https://r12a.github.io/mongolian-variants/
-  static const int FINA_GA_FVS1 = 0xE2E7; // masculine context override FIXME Deviating from Unicode 10.0 !!!
-  static const int FINA_GA_FVS2 = 0xE2E8; // feminine const form FIXME Deviating from Unicode 10.0 !!!
-  static const int MEDI_GA_FVS2 = 0xE2E9;
-  static const int MEDI_GA_FVS3_TOOTH = 0xE2EF;
-  static const int MEDI_GA_FVS3_STEM = 0xE2F0;
+  static const int MEDI_GA_FVS2 = 0xE2EB;
+  static const int MEDI_GA_FVS2_OU = 0xE2ED;
+  static const int MEDI_GA_FVS2_TOOTH = 0xE2EF; // feminine before consonant
+  static const int MEDI_GA_FVS2_STEM = 0xE2F0; // feminine before consonant
+  static const int MEDI_GA_FVS4 = 0xE2DB; // dotted feminine (using QA glyph)
+  static const int MEDI_GA_FVS4_OU = 0xE2DE; // dotted feminine (using QA glyph)
+  static const int MEDI_GA_FVS4_CONS = 0xE2E0; // dotted feminine before consonant (using QA glyph)
+  static const int MEDI_GA_FVS3_MVS = 0xE2E9;
+  static const int MEDI_GA_FVS1_MVS = 0xE2D6; // (using QA glyph)
+  static const int FINA_GA = 0xE2E8;
+  static const int FINA_GA_FVS1 = 0xE2E7; // masculine
+  static const int FINA_GA_FVS2 = 0xE2E8; // feminine
+  static const int FINA_GA_FVS3 = 0xE2E9; // dotted masculine
 
   static const int MA_START = 0xE2F1;
   static const int ISOL_MA = 0xE2F2;
@@ -270,7 +280,8 @@ class Menksoft {
   static const int INIT_MA_STEM_LONG = 0xE2F2;
   static const int MEDI_MA_TOOTH = 0xE2F4;
   static const int MEDI_MA_STEM_LONG = 0xE2F5; // long stem GV, use this if M or L follows
-  static const int MEDI_MA_BP = 0xE2F6; // GV use this if following a B, P, H, K, etc.
+  static const int MEDI_MA_BP = 0xE2F6; // use this if following a B, P, H, K, etc.
+  static const int MEDI_MA_MVS = 0xE2F3;
   static const int FINA_MA = 0xE2F3;
 
   static const int LA_START = 0xE2F7;
@@ -278,8 +289,9 @@ class Menksoft {
   static const int INIT_LA_TOOTH = 0xE2F7;
   static const int INIT_LA_STEM_LONG = 0xE2F8;
   static const int MEDI_LA_TOOTH = 0xE2FA;
-  static const int MEDI_LA_STEM_LONG = 0xE2FB; // long stem GV, use this if M or L follows
-  static const int MEDI_LA_BP = 0xE2FC; // GV use this if following a B, P, H, K, etc.
+  static const int MEDI_LA_STEM_LONG = 0xE2FB; // use this if M or L follows
+  static const int MEDI_LA_BP = 0xE2FC; // use this if following a B, P, H, K, etc.
+  static const int MEDI_LA_MVS = 0xE2F9;
   static const int FINA_LA = 0xE2F9;
 
   static const int SA_START = 0xE2FD;
@@ -288,16 +300,23 @@ class Menksoft {
   static const int INIT_SA_STEM = 0xE2FE;
   static const int MEDI_SA_TOOTH = 0xE301;
   static const int MEDI_SA_STEM = 0xE302;
+  static const int MEDI_SA_MVS = 0xE2FF;
+  static const int MEDI_SA_FVS1_MVS = 0xE300;
   static const int FINA_SA = 0xE2FF;
   static const int FINA_SA_FVS1 = 0xE300;
-  static const int FINA_SA_FVS2 = 0xE2FF; //0x100CE; FIXME: glyph is not in Menksoft PUA, substituting first form
 
   static const int SHA_START = 0xE303;
   static const int ISOL_SHA = 0xE304;
+  static const int ISOL_SHA_FVS1 = 0xE2FE; // using SA glyph
   static const int INIT_SHA_TOOTH = 0xE303;
   static const int INIT_SHA_STEM = 0xE304;
+  static const int INIT_SHA_FVS1_TOOTH = 0xE2FD; // using SA glyph
+  static const int INIT_SHA_FVS1_STEM = 0xE2FE; // using SA glyph
   static const int MEDI_SHA_TOOTH = 0xE306;
   static const int MEDI_SHA_STEM = 0xE307;
+  static const int MEDI_SHA_FVS1_TOOTH = 0xE301; // using SA glyph
+  static const int MEDI_SHA_FVS1_STEM = 0xE302; // using SA glyph
+  static const int MEDI_SHA_MVS = 0xE305;
   static const int FINA_SHA = 0xE305;
 
   static const int TA_START = 0xE308;
@@ -305,18 +324,19 @@ class Menksoft {
   static const int INIT_TA_TOOTH = 0xE308;
   static const int INIT_TA_STEM = 0xE309;
   static const int MEDI_TA = 0xE30B;
-  static const int FINA_TA = 0xE30A;
   static const int MEDI_TA_FVS1_TOOTH = 0xE30C;
   static const int MEDI_TA_FVS1_STEM = 0xE30D;
+  static const int FINA_TA = 0xE30A;
 
   static const int DA_START = 0xE30E;
   static const int ISOL_DA = 0xE310;
+  static const int ISOL_DA_FVS1 = 0xE30F;
   static const int INIT_DA_TOOTH = 0xE30E;
   static const int INIT_DA_STEM = 0xE30F;
-  static const int MEDI_DA = 0xE314;
-  static const int FINA_DA = 0xE311;
   static const int INIT_DA_FVS1 = 0xE310;
+  static const int MEDI_DA = 0xE314;
   static const int MEDI_DA_FVS1 = 0xE313;
+  static const int FINA_DA = 0xE311;
   static const int FINA_DA_FVS1 = 0xE312;
 
   static const int CHA_START = 0xE315;
@@ -327,24 +347,24 @@ class Menksoft {
 
   static const int JA_START = 0xE318;
   static const int ISOL_JA = 0xE318;
+  static const int ISOL_JA_FVS1 = 0xE31C;
   static const int INIT_JA_TOOTH = 0xE319;
   static const int INIT_JA_STEM = 0xE31A;
   static const int MEDI_JA = 0xE31D;
+  static const int MEDI_JA_MVS = 0xE31C;
   static const int FINA_JA = 0xE31B;
-  static const int MEDI_JA_FVS1 = 0xE31C; // MVS
+  static const int FINA_JA_FVS1 = 0xE31C;
 
   static const int YA_START = 0xE31E;
-  static const int ISOL_YA = 0xE31E;
-  static const int INIT_YA = 0xE31E;
-
-  //static const int MEDI_YA = 0xE320; // hooked (Unicode 9.0)
-  static const int MEDI_YA = 0xE321; // straight (Unicode 10.0)
+  static const int ISOL_YA = 0xE31E; // hooked
+  static const int ISOL_YA_FVS1 = 0xE321; // straight
+  static const int INIT_YA = 0xE31E; // hooked
+  static const int INIT_YA_FVS1 = 0xE321; // straight
+  static const int MEDI_YA = 0xE320; // hooked
+  static const int MEDI_YA_FVS1 = 0xE321; // straight
+  static const int MEDI_YA_FVS2 = 0xE281; // double long tooth (using I glyph)
+  static const int MEDI_YA_MVS = 0xE31F;
   static const int FINA_YA = 0xE31F;
-  static const int INIT_YA_FVS1 = 0xE321;
-
-  //static const int MEDI_YA_FVS1 = 0xE321; // straight (Unicode 9.0)
-  static const int MEDI_YA_FVS1 = 0xE320; // hooked (Unicode 10.0)
-  static const int MEDI_YA_FVS2 = 0xE31F;
 
   static const int RA_START = 0xE322;
   static const int ISOL_RA = 0xE322;
@@ -352,18 +372,21 @@ class Menksoft {
   static const int INIT_RA_STEM = 0xE322;
   static const int MEDI_RA_TOOTH = 0xE327;
   static const int MEDI_RA_STEM = 0xE326;
+  static const int MEDI_RA_MVS = 0xE325;
   static const int FINA_RA = 0xE325;
 
   static const int WA_START = 0xE329;
   static const int ISOL_WA = 0xE329;
   static const int INIT_WA = 0xE329;
   static const int MEDI_WA = 0xE32C;
+  static const int MEDI_WA_FVS1 = 0xE286; // (using O glyph)
+  static const int MEDI_WA_MVS = 0xE32B;
   static const int FINA_WA = 0xE32A;
-  static const int FINA_WA_FVS1 = 0xE32B; // MVS
+  static const int FINA_WA_FVS1 = 0xE32B;
 
   static const int FA_START = 0xE32D;
   static const int ISOL_FA = 0xE32D;
-  static const int INIT_FA = 0xE32D;
+  static const int INIT_FA_TOOTH = 0xE32D;
   static const int INIT_FA_OU = 0xE32E;
   static const int INIT_FA_STEM = 0xE332; // using medial stem
   static const int MEDI_FA_TOOTH = 0xE330;
@@ -479,22 +502,22 @@ class Menksoft {
         character == INIT_NA_TOOTH ||
         character == INIT_NA_FVS1_STEM ||
         character == INIT_NA_FVS1_TOOTH ||
-        character == INIT_BA ||
+        character == INIT_BA_TOOTH ||
         character == INIT_BA_OU ||
         character == INIT_BA_STEM ||
-        character == INIT_PA ||
+        character == INIT_PA_TOOTH ||
         character == INIT_PA_OU ||
         character == INIT_PA_STEM ||
-        character == INIT_QA_FEM ||
-        character == INIT_QA_FEM_OU ||
-        character == INIT_QA_FVS1_FEM ||
-        character == INIT_QA_FVS1_FEM_OU ||
+        character == INIT_QA_FVS2 ||
+        character == INIT_QA_FVS2_OU ||
+        character == INIT_QA_FVS4 ||
+        character == INIT_QA_FVS4_OU ||
         character == INIT_QA_FVS1_STEM ||
         character == INIT_QA_FVS1_TOOTH ||
         character == INIT_QA_STEM ||
         character == INIT_QA_TOOTH ||
-        character == INIT_GA_FEM ||
-        character == INIT_GA_FEM_OU ||
+        character == INIT_GA_FVS2 ||
+        character == INIT_GA_FVS2_OU ||
         character == INIT_GA_FVS1_STEM ||
         character == INIT_GA_FVS1_TOOTH ||
         character == INIT_GA_STEM ||
@@ -520,7 +543,7 @@ class Menksoft {
         character == INIT_RA_STEM ||
         character == INIT_RA_TOOTH ||
         character == INIT_WA ||
-        character == INIT_FA ||
+        character == INIT_FA_TOOTH ||
         character == INIT_FA_OU ||
         character == INIT_FA_STEM ||
         character == INIT_KA ||
