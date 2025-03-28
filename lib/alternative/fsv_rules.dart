@@ -72,6 +72,16 @@ int? applyFvsRule({required int unicodeChar, required int fvs, required Position
       return _applyTSA(fvs, position, shape);
     case Unicode.ZA:
       return _applyZA(fvs, position, shape);
+    case Unicode.HAA:
+      return _applyHAA(fvs, position, shape);
+    case Unicode.ZRA:
+      return _applyZRA(fvs, position, shape);
+    case Unicode.LHA:
+      return _applyLHA(fvs, position, shape);
+    case Unicode.ZHI:
+      return _applyZHI(fvs, position, shape);
+    case Unicode.CHI:
+      return _applyCHI(fvs, position, shape);
     default:
       return null;
   }
@@ -732,6 +742,91 @@ int? _applyZA(int fvs, Position position, Shape shape) {
       return null;
     case Position.fina:
       if (fvs == 0) return Menksoft.FINA_ZA;
+      return null;
+  }
+}
+
+int? _applyHAA(int fvs, Position position, Shape shape) {
+  switch (position) {
+    case Position.isol:
+      if (fvs == 0) return Menksoft.ISOL_HAA;
+      return null;
+    case Position.init:
+      if (fvs == 0) return Menksoft.INIT_HAA;
+      return null;
+    case Position.medi:
+      if (fvs == 0) return Menksoft.MEDI_HAA;
+      return null;
+    case Position.fina:
+      if (fvs == 0) return Menksoft.FINA_HAA;
+      return null;
+  }
+}
+
+int? _applyZRA(int fvs, Position position, Shape shape) {
+  switch (position) {
+    case Position.isol:
+      if (fvs == 0) return Menksoft.ISOL_ZRA;
+      return null;
+    case Position.init:
+      if (fvs == 0) return Menksoft.INIT_ZRA;
+      return null;
+    case Position.medi:
+      if (fvs == 0) return Menksoft.MEDI_ZRA;
+      return null;
+    case Position.fina:
+      if (fvs == 0) return Menksoft.FINA_ZRA;
+      return null;
+  }
+}
+
+int? _applyLHA(int fvs, Position position, Shape shape) {
+  switch (position) {
+    case Position.isol:
+      if (fvs == 0) return Menksoft.ISOL_LHA;
+      return null;
+    case Position.init:
+      if (fvs == 0) return Menksoft.INIT_LHA;
+      return null;
+    case Position.medi:
+      if (fvs == 0) return (shape == Shape.ROUND) ? Menksoft.MEDI_LHA_BP : Menksoft.MEDI_LHA;
+      return null;
+    case Position.fina:
+      if (fvs == 0) return (shape == Shape.ROUND) ? Menksoft.MEDI_LHA_BP : Menksoft.MEDI_LHA;
+      return null;
+  }
+}
+
+int? _applyZHI(int fvs, Position position, Shape shape) {
+  switch (position) {
+    case Position.isol:
+      if (fvs == 0) return Menksoft.ISOL_ZHI;
+      return null;
+    case Position.init:
+      if (fvs == 0) return Menksoft.INIT_ZHI;
+      return null;
+    case Position.medi:
+      if (fvs == 0) return Menksoft.MEDI_ZHI;
+      return null;
+    case Position.fina:
+      if (fvs == 0) return Menksoft.FINA_ZHI;
+      return null;
+  }
+}
+
+int? _applyCHI(int fvs, Position position, Shape shape) {
+  switch (position) {
+    case Position.isol:
+      if (fvs == 0) return Menksoft.ISOL_CHI;
+      return null;
+    case Position.init:
+      if (fvs == 0) return Menksoft.INIT_CHI;
+      return null;
+    case Position.medi:
+      if (fvs == 0) return Menksoft.MEDI_CHI;
+      return null;
+    case Position.fina:
+      if (fvs == 0) return Menksoft.FINA_CHI;
       return null;
   }
 }
