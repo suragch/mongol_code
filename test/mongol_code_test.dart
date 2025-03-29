@@ -4280,7 +4280,7 @@ void main() {
     test('punctuationSuffixSpace', () async {
       final unicode = Unicode.NNBS;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.SUFFIX_SPACE);
+      final expected = String.fromCharCode(Menksoft.NONBREAKING_SPACE);
       expect(expected, result);
     });
   });
@@ -7578,7 +7578,7 @@ void main() {
     });
 
     test('punctuationSuffixSpace', () async {
-      final menksoft = Menksoft.SUFFIX_SPACE;
+      final menksoft = Menksoft.NONBREAKING_SPACE;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
       final expected = String.fromCharCode(Unicode.NNBS);
       expect(expected, result);

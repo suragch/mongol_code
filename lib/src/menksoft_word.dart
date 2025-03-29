@@ -2099,7 +2099,7 @@ class MenksoftWord {
   }
 
   void _handleSpace(StringBuffer outputString, int currentChar, int charBelow) {
-    if (currentChar == Menksoft.SUFFIX_SPACE) {
+    if (currentChar == Menksoft.NONBREAKING_SPACE) {
       outputString.writeCharCode(Unicode.NNBS);
       return;
     }
@@ -2277,6 +2277,6 @@ class MenksoftWord {
   }
 
   bool _isMenksoftSpaceChar(int character) {
-    return character == SPACE || character == Menksoft.SUFFIX_SPACE || character == Menksoft.UNKNOWN_SPACE;
+    return character == SPACE || character == Menksoft.NONBREAKING_SPACE || character == Menksoft.UNKNOWN_SPACE;
   }
 }

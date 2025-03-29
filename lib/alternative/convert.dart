@@ -1,6 +1,8 @@
 import '../mongol_code.dart';
+import 'fsv_rules.dart';
 import 'maps.dart';
 import 'models.dart';
+import 'mvs_rules.dart';
 
 String convertUnicodeToMenksoft(String input) {
   final output = StringBuffer();
@@ -63,14 +65,14 @@ bool _isTodoSibeManchu(int codeUnit) {
   return codeUnit >= 0x1843 && codeUnit <= 0x18AA;
 }
 
-CharType _getCharType(int codeUnit) {
-  return charInfoMap[codeUnit]?.type ?? (_isMongolianScript(codeUnit) ? CharType.Other : CharType.WordBoundary);
-}
+// CharType _getCharType(int codeUnit) {
+//   return charInfoMap[codeUnit]?.type ?? (_isMongolianScript(codeUnit) ? CharType.Other : CharType.WordBoundary);
+// }
 
-bool _isMongolianScript(int codeUnit) {
-  return (codeUnit >= 0x1800 && codeUnit <= 0x18AA) ||
-      (codeUnit >= 0x11660 && codeUnit <= 0x1167F); // Mongolian Supplement
-}
+// bool _isMongolianScript(int codeUnit) {
+//   return (codeUnit >= 0x1800 && codeUnit <= 0x18AA) ||
+//       (codeUnit >= 0x11660 && codeUnit <= 0x1167F); // Mongolian Supplement
+// }
 
 bool _isFVS(int? codeUnit) {
   if (codeUnit == null) return false;
@@ -82,7 +84,7 @@ bool _isFVS(int? codeUnit) {
 
 Position _getPosition(int index, int segmentLength) {
   if (segmentLength == 1) return Position.isol;
-  if (index == 0) return Position.initial;
+  if (index == 0) return Position.init;
   if (index == segmentLength - 1) return Position.fina;
   return Position.medi;
 }
@@ -198,125 +200,60 @@ List<int> _processMongolianWord(List<int> word) {
     final nextChar = (currentIndex + 1 < word.length) ? word[currentIndex + 1] : null;
     // final prevChar = (currentIndex > 0) ? segmentRunes[currentIndex - 1] : null; // Need careful handling of consumed chars
 
-    int consumed = 0;
-    int? menksoftGlyph;
+    // int consumed = 0;
+    // int? menksoftGlyph;
 
     // 2. Check FVS
     if (_isFVS(nextChar)) {
-      // Lookup rule for (currentChar, FVS=nextChar, position, genderContext) -> presentationId
-      menksoftGlyph = _findFvsRule(currentChar, nextChar, position, genderContext);
-      if (menksoftGlyph != null) {
-        consumed = 2;
+      final glyph = applyFvsRule(unicodeChar: currentChar, fvs: nextChar!, position: position, shape: Shape.TOOTH);
+      if (glyph != null) {
+        outputMenksoft.add(glyph);
+        currentIndex += 2;
+        continue;
       }
     }
 
-    // 3. Check MVS (U+180E)
-    if (consumed == 0 && currentChar == 0x180E) {
-      // Determine MVS form (narrow/wide/invalid) based on context (Chapter 9)
-      menksoftGlyph = _getMvsPresentationId(word, currentIndex); // e.g., returns 0x00DE, 0x00DF, or 0x00DD
-      consumed = 1;
+    // 3. Check MVS
+    if (currentChar == Unicode.MVS) {
+      final glyph = Menksoft.NONBREAKING_SPACE;
+      outputMenksoft.add(glyph);
+      currentIndex += 1;
+      continue;
     }
-
-    // 4. Check NIRUGU (U+180A)
-    if (consumed == 0 && currentChar == 0x180A) {
-      menksoftGlyph = 0x00A7; // Default NIRUGU presentation ID from Table 4
-      // Apply specific NIRUGU context rules if any (Chapter 9)
-      consumed = 1;
-    }
-
-    // 5. Check Mandatory Ligatures (Appendix E)
-    if (consumed == 0 && nextChar != null) {
-      int ligatureKey = (currentChar << 16) | nextChar;
-      if (mandatoryLigatures.containsKey(ligatureKey)) {
-        menksoftGlyph = mandatoryLigatures[ligatureKey];
-        // Add check: Make sure FVS didn't override this ligature possibility
-        // (This requires knowing if the currentChar had an FVS applied just before it)
-        consumed = 2;
+    if (nextChar == Unicode.MVS) {
+      final glyphs = applyMvsRule(word, currentIndex);
+      if (glyphs != null) {
+        outputMenksoft.addAll(glyphs);
+        currentIndex += 2;
+        continue;
       }
     }
 
-    // 6. Apply General Contextual Rules (Appendix B)
-    if (consumed == 0) {
-      // Lookup rule for (currentChar, position, genderContext, neighbors) -> presentationId
-      menksoftGlyph = _findContextualRule(word, currentIndex, position, genderContext);
-      consumed = 1;
+    // 4. Check NIRUGU
+    if (currentChar == Unicode.MONGOLIAN_NIRUGU) {
+      outputMenksoft.add(Menksoft.NIRUGU);
+      currentIndex += 1;
+      continue;
+    }
+
+    // 5. Apply General Contextual Rules (Appendix B)
+
+    // Lookup rule for (currentChar, position, genderContext, neighbors) -> presentationId
+    final glyph = _findContextualRule(word, currentIndex, position, genderContext);
+    if (glyph != null) {
+      outputMenksoft.add(glyph);
+      currentIndex += 1;
+      continue;
     }
 
     // 7. Fallback
-    if (consumed == 0) {
-      print("Warning: No rule found for U+${currentChar.toRadixString(16)} at index $currentIndex in segment.");
-      // Output default or error
-      outputMenksoft.add(0xFFFD); // Unicode Replacement Character
-      consumed = 1;
-    } else if (menksoftGlyph != null) {
-      final puaCode = presentationIdToPua[menksoftGlyph];
-      if (puaCode != null) {
-        outputMenksoft.add(puaCode);
-      } else {
-        print("Warning: No PUA mapping for presentation ID 0x${menksoftGlyph.toRadixString(16)}");
-        outputMenksoft.add(0xFFFD); // Or fallback to nominal char?
-      }
-    }
+    print("Warning: No rule found for U+${currentChar.toRadixString(16)} at index $currentIndex in segment.");
+    // Output default or error
+    outputMenksoft.add(0xFFFD); // Unicode Replacement Character
     // Else: Control char like FVS might have been consumed without direct output
-
-    currentIndex += consumed;
   }
 
   return outputMenksoft;
-}
-
-// Returns Menksoft code if found, null otherwise
-List<int>? _replaceFixedSequenceWord(List<int> unicodeSequence) {}
-
-// --- Placeholder Rule Lookup Functions (Need FULL implementation) ---
-
-// Finds presentation ID based on FVS
-int? _findFvsRule(int charCode, int fvsCode, Position position, Gender gender) {
-  // !!! Implement lookup based on Appendix B / Appendix A !!!
-  // This is complex, needs detailed rule encoding.
-  // Example structure: Map<(int char, int fvs), int presentationId> fvsRules;
-  print("Lookup FVS rule for U+${charCode.toRadixString(16)} + FVS${(fvsCode & 0xF)}");
-  // Placeholder: just return a default medial 'a' for A+FVS1 for testing
-  if (charCode == 0x1820 && fvsCode == 0x180B) return 0x0005;
-  return _findDefaultRule(charCode, position); // Fallback if no specific FVS rule found
-}
-
-// Finds presentation ID for MVS based on context
-int _getMvsPresentationId(List<int> segmentRunes, int currentIndex) {
-  // !!! Implement logic from Chapter 9a) !!!
-  // Check if it's separating A/E at end of word -> narrow (0x00DE)
-  // Check if it's used as non-breaking space -> wide (0x00DF)
-  // Check if separating additional components -> wide (0x00DF)
-  // Otherwise -> invalid (0x00DD)
-  print("Determine MVS form at index $currentIndex");
-  // Extremely simplified placeholder:
-  bool isAtWordEnd = currentIndex == segmentRunes.length - 1;
-  bool prevIsConsonant = currentIndex > 0 && _getCharType(segmentRunes[currentIndex - 1]) == CharType.Consonant;
-  bool nextIsVowelAE =
-      currentIndex + 1 < segmentRunes.length &&
-      (segmentRunes[currentIndex + 1] == 0x1820 || segmentRunes[currentIndex + 1] == 0x1821);
-
-  // Rough logic based on Chapter 9a first bullet point
-  if (prevIsConsonant && nextIsVowelAE && isAtWordEnd) {
-    // This isn't quite right, MVS goes *between* cons and A/E.
-    // Let's assume MVS is *at* currentIndex. Need to check char *before* MVS and char *after* MVS.
-    if (currentIndex > 0 && currentIndex + 1 < segmentRunes.length) {
-      bool charBeforeIsCons = _getCharType(segmentRunes[currentIndex - 1]) == CharType.Consonant;
-      bool charAfterIsAE = segmentRunes[currentIndex + 1] == 0x1820 || segmentRunes[currentIndex + 1] == 0x1821;
-      bool isFinalPair = currentIndex + 1 == segmentRunes.length - 1; // Is the A/E the last char?
-      if (charBeforeIsCons && charAfterIsAE && isFinalPair) {
-        return 0x00DE; // Narrow
-      }
-    }
-  }
-
-  // Rough logic for non-breaking space/component separator (needs more context)
-  // Assuming wide form is the common case otherwise? Check standard.
-  // Let's default to wide for now if not narrow.
-  // return 0x00DF; // Wide (Placeholder)
-
-  // Defaulting to invalid if context not fully matched
-  return 0x00DD; // Invalid (Placeholder)
 }
 
 // Finds presentation ID based on context (position, neighbors, gender)
@@ -330,7 +267,7 @@ int? _findContextualRule(List<int> segmentRunes, int currentIndex, Position posi
   // Example: Find rule for 'A' (0x1820)
   if (charCode == 0x1820) {
     switch (position) {
-      case Position.initial:
+      case Position.init:
         return 0x0004; // ml. a first initial form
       case Position.medi:
         return 0x0005; // ml. a first medial form
@@ -353,7 +290,7 @@ int? _findDefaultRule(int charCode, Position position) {
   if (charCode == 0x1820) {
     // 'A'
     switch (position) {
-      case Position.initial:
+      case Position.init:
         return 0x0004;
       case Position.medi:
         return 0x0005;

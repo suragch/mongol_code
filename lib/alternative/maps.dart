@@ -1,5 +1,5 @@
 // Map nominal Unicode to basic info
-import '../mongol_code.dart';
+import '../mongol_code.dart' hide Gender;
 import 'models.dart';
 
 const Map<int, int> unicodeToMenksoftPunctuation = {
@@ -100,20 +100,3 @@ final Map<int, MongolianCharInfo> charInfoMap = {
   0x1800: MongolianCharInfo(0x1800, 'BIRGA', CharType.Punctuation, Gender.Neutral),
   // ... etc.
 };
-
-// Example Ligature Rules (Appendix E)
-// Key: unicode1 << 16 | unicode2
-final Map<int, int> mandatoryLigatures = {
-  // !!! Populate based on Appendix E !!!
-  // Example: BA (0x182A) + A (0x1820) -> Presentation ID 0x0100
-  (0x182A << 16) | 0x1820: 0x0100,
-  // Example: BA (0x182A) + E (0x1821) -> Presentation ID 0x0100 (May map to same glyph visually)
-  (0x182A << 16) | 0x1821: 0x0100, // Assuming same presentation ID, VERIFY!
-  // Example: PA (0x182B) + A (0x1820) -> Presentation ID 0x010A
-  (0x182B << 16) | 0x1820: 0x010A,
-  // ... etc.
-};
-
-// TODO: Define structures/maps for Fixed Sequences (Appendix D)
-// TODO: Define structures/maps/logic for General Contextual Rules (Appendix B)
-// TODO: Implement Gender Determination Logic (Appendix C)

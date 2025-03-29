@@ -1704,7 +1704,7 @@ class MongolWord {
   }
 
   void _handleNNBS(StringBuffer renderedWord) {
-    renderedWord.insertCharCodeAtStart(Menksoft.SUFFIX_SPACE);
+    renderedWord.insertCharCodeAtStart(Menksoft.NONBREAKING_SPACE);
   }
 
   void _handleNirugu(StringBuffer renderedWord) {

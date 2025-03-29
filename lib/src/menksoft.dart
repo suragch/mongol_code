@@ -53,7 +53,7 @@ class Menksoft {
   static const int EN_DASH = 0xE260; // TODO is that what this is?
   static const int EM_DASH = 0xE261; // TODO is that what this is?
   static const int UNKNOWN_SPACE = 0xE262; // TODO what is this?
-  static const int SUFFIX_SPACE = 0xE263;
+  static const int NONBREAKING_SPACE = 0xE263;
 
   // These are in the order of the China National Standards committee 2023
   // document for Mongolian presentation characters. This should be the same
@@ -459,7 +459,7 @@ class Menksoft {
   static const int SPACE = 0x0020;
 
   static bool isMenksoftSpace(int codeUnit) {
-    return codeUnit == SUFFIX_SPACE || codeUnit == UNKNOWN_SPACE || codeUnit == SPACE;
+    return codeUnit == NONBREAKING_SPACE || codeUnit == UNKNOWN_SPACE || codeUnit == SPACE;
   }
 
   static bool isMenksoftLetter(int character) {
