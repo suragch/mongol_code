@@ -1,3 +1,5 @@
+import 'package:mongol_code/alternative/fixed_words.dart';
+
 import '../mongol_code.dart';
 import 'fsv_rules.dart';
 import 'maps.dart';
@@ -185,7 +187,7 @@ List<int> _processMongolianWord(List<int> word) {
   // --- Apply Rules in Priority Order ---
 
   // 1. Check Fixed Sequences (GBT+25914-2023 Appendix D)
-  final fixedSequence = _replaceFixedSequenceWord(word);
+  final fixedSequence = checkFixedSequence(word);
   if (fixedSequence != null) {
     return fixedSequence;
   }
@@ -255,6 +257,8 @@ List<int> _processMongolianWord(List<int> word) {
 
   return outputMenksoft;
 }
+
+List<int>? _replaceFixedSequenceWord(List<int> unicode) {}
 
 // Finds presentation ID based on context (position, neighbors, gender)
 int? _findContextualRule(List<int> segmentRunes, int currentIndex, Position position, Gender gender) {
