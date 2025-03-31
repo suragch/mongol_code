@@ -1,3 +1,4 @@
+import 'package:mongol_code/alternative/context_rules.dart';
 import 'package:mongol_code/alternative/fixed_words.dart';
 
 import '../mongol_code.dart';
@@ -67,28 +68,12 @@ bool _isTodoSibeManchu(int codeUnit) {
   return codeUnit >= 0x1843 && codeUnit <= 0x18AA;
 }
 
-// CharType _getCharType(int codeUnit) {
-//   return charInfoMap[codeUnit]?.type ?? (_isMongolianScript(codeUnit) ? CharType.Other : CharType.WordBoundary);
-// }
-
-// bool _isMongolianScript(int codeUnit) {
-//   return (codeUnit >= 0x1800 && codeUnit <= 0x18AA) ||
-//       (codeUnit >= 0x11660 && codeUnit <= 0x1167F); // Mongolian Supplement
-// }
-
 bool _isFVS(int? codeUnit) {
   if (codeUnit == null) return false;
   return codeUnit == Unicode.FVS1 || //
       codeUnit == Unicode.FVS2 ||
       codeUnit == Unicode.FVS3 ||
       codeUnit == Unicode.FVS4;
-}
-
-Position _getPosition(int index, int segmentLength) {
-  if (segmentLength == 1) return Position.isol;
-  if (index == 0) return Position.init;
-  if (index == segmentLength - 1) return Position.fina;
-  return Position.medi;
 }
 
 // Placeholder - Needs actual implementation based on Appendix C
@@ -194,16 +179,14 @@ List<int> _processMongolianWord(List<int> word) {
 
   final outputMenksoft = <int>[];
   int currentIndex = 0;
+  int? lastChar;
 
   while (currentIndex < word.length) {
     final currentChar = word[currentIndex];
-    final position = _getPosition(currentIndex, word.length);
-    final genderContext = _getGenderContext(word, currentIndex);
+    final position = _getPosition(word, currentIndex);
+    // final genderContext = _getGenderContext(word, currentIndex);
     final nextChar = (currentIndex + 1 < word.length) ? word[currentIndex + 1] : null;
-    // final prevChar = (currentIndex > 0) ? segmentRunes[currentIndex - 1] : null; // Need careful handling of consumed chars
-
-    // int consumed = 0;
-    // int? menksoftGlyph;
+    final shape = _getShape(lastChar, )
 
     // 2. Check FVS
     if (_isFVS(nextChar)) {
@@ -231,6 +214,8 @@ List<int> _processMongolianWord(List<int> word) {
       }
     }
 
+    lastChar = currentChar;
+
     // 4. Check NIRUGU
     if (currentChar == Unicode.MONGOLIAN_NIRUGU) {
       outputMenksoft.add(Menksoft.NIRUGU);
@@ -238,10 +223,10 @@ List<int> _processMongolianWord(List<int> word) {
       continue;
     }
 
-    // 5. Apply General Contextual Rules (Appendix B)
+    // 5. Apply General Contextual Rules
 
     // Lookup rule for (currentChar, position, genderContext, neighbors) -> presentationId
-    final glyph = _findContextualRule(word, currentIndex, position, genderContext);
+    final glyph = applyContextRules(word: word, index: currentIndex, position: position);
     if (glyph != null) {
       outputMenksoft.add(glyph);
       currentIndex += 1;
@@ -256,6 +241,14 @@ List<int> _processMongolianWord(List<int> word) {
   }
 
   return outputMenksoft;
+}
+
+Position _getPosition(List<int> word, int index) {
+  if (word.length == 1) return Position.isol;
+  if (word.length == 2 && _isFVS(word[index])) return Position.isol;
+  if (index == 0) return Position.init;
+  if (index == word.length - 1) return Position.fina;
+  return Position.medi;
 }
 
 List<int>? _replaceFixedSequenceWord(List<int> unicode) {}

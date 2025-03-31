@@ -14,7 +14,12 @@ const fvs4 = Unicode.FVS4;
 ///
 /// Returns Menksoft code. A return value of null means the fvs is not defined
 /// for this character at this position.
-int? applyFvsRule({required int unicodeChar, required int fvs, required Position position, Shape shape = Shape.STEM}) {
+int? applyFvsRule({
+  required int unicodeChar, //
+  required int fvs,
+  required Position position,
+  Shape shape = Shape.STEM,
+}) {
   assert(fvs >= 0 && fvs <= 4);
 
   switch (unicodeChar) {
