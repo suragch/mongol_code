@@ -1,6 +1,7 @@
 import 'package:mongol_code/alternative/models.dart';
 
 import '../mongol_code.dart';
+import 'word_state.dart';
 
 const fvs0 = 0;
 const fvs1 = Unicode.FVS1;
@@ -14,14 +15,8 @@ const fvs4 = Unicode.FVS4;
 ///
 /// Returns Menksoft code. A return value of null means the fvs is not defined
 /// for this character at this position.
-int? applyFvsRule({
-  required int unicodeChar, //
-  required int fvs,
-  required Position position,
-  Shape shape = Shape.STEM,
-}) {
-  assert(fvs >= 0 && fvs <= 4);
-
+int? applyFvsRule(MongolianWord state) {
+  final unicodeChar = state.currentChar;
   switch (unicodeChar) {
     case Unicode.A:
       return _applyA(fvs, position, shape);
@@ -98,8 +93,8 @@ int? applyFvsRule({
   }
 }
 
-int? _applyA(int fvs, Position position, Shape shape) {
-  switch (position) {
+int? _applyA(MongolianWord state) {
+  switch (state.position) {
     case Position.isol:
       if (fvs == fvs0) return Menksoft.ISOL_A;
       if (fvs == fvs1) return Menksoft.ISOL_A_FVS1;

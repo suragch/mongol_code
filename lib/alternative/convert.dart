@@ -1,5 +1,6 @@
 import 'package:mongol_code/alternative/context_rules.dart';
 import 'package:mongol_code/alternative/fixed_words.dart';
+import 'package:mongol_code/alternative/word_state.dart';
 
 import '../mongol_code.dart';
 import 'fsv_rules.dart';
@@ -168,29 +169,30 @@ bool _isMongolianAe(int codeUnit) {
   return codeUnit == Unicode.A || codeUnit == Unicode.E;
 }
 
-List<int> _processMongolianWord(List<int> word) {
+List<int> _processMongolianWord(List<int> unicode) {
   // --- Apply Rules in Priority Order ---
 
   // 1. Check Fixed Sequences (GBT+25914-2023 Appendix D)
-  final fixedSequence = checkFixedSequence(word);
+  final fixedSequence = checkFixedSequence(unicode);
   if (fixedSequence != null) {
     return fixedSequence;
   }
 
   final outputMenksoft = <int>[];
-  int currentIndex = 0;
-  int? lastChar;
+  // int currentIndex = 0;
+  // int? lastChar;
+  final word = MongolianWord(unicode);
 
-  while (currentIndex < word.length) {
-    final currentChar = word[currentIndex];
-    final position = _getPosition(word, currentIndex);
+  while (word.nextChar()) {
+    // final currentChar = word[currentIndex];
+    // final position = _getPosition(word, currentIndex);
     // final genderContext = _getGenderContext(word, currentIndex);
-    final nextChar = (currentIndex + 1 < word.length) ? word[currentIndex + 1] : null;
-    final shape = _getShape(lastChar, )
+    // final nextChar = (currentIndex + 1 < word.length) ? word[currentIndex + 1] : null;
+    // final shape = _getShape(lastChar, )
 
     // 2. Check FVS
-    if (_isFVS(nextChar)) {
-      final glyph = applyFvsRule(unicodeChar: currentChar, fvs: nextChar!, position: position, shape: Shape.TOOTH);
+    if (word.currentCharHasFvs) {
+      final glyph = applyFvsRule(word);
       if (glyph != null) {
         outputMenksoft.add(glyph);
         currentIndex += 2;
@@ -206,7 +208,7 @@ List<int> _processMongolianWord(List<int> word) {
       continue;
     }
     if (nextChar == Unicode.MVS) {
-      final glyphs = applyMvsRule(word, currentIndex);
+      final glyphs = applyMvsRule(unicode, currentIndex);
       if (glyphs != null) {
         outputMenksoft.addAll(glyphs);
         currentIndex += 2;
@@ -226,7 +228,7 @@ List<int> _processMongolianWord(List<int> word) {
     // 5. Apply General Contextual Rules
 
     // Lookup rule for (currentChar, position, genderContext, neighbors) -> presentationId
-    final glyph = applyContextRules(word: word, index: currentIndex, position: position);
+    final glyph = applyContextRules(word: unicode, index: currentIndex, position: position);
     if (glyph != null) {
       outputMenksoft.add(glyph);
       currentIndex += 1;
