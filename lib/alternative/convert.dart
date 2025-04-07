@@ -77,22 +77,22 @@ bool _isFVS(int? codeUnit) {
       codeUnit == Unicode.FVS4;
 }
 
-// Placeholder - Needs actual implementation based on Appendix C
-Gender _getGenderContext(List<int> segmentRunes, int currentIndex) {
-  // Scan backwards in the segment (word) for vowels
-  // Apply rules from Appendix C
-  // For simplicity, default to Neutral or guess based on first vowel?
-  // This needs careful implementation matching the standard.
-  for (int i = currentIndex - 1; i >= 0; i--) {
-    final rune = segmentRunes[i];
-    final info = charInfoMap[rune];
-    if (info != null && info.type == CharType.Vowel && info.initialGender != Gender.Neutral) {
-      return info.initialGender;
-    }
-  }
-  // Default if no determining vowel found before
-  return Gender.Neutral; // Or perhaps Masculine as a default? Check standard practice.
-}
+// // Placeholder - Needs actual implementation based on Appendix C
+// Gender _getGenderContext(List<int> segmentRunes, int currentIndex) {
+//   // Scan backwards in the segment (word) for vowels
+//   // Apply rules from Appendix C
+//   // For simplicity, default to Neutral or guess based on first vowel?
+//   // This needs careful implementation matching the standard.
+//   for (int i = currentIndex - 1; i >= 0; i--) {
+//     final rune = segmentRunes[i];
+//     final info = charInfoMap[rune];
+//     if (info != null && info.type == CharType.Vowel && info.initialGender != Gender.Neutral) {
+//       return info.initialGender;
+//     }
+//   }
+//   // Default if no determining vowel found before
+//   return Gender.Neutral; // Or perhaps Masculine as a default? Check standard practice.
+// }
 
 // A segment may include multiple words or suffixes separated by MVS
 String _processMongolianSegment(List<int> segment) {
@@ -245,60 +245,60 @@ List<int> _processMongolianWord(List<int> unicode) {
   return outputMenksoft;
 }
 
-Position _getPosition(List<int> word, int index) {
-  if (word.length == 1) return Position.isol;
-  if (word.length == 2 && _isFVS(word[index])) return Position.isol;
-  if (index == 0) return Position.init;
-  if (index == word.length - 1) return Position.fina;
-  return Position.medi;
-}
+// Position _getPosition(List<int> word, int index) {
+//   if (word.length == 1) return Position.isol;
+//   if (word.length == 2 && _isFVS(word[index])) return Position.isol;
+//   if (index == 0) return Position.init;
+//   if (index == word.length - 1) return Position.fina;
+//   return Position.medi;
+// }
 
-List<int>? _replaceFixedSequenceWord(List<int> unicode) {}
+// List<int>? _replaceFixedSequenceWord(List<int> unicode) {}
 
 // Finds presentation ID based on context (position, neighbors, gender)
-int? _findContextualRule(List<int> segmentRunes, int currentIndex, Position position, Gender gender) {
-  // !!! Implement lookup based on Appendix B rules !!!
-  // This is the most complex part. Needs matching based on position,
-  // preceding/succeeding char types, specific char checks, gender.
-  final charCode = segmentRunes[currentIndex];
-  print("Lookup Context rule for U+${charCode.toRadixString(16)} at pos $position, gender $gender");
+// int? _findContextualRule(List<int> segmentRunes, int currentIndex, Position position, Gender gender) {
+//   // !!! Implement lookup based on Appendix B rules !!!
+//   // This is the most complex part. Needs matching based on position,
+//   // preceding/succeeding char types, specific char checks, gender.
+//   final charCode = segmentRunes[currentIndex];
+//   print("Lookup Context rule for U+${charCode.toRadixString(16)} at pos $position, gender $gender");
 
-  // Example: Find rule for 'A' (0x1820)
-  if (charCode == 0x1820) {
-    switch (position) {
-      case Position.init:
-        return 0x0004; // ml. a first initial form
-      case Position.medi:
-        return 0x0005; // ml. a first medial form
-      case Position.fina:
-        return 0x0008; // ml. a first final form
-      case Position.isol:
-        return 0x00B2; // ml. a first isolate form
-    }
-  }
-  // Add rules for ALL other characters...
+//   // Example: Find rule for 'A' (0x1820)
+//   if (charCode == 0x1820) {
+//     switch (position) {
+//       case Position.init:
+//         return 0x0004; // ml. a first initial form
+//       case Position.medi:
+//         return 0x0005; // ml. a first medial form
+//       case Position.fina:
+//         return 0x0008; // ml. a first final form
+//       case Position.isol:
+//         return 0x00B2; // ml. a first isolate form
+//     }
+//   }
+//   // Add rules for ALL other characters...
 
-  // Fallback to a default if no specific rule found (should be rare)
-  return _findDefaultRule(charCode, position);
-}
+//   // Fallback to a default if no specific rule found (should be rare)
+//   return _findDefaultRule(charCode, position);
+// }
 
 // Finds a very basic default presentation ID based only on char + position
-int? _findDefaultRule(int charCode, Position position) {
-  // Extremely simplified fallback - use with caution!
-  print("Fallback rule for U+${charCode.toRadixString(16)} at pos $position");
-  if (charCode == 0x1820) {
-    // 'A'
-    switch (position) {
-      case Position.init:
-        return 0x0004;
-      case Position.medi:
-        return 0x0005;
-      case Position.fina:
-        return 0x0008;
-      case Position.isol:
-        return 0x00B2;
-    }
-  }
-  // Add other basic defaults...
-  return null; // No default found
-}
+// int? _findDefaultRule(int charCode, Position position) {
+//   // Extremely simplified fallback - use with caution!
+//   print("Fallback rule for U+${charCode.toRadixString(16)} at pos $position");
+//   if (charCode == 0x1820) {
+//     // 'A'
+//     switch (position) {
+//       case Position.init:
+//         return 0x0004;
+//       case Position.medi:
+//         return 0x0005;
+//       case Position.fina:
+//         return 0x0008;
+//       case Position.isol:
+//         return 0x00B2;
+//     }
+//   }
+//   // Add other basic defaults...
+//   return null; // No default found
+// }

@@ -19,7 +19,7 @@ int? applyFvsRule(MongolianWord state) {
   final unicodeChar = state.currentChar;
   switch (unicodeChar) {
     case Unicode.A:
-      return _applyA(fvs, position, shape);
+      return _applyA(state);
     case Unicode.E:
       return _applyE(fvs, position, shape);
     case Unicode.I:
@@ -94,6 +94,7 @@ int? applyFvsRule(MongolianWord state) {
 }
 
 int? _applyA(MongolianWord state) {
+  final fvs = state.fvs;
   switch (state.position) {
     case Position.isol:
       if (fvs == fvs0) return Menksoft.ISOL_A;
@@ -107,6 +108,7 @@ int? _applyA(MongolianWord state) {
       if (fvs == fvs2) return Menksoft.INIT_A;
       return null;
     case Position.medi:
+      final shape = state.getShape();
       if (fvs == fvs0) return shape == Shape.ROUND ? Menksoft.MEDI_A_BP : Menksoft.MEDI_A;
       if (fvs == fvs1) return Menksoft.MEDI_A_FVS1;
       return null;

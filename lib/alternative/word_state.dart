@@ -1,9 +1,14 @@
 import 'package:mongol_code/alternative/models.dart';
 
+import '../src/shape.dart';
 import 'mongolian.dart';
 
 class MongolianWord {
   MongolianWord(this.unicode) {
+    _preparePositionInfo();
+  }
+
+  void _preparePositionInfo() {
     for (int i = 0; i < unicode.length; i++) {
       if (!_isControlChar(unicode[i])) {
         _firstLetterIndex = i;
@@ -23,15 +28,15 @@ class MongolianWord {
 
   final List<int> unicode;
   int _currentIndex = -1;
-  int? _fvs;
+  int? fvs;
   int? _mvs;
   Position _position = Position.init;
   int _firstLetterIndex = -1;
   int _lastLetterIndex = -1;
 
-  bool get currentCharHasFvs => _fvs != null;
+  bool get currentCharHasFvs => fvs != null;
   bool get currentCharHasMvs => _mvs != null;
-  Position position = Position.init;
+  Position get position => _position;
 
   int get currentChar => unicode[_currentIndex];
 
@@ -67,7 +72,7 @@ class MongolianWord {
   void _setControlChars() {
     final nextChar = _valueAt(_currentIndex + 1);
     if (_isFvs(nextChar)) {
-      _fvs = nextChar;
+      fvs = nextChar;
       final nextNextChar = _valueAt(_currentIndex + 2);
       if (_isMvs(nextNextChar)) {
         _mvs = nextNextChar;
@@ -76,9 +81,9 @@ class MongolianWord {
       }
     } else if (_isMvs(nextChar)) {
       _mvs = nextChar;
-      _fvs = null;
+      fvs = null;
     } else {
-      _fvs = null;
+      fvs = null;
       _mvs = null;
     }
   }
@@ -94,5 +99,68 @@ class MongolianWord {
 
   bool _isMvs(int? char) {
     return char == Mongolian.MVS;
+  }
+
+  Shape getShape() {
+    final char = unicode[_currentIndex];
+    if (_isMasculineVowel(char)) {
+      final previous = _letterBefore(_currentIndex);
+      return (_isCombiningConsonant(previous)) ? Shape.ROUND : Shape.STEM;
+    }
+    if (_isFeminineVowel(char)) {
+      final previous = _letterBefore(_currentIndex);
+      return (_isCombiningConsonant(previous) || _isConditionalCombiningConsonant(previous)) ? Shape.ROUND : Shape.STEM;
+    }
+    if (char == Mongolian.NA) {
+      final next = _letterAfter(_currentIndex);
+    }
+
+    // A vowel can be either ROUND or normal. The round form happens after a
+    // if the current char is consonant, the shape depends on the next char
+    return Shape.ROUND;
+  }
+
+  int? _letterBefore(int index) {
+    for (var i = index - 1; i >= 0; i--) {
+      final char = unicode[i];
+      if (!_isControlChar(char)) {
+        return char;
+      }
+    }
+    return null;
+  }
+
+  int? _letterAfter(int index) {
+    for (var i = index + 1; i < unicode.length; i++) {
+      final char = unicode[i];
+      if (!_isControlChar(char)) {
+        return char;
+      }
+    }
+    return null;
+  }
+
+  bool _isMasculineVowel(int? char) {
+    return char == Mongolian.A || char == Mongolian.O || char == Mongolian.U;
+  }
+
+  bool _isFeminineVowel(int? char) {
+    return char == Mongolian.E ||
+        char == Mongolian.I ||
+        char == Mongolian.OE ||
+        char == Mongolian.UE ||
+        char == Mongolian.EE;
+  }
+
+  bool _isCombiningConsonant(int? char) {
+    return char == Mongolian.BA ||
+        char == Mongolian.PA ||
+        char == Mongolian.FA ||
+        char == Mongolian.KA ||
+        char == Mongolian.KHA;
+  }
+
+  bool _isConditionalCombiningConsonant(int? char) {
+    return char == Mongolian.QA || char == Mongolian.GA;
   }
 }

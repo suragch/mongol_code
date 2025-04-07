@@ -5,48 +5,85 @@ import 'mongol_code.dart';
 import 'shape.dart';
 import 'unicode.dart';
 
+/// A class that handles the conversion of a single Mongolian word from Unicode to Menksoft.
+///
+/// Assumptions:
+/// 1. This is a valid Mongolian word.
+/// 2. This is not a suffix or fixed word.
+/// 3. MVS will only occur at position 0 or in the standard -a/-e ending.
 class MongolWord {
   Gender? _gender;
   late Location _location;
   late int _length;
   late bool _isSuffix;
-  late String _inputWord;
+  late List<int> _inputWord;
   late int _fvs;
   late Shape _glyphShapeBelow;
+  late int _firstLetterIndex;
+  late int _lastLetterIndex;
 
-  MongolWord(String mongolWord) {
+  /// mongolWord is unicode
+  MongolWord(List<int> mongolWord) {
     _inputWord = mongolWord;
     _gender = Gender.NEUTER;
     _length = mongolWord.length;
-    _isSuffix = (mongolWord.codeUnitAt(0) == Unicode.NNBS);
+    _isSuffix = (mongolWord[0] == Unicode.NNBS);
     _fvs = 0;
     _glyphShapeBelow = Shape.STEM;
+    _prepareLocationInfo();
   }
 
-  void _updateLocation(int positionInWord, int charBelow) {
-    if (positionInWord == 0) {
-      if (_length == 1 || (_length == 2 && _fvs > 0)) {
-        _location = Location.ISOLATE;
-      } else {
-        _location = Location.INITIAL;
+  void _prepareLocationInfo() {
+    for (int i = 0; i < _inputWord.length; i++) {
+      if (!_isControlChar(_inputWord[i])) {
+        _firstLetterIndex = i;
+        break;
       }
-    } else if (positionInWord == _length - 1 || (positionInWord == _length - 2 && _fvs > 0)) {
-      if (positionInWord == 1 && _isSuffix) {
-        _location = Location.ISOLATE;
-      } else {
-        _location = Location.FINAL;
-      }
-    } else {
-      if (positionInWord == 1 && _isSuffix) {
-        _location = Location.INITIAL;
-      } else if (charBelow == Unicode.MVS) {
-        // treat character above MVS as a final by default
-        _location = Location.FINAL;
-      } else {
-        _location = Location.MEDIAL;
+    }
+    for (int i = _inputWord.length - 1; i >= 0; i--) {
+      if (!_isControlChar(_inputWord[i])) {
+        _lastLetterIndex = i;
+        break;
       }
     }
   }
+
+  bool _isControlChar(int char) {
+    // FVS or MVS
+    return char >= 0x180b && char <= 0x180f;
+  }
+
+  Location _getLocation(int currentIndex) {
+    if (_firstLetterIndex == _lastLetterIndex) return Location.ISOLATE;
+    if (currentIndex <= _firstLetterIndex) return Location.INITIAL;
+    if (currentIndex >= _lastLetterIndex) return Location.FINAL;
+    return Location.MEDIAL;
+  }
+
+  // void _updateLocation(int positionInWord, int charBelow) {
+  //   if (positionInWord == 0) {
+  //     if (_length == 1 || (_length == 2 && _fvs > 0)) {
+  //       _location = Location.ISOLATE;
+  //     } else {
+  //       _location = Location.INITIAL;
+  //     }
+  //   } else if (positionInWord == _length - 1 || (positionInWord == _length - 2 && _fvs > 0)) {
+  //     if (positionInWord == 1 && _isSuffix) {
+  //       _location = Location.ISOLATE;
+  //     } else {
+  //       _location = Location.FINAL;
+  //     }
+  //   } else {
+  //     if (positionInWord == 1 && _isSuffix) {
+  //       _location = Location.INITIAL;
+  //     } else if (charBelow == Unicode.MVS) {
+  //       // treat character above MVS as a final by default
+  //       _location = Location.FINAL;
+  //     } else {
+  //       _location = Location.MEDIAL;
+  //     }
+  //   }
+  // }
 
   static int convertPunctuationToMenksoftCode(int punctuationChar) {
     switch (punctuationChar) {
@@ -146,15 +183,13 @@ class MongolWord {
     var charBelow = 0;
     var charBelowFvs = 0;
 
-    // start at the bottom of the word and work up
+    // start at the bottom of the word and work up (easier to record glyph shape this way)
     for (var i = _length - 1; i >= 0; i--) {
-      int charAbove;
-      var currentChar = _inputWord.codeUnitAt(i);
+      int currentChar = _inputWord[i];
 
-      // get the location
-      _updateLocation(i, charBelow);
+      _location = _getLocation(i);
 
-      charAbove = (i > 0) ? _inputWord.codeUnitAt(i - 1) : 0;
+      int charAbove = (i > 0) ? _inputWord[i - 1] : 0;
 
       // handle each letter separately
       switch (currentChar) {
