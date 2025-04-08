@@ -563,11 +563,7 @@ class MongolWord {
             renderedWord.add(Menksoft.FINA_U_FVS1); // round o
           }
         } else {
-          if (_isRoundLetter(charAbove)) {
-            renderedWord.add(Menksoft.FINA_U_FVS1_BP); // After BPFK
-          } else {
-            renderedWord.add(Menksoft.FINA_U); // normal
-          }
+          renderedWord.add(Menksoft.FINA_U);
         }
     }
     _glyphShapeBelow = Shape.STEM;
@@ -577,19 +573,13 @@ class MongolWord {
     _gender = Gender.FEMININE;
     switch (_location) {
       case Location.ISOLATE:
-        if (_isSuffix) {
-          renderedWord.add(Menksoft.FINA_OE); // O suffix   *** suffix rule ***
+        if (_fvs == fvs1) {
+          renderedWord.add(Menksoft.ISOL_OE_FVS1);
         } else {
-          renderedWord.add(Menksoft.ISOL_OE); // normal
+          renderedWord.add(Menksoft.ISOL_OE);
         }
-
       case Location.INITIAL:
-        if (_isSuffix) {
-          renderedWord.add(Menksoft.MEDI_OE_BP); // O of OO suffix   *** suffix rule ***
-        } else {
-          renderedWord.add(Menksoft.INIT_OE); // normal
-        }
-
+        renderedWord.add(Menksoft.INIT_OE);
       case Location.MEDIAL:
         if (_fvs == fvs1) {
           if (_isRoundLetterIncludingQG(charAbove)) {
@@ -600,8 +590,8 @@ class MongolWord {
         } else if (_fvs == fvs2) {
           renderedWord.add(Menksoft.MEDI_OE_FVS2); // extra tooth for 2 part name
         } else {
-          if (MongolCode.needsLongToothU(_inputWord, positionInWord)) {
-            // *** first syllable long tooth rule (except in suffix) ***
+          if (_needsLongToothU(_inputWord, positionInWord)) {
+            // *** first syllable long tooth rule ***
             if (_isRoundLetterIncludingQG(charAbove)) {
               renderedWord.add(Menksoft.MEDI_OE_FVS1_BP); // first syllable long tooth UE after BPFK
             } else {
@@ -613,13 +603,18 @@ class MongolWord {
             renderedWord.add(Menksoft.MEDI_OE); // normal
           }
         }
-
       case Location.FINAL:
         if (_fvs == fvs1) {
           if (_isRoundLetterIncludingQG(charAbove)) {
             renderedWord.add(Menksoft.FINA_OE_FVS1_BP); // round o with tail after BPFK
           } else {
             renderedWord.add(Menksoft.FINA_OE_FVS1); // round o with tail
+          }
+        } else if (_fvs == fvs2) {
+          if (_isRoundLetterIncludingQG(charAbove)) {
+            renderedWord.add(Menksoft.FINA_OE_FVS2_BP);
+          } else {
+            renderedWord.add(Menksoft.FINA_OE_FVS2);
           }
         } else {
           if (_isRoundLetterIncludingQG(charAbove)) {
@@ -636,21 +631,19 @@ class MongolWord {
     _gender = Gender.FEMININE;
     switch (_location) {
       case Location.ISOLATE:
-        if (_isSuffix) {
-          renderedWord.add(Menksoft.FINA_UE); // O suffix   *** suffix rule ***
-        } else if (_fvs == fvs1) {
+        if (_fvs == fvs1) {
           renderedWord.add(Menksoft.ISOL_UE_FVS1); // like E+UE
+        } else if (_fvs == fvs2) {
+          renderedWord.add(Menksoft.ISOL_UE_FVS2);
         } else {
           renderedWord.add(Menksoft.ISOL_UE); // normal
         }
-
       case Location.INITIAL:
-        if (_isSuffix) {
-          renderedWord.add(Menksoft.MEDI_UE_BP); // U of UU suffix   *** suffix rule ***
+        if (_fvs == fvs1) {
+          renderedWord.add(Menksoft.INIT_UE_FVS1);
         } else {
-          renderedWord.add(Menksoft.INIT_UE); // normal
+          renderedWord.add(Menksoft.INIT_UE);
         }
-
       case Location.MEDIAL:
         if (_fvs == fvs1) {
           if (_isRoundLetterIncludingQG(charAbove)) {
@@ -661,8 +654,8 @@ class MongolWord {
         } else if (_fvs == fvs2) {
           renderedWord.add(Menksoft.MEDI_UE_FVS2); // extra tooth for 2 part name
         } else {
-          if (MongolCode.needsLongToothU(_inputWord, positionInWord)) {
-            // *** first syllable long tooth rule (except in suffix) ***
+          if (_needsLongToothU(_inputWord, positionInWord)) {
+            // *** first syllable long tooth rule ***
             if (_isRoundLetterIncludingQG(charAbove)) {
               renderedWord.add(Menksoft.MEDI_UE_FVS1_BP); // first syllable long tooth UE after BPFK
             } else {
@@ -674,13 +667,18 @@ class MongolWord {
             renderedWord.add(Menksoft.MEDI_UE); // normal
           }
         }
-
       case Location.FINAL:
         if (_fvs == fvs1) {
           if (_isRoundLetterIncludingQG(charAbove)) {
             renderedWord.add(Menksoft.FINA_UE_FVS1_BP); // round o with tail after BPFK
           } else {
             renderedWord.add(Menksoft.FINA_UE_FVS1); // round o with tail
+          }
+        } else if (_fvs == fvs2) {
+          if (_isRoundLetterIncludingQG(charAbove)) {
+            renderedWord.add(Menksoft.FINA_UE_FVS2_BP);
+          } else {
+            renderedWord.add(Menksoft.FINA_UE_FVS2);
           }
         } else {
           if (_isRoundLetterIncludingQG(charAbove)) {
@@ -697,16 +695,13 @@ class MongolWord {
     _gender = Gender.FEMININE;
     switch (_location) {
       case Location.ISOLATE:
-        renderedWord.add(Menksoft.ISOL_EE); // normal
-
+        renderedWord.add(Menksoft.ISOL_EE);
       case Location.INITIAL:
-        renderedWord.add(Menksoft.INIT_EE); // normal
-
+        renderedWord.add(Menksoft.INIT_EE);
       case Location.MEDIAL:
-        renderedWord.add(Menksoft.MEDI_EE); // normal
-
+        renderedWord.add(Menksoft.MEDI_EE);
       case Location.FINAL:
-        renderedWord.add(Menksoft.FINA_EE); // normal
+        renderedWord.add(Menksoft.FINA_EE);
     }
     _glyphShapeBelow = Shape.TOOTH;
   }
@@ -714,11 +709,18 @@ class MongolWord {
   void _handleNA(List<int> renderedWord, int positionInWord, int charBelow, int charBelowFvs) {
     switch (_location) {
       case Location.ISOLATE:
-        renderedWord.add(Menksoft.ISOL_NA); // normal
-
+        if (_fvs == fvs1) {
+          renderedWord.add(Menksoft.ISOL_NA_FVS1);
+        } else {
+          renderedWord.add(Menksoft.ISOL_NA);
+        }
       case Location.INITIAL:
         if (_fvs == fvs1) {
-          renderedWord.add(Menksoft.INIT_NA_FVS1_STEM); // non-dotted
+          if (_glyphShapeBelow == Shape.STEM) {
+            renderedWord.add(Menksoft.INIT_NA_FVS1_STEM);
+          } else {
+            renderedWord.add(Menksoft.INIT_NA_FVS1_TOOTH);
+          }
         } else {
           if (_glyphShapeBelow == Shape.STEM) {
             renderedWord.add(Menksoft.INIT_NA_STEM); // normal stem
@@ -726,21 +728,34 @@ class MongolWord {
             renderedWord.add(Menksoft.INIT_NA_TOOTH); // normal tooth
           }
         }
-
       case Location.MEDIAL:
         if (_fvs == fvs1) {
-          if (_glyphShapeBelow == Shape.STEM) {
-            renderedWord.add(Menksoft.MEDI_NA_FVS1_STEM); // dotted stem
+          if (charBelow == Unicode.MVS) {
+            renderedWord.add(Menksoft.MEDI_NA_FVS1_MVS);
+            _glyphShapeBelow = Shape.STEM;
           } else {
-            renderedWord.add(Menksoft.MEDI_NA_FVS1_TOOTH); // dotted tooth
+            if (_glyphShapeBelow == Shape.STEM) {
+              renderedWord.add(Menksoft.MEDI_NA_FVS1_STEM); // dotted stem
+            } else {
+              renderedWord.add(Menksoft.MEDI_NA_FVS1_TOOTH); // dotted tooth
+            }
+            _glyphShapeBelow = Shape.TOOTH;
           }
-          _glyphShapeBelow = Shape.TOOTH;
         } else if (_fvs == fvs2) {
-          renderedWord.add(Menksoft.MEDI_NA_FVS2); // MVS
+          if (charBelow == Unicode.MVS) {
+            renderedWord.add(Menksoft.MEDI_NA_FVS2_MVS);
+            _glyphShapeBelow = Shape.STEM;
+          } else {
+            if (_glyphShapeBelow == Shape.STEM) {
+              renderedWord.add(Menksoft.MEDI_NA_STEM); // normal non-dotted stem
+            } else {
+              renderedWord.add(Menksoft.MEDI_NA_TOOTH); // normal non-dotted tooth
+            }
+            _glyphShapeBelow = Shape.TOOTH;
+          }
+        } else if (charBelow == Unicode.MVS) {
+          renderedWord.add(Menksoft.MEDI_NA_FVS1_MVS);
           _glyphShapeBelow = Shape.STEM;
-        } else if (_fvs == fvs3) {
-          renderedWord.add(Menksoft.MEDI_NA_FVS3); // tod script
-          _glyphShapeBelow = Shape.TOOTH;
         } else {
           // *** dot N before vowel rule ***
           if (MongolCode.isVowel(charBelow)) {
@@ -774,12 +789,11 @@ class MongolWord {
           }
           _glyphShapeBelow = Shape.TOOTH;
         }
-
       case Location.FINAL:
-        if (charBelow == Unicode.MVS) {
-          renderedWord.add(Menksoft.MEDI_NA_FVS2); // MVS
+        if (_fvs == fvs1) {
+          renderedWord.add(Menksoft.FINA_NA_FVS1); // MVS
         } else {
-          renderedWord.add(Menksoft.FINA_NA); // normal
+          renderedWord.add(Menksoft.FINA_NA);
         }
         _glyphShapeBelow = Shape.STEM;
     }
@@ -788,8 +802,7 @@ class MongolWord {
   void _handleANG(List<int> renderedWord) {
     switch (_location) {
       case Location.ISOLATE:
-        renderedWord.add(Menksoft.ISOL_ANG); // normal
-
+        renderedWord.add(Menksoft.ISOL_ANG);
       case Location.INITIAL:
         if (_glyphShapeBelow == Shape.ROUND) {
           renderedWord.add(Menksoft.INIT_ANG_ROUND); // before round
@@ -798,7 +811,6 @@ class MongolWord {
         } else {
           renderedWord.add(Menksoft.INIT_ANG_TOOTH); // tooth tooth
         }
-
       case Location.MEDIAL:
         if (_glyphShapeBelow == Shape.ROUND) {
           renderedWord.add(Menksoft.MEDI_ANG_ROUND); // before round
@@ -807,7 +819,6 @@ class MongolWord {
         } else {
           renderedWord.add(Menksoft.MEDI_ANG_TOOTH); // tooth tooth
         }
-
       case Location.FINAL:
         renderedWord.add(Menksoft.FINA_ANG); // normal
     }
@@ -817,8 +828,7 @@ class MongolWord {
   void _handleBA(List<int> renderedWord, int charBelow) {
     switch (_location) {
       case Location.ISOLATE:
-        renderedWord.add(Menksoft.ISOL_BA); // normal
-
+        renderedWord.add(Menksoft.ISOL_BA);
       case Location.INITIAL:
         if (_isOuVowel(charBelow)) {
           renderedWord.add(Menksoft.INIT_BA_OU); // OU
@@ -827,7 +837,6 @@ class MongolWord {
         } else {
           renderedWord.add(Menksoft.INIT_BA_TOOTH); // normal
         }
-
       case Location.MEDIAL:
         if (_isOuVowel(charBelow)) {
           renderedWord.add(Menksoft.MEDI_BA_OU); // OU
@@ -836,7 +845,6 @@ class MongolWord {
         } else {
           renderedWord.add(Menksoft.MEDI_BA_TOOTH); // normal
         }
-
       case Location.FINAL:
         if (_fvs == fvs1) {
           renderedWord.add(Menksoft.FINA_BA_FVS1); // o with left sweep
@@ -850,8 +858,7 @@ class MongolWord {
   void _handlePA(List<int> renderedWord, int charBelow) {
     switch (_location) {
       case Location.ISOLATE:
-        renderedWord.add(Menksoft.ISOL_PA); // normal
-
+        renderedWord.add(Menksoft.ISOL_PA);
       case Location.INITIAL:
         if (_isOuVowel(charBelow)) {
           renderedWord.add(Menksoft.INIT_PA_OU); // OU
@@ -860,7 +867,6 @@ class MongolWord {
         } else {
           renderedWord.add(Menksoft.INIT_PA_TOOTH); // normal
         }
-
       case Location.MEDIAL:
         if (_isOuVowel(charBelow)) {
           renderedWord.add(Menksoft.MEDI_PA_OU); // OU
@@ -869,9 +875,8 @@ class MongolWord {
         } else {
           renderedWord.add(Menksoft.MEDI_PA_TOOTH); // normal
         }
-
       case Location.FINAL:
-        renderedWord.add(Menksoft.FINA_PA); // normal
+        renderedWord.add(Menksoft.FINA_PA);
     }
     _glyphShapeBelow = Shape.STEM;
   }
@@ -880,25 +885,39 @@ class MongolWord {
     switch (_location) {
       case Location.ISOLATE:
         if (_fvs == fvs1) {
-          renderedWord.add(Menksoft.ISOL_QA_FVS1); // dotted feminine
+          renderedWord.add(Menksoft.ISOL_QA_FVS1);
+        } else if (_fvs == fvs2) {
+          renderedWord.add(Menksoft.ISOL_QA_FVS2);
+        } else if (_fvs == fvs4) {
+          renderedWord.add(Menksoft.ISOL_QA_FVS4);
         } else {
-          renderedWord.add(Menksoft.ISOL_QA); // normal
+          renderedWord.add(Menksoft.ISOL_QA);
         }
-
       case Location.INITIAL:
         if (_fvs == fvs1) {
-          if (MongolCode.isFeminineVowel(charBelow) || charBelow == Unicode.I) {
-            if (_isOuVowel(charBelow)) {
-              renderedWord.add(Menksoft.INIT_QA_FVS4_OU); // dotted feminine for OU
-            } else {
-              renderedWord.add(Menksoft.INIT_QA_FVS4); // dotted feminine
-            }
+          // dotted masculine
+          if (_glyphShapeBelow == Shape.STEM) {
+            renderedWord.add(Menksoft.INIT_QA_FVS1_STEM); // dotted masculine stem
           } else {
-            if (_glyphShapeBelow == Shape.STEM) {
-              renderedWord.add(Menksoft.INIT_QA_FVS1_STEM); // dotted masculine stem
-            } else {
-              renderedWord.add(Menksoft.INIT_QA_FVS1_TOOTH); // dotted masculine tooth
-            }
+            renderedWord.add(Menksoft.INIT_QA_FVS1_TOOTH); // dotted masculine tooth
+          }
+        } else if (_fvs == fvs2) {
+          if (_isOuVowel(charBelow)) {
+            renderedWord.add(Menksoft.INIT_QA_FVS2_OU); // feminine for OU
+          } else {
+            renderedWord.add(Menksoft.INIT_QA_FVS2); // feminine
+          }
+        } else if (_fvs == fvs3) {
+          if (_glyphShapeBelow == Shape.STEM) {
+            renderedWord.add(Menksoft.INIT_QA_STEM); // normal (masculine) stem
+          } else {
+            renderedWord.add(Menksoft.INIT_QA_TOOTH); // normal (masculine) tooth
+          }
+        } else if (_fvs == fvs4) {
+          if (_isOuVowel(charBelow)) {
+            renderedWord.add(Menksoft.INIT_QA_FVS4_OU);
+          } else {
+            renderedWord.add(Menksoft.INIT_QA_FVS4);
           }
         } else {
           if (MongolCode.isFeminineVowel(charBelow) || charBelow == Unicode.I) {
@@ -915,43 +934,51 @@ class MongolWord {
             }
           }
         }
-
       case Location.MEDIAL:
         if (_fvs == fvs1) {
-          if (MongolCode.isFeminineVowel(charBelow) || charBelow == Unicode.I) {
-            if (_isOuVowel(charBelow)) {
-              renderedWord.add(Menksoft.MEDI_QA_FVS4_OU); // dotted feminine for OU
-            } else {
-              renderedWord.add(Menksoft.MEDI_QA_FVS4); // dotted feminine
-            }
-            _glyphShapeBelow = Shape.ROUND;
-          } else if (MongolCode.isMasculineVowel(charBelow)) {
-            renderedWord.add(Menksoft.MEDI_QA_FVS1); // dotted double tooth masculine
-            _glyphShapeBelow = Shape.TOOTH;
+          if (charBelow == Unicode.MVS) {
+            // dotted masculine MVS
+            renderedWord.add(Menksoft.MEDI_QA_FVS1_MVS);
           } else {
-            // consonant
-            if (_gender == Gender.NEUTER) {
-              _gender = MongolWord._getWordGenderAboveIndex(positionInWord, _inputWord);
-            }
-            if (_gender == Gender.FEMININE) {
-              renderedWord.add(Menksoft.MEDI_QA_FVS4_CONS); // dotted feminine final before consonant
-            } else {
-              renderedWord.add(Menksoft.MEDI_QA_FVS1); // dotted double tooth masculine
-            }
-            _glyphShapeBelow = Shape.TOOTH;
+            // dotted masculine
+            renderedWord.add(Menksoft.MEDI_QA_FVS1);
           }
+          _glyphShapeBelow = Shape.TOOTH;
         } else if (_fvs == fvs2) {
-          renderedWord.add(Menksoft.MEDI_QA_FVS1_MVS); // dotted MVS
+          if (MongolCode.isConsonant(charBelow)) {
+            renderedWord.add(Menksoft.MEDI_QA_FVS2_CONS);
+          } else if (_isOuVowel(charBelow)) {
+            renderedWord.add(Menksoft.MEDI_QA_FVS2_OU);
+          } else {
+            renderedWord.add(Menksoft.MEDI_QA_FVS2);
+          }
           _glyphShapeBelow = Shape.TOOTH;
         } else if (_fvs == fvs3) {
-          renderedWord.add(Menksoft.MEDI_QA_MVS); // MVS
+          if (_glyphShapeBelow == Shape.STEM) {
+            renderedWord.add(Menksoft.MEDI_QA_STEM); // normal stem (masculine double tooth)
+          } else {
+            renderedWord.add(Menksoft.MEDI_QA_TOOTH); // normal tooth (masculine double tooth)
+          }
+          _glyphShapeBelow = Shape.TOOTH;
+        } else if (_fvs == fvs4) {
+          // dotted feminine
+          if (MongolCode.isConsonant(charBelow)) {
+            renderedWord.add(Menksoft.MEDI_QA_FVS4_CONS);
+          } else if (_isOuVowel(charBelow)) {
+            renderedWord.add(Menksoft.MEDI_QA_FVS4_OU);
+          } else {
+            renderedWord.add(Menksoft.MEDI_QA_FVS4);
+          }
+          _glyphShapeBelow = Shape.TOOTH;
+        } else if (charBelow == Unicode.MVS) {
+          renderedWord.add(Menksoft.MEDI_QA_MVS);
           _glyphShapeBelow = Shape.TOOTH;
         } else {
           if (MongolCode.isFeminineVowel(charBelow) || charBelow == Unicode.I) {
             if (_isOuVowel(charBelow)) {
               renderedWord.add(Menksoft.MEDI_QA_FVS2_OU); // feminine for OU
             } else {
-              renderedWord.add(Menksoft.MEDI_QA_FEM); // feminine
+              renderedWord.add(Menksoft.MEDI_QA_FVS2); // feminine
             }
             _glyphShapeBelow = Shape.ROUND;
           } else if (MongolCode.isMasculineVowel(charBelow)) {
@@ -966,7 +993,7 @@ class MongolWord {
             // does medial QA before a consonant ever happen
             // in a real word?
             if (_gender == Gender.NEUTER) {
-              _gender = MongolWord._getWordGenderAboveIndex(positionInWord, _inputWord);
+              _gender = _getWordGenderAboveIndex(positionInWord, _inputWord);
             }
             if (_gender == Gender.FEMININE || (_gender == Gender.NEUTER && charAbove == Unicode.I)) {
               renderedWord.add(Menksoft.MEDI_QA_FVS2_CONS); // feminine final before consonant
@@ -980,18 +1007,39 @@ class MongolWord {
             _glyphShapeBelow = Shape.TOOTH;
           }
         }
-
       case Location.FINAL:
-        renderedWord.add(Menksoft.FINA_QA); // normal
+        if (_fvs == fvs1) {
+          renderedWord.add(Menksoft.FINA_QA_FVS1);
+        } else {
+          renderedWord.add(Menksoft.FINA_QA);
+        }
         _glyphShapeBelow = Shape.TOOTH;
     }
+  }
+
+  Gender _getWordGenderAboveIndex(int index, List<int> word) {
+    for (var i = index - 1; i >= 0; i--) {
+      if (MongolCode.isMasculineVowel(word[i])) {
+        return Gender.MASCULINE;
+      } else if (MongolCode.isFeminineVowel(word[i])) {
+        return Gender.FEMININE;
+      }
+    }
+    return Gender.NEUTER;
   }
 
   void _handleGA(List<int> renderedWord, int positionInWord, int charAbove, int charBelow) {
     switch (_location) {
       case Location.ISOLATE:
-        renderedWord.add(Menksoft.ISOL_GA); // normal
-
+        if (_fvs == fvs1) {
+          renderedWord.add(Menksoft.ISOL_GA_FVS1);
+        } else if (_fvs == fvs2) {
+          renderedWord.add(Menksoft.ISOL_GA_FVS2);
+        } else if (_fvs == fvs4) {
+          renderedWord.add(Menksoft.ISOL_GA_FVS4);
+        } else {
+          renderedWord.add(Menksoft.ISOL_GA);
+        }
       case Location.INITIAL:
         if (_fvs == fvs1) {
           if (_glyphShapeBelow == Shape.STEM) {
@@ -999,8 +1047,24 @@ class MongolWord {
           } else {
             renderedWord.add(Menksoft.INIT_GA_FVS1_TOOTH); // undotted masculine tooth
           }
-          // TODO feminine forms are not _handled.
-          // What are they supposed to look like?
+        } else if (_fvs == fvs2) {
+          if (_isOuVowel(charBelow)) {
+            renderedWord.add(Menksoft.INIT_GA_FVS2_OU);
+          } else {
+            renderedWord.add(Menksoft.INIT_GA_FVS2);
+          }
+        } else if (_fvs == fvs3) {
+          if (_glyphShapeBelow == Shape.STEM) {
+            renderedWord.add(Menksoft.INIT_GA_STEM); // normal (masculine) stem
+          } else {
+            renderedWord.add(Menksoft.INIT_GA_TOOTH); // normal (masculine) tooth
+          }
+        } else if (_fvs == fvs4) {
+          if (_isOuVowel(charBelow)) {
+            renderedWord.add(Menksoft.INIT_GA_FVS4_OU);
+          } else {
+            renderedWord.add(Menksoft.INIT_GA_FVS4);
+          }
         } else {
           if (MongolCode.isFeminineVowel(charBelow) || charBelow == Unicode.I) {
             if (_isOuVowel(charBelow)) {
@@ -1019,25 +1083,49 @@ class MongolWord {
             }
           }
         }
-
       case Location.MEDIAL:
         if (_fvs == fvs1) {
-          if (_glyphShapeBelow == Shape.STEM) {
-            renderedWord.add(Menksoft.MEDI_GA_FVS1_STEM); // dotted masculine stem
+          if (charBelow == Unicode.MVS) {
+            renderedWord.add(Menksoft.MEDI_GA_FVS1_MVS); // dotted mvs
           } else {
-            renderedWord.add(Menksoft.MEDI_GA_FVS1_TOOTH); // dotted masculine tooth
+            if (_glyphShapeBelow == Shape.STEM) {
+              renderedWord.add(Menksoft.MEDI_GA_FVS1_STEM); // dotted masculine stem
+            } else {
+              renderedWord.add(Menksoft.MEDI_GA_FVS1_TOOTH); // dotted masculine tooth
+            }
           }
           _glyphShapeBelow = Shape.TOOTH;
         } else if (_fvs == fvs2) {
-          renderedWord.add(Menksoft.MEDI_GA_FVS3_MVS); // MVS
-          _glyphShapeBelow = Shape.TOOTH;
-        } else if (_fvs == fvs3) {
-          if (_glyphShapeBelow == Shape.STEM) {
-            renderedWord.add(Menksoft.MEDI_GA_FVS2_STEM); // feminine before consonant stem
+          if (MongolCode.isVowel(charBelow)) {
+            if (_isOuVowel(charBelow)) {
+              renderedWord.add(Menksoft.MEDI_GA_FVS2_OU);
+            } else {
+              renderedWord.add(Menksoft.MEDI_GA_FVS2);
+            }
           } else {
-            renderedWord.add(Menksoft.MEDI_GA_FVS2_TOOTH); // feminine before consonant tooth
+            if (_glyphShapeBelow == Shape.STEM) {
+              renderedWord.add(Menksoft.MEDI_GA_FVS2_STEM);
+            } else {
+              renderedWord.add(Menksoft.MEDI_GA_FVS2_TOOTH);
+            }
+          }
+          _glyphShapeBelow = Shape.ROUND;
+        } else if (_fvs == fvs3) {
+          if (charBelow == Unicode.MVS) {
+            renderedWord.add(Menksoft.MEDI_GA_FVS3_MVS);
+          } else {
+            renderedWord.add(Menksoft.MEDI_GA);
           }
           _glyphShapeBelow = Shape.TOOTH;
+        } else if (_fvs == fvs4) {
+          if (_isOuVowel(charBelow)) {
+            renderedWord.add(Menksoft.MEDI_GA_FVS4_OU);
+          } else if (MongolCode.isConsonant(charBelow)) {
+            renderedWord.add(Menksoft.MEDI_GA_FVS4_CONS);
+          } else {
+            renderedWord.add(Menksoft.MEDI_GA_FVS4);
+          }
+          _glyphShapeBelow = Shape.ROUND;
         } else {
           // no FVS, just apply context rules
           if (MongolCode.isFeminineVowel(charBelow) || charBelow == Unicode.I) {
@@ -1059,7 +1147,7 @@ class MongolWord {
           } else {
             // consonant
             if (_gender == Gender.NEUTER) {
-              _gender = MongolWord._getWordGenderAboveIndex(positionInWord, _inputWord);
+              _gender = _getWordGenderAboveIndex(positionInWord, _inputWord);
             }
             // *** medial GA before consonant rule ***
             if (_gender == Gender.FEMININE ||
@@ -1067,13 +1155,14 @@ class MongolWord {
                 (_gender == Gender.NEUTER && charAbove == Unicode.I) ||
                 // treat a G between two consonants as feminine (as in ANGGLI)
                 // (but not after Y because Y is like I)
-                (charAbove != Unicode.YA && (MongolCode.isConsonant(charAbove) || charAbove == Unicode.ZWJ))) {
+                (charAbove != Unicode.YA &&
+                    (MongolCode.isConsonant(charAbove) || charAbove == Unicode.MONGOLIAN_NIRUGU))) {
               if (charBelow == Unicode.NA || charBelow == Unicode.MA || charBelow == Unicode.LA) {
                 final renderedCharBelow = renderedWord[0];
                 if (renderedCharBelow == Menksoft.FINA_MA ||
                     renderedCharBelow == Menksoft.FINA_LA ||
                     renderedCharBelow == Menksoft.FINA_NA ||
-                    renderedCharBelow == Menksoft.MEDI_NA_FVS2) {
+                    renderedCharBelow == Menksoft.FINA_NA_FVS1) {
                   // make exception for words like CHECHEGM_A
                   renderedWord.add(Menksoft.MEDI_GA_FVS2_STEM); // feminine before consonant stem
                 } else {
@@ -1091,17 +1180,18 @@ class MongolWord {
             }
           }
         }
-
       case Location.FINAL:
         if (_fvs == fvs1) {
-          renderedWord.add(Menksoft.FINA_GA_FVS1); // masculine context override (same as default)
+          renderedWord.add(Menksoft.FINA_GA_FVS1); // masculine
         } else if (_fvs == fvs2) {
           renderedWord.add(Menksoft.FINA_GA_FVS2); // feminine
+        } else if (_fvs == fvs3) {
+          renderedWord.add(Menksoft.FINA_GA_FVS3); // dotted masculine
         } else if (charBelow == Unicode.MVS) {
           renderedWord.add(Menksoft.MEDI_GA_FVS3_MVS); // MVS
         } else {
-          _gender = MongolWord._getWordGenderAboveIndex(positionInWord, _inputWord);
-          if (_gender == Gender.MASCULINE || charAbove == Unicode.ZWJ) {
+          _gender = _getWordGenderAboveIndex(positionInWord, _inputWord);
+          if (_gender == Gender.MASCULINE) {
             renderedWord.add(Menksoft.FINA_GA); // masculine
           } else {
             // Defaulting to feminine form for I
@@ -1766,14 +1856,14 @@ class MongolWord {
   // this starts at the index and works up
   // If there are mixed genders then only the first will be reported
   // (could add a Gender.MIXED form)
-  static Gender _getWordGenderAboveIndex(int index, List<int> word) {
-    for (var i = index - 1; i >= 0; i--) {
-      if (MongolCode.isMasculineVowel(word[i])) {
-        return Gender.MASCULINE;
-      } else if (MongolCode.isFeminineVowel(word[i])) {
-        return Gender.FEMININE;
-      }
-    }
-    return Gender.NEUTER;
-  }
+  // static Gender _getWordGenderAboveIndex(int index, List<int> word) {
+  //   for (var i = index - 1; i >= 0; i--) {
+  //     if (MongolCode.isMasculineVowel(word[i])) {
+  //       return Gender.MASCULINE;
+  //     } else if (MongolCode.isFeminineVowel(word[i])) {
+  //       return Gender.FEMININE;
+  //     }
+  //   }
+  //   return Gender.NEUTER;
+  // }
 }

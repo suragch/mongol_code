@@ -297,30 +297,30 @@ class MongolCode {
         codeUnit == Unicode.UE);
   }
 
-  static bool needsLongToothU(List<int> word, int index) {
-    if (index < 0) return false;
+  // static bool needsLongToothU(List<int> word, int index) {
+  //   if (index < 0) return false;
 
-    if (word[index] != Unicode.OE && word[index] != Unicode.UE) {
-      return false;
-    }
+  //   if (word[index] != Unicode.OE && word[index] != Unicode.UE) {
+  //     return false;
+  //   }
 
-    if (index == 0) return true;
+  //   if (index == 0) return true;
 
-    if (index == 1) {
-      if (isConsonant(word[0])) {
-        throw Exception('fix this');
-        // strange BUU exception
-        return _BUU_EXCEPTION != word;
-      }
-    }
+  //   if (index == 1) {
+  //     if (isConsonant(word[0])) {
+  //       throw Exception('fix this');
+  //       // strange BUU exception
+  //       return _BUU_EXCEPTION != word;
+  //     }
+  //   }
 
-    //noinspection SimplifiableIfStatement
-    if (index == 2) {
-      return isConsonant(word[0]) && MongolCode.isFVS(word[1]);
-    }
+  //   //noinspection SimplifiableIfStatement
+  //   if (index == 2) {
+  //     return isConsonant(word[0]) && MongolCode.isFVS(word[1]);
+  //   }
 
-    return false;
-  }
+  //   return false;
+  // }
 
   // Starts at the end of the word and works up
   // if mixed genders only reports the first one from the bottom
