@@ -5,19 +5,6 @@ import 'menksoft_word.dart';
 import 'mongol_word.dart';
 import 'unicode.dart';
 
-extension StringInsertion on StringBuffer {
-  void insertCharCodeAtStart(int codeUnit) {
-    final end = toString();
-    clear();
-    writeCharCode(codeUnit);
-    write(end);
-  }
-
-  int codeUnitAt(int index) {
-    return toString().codeUnitAt(index);
-  }
-}
-
 /// Mongol Code
 ///
 /// Updated for Unicode 10.0 standards
@@ -95,15 +82,15 @@ class MongolCode {
   String unicodeToMenksoftSameIndex(String inputString) {
     if (inputString.isEmpty) return '';
 
-    final outputString = StringBuffer();
-    final mongolWord = StringBuffer();
+    final outputString = <int>[];
+    final mongolWord = <int>[];
 
     // Loop through characters in string
     final length = inputString.length;
     for (var i = 0; i < length; i++) {
       final codeUnit = inputString.codeUnitAt(i);
       if (isMongolian(codeUnit)) {
-        mongolWord.writeCharCode(codeUnit);
+        mongolWord.add(codeUnit);
         continue;
       }
 
@@ -114,18 +101,18 @@ class MongolCode {
 
       // NNBS starts a new Mongol word but is not itself a Mongol char
       if (codeUnit == Unicode.NNBS) {
-        mongolWord.writeCharCode(Unicode.NNBS);
+        mongolWord.add(Unicode.NNBS);
         continue;
       }
 
       if (_isConvertiblePunctuation(codeUnit)) {
         final menksoftPunctuation = MongolWord.convertPunctuationToMenksoftCode(codeUnit);
-        outputString.writeCharCode(menksoftPunctuation);
+        outputString.add(menksoftPunctuation);
         continue;
       }
 
       // non-Mongol character
-      outputString.writeCharCode(codeUnit);
+      outputString.add(codeUnit);
     }
 
     // Add any final substring
@@ -134,9 +121,9 @@ class MongolCode {
     return outputString.toString();
   }
 
-  void _appendMongolWord(StringBuffer outputString, StringBuffer mongolWord) {
-    final renderedWord = MongolWord(mongolWord.toString()).convertToMenksoftCode();
-    outputString.write(renderedWord);
+  void _appendMongolWord(List<int> outputString, List<int> mongolWord) {
+    final renderedWord = MongolWord(mongolWord).convertToMenksoftCode();
+    outputString.addAll(renderedWord);
   }
 
   String menksoftToUnicode(String inputString) {
@@ -310,25 +297,26 @@ class MongolCode {
         codeUnit == Unicode.UE);
   }
 
-  static bool needsLongToothU(String word, int uIndex) {
-    if (uIndex < 0) return false;
+  static bool needsLongToothU(List<int> word, int index) {
+    if (index < 0) return false;
 
-    if (word.codeUnitAt(uIndex) != Unicode.OE && word.codeUnitAt(uIndex) != Unicode.UE) {
+    if (word[index] != Unicode.OE && word[index] != Unicode.UE) {
       return false;
     }
 
-    if (uIndex == 0) return true;
+    if (index == 0) return true;
 
-    if (uIndex == 1) {
-      if (isConsonant(word.codeUnitAt(0))) {
+    if (index == 1) {
+      if (isConsonant(word[0])) {
+        throw Exception('fix this');
         // strange BUU exception
         return _BUU_EXCEPTION != word;
       }
     }
 
     //noinspection SimplifiableIfStatement
-    if (uIndex == 2) {
-      return isConsonant(word.codeUnitAt(0)) && MongolCode.isFVS(word.codeUnitAt(1));
+    if (index == 2) {
+      return isConsonant(word[0]) && MongolCode.isFVS(word[1]);
     }
 
     return false;
@@ -337,7 +325,7 @@ class MongolCode {
   // Starts at the end of the word and works up
   // if mixed genders only reports the first one from the bottom
   // returns null if word does not end in a valid Mongolian character
-  static Gender? getWordGender(String word) {
+  static Gender? getWordGender(List<int> word) {
     return MongolWord.getGender(word);
   }
 }
