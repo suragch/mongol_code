@@ -1205,27 +1205,25 @@ class MongolWord {
   void _handleMA(List<int> renderedWord, int positionInWord, int charAbove, int charBelow) {
     switch (_location) {
       case Location.ISOLATE:
-        renderedWord.add(Menksoft.ISOL_MA); // normal
-
+        renderedWord.add(Menksoft.ISOL_MA);
       case Location.INITIAL:
         if (_glyphShapeBelow == Shape.STEM) {
-          renderedWord.add(Menksoft.INIT_MA_STEM_LONG); // stem
+          renderedWord.add(Menksoft.INIT_MA_STEM_LONG);
         } else {
-          renderedWord.add(Menksoft.INIT_MA_TOOTH); // tooth
+          renderedWord.add(Menksoft.INIT_MA_TOOTH);
         }
-
       case Location.MEDIAL:
         if (_isRoundLetter(charAbove) || charAbove == Unicode.ANG) {
           renderedWord.add(Menksoft.MEDI_MA_BP); // tail extended for round letter
         } else if (charAbove == Unicode.GA) {
           if (_gender == Gender.NEUTER) {
-            _gender = MongolWord._getWordGenderAboveIndex(positionInWord, _inputWord);
+            _gender = _getWordGenderAboveIndex(positionInWord, _inputWord);
           }
           if (_gender != Gender.MASCULINE ||
               // feminine G when between consonants
               (positionInWord > 1 &&
-                  (MongolCode.isConsonant(_inputWord.codeUnitAt(positionInWord - 2)) ||
-                      _inputWord.codeUnitAt(positionInWord - 2) == Unicode.ZWJ))) {
+                  (MongolCode.isConsonant(_inputWord[positionInWord - 2]) ||
+                      _inputWord[positionInWord - 2] == Unicode.MONGOLIAN_NIRUGU))) {
             renderedWord.add(Menksoft.MEDI_MA_BP); // tail extended for round letter
           } else {
             renderedWord.add(Menksoft.MEDI_MA_TOOTH); // tooth
@@ -1240,9 +1238,8 @@ class MongolWord {
           renderedWord.add(Menksoft.MEDI_MA_TOOTH); // tooth
         }
         _glyphShapeBelow = Shape.TOOTH;
-
       case Location.FINAL:
-        renderedWord.add(Menksoft.FINA_MA); // normal
+        renderedWord.add(Menksoft.FINA_MA);
         _glyphShapeBelow = Shape.STEM;
     }
   }
@@ -1250,44 +1247,41 @@ class MongolWord {
   void _handleLA(List<int> renderedWord, int positionInWord, int charAbove, int charBelow) {
     switch (_location) {
       case Location.ISOLATE:
-        renderedWord.add(Menksoft.ISOL_LA); // normal
-
+        renderedWord.add(Menksoft.ISOL_LA);
       case Location.INITIAL:
         if (_glyphShapeBelow == Shape.STEM) {
-          renderedWord.add(Menksoft.INIT_LA_STEM_LONG); // stem
+          renderedWord.add(Menksoft.INIT_LA_STEM_LONG);
         } else {
-          renderedWord.add(Menksoft.INIT_LA_TOOTH); // tooth
+          renderedWord.add(Menksoft.INIT_LA_TOOTH);
         }
-
       case Location.MEDIAL:
         if (_isRoundLetter(charAbove) || charAbove == Unicode.ANG) {
           renderedWord.add(Menksoft.MEDI_LA_BP); // tail extended for round letter
         } else if (charAbove == Unicode.GA) {
           if (_gender == Gender.NEUTER) {
-            _gender = MongolWord._getWordGenderAboveIndex(positionInWord, _inputWord);
+            _gender = _getWordGenderAboveIndex(positionInWord, _inputWord);
           }
           if (_gender != Gender.MASCULINE ||
               // feminine G when between consonants
               (positionInWord > 1 &&
                   (MongolCode.isConsonant(_inputWord[positionInWord - 2]) ||
-                      _inputWord[positionInWord - 2] == Unicode.ZWJ))) {
+                      _inputWord[positionInWord - 2] == Unicode.MONGOLIAN_NIRUGU))) {
             renderedWord.add(Menksoft.MEDI_LA_BP); // tail extended for round letter
           } else {
-            renderedWord.add(Menksoft.MEDI_LA_TOOTH); // tooth
+            renderedWord.add(Menksoft.MEDI_LA_TOOTH);
           }
         } else if (_glyphShapeBelow != Shape.TOOTH ||
             // use the longer stem if M/L is below
             charBelow == Unicode.MA ||
             charBelow == Unicode.LA ||
             charBelow == Unicode.LHA) {
-          renderedWord.add(Menksoft.MEDI_LA_STEM_LONG); // stem
+          renderedWord.add(Menksoft.MEDI_LA_STEM_LONG);
         } else {
-          renderedWord.add(Menksoft.MEDI_LA_TOOTH); // tooth
+          renderedWord.add(Menksoft.MEDI_LA_TOOTH);
         }
         _glyphShapeBelow = Shape.TOOTH;
-
       case Location.FINAL:
-        renderedWord.add(Menksoft.FINA_LA); // normal
+        renderedWord.add(Menksoft.FINA_LA);
         _glyphShapeBelow = Shape.STEM;
     }
   }
@@ -1295,32 +1289,27 @@ class MongolWord {
   void _handleSA(List<int> renderedWord) {
     switch (_location) {
       case Location.ISOLATE:
-        renderedWord.add(Menksoft.ISOL_SA); // normal
-
+        renderedWord.add(Menksoft.ISOL_SA);
       case Location.INITIAL:
         if (_glyphShapeBelow == Shape.STEM) {
-          renderedWord.add(Menksoft.INIT_SA_STEM); // stem
+          renderedWord.add(Menksoft.INIT_SA_STEM);
         } else {
-          renderedWord.add(Menksoft.INIT_SA_TOOTH); // tooth
+          renderedWord.add(Menksoft.INIT_SA_TOOTH);
         }
-
       case Location.MEDIAL:
         if (_glyphShapeBelow == Shape.STEM) {
-          renderedWord.add(Menksoft.MEDI_SA_STEM); // stem
+          renderedWord.add(Menksoft.MEDI_SA_STEM);
         } else {
-          renderedWord.add(Menksoft.MEDI_SA_TOOTH); // tooth
+          renderedWord.add(Menksoft.MEDI_SA_TOOTH);
         }
         _glyphShapeBelow = Shape.TOOTH;
-
       case Location.FINAL:
-        _glyphShapeBelow = Shape.TOOTH;
         if (_fvs == fvs1) {
           renderedWord.add(Menksoft.FINA_SA_FVS1); // short tail
           _glyphShapeBelow = Shape.STEM;
-        } else if (_fvs == fvs2) {
-          renderedWord.add(Menksoft.FINA_SA_FVS2); // (missing glyph)
         } else {
-          renderedWord.add(Menksoft.FINA_SA); // normal
+          renderedWord.add(Menksoft.FINA_SA);
+          _glyphShapeBelow = Shape.TOOTH;
         }
     }
   }
@@ -1328,24 +1317,42 @@ class MongolWord {
   void _handleSHA(List<int> renderedWord) {
     switch (_location) {
       case Location.ISOLATE:
-        renderedWord.add(Menksoft.ISOL_SHA); // normal
-
-      case Location.INITIAL:
-        if (_glyphShapeBelow == Shape.STEM) {
-          renderedWord.add(Menksoft.INIT_SHA_STEM); // stem
+        if (_fvs == fvs1) {
+          renderedWord.add(Menksoft.ISOL_SHA_FVS1);
         } else {
-          renderedWord.add(Menksoft.INIT_SHA_TOOTH); // tooth
+          renderedWord.add(Menksoft.ISOL_SHA);
         }
-
-      case Location.MEDIAL:
-        if (_glyphShapeBelow == Shape.STEM) {
-          renderedWord.add(Menksoft.MEDI_SHA_STEM); // stem
+      case Location.INITIAL:
+        if (_fvs == fvs1) {
+          if (_glyphShapeBelow == Shape.STEM) {
+            renderedWord.add(Menksoft.INIT_SHA_FVS1_STEM);
+          } else {
+            renderedWord.add(Menksoft.INIT_SHA_FVS1_TOOTH);
+          }
         } else {
-          renderedWord.add(Menksoft.MEDI_SHA_TOOTH); // tooth
+          if (_glyphShapeBelow == Shape.STEM) {
+            renderedWord.add(Menksoft.INIT_SHA_STEM);
+          } else {
+            renderedWord.add(Menksoft.INIT_SHA_TOOTH);
+          }
+        }
+      case Location.MEDIAL:
+        if (_fvs == fvs1) {
+          if (_glyphShapeBelow == Shape.STEM) {
+            renderedWord.add(Menksoft.MEDI_SHA_FVS1_STEM);
+          } else {
+            renderedWord.add(Menksoft.MEDI_SHA_FVS1_TOOTH);
+          }
+        } else {
+          if (_glyphShapeBelow == Shape.STEM) {
+            renderedWord.add(Menksoft.MEDI_SHA_STEM);
+          } else {
+            renderedWord.add(Menksoft.MEDI_SHA_TOOTH);
+          }
         }
 
       case Location.FINAL:
-        renderedWord.add(Menksoft.FINA_SHA); // normal
+        renderedWord.add(Menksoft.FINA_SHA);
     }
     _glyphShapeBelow = Shape.TOOTH;
   }
