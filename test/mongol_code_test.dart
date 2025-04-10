@@ -13,13 +13,6 @@ String convertToUnicodeAndBackAgain(String menksoft) {
   return converter.unicodeToMenksoft(unicode);
 }
 
-void printResult(String actual, String expected) {
-  print(
-    'actual: ${actual.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}'
-    'expected: ${expected.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}',
-  );
-}
-
 void main() {
   group('Unicode -> Menksoft: non-Mongol strings', () {
     test('empty string', () async {
@@ -61,3929 +54,6 @@ void main() {
       final unicode = '\uE2F2\uE291\uE2BC\uE2EC\uE291\uE2F9';
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2F2\uE291\uE2BC\uE2EC\uE291\uE2F9';
-      expect(result, expected);
-    });
-  });
-
-  group('Unicode -> Menksoft: all combinations of Unicode+FVS', () {
-    test('aIsol', () async {
-      final unicode = String.fromCharCode(Unicode.A);
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = String.fromCharCode(Menksoft.ISOL_A);
-      expect(result, expected);
-    });
-
-    test('aInit', () async {
-      final unicode = String.fromCharCodes([Unicode.A, Unicode.MONGOLIAN_NIRUGU]);
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = String.fromCharCode(Menksoft.INIT_A);
-      expect(result, expected);
-    });
-
-    test('aMedi', () async {
-      final unicode = '᠊ᠠ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      // printResult(result, expected);
-      expect(result, expected);
-    });
-
-    test('aFina', () async {
-      final unicode = '᠊ᠠ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('aIsolFvs1', () async {
-      final unicode = 'ᠠ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('aInitFvs1', () async {
-      final unicode = 'ᠠ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('aMediFvs1', () async {
-      final unicode = '᠊ᠠ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('aFinaFvs1', () async {
-      final unicode = '᠊ᠠ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('aIsolFvs2', () async {
-      final unicode = 'ᠠ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('aInitFvs2', () async {
-      final unicode = 'ᠠ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('aMediFvs2', () async {
-      final unicode = '᠊ᠠ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('aFinaFvs2', () async {
-      final unicode = '᠊ᠠ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('aIsolFvs3', () async {
-      final unicode = 'ᠠ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('aInitFvs3', () async {
-      final unicode = 'ᠠ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('aMediFvs3', () async {
-      final unicode = '᠊ᠠ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('aFinaFvs3', () async {
-      final unicode = '᠊ᠠ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eIsol', () async {
-      final unicode = 'ᠡ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eInit', () async {
-      final unicode = 'ᠡ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eMedi', () async {
-      final unicode = '᠊ᠡ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eFina', () async {
-      final unicode = '᠊ᠡ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eIsolFvs1', () async {
-      final unicode = 'ᠡ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eInitFvs1', () async {
-      final unicode = 'ᠡ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eMediFvs1', () async {
-      final unicode = '᠊ᠡ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eFinaFvs1', () async {
-      final unicode = '᠊ᠡ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eIsolFvs2', () async {
-      final unicode = 'ᠡ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eInitFvs2', () async {
-      final unicode = 'ᠡ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eMediFvs2', () async {
-      final unicode = '᠊ᠡ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eFinaFvs2', () async {
-      final unicode = '᠊ᠡ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eIsolFvs3', () async {
-      final unicode = 'ᠡ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eInitFvs3', () async {
-      final unicode = 'ᠡ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eMediFvs3', () async {
-      final unicode = '᠊ᠡ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eFinaFvs3', () async {
-      final unicode = '᠊ᠡ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('iIsol', () async {
-      final unicode = 'ᠢ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('iInit', () async {
-      final unicode = 'ᠢ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('iMedi', () async {
-      final unicode = '᠊ᠢ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('iFina', () async {
-      final unicode = '᠊ᠢ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('iIsolFvs1', () async {
-      final unicode = 'ᠢ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('iInitFvs1', () async {
-      final unicode = 'ᠢ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('iMediFvs1', () async {
-      final unicode = '᠊ᠢ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('iFinaFvs1', () async {
-      final unicode = '᠊ᠢ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('iIsolFvs2', () async {
-      final unicode = 'ᠢ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('iInitFvs2', () async {
-      final unicode = 'ᠢ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('iMediFvs2', () async {
-      final unicode = '᠊ᠢ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('iFinaFvs2', () async {
-      final unicode = '᠊ᠢ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('iIsolFvs3', () async {
-      final unicode = 'ᠢ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('iInitFvs3', () async {
-      final unicode = 'ᠢ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('iMediFvs3', () async {
-      final unicode = '᠊ᠢ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('iFinaFvs3', () async {
-      final unicode = '᠊ᠢ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oIsol', () async {
-      final unicode = 'ᠣ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oInit', () async {
-      final unicode = 'ᠣ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oMedi', () async {
-      final unicode = '᠊ᠣ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oFina', () async {
-      final unicode = '᠊ᠣ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oIsolFvs1', () async {
-      final unicode = 'ᠣ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oInitFvs1', () async {
-      final unicode = 'ᠣ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oMediFvs1', () async {
-      final unicode = '᠊ᠣ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oFinaFvs1', () async {
-      final unicode = '᠊ᠣ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oIsolFvs2', () async {
-      final unicode = 'ᠣ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oInitFvs2', () async {
-      final unicode = 'ᠣ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oMediFvs2', () async {
-      final unicode = '᠊ᠣ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oFinaFvs2', () async {
-      final unicode = '᠊ᠣ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oIsolFvs3', () async {
-      final unicode = 'ᠣ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oInitFvs3', () async {
-      final unicode = 'ᠣ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oMediFvs3', () async {
-      final unicode = '᠊ᠣ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oFinaFvs3', () async {
-      final unicode = '᠊ᠣ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('uIsol', () async {
-      final unicode = 'ᠤ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('uInit', () async {
-      final unicode = 'ᠤ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('uMedi', () async {
-      final unicode = '᠊ᠤ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('uFina', () async {
-      final unicode = '᠊ᠤ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('uIsolFvs1', () async {
-      final unicode = 'ᠤ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('uInitFvs1', () async {
-      final unicode = 'ᠤ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('uMediFvs1', () async {
-      final unicode = '᠊ᠤ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('uFinaFvs1', () async {
-      final unicode = '᠊ᠤ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('uIsolFvs2', () async {
-      final unicode = 'ᠤ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('uInitFvs2', () async {
-      final unicode = 'ᠤ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('uMediFvs2', () async {
-      final unicode = '᠊ᠤ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('uFinaFvs2', () async {
-      final unicode = '᠊ᠤ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('uIsolFvs3', () async {
-      final unicode = 'ᠤ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('uInitFvs3', () async {
-      final unicode = 'ᠤ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('uMediFvs3', () async {
-      final unicode = '᠊ᠤ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('uFinaFvs3', () async {
-      final unicode = '᠊ᠤ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oeIsol', () async {
-      final unicode = 'ᠥ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oeInit', () async {
-      final unicode = 'ᠥ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oeMedi', () async {
-      final unicode = '᠊ᠥ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oeFina', () async {
-      final unicode = '᠊ᠥ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oeIsolFvs1', () async {
-      final unicode = 'ᠥ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oeInitFvs1', () async {
-      final unicode = 'ᠥ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oeMediFvs1', () async {
-      final unicode = '᠊ᠥ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oeFinaFvs1', () async {
-      final unicode = '᠊ᠥ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oeIsolFvs2', () async {
-      final unicode = 'ᠥ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oeInitFvs2', () async {
-      final unicode = 'ᠥ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oeMediFvs2', () async {
-      final unicode = '᠊ᠥ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oeFinaFvs2', () async {
-      final unicode = '᠊ᠥ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oeIsolFvs3', () async {
-      final unicode = 'ᠥ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oeInitFvs3', () async {
-      final unicode = 'ᠥ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oeMediFvs3', () async {
-      final unicode = '᠊ᠥ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('oeFinaFvs3', () async {
-      final unicode = '᠊ᠥ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ueIsol', () async {
-      final unicode = 'ᠦ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ueInit', () async {
-      final unicode = 'ᠦ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ueMedi', () async {
-      final unicode = '᠊ᠦ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ueFina', () async {
-      final unicode = '᠊ᠦ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ueIsolFvs1', () async {
-      final unicode = 'ᠦ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ueInitFvs1', () async {
-      final unicode = 'ᠦ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ueMediFvs1', () async {
-      final unicode = '᠊ᠦ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ueFinaFvs1', () async {
-      final unicode = '᠊ᠦ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ueIsolFvs2', () async {
-      final unicode = 'ᠦ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ueInitFvs2', () async {
-      final unicode = 'ᠦ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ueMediFvs2', () async {
-      final unicode = '᠊ᠦ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ueFinaFvs2', () async {
-      final unicode = '᠊ᠦ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ueIsolFvs3', () async {
-      final unicode = 'ᠦ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ueInitFvs3', () async {
-      final unicode = 'ᠦ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ueMediFvs3', () async {
-      final unicode = '᠊ᠦ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ueFinaFvs3', () async {
-      final unicode = '᠊ᠦ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eeIsol', () async {
-      final unicode = 'ᠧ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eeInit', () async {
-      final unicode = 'ᠧ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eeMedi', () async {
-      final unicode = '᠊ᠧ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eeFina', () async {
-      final unicode = '᠊ᠧ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eeIsolFvs1', () async {
-      final unicode = 'ᠧ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eeInitFvs1', () async {
-      final unicode = 'ᠧ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eeMediFvs1', () async {
-      final unicode = '᠊ᠧ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eeFinaFvs1', () async {
-      final unicode = '᠊ᠧ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eeIsolFvs2', () async {
-      final unicode = 'ᠧ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eeInitFvs2', () async {
-      final unicode = 'ᠧ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eeMediFvs2', () async {
-      final unicode = '᠊ᠧ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eeFinaFvs2', () async {
-      final unicode = '᠊ᠧ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eeIsolFvs3', () async {
-      final unicode = 'ᠧ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eeInitFvs3', () async {
-      final unicode = 'ᠧ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eeMediFvs3', () async {
-      final unicode = '᠊ᠧ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('eeFinaFvs3', () async {
-      final unicode = '᠊ᠧ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('nIsol', () async {
-      final unicode = 'ᠨ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('nInit', () async {
-      final unicode = 'ᠨ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('nMedi', () async {
-      final unicode = '᠊ᠨ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('nFina', () async {
-      final unicode = '᠊ᠨ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('nIsolFvs1', () async {
-      final unicode = 'ᠨ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('nInitFvs1', () async {
-      final unicode = 'ᠨ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('nMediFvs1', () async {
-      final unicode = '᠊ᠨ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('nFinaFvs1', () async {
-      final unicode = '᠊ᠨ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('nIsolFvs2', () async {
-      final unicode = 'ᠨ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('nInitFvs2', () async {
-      final unicode = 'ᠨ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('nMediFvs2', () async {
-      final unicode = '᠊ᠨ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('nFinaFvs2', () async {
-      final unicode = '᠊ᠨ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('nIsolFvs3', () async {
-      final unicode = 'ᠨ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('nInitFvs3', () async {
-      final unicode = 'ᠨ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('nMediFvs3', () async {
-      final unicode = '᠊ᠨ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('nFinaFvs3', () async {
-      final unicode = '᠊ᠨ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ngIsol', () async {
-      final unicode = 'ᠩ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ngInit', () async {
-      final unicode = 'ᠩ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ngMedi', () async {
-      final unicode = '᠊ᠩ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ngFina', () async {
-      final unicode = '᠊ᠩ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ngIsolFvs1', () async {
-      final unicode = 'ᠩ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ngInitFvs1', () async {
-      final unicode = 'ᠩ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ngMediFvs1', () async {
-      final unicode = '᠊ᠩ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ngFinaFvs1', () async {
-      final unicode = '᠊ᠩ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ngIsolFvs2', () async {
-      final unicode = 'ᠩ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ngInitFvs2', () async {
-      final unicode = 'ᠩ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ngMediFvs2', () async {
-      final unicode = '᠊ᠩ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ngFinaFvs2', () async {
-      final unicode = '᠊ᠩ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ngIsolFvs3', () async {
-      final unicode = 'ᠩ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ngInitFvs3', () async {
-      final unicode = 'ᠩ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ngMediFvs3', () async {
-      final unicode = '᠊ᠩ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('ngFinaFvs3', () async {
-      final unicode = '᠊ᠩ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('bIsol', () async {
-      final unicode = 'ᠪ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('bInit', () async {
-      final unicode = 'ᠪ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('bMedi', () async {
-      final unicode = '᠊ᠪ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('bFina', () async {
-      final unicode = '᠊ᠪ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('bIsolFvs1', () async {
-      final unicode = 'ᠪ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('bInitFvs1', () async {
-      final unicode = 'ᠪ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('bMediFvs1', () async {
-      final unicode = '᠊ᠪ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('bFinaFvs1', () async {
-      final unicode = '᠊ᠪ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('bIsolFvs2', () async {
-      final unicode = 'ᠪ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('bInitFvs2', () async {
-      final unicode = 'ᠪ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('bMediFvs2', () async {
-      final unicode = '᠊ᠪ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('bFinaFvs2', () async {
-      final unicode = '᠊ᠪ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('bIsolFvs3', () async {
-      final unicode = 'ᠪ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('bInitFvs3', () async {
-      final unicode = 'ᠪ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('bMediFvs3', () async {
-      final unicode = '᠊ᠪ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('bFinaFvs3', () async {
-      final unicode = '᠊ᠪ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('pIsol', () async {
-      final unicode = 'ᠫ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('pInit', () async {
-      final unicode = 'ᠫ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('pMedi', () async {
-      final unicode = '᠊ᠫ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('pFina', () async {
-      final unicode = '᠊ᠫ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('pIsolFvs1', () async {
-      final unicode = 'ᠫ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('pInitFvs1', () async {
-      final unicode = 'ᠫ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('pMediFvs1', () async {
-      final unicode = '᠊ᠫ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('pFinaFvs1', () async {
-      final unicode = '᠊ᠫ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('pIsolFvs2', () async {
-      final unicode = 'ᠫ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('pInitFvs2', () async {
-      final unicode = 'ᠫ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('pMediFvs2', () async {
-      final unicode = '᠊ᠫ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('pFinaFvs2', () async {
-      final unicode = '᠊ᠫ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('pIsolFvs3', () async {
-      final unicode = 'ᠫ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('pInitFvs3', () async {
-      final unicode = 'ᠫ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('pMediFvs3', () async {
-      final unicode = '᠊ᠫ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('pFinaFvs3', () async {
-      final unicode = '᠊ᠫ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('qIsol', () async {
-      final unicode = 'ᠬ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('qInit', () async {
-      final unicode = 'ᠬ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('qMedi', () async {
-      final unicode = '᠊ᠬ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('qFina', () async {
-      final unicode = '᠊ᠬ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('qIsolFvs1', () async {
-      final unicode = 'ᠬ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('qInitFvs1', () async {
-      final unicode = 'ᠬ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('qMediFvs1', () async {
-      final unicode = '᠊ᠬ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('qFinaFvs1', () async {
-      final unicode = '᠊ᠬ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('qIsolFvs2', () async {
-      final unicode = 'ᠬ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('qInitFvs2', () async {
-      final unicode = 'ᠬ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('qMediFvs2', () async {
-      final unicode = '᠊ᠬ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('qFinaFvs2', () async {
-      final unicode = '᠊ᠬ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('qIsolFvs3', () async {
-      final unicode = 'ᠬ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('qInitFvs3', () async {
-      final unicode = 'ᠬ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('qMediFvs3', () async {
-      final unicode = '᠊ᠬ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('qFinaFvs3', () async {
-      final unicode = '᠊ᠬ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('gIsol', () async {
-      final unicode = 'ᠭ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('gInit', () async {
-      final unicode = 'ᠭ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('gMedi', () async {
-      final unicode = '᠊ᠭ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('gFina', () async {
-      final unicode = '᠊ᠭ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('gIsolFvs1', () async {
-      final unicode = 'ᠭ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('gInitFvs1', () async {
-      final unicode = 'ᠭ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('gMediFvs1', () async {
-      final unicode = '᠊ᠭ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('gFinaFvs1', () async {
-      final unicode = '᠊ᠭ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('gIsolFvs2', () async {
-      final unicode = 'ᠭ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('gInitFvs2', () async {
-      final unicode = 'ᠭ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('gMediFvs2', () async {
-      final unicode = '᠊ᠭ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('gFinaFvs2', () async {
-      final unicode = '᠊ᠭ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('gIsolFvs3', () async {
-      final unicode = 'ᠭ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('gInitFvs3', () async {
-      final unicode = 'ᠭ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('gMediFvs3', () async {
-      final unicode = '᠊ᠭ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('gFinaFvs3', () async {
-      final unicode = '᠊ᠭ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('mIsol', () async {
-      final unicode = 'ᠮ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('mInit', () async {
-      final unicode = 'ᠮ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('mMedi', () async {
-      final unicode = '᠊ᠮ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('mFina', () async {
-      final unicode = '᠊ᠮ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('mIsolFvs1', () async {
-      final unicode = 'ᠮ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('mInitFvs1', () async {
-      final unicode = 'ᠮ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('mMediFvs1', () async {
-      final unicode = '᠊ᠮ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('mFinaFvs1', () async {
-      final unicode = '᠊ᠮ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('mIsolFvs2', () async {
-      final unicode = 'ᠮ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('mInitFvs2', () async {
-      final unicode = 'ᠮ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('mMediFvs2', () async {
-      final unicode = '᠊ᠮ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('mFinaFvs2', () async {
-      final unicode = '᠊ᠮ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('mIsolFvs3', () async {
-      final unicode = 'ᠮ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('mInitFvs3', () async {
-      final unicode = 'ᠮ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('mMediFvs3', () async {
-      final unicode = '᠊ᠮ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('mFinaFvs3', () async {
-      final unicode = '᠊ᠮ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lIsol', () async {
-      final unicode = 'ᠯ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lInit', () async {
-      final unicode = 'ᠯ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lMedi', () async {
-      final unicode = '᠊ᠯ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lFina', () async {
-      final unicode = '᠊ᠯ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lIsolFvs1', () async {
-      final unicode = 'ᠯ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lInitFvs1', () async {
-      final unicode = 'ᠯ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lMediFvs1', () async {
-      final unicode = '᠊ᠯ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lFinaFvs1', () async {
-      final unicode = '᠊ᠯ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lIsolFvs2', () async {
-      final unicode = 'ᠯ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lInitFvs2', () async {
-      final unicode = 'ᠯ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lMediFvs2', () async {
-      final unicode = '᠊ᠯ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lFinaFvs2', () async {
-      final unicode = '᠊ᠯ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lIsolFvs3', () async {
-      final unicode = 'ᠯ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lInitFvs3', () async {
-      final unicode = 'ᠯ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lMediFvs3', () async {
-      final unicode = '᠊ᠯ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lFinaFvs3', () async {
-      final unicode = '᠊ᠯ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('sIsol', () async {
-      final unicode = 'ᠰ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('sInit', () async {
-      final unicode = 'ᠰ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('sMedi', () async {
-      final unicode = '᠊ᠰ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('sFina', () async {
-      final unicode = '᠊ᠰ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('sIsolFvs1', () async {
-      final unicode = 'ᠰ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('sInitFvs1', () async {
-      final unicode = 'ᠰ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('sMediFvs1', () async {
-      final unicode = '᠊ᠰ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('sFinaFvs1', () async {
-      final unicode = '᠊ᠰ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('sIsolFvs2', () async {
-      final unicode = 'ᠰ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('sInitFvs2', () async {
-      final unicode = 'ᠰ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('sMediFvs2', () async {
-      final unicode = '᠊ᠰ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('sFinaFvs2', () async {
-      final unicode = '᠊ᠰ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('sIsolFvs3', () async {
-      final unicode = 'ᠰ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('sInitFvs3', () async {
-      final unicode = 'ᠰ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('sMediFvs3', () async {
-      final unicode = '᠊ᠰ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('sFinaFvs3', () async {
-      final unicode = '᠊ᠰ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('shIsol', () async {
-      final unicode = 'ᠱ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('shInit', () async {
-      final unicode = 'ᠱ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('shMedi', () async {
-      final unicode = '᠊ᠱ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('shFina', () async {
-      final unicode = '᠊ᠱ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('shIsolFvs1', () async {
-      final unicode = 'ᠱ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('shInitFvs1', () async {
-      final unicode = 'ᠱ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('shMediFvs1', () async {
-      final unicode = '᠊ᠱ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('shFinaFvs1', () async {
-      final unicode = '᠊ᠱ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('shIsolFvs2', () async {
-      final unicode = 'ᠱ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('shInitFvs2', () async {
-      final unicode = 'ᠱ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('shMediFvs2', () async {
-      final unicode = '᠊ᠱ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('shFinaFvs2', () async {
-      final unicode = '᠊ᠱ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('shIsolFvs3', () async {
-      final unicode = 'ᠱ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('shInitFvs3', () async {
-      final unicode = 'ᠱ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('shMediFvs3', () async {
-      final unicode = '᠊ᠱ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('shFinaFvs3', () async {
-      final unicode = '᠊ᠱ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tIsol', () async {
-      final unicode = 'ᠲ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tInit', () async {
-      final unicode = 'ᠲ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tMedi', () async {
-      final unicode = '᠊ᠲ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tFina', () async {
-      final unicode = '᠊ᠲ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tIsolFvs1', () async {
-      final unicode = 'ᠲ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tInitFvs1', () async {
-      final unicode = 'ᠲ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tMediFvs1', () async {
-      final unicode = '᠊ᠲ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tFinaFvs1', () async {
-      final unicode = '᠊ᠲ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tIsolFvs2', () async {
-      final unicode = 'ᠲ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tInitFvs2', () async {
-      final unicode = 'ᠲ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tMediFvs2', () async {
-      final unicode = '᠊ᠲ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tFinaFvs2', () async {
-      final unicode = '᠊ᠲ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tIsolFvs3', () async {
-      final unicode = 'ᠲ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tInitFvs3', () async {
-      final unicode = 'ᠲ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tMediFvs3', () async {
-      final unicode = '᠊ᠲ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tFinaFvs3', () async {
-      final unicode = '᠊ᠲ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('dIsol', () async {
-      final unicode = 'ᠳ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('dInit', () async {
-      final unicode = 'ᠳ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('dMedi', () async {
-      final unicode = '᠊ᠳ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('dFina', () async {
-      final unicode = '᠊ᠳ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('dIsolFvs1', () async {
-      final unicode = 'ᠳ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('dInitFvs1', () async {
-      final unicode = 'ᠳ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('dMediFvs1', () async {
-      final unicode = '᠊ᠳ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('dFinaFvs1', () async {
-      final unicode = '᠊ᠳ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('dIsolFvs2', () async {
-      final unicode = 'ᠳ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('dInitFvs2', () async {
-      final unicode = 'ᠳ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('dMediFvs2', () async {
-      final unicode = '᠊ᠳ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('dFinaFvs2', () async {
-      final unicode = '᠊ᠳ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('dIsolFvs3', () async {
-      final unicode = 'ᠳ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('dInitFvs3', () async {
-      final unicode = 'ᠳ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('dMediFvs3', () async {
-      final unicode = '᠊ᠳ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('dFinaFvs3', () async {
-      final unicode = '᠊ᠳ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chIsol', () async {
-      final unicode = 'ᠴ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chInit', () async {
-      final unicode = 'ᠴ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chMedi', () async {
-      final unicode = '᠊ᠴ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chFina', () async {
-      final unicode = '᠊ᠴ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chIsolFvs1', () async {
-      final unicode = 'ᠴ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chInitFvs1', () async {
-      final unicode = 'ᠴ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chMediFvs1', () async {
-      final unicode = '᠊ᠴ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chFinaFvs1', () async {
-      final unicode = '᠊ᠴ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chIsolFvs2', () async {
-      final unicode = 'ᠴ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chInitFvs2', () async {
-      final unicode = 'ᠴ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chMediFvs2', () async {
-      final unicode = '᠊ᠴ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chFinaFvs2', () async {
-      final unicode = '᠊ᠴ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chIsolFvs3', () async {
-      final unicode = 'ᠴ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chInitFvs3', () async {
-      final unicode = 'ᠴ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chMediFvs3', () async {
-      final unicode = '᠊ᠴ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chFinaFvs3', () async {
-      final unicode = '᠊ᠴ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('jIsol', () async {
-      final unicode = 'ᠵ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('jInit', () async {
-      final unicode = 'ᠵ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('jMedi', () async {
-      final unicode = '᠊ᠵ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('jFina', () async {
-      final unicode = '᠊ᠵ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('jIsolFvs1', () async {
-      final unicode = 'ᠵ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('jInitFvs1', () async {
-      final unicode = 'ᠵ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('jMediFvs1', () async {
-      final unicode = '᠊ᠵ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('jFinaFvs1', () async {
-      final unicode = '᠊ᠵ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('jIsolFvs2', () async {
-      final unicode = 'ᠵ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('jInitFvs2', () async {
-      final unicode = 'ᠵ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('jMediFvs2', () async {
-      final unicode = '᠊ᠵ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('jFinaFvs2', () async {
-      final unicode = '᠊ᠵ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('jIsolFvs3', () async {
-      final unicode = 'ᠵ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('jInitFvs3', () async {
-      final unicode = 'ᠵ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('jMediFvs3', () async {
-      final unicode = '᠊ᠵ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('jFinaFvs3', () async {
-      final unicode = '᠊ᠵ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('yIsol', () async {
-      final unicode = 'ᠶ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('yInit', () async {
-      final unicode = 'ᠶ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('yMedi', () async {
-      final unicode = '᠊ᠶ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('yFina', () async {
-      final unicode = '᠊ᠶ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('yIsolFvs1', () async {
-      final unicode = 'ᠶ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('yInitFvs1', () async {
-      final unicode = 'ᠶ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('yMediFvs1', () async {
-      final unicode = '᠊ᠶ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('yFinaFvs1', () async {
-      final unicode = '᠊ᠶ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('yIsolFvs2', () async {
-      final unicode = 'ᠶ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('yInitFvs2', () async {
-      final unicode = 'ᠶ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('yMediFvs2', () async {
-      final unicode = '᠊ᠶ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('yFinaFvs2', () async {
-      final unicode = '᠊ᠶ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('yIsolFvs3', () async {
-      final unicode = 'ᠶ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('yInitFvs3', () async {
-      final unicode = 'ᠶ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('yMediFvs3', () async {
-      final unicode = '᠊ᠶ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('yFinaFvs3', () async {
-      final unicode = '᠊ᠶ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('rIsol', () async {
-      final unicode = 'ᠷ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('rInit', () async {
-      final unicode = 'ᠷ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('rMedi', () async {
-      final unicode = '᠊ᠷ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('rFina', () async {
-      final unicode = '᠊ᠷ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('rIsolFvs1', () async {
-      final unicode = 'ᠷ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('rInitFvs1', () async {
-      final unicode = 'ᠷ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('rMediFvs1', () async {
-      final unicode = '᠊ᠷ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('rFinaFvs1', () async {
-      final unicode = '᠊ᠷ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('rIsolFvs2', () async {
-      final unicode = 'ᠷ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('rInitFvs2', () async {
-      final unicode = 'ᠷ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('rMediFvs2', () async {
-      final unicode = '᠊ᠷ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('rFinaFvs2', () async {
-      final unicode = '᠊ᠷ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('rIsolFvs3', () async {
-      final unicode = 'ᠷ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('rInitFvs3', () async {
-      final unicode = 'ᠷ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('rMediFvs3', () async {
-      final unicode = '᠊ᠷ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('rFinaFvs3', () async {
-      final unicode = '᠊ᠷ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('wIsol', () async {
-      final unicode = 'ᠸ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('wInit', () async {
-      final unicode = 'ᠸ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('wMedi', () async {
-      final unicode = '᠊ᠸ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('wFina', () async {
-      final unicode = '᠊ᠸ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('wIsolFvs1', () async {
-      final unicode = 'ᠸ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('wInitFvs1', () async {
-      final unicode = 'ᠸ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('wMediFvs1', () async {
-      final unicode = '᠊ᠸ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('wFinaFvs1', () async {
-      final unicode = '᠊ᠸ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('wIsolFvs2', () async {
-      final unicode = 'ᠸ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('wInitFvs2', () async {
-      final unicode = 'ᠸ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('wMediFvs2', () async {
-      final unicode = '᠊ᠸ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('wFinaFvs2', () async {
-      final unicode = '᠊ᠸ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('wIsolFvs3', () async {
-      final unicode = 'ᠸ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('wInitFvs3', () async {
-      final unicode = 'ᠸ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('wMediFvs3', () async {
-      final unicode = '᠊ᠸ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('wFinaFvs3', () async {
-      final unicode = '᠊ᠸ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('fIsol', () async {
-      final unicode = 'ᠹ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('fInit', () async {
-      final unicode = 'ᠹ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('fMedi', () async {
-      final unicode = '᠊ᠹ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('fFina', () async {
-      final unicode = '᠊ᠹ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('fIsolFvs1', () async {
-      final unicode = 'ᠹ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('fInitFvs1', () async {
-      final unicode = 'ᠹ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('fMediFvs1', () async {
-      final unicode = '᠊ᠹ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('fFinaFvs1', () async {
-      final unicode = '᠊ᠹ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('fIsolFvs2', () async {
-      final unicode = 'ᠹ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('fInitFvs2', () async {
-      final unicode = 'ᠹ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('fMediFvs2', () async {
-      final unicode = '᠊ᠹ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('fFinaFvs2', () async {
-      final unicode = '᠊ᠹ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('fIsolFvs3', () async {
-      final unicode = 'ᠹ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('fInitFvs3', () async {
-      final unicode = 'ᠹ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('fMediFvs3', () async {
-      final unicode = '᠊ᠹ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('fFinaFvs3', () async {
-      final unicode = '᠊ᠹ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('kIsol', () async {
-      final unicode = 'ᠺ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('kInit', () async {
-      final unicode = 'ᠺ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('kMedi', () async {
-      final unicode = '᠊ᠺ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('kFina', () async {
-      final unicode = '᠊ᠺ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('kIsolFvs1', () async {
-      final unicode = 'ᠺ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('kInitFvs1', () async {
-      final unicode = 'ᠺ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('kMediFvs1', () async {
-      final unicode = '᠊ᠺ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('kFinaFvs1', () async {
-      final unicode = '᠊ᠺ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('kIsolFvs2', () async {
-      final unicode = 'ᠺ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('kInitFvs2', () async {
-      final unicode = 'ᠺ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('kMediFvs2', () async {
-      final unicode = '᠊ᠺ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('kFinaFvs2', () async {
-      final unicode = '᠊ᠺ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('kIsolFvs3', () async {
-      final unicode = 'ᠺ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('kInitFvs3', () async {
-      final unicode = 'ᠺ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('kMediFvs3', () async {
-      final unicode = '᠊ᠺ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('kFinaFvs3', () async {
-      final unicode = '᠊ᠺ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('khIsol', () async {
-      final unicode = 'ᠻ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('khInit', () async {
-      final unicode = 'ᠻ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('khMedi', () async {
-      final unicode = '᠊ᠻ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('khFina', () async {
-      final unicode = '᠊ᠻ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('khIsolFvs1', () async {
-      final unicode = 'ᠻ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('khInitFvs1', () async {
-      final unicode = 'ᠻ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('khMediFvs1', () async {
-      final unicode = '᠊ᠻ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('khFinaFvs1', () async {
-      final unicode = '᠊ᠻ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('khIsolFvs2', () async {
-      final unicode = 'ᠻ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('khInitFvs2', () async {
-      final unicode = 'ᠻ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('khMediFvs2', () async {
-      final unicode = '᠊ᠻ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('khFinaFvs2', () async {
-      final unicode = '᠊ᠻ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('khIsolFvs3', () async {
-      final unicode = 'ᠻ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('khInitFvs3', () async {
-      final unicode = 'ᠻ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('khMediFvs3', () async {
-      final unicode = '᠊ᠻ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('khFinaFvs3', () async {
-      final unicode = '᠊ᠻ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tsIsol', () async {
-      final unicode = 'ᠼ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tsInit', () async {
-      final unicode = 'ᠼ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tsMedi', () async {
-      final unicode = '᠊ᠼ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tsFina', () async {
-      final unicode = '᠊ᠼ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tsIsolFvs1', () async {
-      final unicode = 'ᠼ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tsInitFvs1', () async {
-      final unicode = 'ᠼ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tsMediFvs1', () async {
-      final unicode = '᠊ᠼ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tsFinaFvs1', () async {
-      final unicode = '᠊ᠼ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tsIsolFvs2', () async {
-      final unicode = 'ᠼ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tsInitFvs2', () async {
-      final unicode = 'ᠼ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tsMediFvs2', () async {
-      final unicode = '᠊ᠼ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tsFinaFvs2', () async {
-      final unicode = '᠊ᠼ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tsIsolFvs3', () async {
-      final unicode = 'ᠼ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tsInitFvs3', () async {
-      final unicode = 'ᠼ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tsMediFvs3', () async {
-      final unicode = '᠊ᠼ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('tsFinaFvs3', () async {
-      final unicode = '᠊ᠼ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zIsol', () async {
-      final unicode = 'ᠽ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zInit', () async {
-      final unicode = 'ᠽ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zMedi', () async {
-      final unicode = '᠊ᠽ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zFina', () async {
-      final unicode = '᠊ᠽ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zIsolFvs1', () async {
-      final unicode = 'ᠽ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zInitFvs1', () async {
-      final unicode = 'ᠽ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zMediFvs1', () async {
-      final unicode = '᠊ᠽ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zFinaFvs1', () async {
-      final unicode = '᠊ᠽ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zIsolFvs2', () async {
-      final unicode = 'ᠽ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zInitFvs2', () async {
-      final unicode = 'ᠽ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zMediFvs2', () async {
-      final unicode = '᠊ᠽ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zFinaFvs2', () async {
-      final unicode = '᠊ᠽ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zIsolFvs3', () async {
-      final unicode = 'ᠽ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zInitFvs3', () async {
-      final unicode = 'ᠽ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zMediFvs3', () async {
-      final unicode = '᠊ᠽ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zFinaFvs3', () async {
-      final unicode = '᠊ᠽ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('haaIsol', () async {
-      final unicode = 'ᠾ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('haaInit', () async {
-      final unicode = 'ᠾ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('haaMedi', () async {
-      final unicode = '᠊ᠾ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('haaFina', () async {
-      final unicode = '᠊ᠾ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('haaIsolFvs1', () async {
-      final unicode = 'ᠾ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('haaInitFvs1', () async {
-      final unicode = 'ᠾ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('haaMediFvs1', () async {
-      final unicode = '᠊ᠾ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('haaFinaFvs1', () async {
-      final unicode = '᠊ᠾ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('haaIsolFvs2', () async {
-      final unicode = 'ᠾ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('haaInitFvs2', () async {
-      final unicode = 'ᠾ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('haaMediFvs2', () async {
-      final unicode = '᠊ᠾ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('haaFinaFvs2', () async {
-      final unicode = '᠊ᠾ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('haaIsolFvs3', () async {
-      final unicode = 'ᠾ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('haaInitFvs3', () async {
-      final unicode = 'ᠾ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('haaMediFvs3', () async {
-      final unicode = '᠊ᠾ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('haaFinaFvs3', () async {
-      final unicode = '᠊ᠾ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zrIsol', () async {
-      final unicode = 'ᠿ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zrInit', () async {
-      final unicode = 'ᠿ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zrMedi', () async {
-      final unicode = '᠊ᠿ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zrFina', () async {
-      final unicode = '᠊ᠿ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zrIsolFvs1', () async {
-      final unicode = 'ᠿ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zrInitFvs1', () async {
-      final unicode = 'ᠿ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zrMediFvs1', () async {
-      final unicode = '᠊ᠿ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zrFinaFvs1', () async {
-      final unicode = '᠊ᠿ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zrIsolFvs2', () async {
-      final unicode = 'ᠿ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zrInitFvs2', () async {
-      final unicode = 'ᠿ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zrMediFvs2', () async {
-      final unicode = '᠊ᠿ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zrFinaFvs2', () async {
-      final unicode = '᠊ᠿ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zrIsolFvs3', () async {
-      final unicode = 'ᠿ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zrInitFvs3', () async {
-      final unicode = 'ᠿ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zrMediFvs3', () async {
-      final unicode = '᠊ᠿ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zrFinaFvs3', () async {
-      final unicode = '᠊ᠿ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lhIsol', () async {
-      final unicode = 'ᡀ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lhInit', () async {
-      final unicode = 'ᡀ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lhMedi', () async {
-      final unicode = '᠊ᡀ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lhFina', () async {
-      final unicode = '᠊ᡀ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lhIsolFvs1', () async {
-      final unicode = 'ᡀ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lhInitFvs1', () async {
-      final unicode = 'ᡀ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lhMediFvs1', () async {
-      final unicode = '᠊ᡀ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lhFinaFvs1', () async {
-      final unicode = '᠊ᡀ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lhIsolFvs2', () async {
-      final unicode = 'ᡀ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lhInitFvs2', () async {
-      final unicode = 'ᡀ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lhMediFvs2', () async {
-      final unicode = '᠊ᡀ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lhFinaFvs2', () async {
-      final unicode = '᠊ᡀ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lhIsolFvs3', () async {
-      final unicode = 'ᡀ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lhInitFvs3', () async {
-      final unicode = 'ᡀ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lhMediFvs3', () async {
-      final unicode = '᠊ᡀ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('lhFinaFvs3', () async {
-      final unicode = '᠊ᡀ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zhiIsol', () async {
-      final unicode = 'ᡁ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zhiInit', () async {
-      final unicode = 'ᡁ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zhiMedi', () async {
-      final unicode = '᠊ᡁ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zhiFina', () async {
-      final unicode = '᠊ᡁ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zhiIsolFvs1', () async {
-      final unicode = 'ᡁ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zhiInitFvs1', () async {
-      final unicode = 'ᡁ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zhiMediFvs1', () async {
-      final unicode = '᠊ᡁ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zhiFinaFvs1', () async {
-      final unicode = '᠊ᡁ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zhiIsolFvs2', () async {
-      final unicode = 'ᡁ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zhiInitFvs2', () async {
-      final unicode = 'ᡁ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zhiMediFvs2', () async {
-      final unicode = '᠊ᡁ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zhiFinaFvs2', () async {
-      final unicode = '᠊ᡁ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zhiIsolFvs3', () async {
-      final unicode = 'ᡁ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zhiInitFvs3', () async {
-      final unicode = 'ᡁ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zhiMediFvs3', () async {
-      final unicode = '᠊ᡁ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('zhiFinaFvs3', () async {
-      final unicode = '᠊ᡁ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chiIsol', () async {
-      final unicode = 'ᡂ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chiInit', () async {
-      final unicode = 'ᡂ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chiMedi', () async {
-      final unicode = '᠊ᡂ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chiFina', () async {
-      final unicode = '᠊ᡂ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chiIsolFvs1', () async {
-      final unicode = 'ᡂ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chiInitFvs1', () async {
-      final unicode = 'ᡂ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chiMediFvs1', () async {
-      final unicode = '᠊ᡂ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chiFinaFvs1', () async {
-      final unicode = '᠊ᡂ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chiIsolFvs2', () async {
-      final unicode = 'ᡂ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chiInitFvs2', () async {
-      final unicode = 'ᡂ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chiMediFvs2', () async {
-      final unicode = '᠊ᡂ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chiFinaFvs2', () async {
-      final unicode = '᠊ᡂ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chiIsolFvs3', () async {
-      final unicode = 'ᡂ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chiInitFvs3', () async {
-      final unicode = 'ᡂ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chiMediFvs3', () async {
-      final unicode = '᠊ᡂ᠊';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('chiFinaFvs3', () async {
-      final unicode = '᠊ᡂ';
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '';
       expect(result, expected);
     });
   });
@@ -4059,8 +129,8 @@ void main() {
     });
 
     test('punctuationNirugu', () async {
-      final unicode = Unicode.MONGOLIAN_NIRUGU;
-      final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
+      final unicode = '\u180A';
+      final result = convertUnicodeToMenksoft(unicode);
       final expected = String.fromCharCode(Menksoft.NIRUGU);
       expect(result, expected);
     });
@@ -4314,7 +384,7 @@ void main() {
     });
 
     test('chirigWord', () async {
-      final unicode = 'ᠴᠢᠷᠢᠭ ᠮᠠᠨᠢ'; // CHIRIG (NNBSP) MANI
+      final unicode = 'ᠴᠢᠷᠢᠭ ᠮ\u1820ᠨᠢ'; // CHIRIG (NNBSP) MANI
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE315\uE27E\uE327\uE27E\uE2E8\uE263\uE2F1\uE26C\uE2B7\uE27B';
       expect(result, expected);
@@ -4364,7 +434,8 @@ void main() {
     });
 
     test('manggalWord', () async {
-      final unicode = 'ᠮᠠᠩᠭᠠᠯ ᠳᠤᠷ ᠢᠶᠠᠨ ᠳᠠᠭᠠᠨ'; // MANGGAL (NNBSP) DUR (NNBSP) IYAN (NNBSP) DAGAN
+      final unicode =
+          'ᠮ\u1820ᠩᠭ\u1820ᠯ ᠳᠤᠷ ᠢᠶ\u1820ᠨ ᠳ\u1820ᠭ\u1820ᠨ'; // MANGGAL (NNBSP) DUR (NNBSP) IYAN (NNBSP) DAGAN
       final result = convertUnicodeToMenksoft(unicode);
       final expected =
           '\uE2F1\uE26C\uE2BC\uE2EA\uE26C\uE2F9\uE263\uE310\uE291\uE325\uE263\uE280\uE321\uE26C\uE2B5\uE263\uE310\uE26C\uE2EA\uE26C\uE2B5';
@@ -4379,7 +450,8 @@ void main() {
     });
 
     test('sodnamWord', () async {
-      final unicode = 'ᠰᠣᠳᠨᠠᠮ ᠠᠴᠠ ᠪᠠᠨ ᠠᠴᠠᠭᠠᠨ'; // SODNAM (NNBSP) ACHA (NNBSP) BAN (NNBSP) ACHAGAN
+      final unicode =
+          'ᠰᠣᠳᠨ\u1820ᠮ \u1820ᠴ\u1820 ᠪ\u1820ᠨ \u1820ᠴ\u1820ᠭ\u1820ᠨ'; // SODNAM (NNBSP) ACHA (NNBSP) BAN (NNBSP) ACHAGAN
       final result = convertUnicodeToMenksoft(unicode);
       final expected =
           '\uE2FE\uE289\uE314\uE2B7\uE26C\uE2F3\uE263\uE267\uE317\uE268\uE263\uE2C1\uE26D\uE2B5\uE263\uE267\uE317\uE26C\uE2EA\uE26C\uE2B5';
@@ -4387,7 +459,7 @@ void main() {
     });
 
     test('lhagbaWord', () async {
-      final unicode = 'ᡀᠠᠭᠪᠠ ᠯᠤᠭ᠎ᠠ'; // LHAGBA (NNBSP) LUG(MVS)A
+      final unicode = 'ᡀ\u1820ᠭᠪ\u1820 ᠯᠤᠭ᠎\u1820'; // LHAGBA (NNBSP) LUG(MVS)A
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE34B\uE26C\uE2EE\uE2C5\uE26B\uE263\uE2F8\uE291\uE2E9\uE26A';
       expect(result, expected);
@@ -4401,7 +473,7 @@ void main() {
     });
 
     test('tsementWord', () async {
-      final unicode = 'ᠼᠧᠮᠧᠨᠲ ᠲᠠᠶᠢᠭᠠᠨ'; // TSEMENT (NNBSP) TAYIGAN
+      final unicode = 'ᠼᠧᠮᠧᠨᠲ ᠲ\u1820ᠶᠢᠭ\u1820ᠨ'; // TSEMENT (NNBSP) TAYIGAN
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE33F\uE2B0\uE2F4\uE2B0\uE2BA\uE30A\uE263\uE308\uE26C\uE321\uE27E\uE2EA\uE26C\uE2B5';
       expect(result, expected);
@@ -4415,35 +487,35 @@ void main() {
     });
 
     test('qoyinaWord', () async {
-      final unicode = 'ᠬᠣᠶᠢᠨ᠎ᠠ'; // QOYIN(MVS)A
+      final unicode = 'ᠬᠣᠶᠢᠨ᠎\u1820'; // QOYIN(MVS)A
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2D2\uE289\uE321\uE27E\uE2B6\uE26A';
       expect(result, expected);
     });
 
     test('angnaWord', () async {
-      final unicode = 'ᠠᠩᠨ᠎ᠠ'; // ANGN(MVS)A
+      final unicode = '\u1820ᠩᠨ᠎\u1820'; // ANGN(MVS)A
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE266\uE2BE\uE2B6\uE26A';
       expect(result, expected);
     });
 
     test('chinggaWord', () async {
-      final unicode = 'ᠴᠢᠩᠭ᠎ᠠ'; // CHINGG(MVS)A
+      final unicode = 'ᠴᠢᠩᠭ᠎\u1820'; // CHINGG(MVS)A
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE315\uE27E\uE2BC\uE2E9\uE26A';
       expect(result, expected);
     });
 
     test('chingalaquWord', () async {
-      final unicode = 'ᠴᠢᠩᠭᠠᠯᠠᠬᠤ'; // CHINGGALAQU
+      final unicode = 'ᠴᠢᠩᠭ\u1820ᠯ\u1820ᠬᠤ'; // CHINGGALAQU
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE315\uE27E\uE2BC\uE2EA\uE26C\uE2FA\uE26C\uE2DC\uE28D';
       expect(result, expected);
     });
 
     test('daljiygsanWord', () async {
-      final unicode = 'ᠳᠠᠯᠵᠢᠶᠭᠰᠠᠨ'; // DALJIYGSAN
+      final unicode = 'ᠳ\u1820ᠯᠵᠢᠶᠭᠰ\u1820ᠨ'; // DALJIYGSAN
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE30E\uE26C\uE2FB\uE31D\uE27E\uE321\uE2EE\uE301\uE26C\uE2B5';
       expect(result, expected);
@@ -4499,7 +571,7 @@ void main() {
     });
 
     test('bayigulquWord', () async {
-      final unicode = 'ᠪᠠᠶᠢᠭᠤᠯᠬᠤ'; // BAYIGULQU
+      final unicode = 'ᠪ\u1820ᠶᠢᠭᠤᠯᠬᠤ'; // BAYIGULQU
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2C1\uE26D\uE321\uE27E\uE2EC\uE291\uE2FA\uE2DC\uE28D';
       expect(result, expected);
@@ -4534,14 +606,14 @@ void main() {
     });
 
     test('yatugaWord', () async {
-      final unicode = 'ᠶᠠᠲᠤᠭ᠎ᠠ'; // YATUG(MVS)A
+      final unicode = 'ᠶ\u1820ᠲᠤᠭ᠎\u1820'; // YATUG(MVS)A
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE31E\uE26C\uE30B\uE291\uE2E9\uE26A';
       expect(result, expected);
     });
 
     test('olaganaWord', () async {
-      final unicode = 'ᠤᠯᠠᠭᠠᠨ᠎ᠠ'; // OLAGAN(MVS)A
+      final unicode = 'ᠤᠯ\u1820ᠭ\u1820ᠨ᠎\u1820'; // OLAGAN(MVS)A
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE28C\uE2FA\uE26C\uE2EA\uE26C\uE2B6\uE26A';
       expect(result, expected);
@@ -4555,14 +627,14 @@ void main() {
     });
 
     test('programWord', () async {
-      final unicode = 'ᠫᠷᠣᠭ᠍ᠷᠠᠮ'; // PROG(FVS3)RAM
+      final unicode = 'ᠫᠷᠣᠭ᠍ᠷ\u1820ᠮ'; // PROG(FVS3)RAM
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2C8\uE326\uE289\uE2EF\uE327\uE26C\uE2F3';
       expect(result, expected);
     });
 
     test('kartWord', () async {
-      final unicode = 'ᠺᠠᠷᠲ'; // KART
+      final unicode = 'ᠺ\u1820ᠷᠲ'; // KART
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE333\uE26D\uE326\uE30A';
       expect(result, expected);
@@ -4576,98 +648,98 @@ void main() {
     });
 
     test('gramWord', () async {
-      final unicode = 'ᠭᠷᠠᠮ'; // GRAM
+      final unicode = 'ᠭᠷ\u1820ᠮ'; // GRAM
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2E3\uE327\uE26C\uE2F3';
       expect(result, expected);
     });
 
     test('minggaWord', () async {
-      final unicode = 'ᠮᠢᠩᠭ᠎ᠠ'; // MINGG(MVS)A
+      final unicode = 'ᠮᠢᠩᠭ᠎\u1820'; // MINGG(MVS)A
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2F1\uE27E\uE2BC\uE2E9\uE26A';
       expect(result, expected);
     });
 
     test('naimaWord', () async {
-      final unicode = 'ᠨᠠ\u200Dᠢᠮᠠ'; // NA(ZWJ)IMA
+      final unicode = 'ᠨ\u1820\u200Dᠢᠮ\u1820'; // NA(ZWJ)IMA
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2B1\uE26C\uE27E\uE2F5\uE268';
       expect(result, expected);
     });
 
     test('naimaWordMenksoftVersion', () async {
-      final unicode = 'ᠨᠠᠢ\u180Cᠮᠠ'; // NAI(FVS2)MA (not defined in Unicode 10.0)
+      final unicode = 'ᠨ\u1820ᠢ\u180Cᠮ\u1820'; // NAI(FVS2)MA (not defined in Unicode 10.0)
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2B1\uE26C\uE27E\uE2F5\uE268';
       expect(result, expected);
     });
 
     test('naijaWord', () async {
-      final unicode = 'ᠨᠠᠢᠵᠠ'; // NAIJA
+      final unicode = 'ᠨ\u1820ᠢᠵ\u1820'; // NAIJA
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2B1\uE26C\uE281\uE31D\uE268';
       expect(result, expected);
     });
 
     test('nayijaWord', () async {
-      final unicode = 'ᠨᠠᠶᠢᠵᠠ'; // NAYIJA
+      final unicode = 'ᠨ\u1820ᠶᠢᠵ\u1820'; // NAYIJA
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2B1\uE26C\uE321\uE27E\uE31D\uE268';
       expect(result, expected);
     });
 
     test('bainaWord', () async {
-      final unicode = 'ᠪᠠᠢᠨ᠎ᠠ'; // BAIN(MVS)A
+      final unicode = 'ᠪ\u1820ᠢᠨ᠎\u1820'; // BAIN(MVS)A
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2C1\uE26D\uE281\uE2B6\uE26A';
       expect(result, expected);
     });
 
     test('bayinaWord', () async {
-      final unicode = 'ᠪᠠᠶᠢᠨ᠎ᠠ'; // BAYIN(MVS)A
+      final unicode = 'ᠪ\u1820ᠶᠢᠨ᠎\u1820'; // BAYIN(MVS)A
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2C1\uE26D\uE321\uE27E\uE2B6\uE26A';
       expect(result, expected);
     });
 
     test('baiinaWord', () async {
-      final unicode = 'ᠪᠠᠢᠢᠨ᠎ᠠ'; // BAIIN(MVS)A
+      final unicode = 'ᠪ\u1820ᠢᠢᠨ᠎\u1820'; // BAIIN(MVS)A
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2C1\uE26D\uE27E\uE27E\uE2B6\uE26A';
       expect(result, expected);
     });
 
     test('saihanWord', () async {
-      final unicode = 'ᠰᠠᠶᠢᠬᠠᠨ'; // SAYIHAN
+      final unicode = 'ᠰ\u1820ᠶᠢᠬ\u1820ᠨ'; // SAYIHAN
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2FD\uE26C\uE321\uE27E\uE2D8\uE26C\uE2B5';
       expect(result, expected);
     });
 
     test('sayihanWord', () async {
-      final unicode = 'ᠰᠠᠶ\u180Bᠢᠬᠠᠨ'; // SAY(FVS1)IHAN
+      final unicode = 'ᠰ\u1820ᠶ\u180Bᠢᠬ\u1820ᠨ'; // SAY(FVS1)IHAN
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2FD\uE26C\uE320\uE27E\uE2D8\uE26C\uE2B5';
       expect(result, expected);
     });
 
     test('sayiWord', () async {
-      final unicode = 'ᠰᠠᠶ\u180Bᠢ'; // SAY(FVS1)I
+      final unicode = 'ᠰ\u1820ᠶ\u180Bᠢ'; // SAY(FVS1)I
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2FD\uE26C\uE320\uE27B';
       expect(result, expected);
     });
 
     test('taiWord', () async {
-      final unicode = 'ᠲᠠᠢ'; // TAI
+      final unicode = 'ᠲ\u1820ᠢ'; // TAI
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE308\uE26C\uE27B';
       expect(result, expected);
     });
 
     test('namayiWord', () async {
-      final unicode = 'ᠨᠠᠮᠠᠶᠢ'; // NAMAYI
+      final unicode = 'ᠨ\u1820ᠮ\u1820ᠶᠢ'; // NAMAYI
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2B1\uE26C\uE2F4\uE26C\uE321\uE27B';
       expect(result, expected);
@@ -4723,21 +795,21 @@ void main() {
     });
 
     test('anggliWord', () async {
-      final unicode = 'ᠠᠩᠭᠯᠢ'; // ANGGLI
+      final unicode = '\u1820ᠩᠭᠯᠢ'; // ANGGLI
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE266\uE2BD\uE2EB\uE2FC\uE27B';
       expect(result, expected);
     });
 
     test('asiglajuWord', () async {
-      final unicode = 'ᠠᠰᠢᠭᠯᠠᠵᠤ'; // ASIGLAJU
+      final unicode = '\u1820ᠰᠢᠭᠯ\u1820ᠵᠤ'; // ASIGLAJU
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE266\uE301\uE27E\uE2EE\uE2FA\uE26C\uE31D\uE28D';
       expect(result, expected);
     });
 
     test('narangerelWord', () async {
-      final unicode = 'ᠨᠠᠷᠠᠨᠭᠡᠷᠡᠯ'; // NARANGEREL
+      final unicode = 'ᠨ\u1820ᠷ\u1820ᠨᠭᠡᠷᠡᠯ'; // NARANGEREL
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2B1\uE26C\uE327\uE26C\uE2B8\uE2EB\uE277\uE327\uE276\uE2F9';
       expect(result, expected);
@@ -4758,7 +830,7 @@ void main() {
     });
 
     test('bayanunderWord', () async {
-      final unicode = 'ᠪᠠᠶᠠᠨ\u200Dᠦ᠌ᠨᠳᠦᠷ'; // BAYAN(ZWJ)U(FVS1)NDUR
+      final unicode = 'ᠪ\u1820ᠶ\u1820ᠨ\u200Dᠦ᠌ᠨᠳᠦᠷ'; // BAYAN(ZWJ)U(FVS1)NDUR
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2C1\uE26D\uE320\uE26C\uE2BA\uE2A8\uE2B8\uE313\uE2AB\uE325';
       expect(result, expected);
@@ -4772,7 +844,7 @@ void main() {
     });
 
     test('anggilumchechegWord', () async {
-      final unicode = 'ᠠᠩᠭᠢᠯᠤᠮᠴᠡᠴᠡᠭ'; // ANGGILUMCHECHEG
+      final unicode = '\u1820ᠩᠭᠢᠯᠤᠮᠴᠡᠴᠡᠭ'; // ANGGILUMCHECHEG
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE266\uE2BD\uE2EB\uE27F\uE2FB\uE291\uE2F5\uE317\uE276\uE317\uE276\uE2E8';
       expect(result, expected);
@@ -4907,7 +979,7 @@ void main() {
     });
 
     test('daqiSuffix', () async {
-      final unicode = ' ᠳᠠᠬᠢ'; //
+      final unicode = ' ᠳ\u1820ᠬᠢ'; //
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE263\uE310\uE26C\uE2DA\uE27C';
       expect(result, expected);
@@ -4921,7 +993,7 @@ void main() {
     });
 
     test('achaSuffix', () async {
-      final unicode = ' ᠠᠴᠠ'; //
+      final unicode = ' \u1820ᠴ\u1820'; //
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE263\uE267\uE317\uE268';
       expect(result, expected);
@@ -4935,7 +1007,7 @@ void main() {
     });
 
     test('barSuffix', () async {
-      final unicode = ' ᠪᠠᠷ'; //
+      final unicode = ' ᠪ\u1820ᠷ'; //
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE263\uE2C1\uE26D\uE325';
       expect(result, expected);
@@ -4949,7 +1021,7 @@ void main() {
     });
 
     test('iyarSuffix', () async {
-      final unicode = ' ᠢᠶᠠᠷ'; //
+      final unicode = ' ᠢᠶ\u1820ᠷ'; //
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE263\uE280\uE321\uE26C\uE325';
       expect(result, expected);
@@ -4963,7 +1035,7 @@ void main() {
     });
 
     test('taiSuffix', () async {
-      final unicode = ' ᠲᠠᠢ'; //
+      final unicode = ' ᠲ\u1820ᠢ'; //
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE263\uE308\uE26C\uE27B';
       expect(result, expected);
@@ -4977,7 +1049,7 @@ void main() {
     });
 
     test('lugaSuffix', () async {
-      final unicode = ' ᠯᠤᠭ᠎ᠠ'; //
+      final unicode = ' ᠯᠤᠭ᠎\u1820'; //
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE263\uE2F8\uE291\uE2E9\uE26A';
       expect(result, expected);
@@ -4991,7 +1063,7 @@ void main() {
     });
 
     test('banSuffix', () async {
-      final unicode = ' ᠪᠠᠨ'; //
+      final unicode = ' ᠪ\u1820ᠨ'; //
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE263\uE2C1\uE26D\uE2B5';
       expect(result, expected);
@@ -5005,7 +1077,7 @@ void main() {
     });
 
     test('iyanSuffix', () async {
-      final unicode = ' ᠢᠶᠠᠨ'; //
+      final unicode = ' ᠢᠶ\u1820ᠨ'; //
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE263\uE280\uE321\uE26C\uE2B5';
       expect(result, expected);
@@ -5019,7 +1091,7 @@ void main() {
     });
 
     test('yuganSuffix', () async {
-      final unicode = ' ᠶᠤᠭᠠᠨ'; //
+      final unicode = ' ᠶᠤᠭ\u1820ᠨ'; //
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE263\uE31E\uE291\uE2EA\uE26C\uE2B5';
       expect(result, expected);
@@ -5033,7 +1105,7 @@ void main() {
     });
 
     test('daganSuffix', () async {
-      final unicode = ' ᠳᠠᠭᠠᠨ'; //
+      final unicode = ' ᠳ\u1820ᠭ\u1820ᠨ'; //
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE263\uE310\uE26C\uE2EA\uE26C\uE2B5';
       expect(result, expected);
@@ -5047,7 +1119,7 @@ void main() {
     });
 
     test('taganSuffix', () async {
-      final unicode = ' ᠲᠠᠭᠠᠨ'; //
+      final unicode = ' ᠲ\u1820ᠭ\u1820ᠨ'; //
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE263\uE308\uE26C\uE2EA\uE26C\uE2B5';
       expect(result, expected);
@@ -5061,7 +1133,7 @@ void main() {
     });
 
     test('achaganSuffix', () async {
-      final unicode = ' ᠠᠴᠠᠭᠠᠨ'; //
+      final unicode = ' \u1820ᠴ\u1820ᠭ\u1820ᠨ'; //
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE263\uE267\uE317\uE26C\uE2EA\uE26C\uE2B5';
       expect(result, expected);
@@ -5075,14 +1147,14 @@ void main() {
     });
 
     test('taiganSuffix', () async {
-      final unicode = ' ᠲᠠᠢᠭᠠᠨ'; //
+      final unicode = ' ᠲ\u1820ᠢᠭ\u1820ᠨ'; //
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE263\uE308\uE26C\uE281\uE2EA\uE26C\uE2B5';
       expect(result, expected);
     });
 
     test('tayiganSuffix', () async {
-      final unicode = ' ᠲᠠᠶᠢᠭᠠᠨ'; //
+      final unicode = ' ᠲ\u1820ᠶᠢᠭ\u1820ᠨ'; //
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE263\uE308\uE26C\uE321\uE27E\uE2EA\uE26C\uE2B5';
       expect(result, expected);
@@ -5131,7 +1203,7 @@ void main() {
     });
 
     test('narSuffix', () async {
-      final unicode = ' ᠨᠠᠷ'; //
+      final unicode = ' ᠨ\u1820ᠷ'; //
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE263\uE2B1\uE26C\uE325';
       expect(result, expected);
@@ -5159,7 +1231,7 @@ void main() {
     });
 
     test('daSuffix', () async {
-      final unicode = ' ᠳᠠ'; //
+      final unicode = ' ᠳ\u1820'; //
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE263\uE310\uE268';
       expect(result, expected);
@@ -5182,9 +1254,9 @@ void main() {
     });
 
     test('todoMixedTodoMongolCode', () async {
-      final unicode = 'ᠰᡇᠷᡋᡇᠯᡓᡅᠯᠠᡋᠠ'; //
+      final unicode = 'ᠰᡇᠷᡋᡇᠯᡓᡅᠯ\u1820ᡋ\u1820'; //
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = 'ᠰᡇᠷᡋᡇᠯᡓᡅᠯᠠᡋᠠ';
+      final expected = 'ᠰᡇᠷᡋᡇᠯᡓᡅᠯ\u1820ᡋ\u1820';
       expect(result, expected);
     });
 
@@ -5372,7 +1444,7 @@ void main() {
     test('isolateE23E', () async {
       final menksoft = '\uE23E';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCode(Unicode.MONGOLIAN_NIRUGU);
+      final expected = '\u180A';
       expect(result, expected);
     });
 
@@ -7361,7 +3433,7 @@ void main() {
     test('punctuationNirugu', () async {
       final menksoft = Menksoft.NIRUGU;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
-      final expected = String.fromCharCode(Unicode.MONGOLIAN_NIRUGU);
+      final expected = '\u180A';
       expect(result, expected);
     });
 
@@ -7616,7 +3688,7 @@ void main() {
     test('chirigWord', () async {
       final menksoft = '\uE315\uE27E\uE327\uE27E\uE2E8\uE263\uE2F1\uE26C\uE2B7\uE27B';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠴᠢᠷᠢᠭ ᠮᠠᠨᠢ'; // CHIRIG (NNBSP) MANI
+      final expected = 'ᠴᠢᠷᠢᠭ ᠮ\u1820ᠨᠢ'; // CHIRIG (NNBSP) MANI
       expect(result, expected);
     });
 
@@ -7667,7 +3739,8 @@ void main() {
       final menksoft =
           '\uE2F1\uE26C\uE2BC\uE2EA\uE26C\uE2F9\uE263\uE310\uE291\uE325\uE263\uE280\uE321\uE26C\uE2B5\uE263\uE310\uE26C\uE2EA\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠮᠠᠩᠭᠠᠯ ᠳᠤᠷ ᠢᠶᠠᠨ ᠳᠠᠭᠠᠨ'; // MANGGAL (NNBSP) DUR (NNBSP) IYAN (NNBSP) DAGAN
+      final expected =
+          'ᠮ\u1820ᠩᠭ\u1820ᠯ ᠳᠤᠷ ᠢᠶ\u1820ᠨ ᠳ\u1820ᠭ\u1820ᠨ'; // MANGGAL (NNBSP) DUR (NNBSP) IYAN (NNBSP) DAGAN
       expect(result, expected);
     });
 
@@ -7682,14 +3755,15 @@ void main() {
       final menksoft =
           '\uE2FE\uE289\uE314\uE2B7\uE26C\uE2F3\uE263\uE267\uE317\uE268\uE263\uE2C1\uE26D\uE2B5\uE263\uE267\uE317\uE26C\uE2EA\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠰᠣᠳᠨᠠᠮ ᠠᠴᠠ ᠪᠠᠨ ᠠᠴᠠᠭᠠᠨ'; // SODNAM (NNBSP) ACHA (NNBSP) BAN (NNBSP) ACHAGAN
+      final expected =
+          'ᠰᠣᠳᠨ\u1820ᠮ \u1820ᠴ\u1820 ᠪ\u1820ᠨ \u1820ᠴ\u1820ᠭ\u1820ᠨ'; // SODNAM (NNBSP) ACHA (NNBSP) BAN (NNBSP) ACHAGAN
       expect(result, expected);
     });
 
     test('lhagbaWord', () async {
       final menksoft = '\uE34B\uE26C\uE2EE\uE2C5\uE26B\uE263\uE2F8\uE291\uE2E9\uE26A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᡀᠠᠭᠪᠠ ᠯᠤᠭ᠎ᠠ'; // LHAGBA (NNBSP) LUG(MVS)A
+      final expected = 'ᡀ\u1820ᠭᠪ\u1820 ᠯᠤᠭ᠎\u1820'; // LHAGBA (NNBSP) LUG(MVS)A
       expect(result, expected);
     });
 
@@ -7703,7 +3777,7 @@ void main() {
     test('tsementWord', () async {
       final menksoft = '\uE33F\uE2B0\uE2F4\uE2B0\uE2BA\uE30A\uE263\uE308\uE26C\uE321\uE27E\uE2EA\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠼᠧᠮᠧᠨᠲ ᠲᠠᠶᠢᠭᠠᠨ'; // TSEMENT (NNBSP) TAYIGAN
+      final expected = 'ᠼᠧᠮᠧᠨᠲ ᠲ\u1820ᠶᠢᠭ\u1820ᠨ'; // TSEMENT (NNBSP) TAYIGAN
       expect(result, expected);
     });
 
@@ -7717,35 +3791,35 @@ void main() {
     test('qoyinaWord', () async {
       final menksoft = '\uE2D2\uE289\uE321\uE27E\uE2B6\uE26A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠬᠣᠶᠢᠨ᠎ᠠ'; // QOYIN(MVS)A
+      final expected = 'ᠬᠣᠶᠢᠨ᠎\u1820'; // QOYIN(MVS)A
       expect(result, expected);
     });
 
     test('angnaWord', () async {
       final menksoft = '\uE266\uE2BE\uE2B6\uE26A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠠᠩᠨ᠎ᠠ'; // ANGN(MVS)A
+      final expected = '\u1820ᠩᠨ᠎\u1820'; // ANGN(MVS)A
       expect(result, expected);
     });
 
     test('chinggaWord', () async {
       final menksoft = '\uE315\uE27E\uE2BC\uE2E9\uE26A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠴᠢᠩᠭ᠎ᠠ'; // CHINGG(MVS)A
+      final expected = 'ᠴᠢᠩᠭ᠎\u1820'; // CHINGG(MVS)A
       expect(result, expected);
     });
 
     test('chingalaquWord', () async {
       final menksoft = '\uE315\uE27E\uE2BC\uE2EA\uE26C\uE2FA\uE26C\uE2DC\uE28D';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠴᠢᠩᠭᠠᠯᠠᠬᠤ'; // CHINGGALAQU
+      final expected = 'ᠴᠢᠩᠭ\u1820ᠯ\u1820ᠬᠤ'; // CHINGGALAQU
       expect(result, expected);
     });
 
     test('daljiygsanWord', () async {
       final menksoft = '\uE30E\uE26C\uE2FB\uE31D\uE27E\uE321\uE2EE\uE301\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠳᠠᠯᠵᠢᠶᠭᠰᠠᠨ'; // DALJIYGSAN
+      final expected = 'ᠳ\u1820ᠯᠵᠢᠶᠭᠰ\u1820ᠨ'; // DALJIYGSAN
       expect(result, expected);
     });
 
@@ -7801,7 +3875,7 @@ void main() {
     test('bayigulquWord', () async {
       final menksoft = '\uE2C1\uE26D\uE321\uE27E\uE2EC\uE291\uE2FA\uE2DC\uE28D';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠪᠠᠶᠢᠭᠤᠯᠬᠤ'; // BAYIGULQU
+      final expected = 'ᠪ\u1820ᠶᠢᠭᠤᠯᠬᠤ'; // BAYIGULQU
       expect(result, expected);
     });
 
@@ -7836,14 +3910,14 @@ void main() {
     test('yatugaWord', () async {
       final menksoft = '\uE31E\uE26C\uE30B\uE291\uE2E9\uE26A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠶᠠᠲᠤᠭ᠎ᠠ'; // YATUG(MVS)A
+      final expected = 'ᠶ\u1820ᠲᠤᠭ᠎\u1820'; // YATUG(MVS)A
       expect(result, expected);
     });
 
     test('olaganaWord', () async {
       final menksoft = '\uE28C\uE2FA\uE26C\uE2EA\uE26C\uE2B6\uE26A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠤᠯᠠᠭᠠᠨ᠎ᠠ'; // OLAGAN(MVS)A
+      final expected = 'ᠤᠯ\u1820ᠭ\u1820ᠨ᠎\u1820'; // OLAGAN(MVS)A
       expect(result, expected);
     });
 
@@ -7857,14 +3931,14 @@ void main() {
     test('programWord', () async {
       final menksoft = '\uE2C8\uE326\uE289\uE2EF\uE327\uE26C\uE2F3';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠫᠷᠣᠭ᠍ᠷᠠᠮ'; // PROG(FVS3)RAM
+      final expected = 'ᠫᠷᠣᠭ᠍ᠷ\u1820ᠮ'; // PROG(FVS3)RAM
       expect(result, expected);
     });
 
     test('kartWord', () async {
       final menksoft = '\uE333\uE26D\uE326\uE30A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠺᠠᠷᠲ'; // KART
+      final expected = 'ᠺ\u1820ᠷᠲ'; // KART
       expect(result, expected);
     });
 
@@ -7878,91 +3952,91 @@ void main() {
     test('gramWord', () async {
       final menksoft = '\uE2E3\uE327\uE26C\uE2F3';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠭᠷᠠᠮ'; // GRAM
+      final expected = 'ᠭᠷ\u1820ᠮ'; // GRAM
       expect(result, expected);
     });
 
     test('minggaWord', () async {
       final menksoft = '\uE2F1\uE27E\uE2BC\uE2E9\uE26A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠮᠢᠩᠭ᠎ᠠ'; // MINGG(MVS)A
+      final expected = 'ᠮᠢᠩᠭ᠎\u1820'; // MINGG(MVS)A
       expect(result, expected);
     });
 
     test('naimaWordMenksoftVersion', () async {
       final menksoft = '\uE2B1\uE26C\uE27E\uE2F5\uE268';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠨᠠᠢ\u180Cᠮᠠ'; // NAI(FVS2)MA (not defined in Unicode 10.0)
+      final expected = 'ᠨ\u1820ᠢ\u180Cᠮ\u1820'; // NAI(FVS2)MA (not defined in Unicode 10.0)
       expect(result, expected);
     });
 
     test('naijaWord', () async {
       final menksoft = '\uE2B1\uE26C\uE281\uE31D\uE268';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠨᠠᠢᠵᠠ'; // NAIJA
+      final expected = 'ᠨ\u1820ᠢᠵ\u1820'; // NAIJA
       expect(result, expected);
     });
 
     test('nayijaWord', () async {
       final menksoft = '\uE2B1\uE26C\uE321\uE27E\uE31D\uE268';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠨᠠᠶᠢᠵᠠ'; // NAYIJA
+      final expected = 'ᠨ\u1820ᠶᠢᠵ\u1820'; // NAYIJA
       expect(result, expected);
     });
 
     test('bainaWord', () async {
       final menksoft = '\uE2C1\uE26D\uE281\uE2B6\uE26A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠪᠠᠢᠨ᠎ᠠ'; // BAIN(MVS)A
+      final expected = 'ᠪ\u1820ᠢᠨ᠎\u1820'; // BAIN(MVS)A
       expect(result, expected);
     });
 
     test('bayinaWord', () async {
       final menksoft = '\uE2C1\uE26D\uE321\uE27E\uE2B6\uE26A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠪᠠᠶᠢᠨ᠎ᠠ'; // BAYIN(MVS)A
+      final expected = 'ᠪ\u1820ᠶᠢᠨ᠎\u1820'; // BAYIN(MVS)A
       expect(result, expected);
     });
 
     test('baiinaWord', () async {
       final menksoft = '\uE2C1\uE26D\uE27E\uE27E\uE2B6\uE26A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠪᠠᠢᠢᠨ᠎ᠠ'; // BAIIN(MVS)A
+      final expected = 'ᠪ\u1820ᠢᠢᠨ᠎\u1820'; // BAIIN(MVS)A
       expect(result, expected);
     });
 
     test('saihanWord', () async {
       final menksoft = '\uE2FD\uE26C\uE321\uE27E\uE2D8\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠰᠠᠶᠢᠬᠠᠨ'; // SAYIHAN
+      final expected = 'ᠰ\u1820ᠶᠢᠬ\u1820ᠨ'; // SAYIHAN
       expect(result, expected);
     });
 
     test('sayihanWord', () async {
       final menksoft = '\uE2FD\uE26C\uE320\uE27E\uE2D8\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠰᠠᠶ\u180Bᠢᠬᠠᠨ'; // SAY(FVS1)IHAN
+      final expected = 'ᠰ\u1820ᠶ\u180Bᠢᠬ\u1820ᠨ'; // SAY(FVS1)IHAN
       expect(result, expected);
     });
 
     test('sayiWord', () async {
       final menksoft = '\uE2FD\uE26C\uE320\uE27B';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠰᠠᠶ\u180Bᠢ'; // SAY(FVS1)I
+      final expected = 'ᠰ\u1820ᠶ\u180Bᠢ'; // SAY(FVS1)I
       expect(result, expected);
     });
 
     test('taiWord', () async {
       final menksoft = '\uE308\uE26C\uE27B';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠲᠠᠢ'; // TAI
+      final expected = 'ᠲ\u1820ᠢ'; // TAI
       expect(result, expected);
     });
 
     test('namayiWord', () async {
       final menksoft = '\uE2B1\uE26C\uE2F4\uE26C\uE321\uE27B';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠨᠠᠮᠠᠶᠢ'; // NAMAYI
+      final expected = 'ᠨ\u1820ᠮ\u1820ᠶᠢ'; // NAMAYI
       expect(result, expected);
     });
 
@@ -8018,21 +4092,21 @@ void main() {
     test('anggliWord', () async {
       final menksoft = '\uE266\uE2BD\uE2EB\uE2FC\uE27B';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠠᠩᠭᠯᠢ'; // ANGGLI
+      final expected = '\u1820ᠩᠭᠯᠢ'; // ANGGLI
       expect(result, expected);
     });
 
     test('asiglajuWord', () async {
       final menksoft = '\uE266\uE301\uE27E\uE2EE\uE2FA\uE26C\uE31D\uE28D';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠠᠰᠢᠭᠯᠠᠵᠤ'; // ASIGLAJU
+      final expected = '\u1820ᠰᠢᠭᠯ\u1820ᠵᠤ'; // ASIGLAJU
       expect(result, expected);
     });
 
     test('narangerelWord', () async {
       final menksoft = '\uE2B1\uE26C\uE327\uE26C\uE2B8\uE2EB\uE277\uE327\uE276\uE2F9';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠨᠠᠷᠠᠨᠭᠡᠷᠡᠯ'; // NARANGEREL
+      final expected = 'ᠨ\u1820ᠷ\u1820ᠨᠭᠡᠷᠡᠯ'; // NARANGEREL
       expect(result, expected);
     });
 
@@ -8046,7 +4120,7 @@ void main() {
     test('bayanunderWord', () async {
       final menksoft = '\uE2C1\uE26D\uE320\uE26C\uE2BA\uE2A8\uE2B8\uE313\uE2AB\uE325';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠪᠠᠶᠠᠨ\u200Dᠦ᠌ᠨᠳᠦᠷ'; // BAYAN(ZWJ)U(FVS1)NDUR
+      final expected = 'ᠪ\u1820ᠶ\u1820ᠨ\u200Dᠦ᠌ᠨᠳᠦᠷ'; // BAYAN(ZWJ)U(FVS1)NDUR
       expect(result, expected);
     });
 
@@ -8060,7 +4134,7 @@ void main() {
     test('anggilumchechegWord', () async {
       final menksoft = '\uE266\uE2BD\uE2EB\uE27F\uE2FB\uE291\uE2F5\uE317\uE276\uE317\uE276\uE2E8';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠠᠩᠭᠢᠯᠤᠮᠴᠡᠴᠡᠭ'; // ANGGILUMCHECHEG
+      final expected = '\u1820ᠩᠭᠢᠯᠤᠮᠴᠡᠴᠡᠭ'; // ANGGILUMCHECHEG
       expect(result, expected);
     });
 
@@ -8195,7 +4269,7 @@ void main() {
     test('daqiSuffix', () async {
       final menksoft = '\uE263\uE310\uE26C\uE2DA\uE27C';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = ' ᠳᠠᠬᠢ'; //
+      final expected = ' ᠳ\u1820ᠬᠢ'; //
       expect(result, expected);
     });
 
@@ -8209,7 +4283,7 @@ void main() {
     test('achaSuffix', () async {
       final menksoft = '\uE263\uE267\uE317\uE268';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = ' ᠠᠴᠠ'; //
+      final expected = ' \u1820ᠴ\u1820'; //
       expect(result, expected);
     });
 
@@ -8223,7 +4297,7 @@ void main() {
     test('barSuffix', () async {
       final menksoft = '\uE263\uE2C1\uE26D\uE325';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = ' ᠪᠠᠷ'; //
+      final expected = ' ᠪ\u1820ᠷ'; //
       expect(result, expected);
     });
 
@@ -8237,7 +4311,7 @@ void main() {
     test('iyarSuffix', () async {
       final menksoft = '\uE263\uE280\uE321\uE26C\uE325';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = ' ᠢᠶᠠᠷ'; //
+      final expected = ' ᠢᠶ\u1820ᠷ'; //
       expect(result, expected);
     });
 
@@ -8251,7 +4325,7 @@ void main() {
     test('taiSuffix', () async {
       final menksoft = '\uE263\uE308\uE26C\uE27B';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = ' ᠲᠠᠢ'; //
+      final expected = ' ᠲ\u1820ᠢ'; //
       expect(result, expected);
     });
 
@@ -8265,7 +4339,7 @@ void main() {
     test('lugaSuffix', () async {
       final menksoft = '\uE263\uE2F8\uE291\uE2E9\uE26A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = ' ᠯᠤᠭ᠎ᠠ'; //
+      final expected = ' ᠯᠤᠭ᠎\u1820'; //
       expect(result, expected);
     });
 
@@ -8279,7 +4353,7 @@ void main() {
     test('banSuffix', () async {
       final menksoft = '\uE263\uE2C1\uE26D\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = ' ᠪᠠᠨ'; //
+      final expected = ' ᠪ\u1820ᠨ'; //
       expect(result, expected);
     });
 
@@ -8293,7 +4367,7 @@ void main() {
     test('iyanSuffix', () async {
       final menksoft = '\uE263\uE280\uE321\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = ' ᠢᠶᠠᠨ'; //
+      final expected = ' ᠢᠶ\u1820ᠨ'; //
       expect(result, expected);
     });
 
@@ -8307,7 +4381,7 @@ void main() {
     test('yuganSuffix', () async {
       final menksoft = '\uE263\uE31E\uE291\uE2EA\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = ' ᠶᠤᠭᠠᠨ'; //
+      final expected = ' ᠶᠤᠭ\u1820ᠨ'; //
       expect(result, expected);
     });
 
@@ -8321,7 +4395,7 @@ void main() {
     test('daganSuffix', () async {
       final menksoft = '\uE263\uE310\uE26C\uE2EA\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = ' ᠳᠠᠭᠠᠨ'; //
+      final expected = ' ᠳ\u1820ᠭ\u1820ᠨ'; //
       expect(result, expected);
     });
 
@@ -8335,7 +4409,7 @@ void main() {
     test('taganSuffix', () async {
       final menksoft = '\uE263\uE308\uE26C\uE2EA\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = ' ᠲᠠᠭᠠᠨ'; //
+      final expected = ' ᠲ\u1820ᠭ\u1820ᠨ'; //
       expect(result, expected);
     });
 
@@ -8349,7 +4423,7 @@ void main() {
     test('achaganSuffix', () async {
       final menksoft = '\uE263\uE267\uE317\uE26C\uE2EA\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = ' ᠠᠴᠠᠭᠠᠨ'; //
+      final expected = ' \u1820ᠴ\u1820ᠭ\u1820ᠨ'; //
       expect(result, expected);
     });
 
@@ -8363,14 +4437,14 @@ void main() {
     test('taiganSuffix', () async {
       final menksoft = '\uE263\uE308\uE26C\uE281\uE2EA\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = ' ᠲᠠᠢᠭᠠᠨ'; //
+      final expected = ' ᠲ\u1820ᠢᠭ\u1820ᠨ'; //
       expect(result, expected);
     });
 
     test('tayiganSuffix', () async {
       final menksoft = '\uE263\uE308\uE26C\uE321\uE27E\uE2EA\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = ' ᠲᠠᠶᠢᠭᠠᠨ'; //
+      final expected = ' ᠲ\u1820ᠶᠢᠭ\u1820ᠨ'; //
       expect(result, expected);
     });
 
@@ -8419,7 +4493,7 @@ void main() {
     test('narSuffix', () async {
       final menksoft = '\uE263\uE2B1\uE26C\uE325';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = ' ᠨᠠᠷ'; //
+      final expected = ' ᠨ\u1820ᠷ'; //
       expect(result, expected);
     });
 
@@ -8447,7 +4521,7 @@ void main() {
     test('daSuffix', () async {
       final menksoft = '\uE263\uE310\uE268';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = ' ᠳᠠ'; //
+      final expected = ' ᠳ\u1820'; //
       expect(result, expected);
     });
 

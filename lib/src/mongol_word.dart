@@ -1747,7 +1747,8 @@ class MongolWord {
   }
 
   void _handleNonPrintingChar(List<int> renderedWord) {
-    renderedWord.add(Unicode.WJ);
+    // renderedWord.add(Unicode.WJ);
+    // drop char
   }
 
   bool _isRoundLetterIncludingQG(int character) {

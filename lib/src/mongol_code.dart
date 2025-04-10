@@ -76,7 +76,7 @@ class MongolCode {
     return codeUnit == Unicode.MVS ||
         codeUnit == Unicode.ZWJ ||
         codeUnit == Unicode.ZWNJ ||
-        codeUnit == Unicode.WJ ||
+        // codeUnit == Unicode.WJ ||
         codeUnit == Unicode.FVS1 ||
         codeUnit == Unicode.FVS2 ||
         codeUnit == Unicode.FVS3;
