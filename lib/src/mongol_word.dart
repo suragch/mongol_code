@@ -42,11 +42,13 @@ class MongolWord {
     for (int i = 0; i < _inputWord.length; i++) {
       if (!_isControlChar(_inputWord[i])) {
         _firstLetterIndex = i;
+        break;
       }
     }
     for (int i = _inputWord.length - 1; i >= 0; i--) {
       if (!_isControlChar(_inputWord[i])) {
         _lastLetterIndex = i;
+        break;
       }
     }
   }
@@ -275,30 +277,22 @@ class MongolWord {
 
         case Unicode.CHI:
           _handleCHI(renderedWord);
-
         case Unicode.NNBS:
           _handleNNBS(renderedWord);
-
         case Unicode.MONGOLIAN_NIRUGU:
           _handleNirugu(renderedWord);
-
         case Unicode.ZWJ:
         case Unicode.ZWNJ:
         case Unicode.MVS:
           _handleNonPrintingChar(renderedWord);
-
         case Unicode.FVS1:
         case Unicode.FVS2:
         case Unicode.FVS3:
+        case Unicode.FVS4:
           _handleNonPrintingChar(renderedWord);
           _fvs = currentChar;
           continue;
         default:
-          // don't render TodoScript words, the font can do that
-          if (MongolCode.isTodoAlphabet(currentChar)) {
-            return _inputWord;
-          }
-
           // catch any other characters and just insert them directly
           renderedWord.add(currentChar);
       }
@@ -1740,7 +1734,16 @@ class MongolWord {
   }
 
   void _handleNirugu(List<int> renderedWord) {
-    renderedWord.add(Menksoft.NIRUGU);
+    switch (_location) {
+      case Location.ISOLATE:
+        renderedWord.add(Menksoft.NIRUGU);
+      case Location.INITIAL:
+      // drop it
+      case Location.MEDIAL:
+        renderedWord.add(Menksoft.NIRUGU);
+      case Location.FINAL:
+      // drop it
+    }
     _glyphShapeBelow = Shape.STEM;
   }
 
@@ -1779,31 +1782,4 @@ class MongolWord {
   static bool _isOuVowel(int character) {
     return (character >= Unicode.O && character <= Unicode.UE);
   }
-
-  // Starts at the end of the word and works up
-  // if mixed genders only reports the first one from the bottom
-  // returns null if word does not end in a valid Mongolian character
-  // static Gender? getGender(List<int> word) {
-  //   // check that word is valid mongolian
-  //   if (word.isEmpty) return null;
-  //   final length = word.length;
-  //   final lastChar = word[length - 1];
-  //   if (!MongolCode.isMongolian(lastChar)) return null;
-  //   return _getWordGenderAboveIndex(length, word);
-  // }
-
-  // assumes that word is valid mongolian
-  // this starts at the index and works up
-  // If there are mixed genders then only the first will be reported
-  // (could add a Gender.MIXED form)
-  // static Gender _getWordGenderAboveIndex(int index, List<int> word) {
-  //   for (var i = index - 1; i >= 0; i--) {
-  //     if (MongolCode.isMasculineVowel(word[i])) {
-  //       return Gender.MASCULINE;
-  //     } else if (MongolCode.isFeminineVowel(word[i])) {
-  //       return Gender.FEMININE;
-  //     }
-  //   }
-  //   return Gender.NEUTER;
-  // }
 }
