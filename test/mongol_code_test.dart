@@ -13,6 +13,13 @@ String convertToUnicodeAndBackAgain(String menksoft) {
   return converter.unicodeToMenksoft(unicode);
 }
 
+void printResult(String actual, String expected) {
+  print(
+    'actual: ${actual.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}'
+    'expected: ${expected.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}',
+  );
+}
+
 void main() {
   group('Unicode -> Menksoft: non-Mongol strings', () {
     test('empty string', () async {
@@ -70,16 +77,14 @@ void main() {
       final unicode = String.fromCharCodes([Unicode.A, Unicode.MONGOLIAN_NIRUGU]);
       final result = convertUnicodeToMenksoft(unicode);
       final expected = String.fromCharCode(Menksoft.INIT_A);
-      print(
-        'expected: ${expected.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')} result: ${result.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}',
-      );
       expect(result, expected);
     });
 
     test('aMedi', () async {
-      final unicode = '‍ᠠ‍';
+      final unicode = '᠊ᠠ᠊';
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '';
+      // printResult(result, expected);
       expect(result, expected);
     });
 

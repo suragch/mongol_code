@@ -1736,13 +1736,12 @@ class MongolWord {
   void _handleNirugu(List<int> renderedWord) {
     switch (_location) {
       case Location.ISOLATE:
-        renderedWord.add(Menksoft.NIRUGU);
-      case Location.INITIAL:
-      // drop it
       case Location.MEDIAL:
         renderedWord.add(Menksoft.NIRUGU);
+      case Location.INITIAL:
       case Location.FINAL:
-      // drop it
+        // drop it
+        break;
     }
     _glyphShapeBelow = Shape.STEM;
   }
