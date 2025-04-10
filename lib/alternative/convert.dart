@@ -1,15 +1,11 @@
-import 'package:mongol_code/alternative/context_rules.dart';
 import 'package:mongol_code/alternative/fixed_words.dart';
-import 'package:mongol_code/alternative/word_state.dart';
 
 import '../mongol_code.dart';
-import 'fsv_rules.dart';
+import '../src/mongol_word.dart';
 import 'maps.dart';
-import 'models.dart';
-import 'mvs_rules.dart';
 
 String convertUnicodeToMenksoft(String input) {
-  final output = StringBuffer();
+  final output = <int>[];
   final codeUnits = input.codeUnits;
   int i = 0;
 
@@ -23,7 +19,7 @@ String convertUnicodeToMenksoft(String input) {
       if (unicodeToMenksoftPunctuation.keys.contains(codeUnit)) {
         codeUnit = unicodeToMenksoftPunctuation[codeUnit]!;
       }
-      output.writeCharCode(codeUnit);
+      output.add(codeUnit);
       segmentStart++;
     }
     if (segmentStart == codeUnits.length) break;
@@ -35,13 +31,13 @@ String convertUnicodeToMenksoft(String input) {
     // 2. Process the segment
     final segment = codeUnits.sublist(segmentStart, segmentEnd);
     final menksoftCode = _processMongolianSegment(segment);
-    output.write(menksoftCode);
+    output.addAll(menksoftCode);
 
     // 3. Move past the processed segment
     i = segmentEnd;
   }
 
-  return output.toString();
+  return String.fromCharCodes(output);
 }
 
 // Include Todd, Sibe, and Manchu for now. These will be filtered out later,
@@ -77,30 +73,13 @@ bool _isFVS(int? codeUnit) {
       codeUnit == Unicode.FVS4;
 }
 
-// // Placeholder - Needs actual implementation based on Appendix C
-// Gender _getGenderContext(List<int> segmentRunes, int currentIndex) {
-//   // Scan backwards in the segment (word) for vowels
-//   // Apply rules from Appendix C
-//   // For simplicity, default to Neutral or guess based on first vowel?
-//   // This needs careful implementation matching the standard.
-//   for (int i = currentIndex - 1; i >= 0; i--) {
-//     final rune = segmentRunes[i];
-//     final info = charInfoMap[rune];
-//     if (info != null && info.type == CharType.Vowel && info.initialGender != Gender.Neutral) {
-//       return info.initialGender;
-//     }
-//   }
-//   // Default if no determining vowel found before
-//   return Gender.Neutral; // Or perhaps Masculine as a default? Check standard practice.
-// }
-
 // A segment may include multiple words or suffixes separated by MVS
-String _processMongolianSegment(List<int> segment) {
-  if (segment.isEmpty) return '';
+List<int> _processMongolianSegment(List<int> segment) {
+  if (segment.isEmpty) return segment;
 
   // Return Todo, Sibe, and Manchu strings without processing
   if (_containsTodoSibeManchu(segment)) {
-    return String.fromCharCodes(segment);
+    return segment;
   }
 
   // Split by MVS and process each word
@@ -111,7 +90,7 @@ String _processMongolianSegment(List<int> segment) {
     outputMenksoft.addAll(menksoftCode);
   }
 
-  return String.fromCharCodes(outputMenksoft);
+  return outputMenksoft;
 }
 
 bool _containsTodoSibeManchu(List<int> codeUnits) {
@@ -178,127 +157,7 @@ List<int> _processMongolianWord(List<int> unicode) {
     return fixedSequence;
   }
 
-  final outputMenksoft = <int>[];
-  // int currentIndex = 0;
-  // int? lastChar;
-  final word = MongolianWord(unicode);
-
-  while (word.nextChar()) {
-    // final currentChar = word[currentIndex];
-    // final position = _getPosition(word, currentIndex);
-    // final genderContext = _getGenderContext(word, currentIndex);
-    // final nextChar = (currentIndex + 1 < word.length) ? word[currentIndex + 1] : null;
-    // final shape = _getShape(lastChar, )
-
-    // 2. Check FVS
-    if (word.currentCharHasFvs) {
-      final glyph = applyFvsRule(word);
-      if (glyph != null) {
-        outputMenksoft.add(glyph);
-        currentIndex += 2;
-        continue;
-      }
-    }
-
-    // 3. Check MVS
-    if (currentChar == Unicode.MVS) {
-      final glyph = Menksoft.NONBREAKING_SPACE;
-      outputMenksoft.add(glyph);
-      currentIndex += 1;
-      continue;
-    }
-    if (nextChar == Unicode.MVS) {
-      final glyphs = applyMvsRule(unicode, currentIndex);
-      if (glyphs != null) {
-        outputMenksoft.addAll(glyphs);
-        currentIndex += 2;
-        continue;
-      }
-    }
-
-    lastChar = currentChar;
-
-    // 4. Check NIRUGU
-    if (currentChar == Unicode.MONGOLIAN_NIRUGU) {
-      outputMenksoft.add(Menksoft.NIRUGU);
-      currentIndex += 1;
-      continue;
-    }
-
-    // 5. Apply General Contextual Rules
-
-    // Lookup rule for (currentChar, position, genderContext, neighbors) -> presentationId
-    final glyph = applyContextRules(word: unicode, index: currentIndex, position: position);
-    if (glyph != null) {
-      outputMenksoft.add(glyph);
-      currentIndex += 1;
-      continue;
-    }
-
-    // 7. Fallback
-    print("Warning: No rule found for U+${currentChar.toRadixString(16)} at index $currentIndex in segment.");
-    // Output default or error
-    outputMenksoft.add(0xFFFD); // Unicode Replacement Character
-    // Else: Control char like FVS might have been consumed without direct output
-  }
-
-  return outputMenksoft;
+  // 2. Apply FVS, MVS, and context rules
+  final word = MongolWord(unicode);
+  return word.convertToMenksoftCode();
 }
-
-// Position _getPosition(List<int> word, int index) {
-//   if (word.length == 1) return Position.isol;
-//   if (word.length == 2 && _isFVS(word[index])) return Position.isol;
-//   if (index == 0) return Position.init;
-//   if (index == word.length - 1) return Position.fina;
-//   return Position.medi;
-// }
-
-// List<int>? _replaceFixedSequenceWord(List<int> unicode) {}
-
-// Finds presentation ID based on context (position, neighbors, gender)
-// int? _findContextualRule(List<int> segmentRunes, int currentIndex, Position position, Gender gender) {
-//   // !!! Implement lookup based on Appendix B rules !!!
-//   // This is the most complex part. Needs matching based on position,
-//   // preceding/succeeding char types, specific char checks, gender.
-//   final charCode = segmentRunes[currentIndex];
-//   print("Lookup Context rule for U+${charCode.toRadixString(16)} at pos $position, gender $gender");
-
-//   // Example: Find rule for 'A' (0x1820)
-//   if (charCode == 0x1820) {
-//     switch (position) {
-//       case Position.init:
-//         return 0x0004; // ml. a first initial form
-//       case Position.medi:
-//         return 0x0005; // ml. a first medial form
-//       case Position.fina:
-//         return 0x0008; // ml. a first final form
-//       case Position.isol:
-//         return 0x00B2; // ml. a first isolate form
-//     }
-//   }
-//   // Add rules for ALL other characters...
-
-//   // Fallback to a default if no specific rule found (should be rare)
-//   return _findDefaultRule(charCode, position);
-// }
-
-// Finds a very basic default presentation ID based only on char + position
-// int? _findDefaultRule(int charCode, Position position) {
-//   // Extremely simplified fallback - use with caution!
-//   print("Fallback rule for U+${charCode.toRadixString(16)} at pos $position");
-//   if (charCode == 0x1820) {
-//     // 'A'
-//     switch (position) {
-//       case Position.init:
-//         return 0x0004;
-//       case Position.medi:
-//         return 0x0005;
-//       case Position.fina:
-//         return 0x0008;
-//       case Position.isol:
-//         return 0x00B2;
-//     }
-//   }
-//   // Add other basic defaults...
-//   return null; // No default found
-// }

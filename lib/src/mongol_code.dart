@@ -1,4 +1,6 @@
-import 'gender.dart';
+// import 'gender.dart';
+import 'package:mongol_code/alternative/convert.dart';
+
 import 'location.dart';
 import 'menksoft.dart';
 import 'menksoft_word.dart';
@@ -33,11 +35,12 @@ class MongolCode {
   static final MongolCode instance = MongolCode._privateConstructor();
 
   // strange exception where the first UE does not get a long tooth
-  static const String _BUU_EXCEPTION = '\u182A\u1826\u1826';
+  // static const String _BUU_EXCEPTION = '\u182A\u1826\u1826';
 
   String unicodeToMenksoft(String inputString) {
-    final menksoftWithSpacingChars = unicodeToMenksoftSameIndex(inputString);
-    return _stripControlChars(menksoftWithSpacingChars);
+    return convertUnicodeToMenksoft(inputString);
+    // final menksoftWithSpacingChars = unicodeToMenksoftSameIndex(inputString);
+    // return _stripControlChars(menksoftWithSpacingChars);
   }
 
   String _stripControlChars(String stringWithControlChars) {
@@ -126,48 +129,48 @@ class MongolCode {
     outputString.addAll(renderedWord);
   }
 
-  String menksoftToUnicode(String inputString) {
-    if (inputString.isEmpty) return '';
+  // String menksoftToUnicode(String inputString) {
+  //   if (inputString.isEmpty) return '';
 
-    final outputString = StringBuffer();
-    final menksoftWord = StringBuffer();
+  //   final outputString = StringBuffer();
+  //   final menksoftWord = StringBuffer();
 
-    // Loop through characters in string
-    final length = inputString.length;
-    for (var i = 0; i < length; i++) {
-      final codeUnit = inputString.codeUnitAt(i);
-      if (isMenksoft(codeUnit) && !Menksoft.isMenksoftSpace(codeUnit)) {
-        menksoftWord.writeCharCode(codeUnit);
-        continue;
-      }
+  //   // Loop through characters in string
+  //   final length = inputString.length;
+  //   for (var i = 0; i < length; i++) {
+  //     final codeUnit = inputString.codeUnitAt(i);
+  //     if (isMenksoft(codeUnit) && !Menksoft.isMenksoftSpace(codeUnit)) {
+  //       menksoftWord.writeCharCode(codeUnit);
+  //       continue;
+  //     }
 
-      if (menksoftWord.length > 0) {
-        _appendMenksoftWord(outputString, menksoftWord);
-        menksoftWord.clear();
-      }
+  //     if (menksoftWord.length > 0) {
+  //       _appendMenksoftWord(outputString, menksoftWord);
+  //       menksoftWord.clear();
+  //     }
 
-      // A space starts a new Mongol word but is not itself a Mongol char
-      if (Menksoft.isMenksoftSpace(codeUnit)) {
-        menksoftWord.writeCharCode(codeUnit);
-        continue;
-      }
+  //     // A space starts a new Mongol word but is not itself a Mongol char
+  //     if (Menksoft.isMenksoftSpace(codeUnit)) {
+  //       menksoftWord.writeCharCode(codeUnit);
+  //       continue;
+  //     }
 
-      // non-Menksoft character
-      outputString.writeCharCode(codeUnit);
-    }
+  //     // non-Menksoft character
+  //     outputString.writeCharCode(codeUnit);
+  //   }
 
-    // Add any final substring
-    if (menksoftWord.length > 0) {
-      _appendMenksoftWord(outputString, menksoftWord);
-    }
+  //   // Add any final substring
+  //   if (menksoftWord.length > 0) {
+  //     _appendMenksoftWord(outputString, menksoftWord);
+  //   }
 
-    return outputString.toString();
-  }
+  //   return outputString.toString();
+  // }
 
-  void _appendMenksoftWord(StringBuffer outputString, StringBuffer menksoftWord) {
-    final unicodeWord = MenksoftWord(menksoftWord.toString()).convertToUnicode();
-    outputString.write(unicodeWord);
-  }
+  // void _appendMenksoftWord(StringBuffer outputString, StringBuffer menksoftWord) {
+  //   final unicodeWord = MenksoftWord(menksoftWord.toString()).convertToUnicode();
+  //   outputString.write(unicodeWord);
+  // }
 
   static Location getLocation(String textBefore, String textAfter) {
     var beforeIsMongolian = false;
@@ -325,7 +328,7 @@ class MongolCode {
   // Starts at the end of the word and works up
   // if mixed genders only reports the first one from the bottom
   // returns null if word does not end in a valid Mongolian character
-  static Gender? getWordGender(List<int> word) {
-    return MongolWord.getGender(word);
-  }
+  // static Gender? getWordGender(List<int> word) {
+  //   return MongolWord.getGender(word);
+  // }
 }
