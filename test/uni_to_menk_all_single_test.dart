@@ -1161,7 +1161,7 @@ void main() {
     test('naIsolFvs1', () async {
       final unicode = '\u1828\u180B';
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = String.fromCharCode(Menksoft.ISOL_NA);
+      final expected = String.fromCharCode(Menksoft.ISOL_NA_FVS1);
       expect(result, expected);
     });
 
@@ -1934,21 +1934,21 @@ void main() {
     test('gaMedi', () async {
       final unicode = '\u180A\u182D\u180A';
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = String.fromCharCode(Menksoft.MEDI_GA);
+      final expected = String.fromCharCode(Menksoft.MEDI_GA_FVS2_STEM);
       expect(result, expected);
     });
 
     test('gaMediFvs1', () async {
       final unicode = '\u180A\u182D\u180B\u180A';
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = String.fromCharCode(Menksoft.MEDI_GA);
+      final expected = String.fromCharCode(Menksoft.MEDI_GA_FVS1_STEM);
       expect(result, expected);
     });
 
     test('gaMediFvs2', () async {
       final unicode = '\u180A\u182D\u180C\u180A';
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = String.fromCharCode(Menksoft.MEDI_GA_FVS2);
+      final expected = String.fromCharCode(Menksoft.MEDI_GA_FVS2_STEM);
       expect(result, expected);
     });
 
@@ -2651,7 +2651,7 @@ void main() {
     test('taMediFvs1', () async {
       final unicode = '\u180A\u1832\u180B\u180A';
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = String.fromCharCode(Menksoft.MEDI_TA);
+      final expected = String.fromCharCode(Menksoft.MEDI_TA_FVS1_STEM);
       expect(result, expected);
     });
 
@@ -3226,7 +3226,7 @@ void main() {
     test('yaMediFvs2', () async {
       final unicode = '\u180A\u1836\u180C\u180A';
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = String.fromCharCode(Menksoft.MEDI_YA);
+      final expected = String.fromCharCode(Menksoft.MEDI_YA_FVS2);
       expect(result, expected);
     });
 
