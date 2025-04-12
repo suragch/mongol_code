@@ -1,5 +1,4 @@
 // GBT+25924-2023 Appendix D
-import 'package:mongol_code/mongol_code.dart';
 
 List<int>? checkFixedSequence(List<int> unicode) {
   final word = String.fromCharCodes(unicode);
@@ -15,301 +14,269 @@ const _fixedTwoLetterWords = {
   ////// FIXED TWO-LETTER WORDS //////
 
   // 1. NCC|MCCC + A
-  '${Unicode.NA}${Unicode.A}': '${Menksoft.INIT_NA_FVS1_STEM}${Menksoft.FINA_A}',
-  '${Unicode.MA}${Unicode.A}': '${Menksoft.INIT_MA_STEM_LONG}${Menksoft.FINA_A}',
-  '${Unicode.LA}${Unicode.A}': '${Menksoft.INIT_LA_STEM_LONG}${Menksoft.FINA_A}',
-  '${Unicode.SA}${Unicode.A}': '${Menksoft.INIT_SA_STEM}${Menksoft.FINA_A}',
-  '${Unicode.SHA}${Unicode.A}': '${Menksoft.INIT_SHA_STEM}${Menksoft.FINA_A}',
-  '${Unicode.TA}${Unicode.A}': '${Menksoft.INIT_TA_STEM}${Menksoft.FINA_A}',
-  '${Unicode.CHA}${Unicode.A}': '${Menksoft.INIT_CHA}${Menksoft.FINA_A}',
-  '${Unicode.JA}${Unicode.A}': '${Menksoft.INIT_JA_STEM}${Menksoft.FINA_A}',
-  '${Unicode.YA}${Unicode.A}': '${Menksoft.INIT_YA}${Menksoft.FINA_A}',
-  '${Unicode.RA}${Unicode.A}': '${Menksoft.INIT_RA_STEM}${Menksoft.FINA_A}',
-  '${Unicode.WA}${Unicode.A}': '${Menksoft.INIT_WA}${Menksoft.FINA_A}',
-  '${Unicode.TSA}${Unicode.A}': '${Menksoft.INIT_TSA}${Menksoft.FINA_A}',
-  '${Unicode.ZA}${Unicode.A}': '${Menksoft.INIT_ZA}${Menksoft.FINA_A}',
-  '${Unicode.HAA}${Unicode.A}': '${Menksoft.INIT_HAA}${Menksoft.FINA_A}',
-  '${Unicode.ZRA}${Unicode.A}': '${Menksoft.INIT_ZRA}${Menksoft.FINA_A}',
-  '${Unicode.LHA}${Unicode.A}': '${Menksoft.INIT_LHA}${Menksoft.FINA_A}',
-  '${Unicode.QA}${Unicode.A}': '${Menksoft.INIT_QA_STEM}${Menksoft.FINA_A}',
-  '${Unicode.GA}${Unicode.A}': '${Menksoft.INIT_GA_STEM}${Menksoft.FINA_A}',
+  '\u1828\u1820': '\uE2B4\uE268',
+  '\u182E\u1820': '\uE2F2\uE268',
+  '\u182F\u1820': '\uE2F8\uE268',
+  '\u1830\u1820': '\uE2FE\uE268',
+  '\u1831\u1820': '\uE304\uE268',
+  '\u1832\u1820': '\uE309\uE268',
+  '\u1834\u1820': '\uE315\uE268',
+  '\u1835\u1820': '\uE31A\uE268',
+  '\u1836\u1820': '\uE31E\uE268',
+  '\u1837\u1820': '\uE322\uE268',
+  '\u1838\u1820': '\uE329\uE268',
+  '\u183C\u1820': '\uE33F\uE268',
+  '\u183D\u1820': '\uE342\uE268',
+  '\u183E\u1820': '\uE345\uE268',
+  '\u183F\u1820': '\uE348\uE268',
+  '\u1840\u1820': '\uE34B\uE268',
+  '\u182C\u1820': '\uE2D2\uE268',
+  '\u182D\u1820': '\uE2E4\uE268',
 
   // 2. MCC + A
-  '${Unicode.BA}${Unicode.A}': '${Menksoft.INIT_BA_TOOTH}${Menksoft.FINA_A_BP}',
-  '${Unicode.PA}${Unicode.A}': '${Menksoft.INIT_PA_TOOTH}${Menksoft.FINA_A_BP}',
-  '${Unicode.FA}${Unicode.A}': '${Menksoft.INIT_FA_TOOTH}${Menksoft.FINA_A_BP}',
-  '${Unicode.KA}${Unicode.A}': '${Menksoft.INIT_KA}${Menksoft.FINA_A_BP}',
-  '${Unicode.KHA}${Unicode.A}': '${Menksoft.INIT_KHA}${Menksoft.FINA_A_BP}',
+  '\u182A\u1820': '\uE2C1\uE26B',
+  '\u182B\u1820': '\uE2C8\uE26B',
+  '\u1839\u1820': '\uE32D\uE26B',
+  '\u183A\u1820': '\uE333\uE26B',
+  '\u183B\u1820': '\uE339\uE26B',
 
   // 3. NCC + E
-  '${Unicode.NA}${Unicode.E}': '${Menksoft.INIT_NA_FVS1_STEM}${Menksoft.FINA_E}',
-  '${Unicode.MA}${Unicode.E}': '${Menksoft.INIT_MA_STEM_LONG}${Menksoft.FINA_E}',
-  '${Unicode.LA}${Unicode.E}': '${Menksoft.INIT_LA_STEM_LONG}${Menksoft.FINA_E}',
-  '${Unicode.SA}${Unicode.E}': '${Menksoft.INIT_SA_STEM}${Menksoft.FINA_E}',
-  '${Unicode.SHA}${Unicode.E}': '${Menksoft.INIT_SHA_STEM}${Menksoft.FINA_E}',
-  '${Unicode.TA}${Unicode.E}': '${Menksoft.INIT_TA_STEM}${Menksoft.FINA_E}',
-  '${Unicode.CHA}${Unicode.E}': '${Menksoft.INIT_CHA}${Menksoft.FINA_E}',
-  '${Unicode.JA}${Unicode.E}': '${Menksoft.INIT_JA_STEM}${Menksoft.FINA_E}',
-  '${Unicode.YA}${Unicode.E}': '${Menksoft.INIT_YA}${Menksoft.FINA_E}',
-  '${Unicode.RA}${Unicode.E}': '${Menksoft.INIT_RA_STEM}${Menksoft.FINA_E}',
-  '${Unicode.WA}${Unicode.E}': '${Menksoft.INIT_WA}${Menksoft.FINA_E}',
-  '${Unicode.TSA}${Unicode.E}': '${Menksoft.INIT_TSA}${Menksoft.FINA_E}',
-  '${Unicode.ZA}${Unicode.E}': '${Menksoft.INIT_ZA}${Menksoft.FINA_E}',
-  '${Unicode.HAA}${Unicode.E}': '${Menksoft.INIT_HAA}${Menksoft.FINA_E}',
-  '${Unicode.ZRA}${Unicode.E}': '${Menksoft.INIT_ZRA}${Menksoft.FINA_E}',
-  '${Unicode.LHA}${Unicode.E}': '${Menksoft.INIT_LHA}${Menksoft.FINA_E}',
+  '\u1828\u1821': '\uE2B4\uE273',
+  '\u182E\u1821': '\uE2F2\uE273',
+  '\u182F\u1821': '\uE2F8\uE273',
+  '\u1830\u1821': '\uE2FE\uE273',
+  '\u1831\u1821': '\uE304\uE273',
+  '\u1832\u1821': '\uE309\uE273',
+  '\u1834\u1821': '\uE315\uE273',
+  '\u1835\u1821': '\uE31A\uE273',
+  '\u1836\u1821': '\uE31E\uE273',
+  '\u1837\u1821': '\uE322\uE273',
+  '\u1838\u1821': '\uE329\uE273',
+  '\u183C\u1821': '\uE33F\uE273',
+  '\u183D\u1821': '\uE342\uE273',
+  '\u183E\u1821': '\uE345\uE273',
+  '\u183F\u1821': '\uE348\uE273',
+  '\u1840\u1821': '\uE34B\uE273',
 
   // 4. MCC|MCCC + E
-  '${Unicode.BA}${Unicode.E}': '${Menksoft.INIT_BA_TOOTH}${Menksoft.FINA_E_BP}',
-  '${Unicode.PA}${Unicode.E}': '${Menksoft.INIT_PA_TOOTH}${Menksoft.FINA_E_BP}',
-  '${Unicode.FA}${Unicode.E}': '${Menksoft.INIT_FA_TOOTH}${Menksoft.FINA_E_BP}',
-  '${Unicode.KA}${Unicode.E}': '${Menksoft.INIT_KA}${Menksoft.FINA_E_BP}',
-  '${Unicode.KHA}${Unicode.E}': '${Menksoft.INIT_KHA}${Menksoft.FINA_E_BP}',
-  '${Unicode.QA}${Unicode.E}': '${Menksoft.INIT_QA_FVS2}${Menksoft.FINA_E_BP}',
-  '${Unicode.GA}${Unicode.E}': '${Menksoft.INIT_GA_FVS2}${Menksoft.FINA_E_BP}',
+  '\u182A\u1821': '\uE2C1\uE275',
+  '\u182B\u1821': '\uE2C8\uE275',
+  '\u1839\u1821': '\uE32D\uE275',
+  '\u183A\u1821': '\uE333\uE275',
+  '\u183B\u1821': '\uE339\uE275',
+  '\u182C\u1821': '\uE2D0\uE275',
+  '\u182D\u1821': '\uE2E3\uE275',
 
   // 5. Consonant + O|U
-  '${Unicode.NA}${Unicode.O}': '${Menksoft.INIT_NA_FVS1_TOOTH}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.MA}${Unicode.O}': '${Menksoft.INIT_MA_TOOTH}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.LA}${Unicode.O}': '${Menksoft.INIT_LA_TOOTH}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.SA}${Unicode.O}': '${Menksoft.INIT_SA_TOOTH}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.SHA}${Unicode.O}': '${Menksoft.INIT_SHA_TOOTH}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.TA}${Unicode.O}': '${Menksoft.INIT_TA_TOOTH}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.CHA}${Unicode.O}': '${Menksoft.INIT_CHA}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.JA}${Unicode.O}': '${Menksoft.INIT_JA_TOOTH}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.YA}${Unicode.O}': '${Menksoft.INIT_YA}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.RA}${Unicode.O}': '${Menksoft.INIT_RA_TOOTH}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.WA}${Unicode.O}': '${Menksoft.INIT_WA}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.TSA}${Unicode.O}': '${Menksoft.INIT_TSA}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.ZA}${Unicode.O}': '${Menksoft.INIT_ZA}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.HAA}${Unicode.O}': '${Menksoft.INIT_HAA}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.ZRA}${Unicode.O}': '${Menksoft.INIT_ZRA}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.LHA}${Unicode.O}': '${Menksoft.INIT_LHA}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.QA}${Unicode.O}': '${Menksoft.INIT_QA_TOOTH}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.GA}${Unicode.O}': '${Menksoft.INIT_GA_TOOTH}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.BA}${Unicode.O}': '${Menksoft.INIT_BA_TOOTH}${Menksoft.FINA_O_BP}',
-  '${Unicode.PA}${Unicode.O}': '${Menksoft.INIT_PA_TOOTH}${Menksoft.FINA_O_BP}',
-  '${Unicode.FA}${Unicode.O}': '${Menksoft.INIT_FA_TOOTH}${Menksoft.FINA_O_BP}',
-  '${Unicode.KA}${Unicode.O}': '${Menksoft.INIT_KA}${Menksoft.FINA_O_BP}',
-  '${Unicode.KHA}${Unicode.O}': '${Menksoft.INIT_KHA}${Menksoft.FINA_O_BP}',
-  '${Unicode.NA}${Unicode.U}': '${Menksoft.INIT_NA_FVS1_TOOTH}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.MA}${Unicode.U}': '${Menksoft.INIT_MA_TOOTH}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.LA}${Unicode.U}': '${Menksoft.INIT_LA_TOOTH}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.SA}${Unicode.U}': '${Menksoft.INIT_SA_TOOTH}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.SHA}${Unicode.U}': '${Menksoft.INIT_SHA_TOOTH}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.TA}${Unicode.U}': '${Menksoft.INIT_TA_TOOTH}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.CHA}${Unicode.U}': '${Menksoft.INIT_CHA}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.JA}${Unicode.U}': '${Menksoft.INIT_JA_TOOTH}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.YA}${Unicode.U}': '${Menksoft.INIT_YA}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.RA}${Unicode.U}': '${Menksoft.INIT_RA_TOOTH}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.WA}${Unicode.U}': '${Menksoft.INIT_WA}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.TSA}${Unicode.U}': '${Menksoft.INIT_TSA}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.ZA}${Unicode.U}': '${Menksoft.INIT_ZA}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.HAA}${Unicode.U}': '${Menksoft.INIT_HAA}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.ZRA}${Unicode.U}': '${Menksoft.INIT_ZRA}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.LHA}${Unicode.U}': '${Menksoft.INIT_LHA}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.QA}${Unicode.U}': '${Menksoft.INIT_QA_TOOTH}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.GA}${Unicode.U}': '${Menksoft.INIT_GA_TOOTH}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.BA}${Unicode.U}': '${Menksoft.INIT_BA_TOOTH}${Menksoft.FINA_U_FVS1_BP}',
-  '${Unicode.PA}${Unicode.U}': '${Menksoft.INIT_PA_TOOTH}${Menksoft.FINA_U_FVS1_BP}',
-  '${Unicode.FA}${Unicode.U}': '${Menksoft.INIT_FA_TOOTH}${Menksoft.FINA_U_FVS1_BP}',
-  '${Unicode.KA}${Unicode.U}': '${Menksoft.INIT_KA}${Menksoft.FINA_U_FVS1_BP}',
-  '${Unicode.KHA}${Unicode.U}': '${Menksoft.INIT_KHA}${Menksoft.FINA_U_FVS1_BP}',
+  '\u1828\u1823': '\uE2B2\uE286',
+  '\u182E\u1823': '\uE2F1\uE286',
+  '\u182F\u1823': '\uE2F7\uE286',
+  '\u1830\u1823': '\uE2FD\uE286',
+  '\u1831\u1823': '\uE303\uE286',
+  '\u1832\u1823': '\uE308\uE286',
+  '\u1834\u1823': '\uE315\uE286',
+  '\u1835\u1823': '\uE319\uE286',
+  '\u1836\u1823': '\uE31E\uE286',
+  '\u1837\u1823': '\uE323\uE286',
+  '\u1838\u1823': '\uE329\uE286',
+  '\u183C\u1823': '\uE33F\uE286',
+  '\u183D\u1823': '\uE342\uE286',
+  '\u183E\u1823': '\uE345\uE286',
+  '\u183F\u1823': '\uE348\uE286',
+  '\u1840\u1823': '\uE34B\uE286',
+  '\u182C\u1823': '\uE2CE\uE286',
+  '\u182D\u1823': '\uE2E1\uE286',
+  '\u182A\u1823': '\uE2C1\uE287',
+  '\u182B\u1823': '\uE2C8\uE287',
+  '\u1839\u1823': '\uE32D\uE287',
+  '\u183A\u1823': '\uE333\uE287',
+  '\u183B\u1823': '\uE339\uE287',
+  '\u1828\u1824': '\uE2B2\uE28E',
+  '\u182E\u1824': '\uE2F1\uE28E',
+  '\u182F\u1824': '\uE2F7\uE28E',
+  '\u1830\u1824': '\uE2FD\uE28E',
+  '\u1831\u1824': '\uE303\uE28E',
+  '\u1832\u1824': '\uE308\uE28E',
+  '\u1834\u1824': '\uE315\uE28E',
+  '\u1835\u1824': '\uE319\uE28E',
+  '\u1836\u1824': '\uE31E\uE28E',
+  '\u1837\u1824': '\uE323\uE28E',
+  '\u1838\u1824': '\uE329\uE28E',
+  '\u183C\u1824': '\uE33F\uE28E',
+  '\u183D\u1824': '\uE342\uE28E',
+  '\u183E\u1824': '\uE345\uE28E',
+  '\u183F\u1824': '\uE348\uE28E',
+  '\u1840\u1824': '\uE34B\uE28E',
+  '\u182C\u1824': '\uE2CE\uE28E',
+  '\u182D\u1824': '\uE2E1\uE28E',
+  '\u182A\u1824': '\uE2C1\uE28F',
+  '\u182B\u1824': '\uE2C8\uE28F',
+  '\u1839\u1824': '\uE32D\uE28F',
+  '\u183A\u1824': '\uE333\uE28F',
+  '\u183B\u1824': '\uE339\uE28F',
 
   // 6. Consonant + OE|UE
-  '${Unicode.NA}${Unicode.OE}': '${Menksoft.INIT_NA_FVS1_TOOTH}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.MA}${Unicode.OE}': '${Menksoft.INIT_MA_TOOTH}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.LA}${Unicode.OE}': '${Menksoft.INIT_LA_TOOTH}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.SA}${Unicode.OE}': '${Menksoft.INIT_SA_TOOTH}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.SHA}${Unicode.OE}': '${Menksoft.INIT_SHA_TOOTH}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.TA}${Unicode.OE}': '${Menksoft.INIT_TA_TOOTH}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.CHA}${Unicode.OE}': '${Menksoft.INIT_CHA}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.JA}${Unicode.OE}': '${Menksoft.INIT_JA_TOOTH}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.YA}${Unicode.OE}': '${Menksoft.INIT_YA}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.RA}${Unicode.OE}': '${Menksoft.INIT_RA_TOOTH}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.WA}${Unicode.OE}': '${Menksoft.INIT_WA}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.TSA}${Unicode.OE}': '${Menksoft.INIT_TSA}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.ZA}${Unicode.OE}': '${Menksoft.INIT_ZA}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.HAA}${Unicode.OE}': '${Menksoft.INIT_HAA}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.ZRA}${Unicode.OE}': '${Menksoft.INIT_ZRA}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.LHA}${Unicode.OE}': '${Menksoft.INIT_LHA}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.QA}${Unicode.OE}': '${Menksoft.INIT_QA_FVS2_OU}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.GA}${Unicode.OE}': '${Menksoft.INIT_GA_FVS2_OU}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.BA}${Unicode.OE}': '${Menksoft.INIT_BA_TOOTH}${Menksoft.FINA_OE_FVS1_BP}',
-  '${Unicode.PA}${Unicode.OE}': '${Menksoft.INIT_PA_TOOTH}${Menksoft.FINA_OE_FVS1_BP}',
-  '${Unicode.FA}${Unicode.OE}': '${Menksoft.INIT_FA_TOOTH}${Menksoft.FINA_OE_FVS1_BP}',
-  '${Unicode.KA}${Unicode.OE}': '${Menksoft.INIT_KA}${Menksoft.FINA_OE_FVS1_BP}',
-  '${Unicode.KHA}${Unicode.OE}': '${Menksoft.INIT_KHA}${Menksoft.FINA_OE_FVS1_BP}',
-  '${Unicode.NA}${Unicode.UE}': '${Menksoft.INIT_NA_FVS1_TOOTH}${Menksoft.FINA_UE_FVS1}',
-  '${Unicode.MA}${Unicode.UE}': '${Menksoft.INIT_MA_TOOTH}${Menksoft.FINA_UE_FVS1}',
-  '${Unicode.LA}${Unicode.UE}': '${Menksoft.INIT_LA_TOOTH}${Menksoft.FINA_UE_FVS1}',
-  '${Unicode.SA}${Unicode.UE}': '${Menksoft.INIT_SA_TOOTH}${Menksoft.FINA_UE_FVS1}',
-  '${Unicode.SHA}${Unicode.UE}': '${Menksoft.INIT_SHA_TOOTH}${Menksoft.FINA_UE_FVS1}',
-  '${Unicode.TA}${Unicode.UE}': '${Menksoft.INIT_TA_TOOTH}${Menksoft.FINA_UE_FVS1}',
-  '${Unicode.CHA}${Unicode.UE}': '${Menksoft.INIT_CHA}${Menksoft.FINA_UE_FVS1}',
-  '${Unicode.JA}${Unicode.UE}': '${Menksoft.INIT_JA_TOOTH}${Menksoft.FINA_UE_FVS1}',
-  '${Unicode.YA}${Unicode.UE}': '${Menksoft.INIT_YA}${Menksoft.FINA_UE_FVS1}',
-  '${Unicode.RA}${Unicode.UE}': '${Menksoft.INIT_RA_TOOTH}${Menksoft.FINA_UE_FVS1}',
-  '${Unicode.WA}${Unicode.UE}': '${Menksoft.INIT_WA}${Menksoft.FINA_UE_FVS1}',
-  '${Unicode.TSA}${Unicode.UE}': '${Menksoft.INIT_TSA}${Menksoft.FINA_UE_FVS1}',
-  '${Unicode.ZA}${Unicode.UE}': '${Menksoft.INIT_ZA}${Menksoft.FINA_UE_FVS1}',
-  '${Unicode.HAA}${Unicode.UE}': '${Menksoft.INIT_HAA}${Menksoft.FINA_UE_FVS1}',
-  '${Unicode.ZRA}${Unicode.UE}': '${Menksoft.INIT_ZRA}${Menksoft.FINA_UE_FVS1}',
-  '${Unicode.LHA}${Unicode.UE}': '${Menksoft.INIT_LHA}${Menksoft.FINA_UE_FVS1}',
-  '${Unicode.QA}${Unicode.UE}': '${Menksoft.INIT_QA_FVS2_OU}${Menksoft.FINA_UE_FVS1_BP}',
-  '${Unicode.GA}${Unicode.UE}': '${Menksoft.INIT_GA_FVS2_OU}${Menksoft.FINA_UE_FVS1_BP}',
-  '${Unicode.BA}${Unicode.UE}': '${Menksoft.INIT_BA_TOOTH}${Menksoft.FINA_UE_FVS1_BP}',
-  '${Unicode.PA}${Unicode.UE}': '${Menksoft.INIT_PA_TOOTH}${Menksoft.FINA_UE_FVS1_BP}',
-  '${Unicode.FA}${Unicode.UE}': '${Menksoft.INIT_FA_TOOTH}${Menksoft.FINA_UE_FVS1_BP}',
-  '${Unicode.KA}${Unicode.UE}': '${Menksoft.INIT_KA}${Menksoft.FINA_UE_FVS1_BP}',
-  '${Unicode.KHA}${Unicode.UE}': '${Menksoft.INIT_KHA}${Menksoft.FINA_UE_FVS1_BP}',
+  '\u1828\u1825': '\uE2B2\uE297',
+  '\u182E\u1825': '\uE2F1\uE297',
+  '\u182F\u1825': '\uE2F7\uE297',
+  '\u1830\u1825': '\uE2FD\uE297',
+  '\u1831\u1825': '\uE303\uE297',
+  '\u1832\u1825': '\uE308\uE297',
+  '\u1834\u1825': '\uE315\uE297',
+  '\u1835\u1825': '\uE319\uE297',
+  '\u1836\u1825': '\uE31E\uE297',
+  '\u1837\u1825': '\uE323\uE297',
+  '\u1838\u1825': '\uE329\uE297',
+  '\u183C\u1825': '\uE33F\uE297',
+  '\u183D\u1825': '\uE342\uE297',
+  '\u183E\u1825': '\uE345\uE297',
+  '\u183F\u1825': '\uE348\uE297',
+  '\u1840\u1825': '\uE34B\uE297',
+  '\u182C\u1825': '\uE2D4\uE297',
+  '\u182D\u1825': '\uE2E6\uE297',
+  '\u182A\u1825': '\uE2C1\uE298',
+  '\u182B\u1825': '\uE2C8\uE298',
+  '\u1839\u1825': '\uE32D\uE298',
+  '\u183A\u1825': '\uE333\uE298',
+  '\u183B\u1825': '\uE339\uE298',
+  '\u1828\u1826': '\uE2B2\uE2A1',
+  '\u182E\u1826': '\uE2F1\uE2A1',
+  '\u182F\u1826': '\uE2F7\uE2A1',
+  '\u1830\u1826': '\uE2FD\uE2A1',
+  '\u1831\u1826': '\uE303\uE2A1',
+  '\u1832\u1826': '\uE308\uE2A1',
+  '\u1834\u1826': '\uE315\uE2A1',
+  '\u1835\u1826': '\uE319\uE2A1',
+  '\u1836\u1826': '\uE31E\uE2A1',
+  '\u1837\u1826': '\uE323\uE2A1',
+  '\u1838\u1826': '\uE329\uE2A1',
+  '\u183C\u1826': '\uE33F\uE2A1',
+  '\u183D\u1826': '\uE342\uE2A1',
+  '\u183E\u1826': '\uE345\uE2A1',
+  '\u183F\u1826': '\uE348\uE2A1',
+  '\u1840\u1826': '\uE34B\uE2A1',
+  '\u182C\u1826': '\uE2D4\uE2A5',
+  '\u182D\u1826': '\uE2E6\uE2A5',
+  '\u182A\u1826': '\uE2C1\uE2A5',
+  '\u182B\u1826': '\uE2C8\uE2A5',
+  '\u1839\u1826': '\uE32D\uE2A5',
+  '\u183A\u1826': '\uE333\uE2A5',
+  '\u183B\u1826': '\uE339\uE2A5',
 
   // 7. DA + Vowel
-  '${Unicode.DA}${Unicode.A}': '${Menksoft.INIT_DA_FVS1}${Menksoft.FINA_A}',
-  '${Unicode.DA}${Unicode.E}': '${Menksoft.INIT_DA_FVS1}${Menksoft.FINA_E}',
-  '${Unicode.DA}${Unicode.EE}': '${Menksoft.INIT_DA_FVS1}${Menksoft.FINA_EE}',
-  '${Unicode.DA}${Unicode.I}': '${Menksoft.INIT_DA_FVS1}${Menksoft.FINA_I}',
-  '${Unicode.DA}${Unicode.O}': '${Menksoft.INIT_DA_FVS1}${Menksoft.FINA_O_FVS1}',
-  '${Unicode.DA}${Unicode.U}': '${Menksoft.INIT_DA_FVS1}${Menksoft.FINA_U_FVS1}',
-  '${Unicode.DA}${Unicode.OE}': '${Menksoft.INIT_DA_FVS1}${Menksoft.FINA_OE_FVS1}',
-  '${Unicode.DA}${Unicode.UE}': '${Menksoft.INIT_DA_FVS1}${Menksoft.FINA_UE_FVS1}',
+  '\u1833\u1820': '\uE310\uE268',
+  '\u1833\u1821': '\uE310\uE273',
+  '\u1833\u1822': '\uE310\uE27B',
+  '\u1833\u1823': '\uE310\uE286',
+  '\u1833\u1824': '\uE310\uE28E',
+  '\u1833\u1825': '\uE310\uE297',
+  '\u1833\u1826': '\uE310\uE2A1',
+  '\u1833\u1827': '\uE310\uE2AF',
 
   // 8. SHA + I
-  '${Unicode.SHA}${Unicode.I}': '${Menksoft.INIT_SHA_TOOTH}${Menksoft.FINA_I}',
+  '\u1831\u1822': '\uE303\uE27B',
 };
 
 const _fixedSuffixes = {
   // A
-  '${Unicode.MVS}${Unicode.A}': '${Menksoft.NONBREAKING_SPACE}${Menksoft.FINA_A_MVS}',
+  '\u180E\u1820': '\uE263\uE26A',
   // E
-  '${Unicode.MVS}${Unicode.E}': '${Menksoft.NONBREAKING_SPACE}${Menksoft.FINA_E_MVS}',
+  '\u180E\u1821': '\uE263\uE274',
   // ACHA
-  '${Unicode.MVS}${Unicode.A}${Unicode.CHA}${Unicode.A}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_A_FVS1}${Menksoft.MEDI_CHA}${Menksoft.FINA_A}',
+  '\u180E\u1820\u1834\u1820': '\uE263\uE267\uE317\uE268',
   // ACHAGAN
-  '${Unicode.MVS}${Unicode.A}${Unicode.CHA}${Unicode.A}${Unicode.GA}${Unicode.A}${Unicode.NA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_A_FVS1}${Menksoft.MEDI_CHA}${Menksoft.MEDI_A}${Menksoft.MEDI_GA_FVS1_STEM}${Menksoft.MEDI_A}${Menksoft.FINA_NA}',
+  '\u180E\u1820\u1834\u1820\u182D\u1820\u1828': '\uE263\uE267\uE317\uE26C\uE2EC\uE26C\uE2B5',
   // I
-  '${Unicode.MVS}${Unicode.I}': '${Menksoft.NONBREAKING_SPACE}${Menksoft.ISOL_I_FVS1}',
+  '\u180E\u1822': '\uE263\uE282',
   // IYAR
-  '${Unicode.MVS}${Unicode.I}${Unicode.YA}${Unicode.A}${Unicode.RA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_I_FVS1}${Menksoft.MEDI_YA_FVS1}${Menksoft.MEDI_A}${Menksoft.FINA_RA}',
+  '\u180E\u1822\u1836\u1820\u1837': '\uE263\uE280\uE321\uE26C\uE325',
   // IYER
-  '${Unicode.MVS}${Unicode.I}${Unicode.YA}${Unicode.E}${Unicode.RA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_I_FVS1}${Menksoft.MEDI_YA_FVS1}${Menksoft.MEDI_E}${Menksoft.FINA_RA}',
+  '\u180E\u1822\u1836\u1821\u1837': '\uE263\uE280\uE321\uE276\uE325',
   // IYAN
-  '${Unicode.MVS}${Unicode.I}${Unicode.YA}${Unicode.A}${Unicode.NA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_I_FVS1}${Menksoft.MEDI_YA_FVS1}${Menksoft.MEDI_A}${Menksoft.FINA_NA}',
+  '\u180E\u1822\u1836\u1820\u1828': '\uE263\uE280\uE321\uE26C\uE2B5',
   // IYEN
-  '${Unicode.MVS}${Unicode.I}${Unicode.YA}${Unicode.E}${Unicode.NA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_I_FVS1}${Menksoft.MEDI_YA_FVS1}${Menksoft.MEDI_E}${Menksoft.FINA_NA}',
+  '\u180E\u1822\u1836\u1821\u1828': '\uE263\uE280\uE321\uE276\uE2B5',
   // U
-  '${Unicode.MVS}${Unicode.U}': '${Menksoft.NONBREAKING_SPACE}${Menksoft.ISOL_U_FVS1}',
+  '\u180E\u1824': '\uE263\uE28D',
   // UE
-  '${Unicode.MVS}${Unicode.UE}': '${Menksoft.NONBREAKING_SPACE}${Menksoft.ISOL_UE_FVS1}',
+  '\u180E\u1826': '\uE263\uE2A1',
   // UN
-  '${Unicode.MVS}${Unicode.U}${Unicode.NA}': '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_U_FVS1}${Menksoft.FINA_NA}',
+  '\u180E\u1824\u1828': '\uE263\uE291\uE2B5',
   // UEN
-  '${Unicode.MVS}${Unicode.UE}${Unicode.NA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_UE_FVS1}${Menksoft.FINA_NA}',
+  '\u180E\u1826\u1828': '\uE263\uE2AB\uE2B5',
   // UD
-  '${Unicode.MVS}${Unicode.U}${Unicode.DA}': '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_U_FVS1}${Menksoft.FINA_DA}',
+  '\u180E\u1824\u1833': '\uE263\uE291\uE311',
   // UED
-  '${Unicode.MVS}${Unicode.UE}${Unicode.DA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_UE_FVS1}${Menksoft.FINA_DA}',
+  '\u180E\u1826\u1833': '\uE263\uE2AB\uE311',
   // CHU
-  '${Unicode.MVS}${Unicode.CHA}${Unicode.U}': '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_CHA}${Menksoft.FINA_U}',
+  '\u180E\u1834\u1824': '\uE263\uE315\uE28D',
   // CHUE
-  '${Unicode.MVS}${Unicode.CHA}${Unicode.UE}': '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_CHA}${Menksoft.FINA_UE}',
+  '\u180E\u1834\u1826': '\uE263\uE315\uE2A3',
   // TU
-  '${Unicode.MVS}${Unicode.TA}${Unicode.U}': '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_TA_STEM}${Menksoft.FINA_U}',
+  '\u180E\u1832\u1824': '\uE263\uE309\uE28D',
   // TUE
-  '${Unicode.MVS}${Unicode.TA}${Unicode.UE}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_TA_STEM}${Menksoft.FINA_UE}',
+  '\u180E\u1832\u1826': '\uE263\uE309\uE2A3',
   // TUER
-  '${Unicode.MVS}${Unicode.TA}${Unicode.UE}${Unicode.RA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_TA_STEM}${Menksoft.MEDI_UE}${Menksoft.FINA_RA}',
+  '\u180E\u1832\u1826\u1837': '\uE263\uE309\uE2AB\uE325',
   // TUENI
-  '${Unicode.MVS}${Unicode.TA}${Unicode.UE}${Unicode.NA}${Unicode.I}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_TA_STEM}${Menksoft.MEDI_UE}${Menksoft.MEDI_NA_FVS1_TOOTH}${Menksoft.FINA_I}',
+  '\u180E\u1832\u1826\u1828\u1822': '\uE263\uE309\uE2AB\uE2B7\uE27B',
   // YUEGEN
-  '${Unicode.MVS}${Unicode.YA}${Unicode.UE}${Unicode.GA}${Unicode.E}${Unicode.NA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_YA}${Menksoft.MEDI_UE}${Menksoft.MEDI_GA_FVS2}${Menksoft.MEDI_E}${Menksoft.FINA_NA}',
+  '\u180E\u1836\u1826\u182D\u1821\u1828': '\uE263\uE31E\uE2AB\uE2EB\uE276\uE2B5',
   // LUEGE
-  '${Unicode.MVS}${Unicode.LA}${Unicode.UE}${Unicode.GA}${Unicode.E}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_LA_STEM_LONG}${Menksoft.MEDI_UE}${Menksoft.MEDI_GA_FVS2}${Menksoft.FINA_E_BP}',
+  '\u180E\u182F\u1826\u182D\u1821': '\uE263\uE2F8\uE2AB\uE2EB\uE275',
   // NUEGUED
-  '${Unicode.MVS}${Unicode.NA}${Unicode.UE}${Unicode.GA}${Unicode.UE}${Unicode.DA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_NA_STEM}${Menksoft.MEDI_UE}${Menksoft.MEDI_GA_FVS2_OU}${Menksoft.MEDI_UE_BP}${Menksoft.FINA_DA}',
+  '\u180E\u1828\u1826\u182D\u1826\u1833': '\uE263\uE2B3\uE2AB\uE2ED\uE2AC\uE311',
   // NUEGEN
-  '${Unicode.MVS}${Unicode.NA}${Unicode.UE}${Unicode.GA}${Unicode.E}${Unicode.NA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_NA_STEM}${Menksoft.MEDI_UE}${Menksoft.MEDI_GA_FVS2}${Menksoft.MEDI_E}${Menksoft.FINA_NA}',
+  '\u180E\u1828\u1826\u182D\u1821\u1828': '\uE263\uE2B3\uE2AB\uE2EB\uE276\uE2B5',
   // YUEM
-  '${Unicode.MVS}${Unicode.YA}${Unicode.UE}${Unicode.MA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_YA}${Menksoft.MEDI_UE}${Menksoft.FINA_MA}',
+  '\u180E\u1836\u1826\u182E': '\uE263\uE31E\uE2AB\uE2F3',
   // YUEMSEN
-  '${Unicode.MVS}${Unicode.YA}${Unicode.UE}${Unicode.MA}${Unicode.SA}${Unicode.E}${Unicode.NA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_YA}${Menksoft.MEDI_UE}${Menksoft.MEDI_MA_STEM_LONG}${Menksoft.MEDI_SA_TOOTH}${Menksoft.MEDI_E}${Menksoft.FINA_NA}',
+  '\u180E\u1836\u1826\u182E\u1830\u1821\u1828': '\uE263\uE31E\uE2AB\uE2F5\uE301\uE276\uE2B5',
   // QU
-  '${Unicode.MVS}${Unicode.QA}${Unicode.UE}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_QA_FVS2_OU}${Menksoft.FINA_UE_FVS2_BP}',
+  '\u180E\u182C\u1826': '\uE263\uE2D4\uE2A7',
   // YI
-  '${Unicode.MVS}${Unicode.YA}${Unicode.I}': '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_YA_FVS1}${Menksoft.FINA_I}',
+  '\u180E\u1836\u1822': '\uE263\uE321\uE27B',
   // YIN
-  '${Unicode.MVS}${Unicode.YA}${Unicode.I}${Unicode.NA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_YA_FVS1}${Menksoft.MEDI_I}${Menksoft.FINA_NA}',
+  '\u180E\u1836\u1822\u1828': '\uE263\uE321\uE27E\uE2B5',
   // DAGAN
-  '${Unicode.MVS}${Unicode.DA}${Unicode.A}${Unicode.GA}${Unicode.A}${Unicode.NA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_DA_FVS1}${Menksoft.MEDI_A}${Menksoft.MEDI_GA_FVS1_STEM}${Menksoft.MEDI_A}${Menksoft.FINA_NA}',
+  '\u180E\u1833\u1820\u182D\u1820\u1828': '\uE263\uE310\uE26C\uE2EC\uE26C\uE2B5',
   // DEGEN
-  '${Unicode.MVS}${Unicode.DA}${Unicode.E}${Unicode.GA}${Unicode.E}${Unicode.NA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_DA_FVS1}${Menksoft.MEDI_E}${Menksoft.MEDI_GA_FVS2}${Menksoft.MEDI_E}${Menksoft.FINA_NA}',
+  '\u180E\u1833\u1821\u182D\u1821\u1828': '\uE263\uE310\uE276\uE2EB\uE276\uE2B5',
   // DU
-  '${Unicode.MVS}${Unicode.DA}${Unicode.U}': '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_DA_FVS1}${Menksoft.FINA_U}',
+  '\u180E\u1833\u1824': '\uE263\uE310\uE28D',
   // DUE
-  '${Unicode.MVS}${Unicode.DA}${Unicode.UE}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_DA_FVS1}${Menksoft.FINA_UE}',
+  '\u180E\u1833\u1826': '\uE263\uE310\uE2A3',
   // DAG
-  '${Unicode.MVS}${Unicode.DA}${Unicode.A}${Unicode.GA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_DA_FVS1}${Menksoft.MEDI_A}${Menksoft.FINA_GA_FVS1}',
+  '\u180E\u1833\u1820\u182D': '\uE263\uE310\uE26C\uE2E7',
   // DEG
-  '${Unicode.MVS}${Unicode.DA}${Unicode.E}${Unicode.GA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_DA_FVS1}${Menksoft.MEDI_E}${Menksoft.FINA_GA}',
+  '\u180E\u1833\u1821\u182D': '\uE263\uE310\uE276\uE2E8',
   // DAQI
-  '${Unicode.MVS}${Unicode.DA}${Unicode.A}${Unicode.QA}${Unicode.I}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_DA_FVS1}${Menksoft.MEDI_A}${Menksoft.MEDI_QA_FVS2}${Menksoft.FINA_I}',
+  '\u180E\u1833\u1820\u182C\u1822': '\uE263\uE310\uE26C\uE2DA\uE27B',
   // DEQI
-  '${Unicode.MVS}${Unicode.DA}${Unicode.E}${Unicode.QA}${Unicode.I}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_DA_FVS1}${Menksoft.MEDI_E}${Menksoft.MEDI_QA_FVS2}${Menksoft.FINA_I}',
+  '\u180E\u1833\u1821\u182C\u1822': '\uE263\uE310\uE276\uE2DA\uE27B',
   // DUR
-  '${Unicode.MVS}${Unicode.DA}${Unicode.U}${Unicode.RA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_DA_FVS1}${Menksoft.MEDI_U}${Menksoft.FINA_RA}',
+  '\u180E\u1833\u1824\u1837': '\uE263\uE310\uE291\uE325',
   // DUER
-  '${Unicode.MVS}${Unicode.DA}${Unicode.UE}${Unicode.RA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_DA_FVS1}${Menksoft.MEDI_UE}${Menksoft.FINA_RA}',
+  '\u180E\u1833\u1826\u1837': '\uE263\uE310\uE2AB\uE325',
   // DUNI
-  '${Unicode.MVS}${Unicode.DA}${Unicode.U}${Unicode.NA}${Unicode.I}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_DA_FVS1}${Menksoft.MEDI_U}${Menksoft.MEDI_NA_FVS1_TOOTH}${Menksoft.FINA_I}',
+  '\u180E\u1833\u1824\u1828\u1822': '\uE263\uE310\uE291\uE2B7\uE27B',
   // DUENI
-  '${Unicode.MVS}${Unicode.DA}${Unicode.UE}${Unicode.NA}${Unicode.I}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_DA_FVS1}${Menksoft.MEDI_UE}${Menksoft.MEDI_NA_FVS1_TOOTH}${Menksoft.FINA_I}',
+  '\u180E\u1833\u1826\u1828\u1822': '\uE263\uE310\uE2AB\uE2B7\uE27B',
   // DUGAR
-  '${Unicode.MVS}${Unicode.DA}${Unicode.U}${Unicode.GA}${Unicode.A}${Unicode.RA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_DA_FVS1}${Menksoft.MEDI_U}${Menksoft.MEDI_GA_FVS1_STEM}${Menksoft.MEDI_A}${Menksoft.FINA_RA}',
+  '\u180E\u1833\u1824\u182D\u1820\u1837': '\uE263\uE310\uE291\uE2EC\uE26C\uE325',
   // DUEGER
-  '${Unicode.MVS}${Unicode.DA}${Unicode.UE}${Unicode.GA}${Unicode.E}${Unicode.RA}':
-      '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_DA_FVS1}${Menksoft.MEDI_UE}${Menksoft.MEDI_GA_FVS2}${Menksoft.MEDI_E}${Menksoft.FINA_RA}',
+  '\u180E\u1833\u1826\u182D\u1821\u1837': '\uE263\uE310\uE2AB\uE2EB\uE276\uE325',
   // DA
-  '${Unicode.MVS}${Unicode.DA}${Unicode.A}': '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_DA_FVS1}${Menksoft.FINA_A}',
+  '\u180E\u1833\u1820': '\uE263\uE310\uE268',
   // DE
-  '${Unicode.MVS}${Unicode.DA}${Unicode.E}': '${Menksoft.NONBREAKING_SPACE}${Menksoft.INIT_DA_FVS1}${Menksoft.FINA_E}',
+  '\u180E\u1833\u1821': '\uE263\uE310\uE273',
 };
 
 const _fixedWords = {
   // UU
-  '${Unicode.U}${Unicode.U}': '${Menksoft.INIT_U_FVS1}${Menksoft.FINA_U}',
+  '\u1824\u1824': '\uE291\uE28D',
   // UEUE
-  '${Unicode.UE}${Unicode.UE}': '${Menksoft.INIT_UE_FVS1}${Menksoft.FINA_UE}',
+  '\u1826\u1826': '\uE2AB\uE2A3',
   // BUEUE
-  '${Unicode.BA}${Unicode.UE}${Unicode.UE}': '${Menksoft.INIT_BA_OU}${Menksoft.MEDI_UE_BP}${Menksoft.FINA_UE}',
+  '\u182A\u1826\u1826': '\uE2C2\uE2AC\uE2A3',
 };
