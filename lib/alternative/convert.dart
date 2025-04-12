@@ -44,7 +44,7 @@ String convertUnicodeToMenksoft(String input) {
 // but including them allows building them into the collected word so that
 // the control characters are not filtered out of the Todo+ words.
 bool _isMongolianSegmentCharacter(int codeUnit) {
-  return _isMongolianWordCharacter(codeUnit) || _isTodoSibeManchu(codeUnit);
+  return _isMongolianWordCharacter(codeUnit) || _isTodoSibeManchu(codeUnit) || _isBackSupportChar(codeUnit);
 }
 
 // Mongolian letter or control character
@@ -59,6 +59,10 @@ bool _isControlCharacter(int codeUnit) {
 
 bool _isMongolianLetter(int codeUnit) {
   return codeUnit >= 0x1820 && codeUnit <= 0x1842;
+}
+
+bool _isBackSupportChar(int codeUnit) {
+  return codeUnit == Unicode.NNBS;
 }
 
 bool _isTodoSibeManchu(int codeUnit) {
@@ -82,6 +86,9 @@ List<int> _processMongolianSegment(List<int> segment) {
     return segment;
   }
 
+  // Handle old NNBS and ZWJ
+  _replaceDeprecatedChars(segment);
+
   // Split by MVS and process each word
   final outputMenksoft = <int>[];
   final words = _splitByMvsWords(segment);
@@ -98,6 +105,16 @@ bool _containsTodoSibeManchu(List<int> codeUnits) {
     if (_isTodoSibeManchu(codeUnit)) return true;
   }
   return false;
+}
+
+void _replaceDeprecatedChars(List<int> segment) {
+  for (int i = 0; i < segment.length; i++) {
+    if (segment[i] == Unicode.NNBS) {
+      segment[i] = Unicode.MVS;
+    } else if (segment[i] == Unicode.ZWJ) {
+      segment[i] = Unicode.MONGOLIAN_NIRUGU;
+    }
+  }
 }
 
 List<List<int>> _splitByMvsWords(List<int> segment) {

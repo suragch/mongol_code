@@ -24,8 +24,8 @@ class MongolWord {
   late List<int> _inputWord;
   late int _fvs;
   late Shape _glyphShapeBelow;
-  late int _firstLetterIndex;
-  late int _lastLetterIndex;
+  int _firstLetterIndex = -1;
+  int _lastLetterIndex = -1;
 
   /// mongolWord is unicode
   MongolWord(List<int> mongolWord) {
@@ -159,6 +159,9 @@ class MongolWord {
   }
 
   List<int> convertToMenksoftCode() {
+    if (_firstLetterIndex < 0 || _lastLetterIndex < 0) {
+      return [];
+    }
     final renderedWord = <int>[];
     var charBelow = 0;
     var charBelowFvs = 0;
