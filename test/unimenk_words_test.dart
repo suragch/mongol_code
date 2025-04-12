@@ -7,6 +7,7 @@ void printResult(String actual, String expected) {
     'expected: ${expected.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}',
   );
 }
+// printResult(result, expected);
 
 void main() {
   group('Unicode -> Menksoft: Words', () {
@@ -14,7 +15,6 @@ void main() {
       final unicode = 'ᠪᠢᠴᠢᠭ'; // bichig
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2C1\uE27F\uE317\uE27E\uE2E8';
-      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -22,7 +22,6 @@ void main() {
       final unicode = 'ᠡᠭᠡᠰᠢᠭ ᠢᠨᠦ'; // EGESIG (NNBSP) INU
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE271\uE2EB\uE277\uE301\uE27E\uE2E8\uE263\uE27A\uE2B9\uE2A3';
-      printResult(result, expected);
       expect(result, expected);
     });
 

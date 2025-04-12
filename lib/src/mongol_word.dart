@@ -15,7 +15,6 @@ const fvs4 = Unicode.FVS4;
 /// Assumptions:
 /// 1. This is a valid Mongolian word.
 /// 2. This is not a suffix or fixed word.
-/// 3. MVS will only occur at position 0 or in the standard -a/-e ending.
 class MongolWord {
   Gender? _gender;
   late Location _location;
@@ -286,8 +285,9 @@ class MongolWord {
           _handleNirugu(renderedWord);
         case Unicode.ZWJ:
         case Unicode.ZWNJ:
-        case Unicode.MVS:
           _handleNonPrintingChar(renderedWord);
+        case Unicode.MVS:
+          _handleMvs(renderedWord, i);
         case Unicode.FVS1:
         case Unicode.FVS2:
         case Unicode.FVS3:
@@ -1752,6 +1752,15 @@ class MongolWord {
   void _handleNonPrintingChar(List<int> renderedWord) {
     // renderedWord.add(Unicode.WJ);
     // drop char
+  }
+
+  // If it is at the beginning of words then add space
+  void _handleMvs(List<int> renderedWord, int index) {
+    if (index == 0) {
+      renderedWord.add(Menksoft.NONBREAKING_SPACE);
+    } else {
+      // drop it
+    }
   }
 
   bool _isRoundLetterIncludingQG(int character) {
