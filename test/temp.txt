@@ -1,1 +1,8 @@
 printResult(result, expected);
+
+void printResult(String actual, String expected) {
+  print(
+    'actual:   ${actual.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}\n'
+    'expected: ${expected.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}',
+  );
+}

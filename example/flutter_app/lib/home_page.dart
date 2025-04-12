@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/words_page.dart';
 
 import 'fvs_page.dart';
 import 'mvs_page.dart';
@@ -29,6 +30,12 @@ class _HomePageState extends State<HomePage> {
               title: Text('MVS'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const MvsPage()));
+              },
+            ),
+            ListTile(
+              title: Text('Words'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const WordsPage()));
               },
             ),
           ],
