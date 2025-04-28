@@ -25,6 +25,13 @@ void main() {
       expect(result, expected);
     });
 
+    test('yugenWord', () async {
+      final unicode = ' ᠶᠦᠭᠡᠨ'; // BUJIG (NNBSP) I (NNBSP) BEN (NNBSP) YUGEN
+      final result = convertUnicodeToMenksoft(unicode);
+      final expected = '\uE263\uE31E\uE2AB\uE2EB\uE277\uE2B5';
+      expect(result, expected);
+    });
+
     test('bujigWord', () async {
       final unicode = 'ᠪᠦᠵᠢᠭ ᠢ ᠪᠡᠨ ᠶᠦᠭᠡᠨ'; // BUJIG (NNBSP) I (NNBSP) BEN (NNBSP) YUGEN
       final result = convertUnicodeToMenksoft(unicode);
@@ -98,7 +105,7 @@ void main() {
       expect(result, expected);
     });
 
-    test('sodnamWord', () async {
+    test('sodnamPlusWord', () async {
       final unicode = 'ᠰᠣᠳᠨᠠᠮ ᠠᠴᠠ ᠪᠠᠨ ᠠᠴᠠᠭᠠᠨ'; // SODNAM (NNBSP) ACHA (NNBSP) BAN (NNBSP) ACHAGAN
       final result = convertUnicodeToMenksoft(unicode);
       final expected =

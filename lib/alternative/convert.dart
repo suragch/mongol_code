@@ -158,7 +158,7 @@ bool _isMvsAeWord(int index, List<int> segment) {
   // That letter must be an A or E
   if (!_isMongolianAe(segment[index + 1])) return false;
   // That must be the end of the segment or the following letter must be an MVS
-  return (index + 2 >= segment.length || !_isMvs(segment[index + 2]));
+  return (index + 2 >= segment.length || _isMvs(segment[index + 2]));
 }
 
 bool _isMongolianAe(int codeUnit) {

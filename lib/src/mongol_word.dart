@@ -1453,6 +1453,7 @@ class MongolWord {
         } else {
           renderedWord.add(Menksoft.MEDI_JA);
         }
+        _glyphShapeBelow = Shape.STEM;
       case Location.FINAL:
         if (_fvs == fvs1) {
           renderedWord.add(Menksoft.FINA_JA_FVS1);
