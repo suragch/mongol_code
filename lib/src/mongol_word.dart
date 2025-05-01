@@ -177,106 +177,72 @@ class MongolWord {
       switch (currentChar) {
         case Unicode.A:
           _handleA(renderedWord, charAbove);
-
         case Unicode.E:
           _handleE(renderedWord, charAbove);
-
         case Unicode.I:
           _handleI(renderedWord, i, charAbove, charBelow);
-
         case Unicode.O:
           _handleO(renderedWord, charAbove);
-
         case Unicode.U:
           _handleU(renderedWord, charAbove);
-
         case Unicode.OE:
           _handleOE(renderedWord, i, charAbove);
-
         case Unicode.UE:
           _handleUE(renderedWord, i, charAbove);
-
         case Unicode.EE:
           _handleEE(renderedWord);
-
         case Unicode.NA:
           _handleNA(renderedWord, i, charBelow, charBelowFvs);
-
         case Unicode.ANG:
           _handleANG(renderedWord);
-
         case Unicode.BA:
           _handleBA(renderedWord, charBelow);
-
         case Unicode.PA:
           _handlePA(renderedWord, charBelow);
-
         case Unicode.QA:
           _handleQA(renderedWord, i, charAbove, charBelow);
-
         case Unicode.GA:
           _handleGA(renderedWord, i, charAbove, charBelow);
-
         case Unicode.MA:
           _handleMA(renderedWord, i, charAbove, charBelow);
-
         case Unicode.LA:
           _handleLA(renderedWord, i, charAbove, charBelow);
-
         case Unicode.SA:
-          _handleSA(renderedWord);
-
+          _handleSA(renderedWord, charBelow, charBelowFvs);
         case Unicode.SHA:
-          _handleSHA(renderedWord);
-
+          _handleSHA(renderedWord, charBelow);
         case Unicode.TA:
           _handleTA(renderedWord);
-
         case Unicode.DA:
           _handleDA(renderedWord, charBelow);
-
         case Unicode.CHA:
           _handleCHA(renderedWord);
-
         case Unicode.JA:
           _handleJA(renderedWord, charBelow);
-
         case Unicode.YA:
           _handleYA(renderedWord, i, charAbove, charBelow);
-
         case Unicode.RA:
-          _handleRA(renderedWord);
-
+          _handleRA(renderedWord, charBelow);
         case Unicode.WA:
           _handleWA(renderedWord, charBelow);
-
         case Unicode.FA:
           _handleFA(renderedWord, charBelow);
-
         case Unicode.KA:
           _handleKA(renderedWord, charBelow);
-
         case Unicode.KHA:
           _handleKHA(renderedWord, charBelow);
-
         case Unicode.TSA:
           _handleTSA(renderedWord);
-
         case Unicode.ZA:
           _handleZA(renderedWord);
-
         case Unicode.HAA:
           _handleHAA(renderedWord);
-
         case Unicode.ZRA:
           _handleZRA(renderedWord);
-
         case Unicode.LHA:
           _handleLHA(renderedWord, i, charAbove);
-
         case Unicode.ZHI:
           _handleZHI(renderedWord);
-
         case Unicode.CHI:
           _handleCHI(renderedWord);
         case Unicode.NNBS:
@@ -1215,6 +1181,11 @@ class MongolWord {
           renderedWord.add(Menksoft.INIT_MA_TOOTH);
         }
       case Location.MEDIAL:
+        if (charBelow == Unicode.MVS) {
+          renderedWord.add(Menksoft.MEDI_MA_MVS);
+          _glyphShapeBelow = Shape.STEM;
+          break;
+        }
         if (_isRoundLetter(charAbove) || charAbove == Unicode.ANG) {
           renderedWord.add(Menksoft.MEDI_MA_BP); // tail extended for round letter
         } else if (charAbove == Unicode.GA) {
@@ -1257,6 +1228,11 @@ class MongolWord {
           renderedWord.add(Menksoft.INIT_LA_TOOTH);
         }
       case Location.MEDIAL:
+        if (charBelow == Unicode.MVS) {
+          renderedWord.add(Menksoft.MEDI_LA_MVS);
+          _glyphShapeBelow = Shape.STEM;
+          break;
+        }
         if (_isRoundLetter(charAbove) || charAbove == Unicode.ANG) {
           renderedWord.add(Menksoft.MEDI_LA_BP); // tail extended for round letter
         } else if (charAbove == Unicode.GA) {
@@ -1288,7 +1264,7 @@ class MongolWord {
     }
   }
 
-  void _handleSA(List<int> renderedWord) {
+  void _handleSA(List<int> renderedWord, int charBelow, int charBelowFvs) {
     switch (_location) {
       case Location.ISOLATE:
         renderedWord.add(Menksoft.ISOL_SA);
@@ -1299,12 +1275,19 @@ class MongolWord {
           renderedWord.add(Menksoft.INIT_SA_TOOTH);
         }
       case Location.MEDIAL:
-        if (_glyphShapeBelow == Shape.STEM) {
+        if (_fvs == fvs1 && charBelowFvs == Unicode.MVS) {
+          renderedWord.add(Menksoft.MEDI_SA_FVS1_MVS); // short tail
+          _glyphShapeBelow = Shape.STEM;
+        } else if (charBelow == Unicode.MVS) {
+          renderedWord.add(Menksoft.MEDI_SA_MVS);
+          _glyphShapeBelow = Shape.TOOTH;
+        } else if (_glyphShapeBelow == Shape.STEM) {
           renderedWord.add(Menksoft.MEDI_SA_STEM);
+          _glyphShapeBelow = Shape.TOOTH;
         } else {
           renderedWord.add(Menksoft.MEDI_SA_TOOTH);
+          _glyphShapeBelow = Shape.TOOTH;
         }
-        _glyphShapeBelow = Shape.TOOTH;
       case Location.FINAL:
         if (_fvs == fvs1) {
           renderedWord.add(Menksoft.FINA_SA_FVS1); // short tail
@@ -1316,7 +1299,7 @@ class MongolWord {
     }
   }
 
-  void _handleSHA(List<int> renderedWord) {
+  void _handleSHA(List<int> renderedWord, int charBelow) {
     switch (_location) {
       case Location.ISOLATE:
         if (_fvs == fvs1) {
@@ -1345,6 +1328,8 @@ class MongolWord {
           } else {
             renderedWord.add(Menksoft.MEDI_SHA_FVS1_TOOTH);
           }
+        } else if (charBelow == Unicode.MVS) {
+          renderedWord.add(Menksoft.MEDI_SHA_MVS);
         } else {
           if (_glyphShapeBelow == Shape.STEM) {
             renderedWord.add(Menksoft.MEDI_SHA_STEM);
@@ -1502,7 +1487,7 @@ class MongolWord {
     _glyphShapeBelow = Shape.TOOTH;
   }
 
-  void _handleRA(List<int> renderedWord) {
+  void _handleRA(List<int> renderedWord, int charBelow) {
     switch (_location) {
       case Location.ISOLATE:
         renderedWord.add(Menksoft.ISOL_RA);
@@ -1513,7 +1498,9 @@ class MongolWord {
           renderedWord.add(Menksoft.INIT_RA_TOOTH);
         }
       case Location.MEDIAL:
-        if (_glyphShapeBelow == Shape.STEM) {
+        if (charBelow == Unicode.MVS) {
+          renderedWord.add(Menksoft.MEDI_RA_MVS);
+        } else if (_glyphShapeBelow == Shape.STEM) {
           renderedWord.add(Menksoft.MEDI_RA_STEM);
         } else {
           renderedWord.add(Menksoft.MEDI_RA_TOOTH);
