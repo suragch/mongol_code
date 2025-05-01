@@ -173,7 +173,6 @@ void main() {
       final unicode = 'ᠳᠠᠯᠵᠢᠢᠭᠰᠠᠨ'; // DALJIIGSAN
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE30E\uE26C\uE2FB\uE31D\uE27E\uE27E\uE2EE\uE301\uE26C\uE2B5';
-      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -321,7 +320,6 @@ void main() {
       final unicode = 'ᠨᠠᠢ\u180Dᠮᠠ'; // NAI(FVS3)MA
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2B1\uE26C\uE27E\uE2F5\uE268';
-      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -472,6 +470,14 @@ void main() {
       expect(result, expected);
     });
 
+    test('chogchechegWord', () async {
+      final unicode = 'ᠴᠣᠭᠴᠡᠴᠡᠭ'; // CHOGCHECHEG
+      final result = convertUnicodeToMenksoft(unicode);
+      final expected = '\uE315\uE289\uE2EE\uE317\uE276\uE317\uE276\uE2E8';
+      printResult(result, expected);
+      expect(result, expected);
+    });
+
     test('anggilumchechegWord', () async {
       final unicode = 'ᠠᠩᠭᠢᠯᠤᠮᠴᠡᠴᠡᠭ'; // ANGGILUMCHECHEG
       final result = convertUnicodeToMenksoft(unicode);
@@ -497,6 +503,14 @@ void main() {
       final unicode = 'ᠰᠢᠭ᠋'; // SIG(FVS1)
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2FD\uE27E\uE2E7';
+      expect(result, expected);
+    });
+
+    test('chinoSpecifiedWord', () async {
+      final unicode = 'ᠴᠢᠨᠤ᠎ᠠ'; // CHINU(MVS)A
+      final result = convertUnicodeToMenksoft(unicode);
+      final expected = '\uE315\uE27E\uE2B9\uE28D\uE26A';
+      printResult(result, expected);
       expect(result, expected);
     });
   });

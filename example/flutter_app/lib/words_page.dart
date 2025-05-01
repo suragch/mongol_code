@@ -135,8 +135,10 @@ final pairs = [
   ('ᠴᠣᠯᠮᠣᠨᠣ᠋ᠳᠣ', '\uE315\uE289\uE2FB\uE2F5\uE289\uE2BA\uE288\uE313\uE285'), // cholmonodo2Word
   ('ᠪᠠᠶᠠᠨ\u200Dᠦ᠌ᠨᠳᠦᠷ', '\uE2C1\uE26D\uE320\uE26C\uE2BA\uE2A8\uE2B8\uE313\uE2AB\uE325'), // bayanunderWord
   ('ᠰᠣᠳᠣᠪᠢᠯᠢᠭ᠌', '\uE2FE\uE289\uE313\uE289\uE2C5\uE27F\uE2FA\uE27E\uE2E8'), // sodobiligWord
+  ('ᠴᠣᠭᠴᠡᠴᠡᠭ', '\uE315\uE289\uE2EE\uE317\uE276\uE317\uE276\uE2E8'), // chogchechegWord
   ('ᠠᠩᠭᠢᠯᠤᠮᠴᠡᠴᠡᠭ', '\uE266\uE2BD\uE2EB\uE27F\uE2FB\uE291\uE2F5\uE317\uE276\uE317\uE276\uE2E8'), // anggilumchechegWord
   ('ᠴᠡᠴᠡᠭᠮ᠎ᠡ', '\uE315\uE276\uE317\uE276\uE2F0\uE2F3\uE274'), // chechegmaWord
   ('ᠰᠢᠭ', '\uE2FD\uE27E\uE2E8'), // sigDefaultWord
   ('ᠰᠢᠭ᠋', '\uE2FD\uE27E\uE2E7'), // sigSpecifiedWord
+  ('ᠴᠢᠨᠤ᠎ᠠ', '\uE315\uE27E\uE2B9\uE28D\uE26A'), // chinoaWord
 ];

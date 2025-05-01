@@ -184,7 +184,7 @@ class MongolWord {
         case Unicode.O:
           _handleO(renderedWord, charAbove);
         case Unicode.U:
-          _handleU(renderedWord, charAbove);
+          _handleU(renderedWord, charAbove, charBelow);
         case Unicode.OE:
           _handleOE(renderedWord, i, charAbove);
         case Unicode.UE:
@@ -494,7 +494,7 @@ class MongolWord {
     _glyphShapeBelow = Shape.STEM;
   }
 
-  void _handleU(List<int> renderedWord, int charAbove) {
+  void _handleU(List<int> renderedWord, int charAbove, int charBelow) {
     _gender = Gender.MASCULINE;
     switch (_location) {
       case Location.ISOLATE:
@@ -513,6 +513,9 @@ class MongolWord {
       case Location.MEDIAL:
         if (_fvs == fvs1) {
           renderedWord.add(Menksoft.MEDI_U_FVS1); // tooth + O
+        } else if (charBelow == Unicode.MVS) {
+          // Not defined in Chinese standard
+          renderedWord.add(Menksoft.FINA_U);
         } else {
           if (_isRoundLetter(charAbove)) {
             renderedWord.add(Menksoft.MEDI_U_BP); // After BPFK

@@ -15,11 +15,6 @@ class _MvsPageState extends State<MvsPage> {
   final nirugu = String.fromCharCode(Unicode.MONGOLIAN_NIRUGU);
   final a = String.fromCharCode(Unicode.A);
 
-  final List<String> mongolianCharacters = List.generate(
-    0x1842 - 0x1820 + 1,
-    (index) => String.fromCharCode(0x1820 + index),
-  );
-
   Widget _buildVariantRow(String label, String text, {double fontSize = 32, double indent = 32}) {
     return Row(
       children: [
@@ -41,13 +36,22 @@ class _MvsPageState extends State<MvsPage> {
       appBar: AppBar(title: const Text('Mongolian Characters')),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: ListView.builder(
-          itemCount: mongolianCharacters.length,
-          itemBuilder: (context, index) {
-            final title = 'U+${(0x1820 + index).toRadixString(16).toUpperCase()}';
-            final char = mongolianCharacters[index];
-            return _buildVariantRow(title, _getVariant('$nirugu$char$mvs$a'));
-          },
+        child: ListView(
+          children: [
+            _buildVariantRow('U', _getVariant('$nirugu\u1824$mvs$a')),
+            _buildVariantRow('NA', _getVariant('$nirugu\u1828$mvs$a')),
+            _buildVariantRow('QA', _getVariant('$nirugu\u182C$mvs$a')),
+            _buildVariantRow('GA', _getVariant('$nirugu\u182D$mvs$a')),
+            _buildVariantRow('MA', _getVariant('$nirugu\u182E$mvs$a')),
+            _buildVariantRow('LA', _getVariant('$nirugu\u182F$mvs$a')),
+            _buildVariantRow('SA', _getVariant('$nirugu\u1830$mvs$a')),
+            _buildVariantRow('SA FVS1', _getVariant('$nirugu\u1830\u180B$mvs$a')),
+            _buildVariantRow('SHA', _getVariant('$nirugu\u1831$mvs$a')),
+            _buildVariantRow('JA', _getVariant('$nirugu\u1835$mvs$a')),
+            _buildVariantRow('YA', _getVariant('$nirugu\u1836$mvs$a')),
+            _buildVariantRow('RA', _getVariant('$nirugu\u1837$mvs$a')),
+            _buildVariantRow('WA', _getVariant('$nirugu\u1838$mvs$a')),
+          ],
         ),
       ),
     );
