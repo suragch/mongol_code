@@ -439,6 +439,9 @@ class MongolWord {
         } else if (_fvs == fvs2) {
           renderedWord.add(Menksoft.MEDI_I_FVS2);
           break;
+        } else if (_fvs == fvs3) {
+          renderedWord.add(Menksoft.MEDI_I);
+          break;
         }
         // After BPFK
         if (_isRoundLetterIncludingQG(charAbove)) {
@@ -1123,6 +1126,9 @@ class MongolWord {
             renderedWord.add(Menksoft.MEDI_GA_FVS4);
           }
           _glyphShapeBelow = Shape.ROUND;
+        } else if (charBelow == Unicode.MVS) {
+          renderedWord.add(Menksoft.MEDI_GA_FVS3_MVS);
+          _glyphShapeBelow = Shape.TOOTH;
         } else {
           // no FVS, just apply context rules
           if (MongolCode.isFeminineVowel(charBelow) || charBelow == Unicode.I) {
@@ -1151,11 +1157,10 @@ class MongolWord {
                 // Defaulting to feminine form for I
                 (_gender == Gender.NEUTER && charAbove == Unicode.I) ||
                 // treat a G between two consonants as feminine (as in ANGGLI)
-                // (but not after Y because Y is like I)
-                (charAbove != Unicode.YA &&
-                    (MongolCode.isConsonant(charAbove) || charAbove == Unicode.MONGOLIAN_NIRUGU))) {
+                MongolCode.isConsonant(charAbove) ||
+                charAbove == Unicode.MONGOLIAN_NIRUGU) {
               if (charBelow == Unicode.NA || charBelow == Unicode.MA || charBelow == Unicode.LA) {
-                final renderedCharBelow = renderedWord[0];
+                final renderedCharBelow = renderedWord.last;
                 if (renderedCharBelow == Menksoft.FINA_MA ||
                     renderedCharBelow == Menksoft.FINA_LA ||
                     renderedCharBelow == Menksoft.FINA_NA ||
