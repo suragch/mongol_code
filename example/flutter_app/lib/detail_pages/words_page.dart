@@ -56,6 +56,9 @@ class _WordsPageState extends State<WordsPage> {
 }
 
 final pairs = [
+  ('ᠤᠤ', '\uE292\uE28D'), // uuWord
+  ('ᠦᠦ', '\uE2AC\uE2A3'), // ueueWord
+  ('ᠪᠦᠦ', '\uE2C2\uE2AC\uE2A3'), // bueueWord
   ('ᠪᠢᠴᠢᠭ', '\uE2C1\uE27F\uE317\uE27E\uE2E8'), // bichigWord
   ('ᠡᠭᠡᠰᠢᠭ ᠢᠨᠦ', '\uE271\uE2EB\uE277\uE301\uE27E\uE2E8\uE263\uE27A\uE2B9\uE2A3'), // egeshigWord
   (

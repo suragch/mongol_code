@@ -103,8 +103,6 @@ final pairs = [
   (' ᠨᠦᠭᠦᠳ', '\uE263\uE2B3\uE2AB\uE2ED\uE2AC\uE311'), // nueguedSuffix
   (' ᠨᠠᠷ', '\uE263\uE2B1\uE26C\uE325'), // narSuffix
   (' ᠨᠡᠷ', '\uE263\uE2B1\uE276\uE325'), // nerSuffix
-  ('ᠤᠤ', '\uE292\uE28D'), // uuWord
-  ('ᠦᠦ', '\uE2AC\uE2A3'), // ueueWord
   (' ᠳᠠ', '\uE263\uE310\uE268'), // daSuffix
   (' ᠳᠡ', '\uE263\uE310\uE273'), // deSuffix
 ];
