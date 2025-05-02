@@ -373,7 +373,7 @@ void main() {
     });
 
     test('namayiWord', () async {
-      final unicode = 'ᠨᠠᠮᠠᠶᠢ'; // NAMAYI
+      final unicode = 'ᠨᠠᠮᠠᠶ\u180Bᠢ'; // NAMAY(FSV1)I
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2B1\uE26C\uE2F4\uE26C\uE321\uE27B';
       expect(result, expected);
@@ -443,21 +443,14 @@ void main() {
     });
 
     test('cholmonodoWord', () async {
-      final unicode = 'ᠴᠣᠯᠮᠣᠨ\u200Dᠣ᠋ᠳᠣ'; // CHOLMON(ZWJ)O(FVS1)DO
-      final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE315\uE289\uE2FB\uE2F5\uE289\uE2BA\uE288\uE313\uE285';
-      expect(result, expected);
-    });
-
-    test('cholmonodo2Word', () async {
-      final unicode = 'ᠴᠣᠯᠮᠣᠨᠣ᠋ᠳᠣ'; // CHOLMONO(FVS1)DO
+      final unicode = 'ᠴᠣᠯᠮᠣᠨ\u180Cᠣ\u180Bᠳᠣ'; // CHOLMONO(FVS1)DO
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE315\uE289\uE2FB\uE2F5\uE289\uE2BA\uE288\uE313\uE285';
       expect(result, expected);
     });
 
     test('bayanunderWord', () async {
-      final unicode = 'ᠪᠠᠶᠠᠨ\u200Dᠦ᠌ᠨᠳᠦᠷ'; // BAYAN(ZWJ)U(FVS1)NDUR
+      final unicode = 'ᠪᠠᠶᠠᠨ\u180Cᠦ\u180Cᠨᠳᠦᠷ'; // BAYAN(FSV2)U(FVS2)NDUR
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE2C1\uE26D\uE320\uE26C\uE2BA\uE2A8\uE2B8\uE313\uE2AB\uE325';
       expect(result, expected);

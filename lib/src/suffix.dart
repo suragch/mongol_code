@@ -60,10 +60,7 @@ class Suffix {
   static const String CHUE = '\u202F\u1834\u1826';
 
   /// YIN comes after a vowel, UN comes after a consonant, U comes after N.
-  static String getSuffixYinUnU(
-    Gender previousWordGender,
-    int previousWordLastChar,
-  ) {
+  static String getSuffixYinUnU(Gender previousWordGender, int previousWordLastChar) {
     if (MongolCode.isVowel(previousWordLastChar)) {
       return Suffix.YIN;
     } else if (previousWordLastChar == Unicode.NA) {
@@ -82,10 +79,7 @@ class Suffix {
   }
 
   // TU after B, G, D, R, S. Others are DU.
-  static String getSuffixTuDu(
-    Gender previousWordGender,
-    int previousWordLastChar,
-  ) {
+  static String getSuffixTuDu(Gender previousWordGender, int previousWordLastChar) {
     if (MongolCode.isBGDRS(previousWordLastChar)) {
       if (previousWordGender == Gender.MASCULINE) {
         return Suffix.TU;
@@ -101,10 +95,7 @@ class Suffix {
     }
   }
 
-  static String getSuffixTaganDagan(
-    Gender previousWordGender,
-    int previousWordLastChar,
-  ) {
+  static String getSuffixTaganDagan(Gender previousWordGender, int previousWordLastChar) {
     if (MongolCode.isBGDRS(previousWordLastChar)) {
       if (previousWordGender == Gender.MASCULINE) {
         return Suffix.TAGAN;
@@ -120,10 +111,7 @@ class Suffix {
     }
   }
 
-  static String getSuffixTaqiDaqi(
-    Gender previousWordGender,
-    int previousWordLastChar,
-  ) {
+  static String getSuffixTaqiDaqi(Gender previousWordGender, int previousWordLastChar) {
     if (MongolCode.isBGDRS(previousWordLastChar)) {
       if (previousWordGender == Gender.MASCULINE) {
         return Suffix.TAQI;
@@ -148,10 +136,7 @@ class Suffix {
   }
 
   // BAR comes after a vowel, IYAR comes after a consonant.
-  static String getSuffixBarIyar(
-    Gender previousWordGender,
-    int previousWordLastChar,
-  ) {
+  static String getSuffixBarIyar(Gender previousWordGender, int previousWordLastChar) {
     if (MongolCode.isVowel(previousWordLastChar)) {
       if (previousWordGender == Gender.MASCULINE) {
         return Suffix.IYAR;
@@ -168,10 +153,7 @@ class Suffix {
   }
 
   // BAN comes after a vowel, IYAN comes after a consonant.
-  static String getSuffixBanIyan(
-    Gender previousWordGender,
-    int previousWordLastChar,
-  ) {
+  static String getSuffixBanIyan(Gender previousWordGender, int previousWordLastChar) {
     if (MongolCode.isVowel(previousWordLastChar)) {
       if (previousWordGender == Gender.MASCULINE) {
         return Suffix.IYAN;

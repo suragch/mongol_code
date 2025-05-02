@@ -728,26 +728,10 @@ class MongolWord {
         } else {
           // *** dot N before vowel rule ***
           if (MongolCode.isVowel(charBelow)) {
-            // *** don't dot N if final letter before vowel of compound name ***
-            if (positionInWord < _length - 3 && // the next char should not be final either (ie, KINO)
-                MongolCode.isFVS(_inputWord[positionInWord + 2]) &&
-                _isTwoPartNameInitialVowel(charBelow, charBelowFvs)) {
-              // This will work for names whose second part starts with
-              // A, I, O, U, OE, and UE. But it won't work if it starts
-              // with E or EE because there are no second medial (FVS1)
-              // forms for these letters. A user could insert a ZWJ but
-              // they are unlikely to know that.
-              if (_glyphShapeBelow == Shape.STEM) {
-                renderedWord.add(Menksoft.MEDI_NA_STEM); // non-dotted stem
-              } else {
-                renderedWord.add(Menksoft.MEDI_NA_TOOTH); // non-dotted tooth
-              }
+            if (_glyphShapeBelow == Shape.STEM) {
+              renderedWord.add(Menksoft.MEDI_NA_FVS1_STEM); // dotted stem
             } else {
-              if (_glyphShapeBelow == Shape.STEM) {
-                renderedWord.add(Menksoft.MEDI_NA_FVS1_STEM); // dotted stem
-              } else {
-                renderedWord.add(Menksoft.MEDI_NA_FVS1_TOOTH); // dotted tooth
-              }
+              renderedWord.add(Menksoft.MEDI_NA_FVS1_TOOTH); // dotted tooth
             }
           } else {
             if (_glyphShapeBelow == Shape.STEM) {
@@ -1118,7 +1102,7 @@ class MongolWord {
             _glyphShapeBelow = Shape.TOOTH;
           } else {
             // consonant
-            if (_gender == Gender.NEUTER) {
+            if (_gender == Gender.NEUTER || MongolCode.isMasculineVowel(charAbove)) {
               _gender = _getWordGenderAboveIndex(positionInWord, _inputWord);
             }
             // *** medial GA before consonant rule ***

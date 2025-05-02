@@ -121,7 +121,7 @@ final pairs = [
   ('ᠰᠠᠶᠢᠬᠠᠨ', '\uE2FD\uE26C\uE320\uE27E\uE2D8\uE26C\uE2B5'), // sayihanWord
   ('ᠰᠠᠶᠢ', '\uE2FD\uE26C\uE320\uE27B'), // sayiWord
   ('ᠲᠠᠢ', '\uE308\uE26C\uE27B'), // taiWord
-  ('ᠨᠠᠮᠠᠶᠢ', '\uE2B1\uE26C\uE2F4\uE26C\uE321\uE27B'), // namayiWord
+  ('ᠨᠠᠮᠠᠶ\u180Bᠢ', '\uE2B1\uE26C\uE2F4\uE26C\uE321\uE27B'), // namayiWord
   ('ᠡᠢᠮᠦ', '\uE271\uE281\uE2F5\uE2A3'), // eimuWord
   ('ᠰᠣᠶᠣᠯ', '\uE2FE\uE289\uE320\uE289\uE2F9'), // soyolWord
   ('ᠪᠦᠦ', '\uE2C2\uE2AC\uE2A3'), // buuWord
@@ -131,9 +131,8 @@ final pairs = [
   ('ᠠᠩᠭᠯᠢ', '\uE266\uE2BD\uE2EB\uE2FC\uE27B'), // anggliWord
   ('ᠠᠰᠢᠭᠯᠠᠵᠤ', '\uE266\uE301\uE27E\uE2EE\uE2FA\uE26C\uE31D\uE28D'), // asiglajuWord
   ('ᠨᠠᠷᠠᠨᠭᠡᠷᠡᠯ', '\uE2B1\uE26C\uE327\uE26C\uE2B8\uE2EB\uE277\uE327\uE276\uE2F9'), // narangerelWord
-  ('ᠴᠣᠯᠮᠣᠨ\u200Dᠣ᠋ᠳᠣ', '\uE315\uE289\uE2FB\uE2F5\uE289\uE2BA\uE288\uE313\uE285'), // cholmonodoWord
-  ('ᠴᠣᠯᠮᠣᠨᠣ᠋ᠳᠣ', '\uE315\uE289\uE2FB\uE2F5\uE289\uE2BA\uE288\uE313\uE285'), // cholmonodo2Word
-  ('ᠪᠠᠶᠠᠨ\u200Dᠦ᠌ᠨᠳᠦᠷ', '\uE2C1\uE26D\uE320\uE26C\uE2BA\uE2A8\uE2B8\uE313\uE2AB\uE325'), // bayanunderWord
+  ('ᠴᠣᠯᠮᠣᠨ\u180Cᠣ\u180Bᠳᠣ', '\uE315\uE289\uE2FB\uE2F5\uE289\uE2BA\uE288\uE313\uE285'), // cholmonodoWord
+  ('ᠪᠠᠶᠠᠨ\u180Cᠦ\u180Cᠨᠳᠦᠷ', '\uE2C1\uE26D\uE320\uE26C\uE2BA\uE2A8\uE2B8\uE313\uE2AB\uE325'), // bayanunderWord
   ('ᠰᠣᠳᠣᠪᠢᠯᠢᠭ᠌', '\uE2FE\uE289\uE313\uE289\uE2C5\uE27F\uE2FA\uE27E\uE2E8'), // sodobiligWord
   ('ᠴᠣᠭᠴᠡᠴᠡᠭ', '\uE315\uE289\uE2EE\uE317\uE276\uE317\uE276\uE2E8'), // chogchechegWord
   ('ᠠᠩᠭᠢᠯᠤᠮᠴᠡᠴᠡᠭ', '\uE266\uE2BD\uE2EB\uE27F\uE2FB\uE291\uE2F5\uE317\uE276\uE317\uE276\uE2E8'), // anggilumchechegWord
