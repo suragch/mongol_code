@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/words_page.dart';
+import 'package:flutter_app/detail_pages/suffix_page.dart';
+import 'package:flutter_app/detail_pages/words_page.dart';
 
-import 'fvs_page.dart';
-import 'mvs_page.dart';
+import 'detail_pages/fvs_page.dart';
+import 'detail_pages/mvs_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -36,6 +37,12 @@ class _HomePageState extends State<HomePage> {
               title: Text('Words'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const WordsPage()));
+              },
+            ),
+            ListTile(
+              title: Text('Suffixes'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const SuffixPage()));
               },
             ),
           ],

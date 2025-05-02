@@ -201,13 +201,13 @@ const _fixedSuffixes = {
   // UE
   '\u180E\u1826': '\uE263\uE2A3',
   // UN
-  '\u180E\u1824\u1828': '\uE263\uE291\uE2B5',
+  '\u180E\u1824\u1828': '\uE263\uE292\uE2B5',
   // UEN
-  '\u180E\u1826\u1828': '\uE263\uE2AB\uE2B5',
+  '\u180E\u1826\u1828': '\uE263\uE2AC\uE2B5',
   // UD
-  '\u180E\u1824\u1833': '\uE263\uE291\uE311',
+  '\u180E\u1824\u1833': '\uE263\uE292\uE311',
   // UED
-  '\u180E\u1826\u1833': '\uE263\uE2AB\uE311',
+  '\u180E\u1826\u1833': '\uE263\uE2AC\uE311',
   // CHU
   '\u180E\u1834\u1824': '\uE263\uE315\uE28D',
   // CHUE
@@ -251,9 +251,9 @@ const _fixedSuffixes = {
   // DEG
   '\u180E\u1833\u1821\u182D': '\uE263\uE310\uE276\uE2E8',
   // DAQI
-  '\u180E\u1833\u1820\u182C\u1822': '\uE263\uE310\uE26C\uE2DA\uE27B',
+  '\u180E\u1833\u1820\u182C\u1822': '\uE263\uE310\uE26C\uE2DA\uE27C',
   // DEQI
-  '\u180E\u1833\u1821\u182C\u1822': '\uE263\uE310\uE276\uE2DA\uE27B',
+  '\u180E\u1833\u1821\u182C\u1822': '\uE263\uE310\uE276\uE2DA\uE27C',
   // DUR
   '\u180E\u1833\u1824\u1837': '\uE263\uE310\uE291\uE325',
   // DUER
@@ -274,9 +274,9 @@ const _fixedSuffixes = {
 
 const _fixedWords = {
   // UU
-  '\u1824\u1824': '\uE291\uE28D',
+  '\u1824\u1824': '\uE292\uE28D',
   // UEUE
-  '\u1826\u1826': '\uE2AB\uE2A3',
+  '\u1826\u1826': '\uE2AC\uE2A3',
   // BUEUE
   '\u182A\u1826\u1826': '\uE2C2\uE2AC\uE2A3',
 };

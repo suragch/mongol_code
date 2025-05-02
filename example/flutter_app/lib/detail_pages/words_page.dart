@@ -39,7 +39,7 @@ class _WordsPageState extends State<WordsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Mongolian Characters')),
+      appBar: AppBar(title: const Text('Words')),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: ListView.builder(
