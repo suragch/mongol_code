@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/detail_pages/suffix_page.dart';
+import 'package:flutter_app/detail_pages/two_page.dart';
 import 'package:flutter_app/detail_pages/words_page.dart';
 
 import 'detail_pages/fvs_page.dart';
@@ -43,6 +44,12 @@ class _HomePageState extends State<HomePage> {
               title: Text('Suffixes'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const SuffixPage()));
+              },
+            ),
+            ListTile(
+              title: Text('Two letters'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const TwoLetterWordPage()));
               },
             ),
           ],
