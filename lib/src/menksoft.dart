@@ -119,7 +119,7 @@ class Menksoft {
   static const int ISOL_U = 0xE28B;
   static const int ISOL_U_FVS1 = 0xE28D; // suffix
   static const int INIT_U = 0xE28C;
-  static const int INIT_U_FVS1 = 0xE291; // suffix
+  static const int INIT_U_FVS1 = 0xE292; // suffix
   static const int MEDI_U = 0xE291;
   static const int MEDI_U_BP = 0xE292;
   static const int MEDI_U_FVS1 = 0xE290;
@@ -148,7 +148,7 @@ class Menksoft {
   static const int ISOL_UE_FVS1 = 0xE2A1;
   static const int ISOL_UE_FVS2 = 0xE2A3;
   static const int INIT_UE = 0xE2A2;
-  static const int INIT_UE_FVS1 = 0xE2AB;
+  static const int INIT_UE_FVS1 = 0xE2AC;
   static const int MEDI_UE = 0xE2AB; // no tooth
   static const int MEDI_UE_BP = 0xE2AC; // no tooth
   static const int MEDI_UE_FVS1 = 0xE2A9; // tooth
