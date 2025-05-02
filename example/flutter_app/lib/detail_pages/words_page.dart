@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mongol_code/alternative/convert.dart';
 import 'package:mongol_code/mongol_code.dart';
 
 class WordsPage extends StatefulWidget {
@@ -33,7 +34,7 @@ class _WordsPageState extends State<WordsPage> {
   }
 
   String _convert(String text) {
-    return code.unicodeToMenksoft(text);
+    return convertUnicodeToMenksoft(text);
   }
 
   @override

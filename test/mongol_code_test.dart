@@ -10,7 +10,7 @@ String convertMenksoftToUnicode(String menksoft) {
 
 String convertToUnicodeAndBackAgain(String menksoft) {
   final unicode = converter.menksoftToUnicode(menksoft);
-  return converter.unicodeToMenksoft(unicode);
+  return convertUnicodeToMenksoft(unicode);
 }
 
 void main() {

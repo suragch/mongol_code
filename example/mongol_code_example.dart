@@ -1,3 +1,4 @@
+import 'package:mongol_code/alternative/convert.dart';
 import 'package:mongol_code/mongol_code.dart';
 
 void main() {
@@ -5,7 +6,7 @@ void main() {
 
   // Unicode to Menksoft code
   const unicodeInput = 'ᠮᠣᠩᠭᠣᠯ';
-  final menksoftResult = converter.unicodeToMenksoft(unicodeInput);
+  final menksoftResult = convertUnicodeToMenksoft(unicodeInput);
   print(menksoftResult);
 
   // Menksoft code to Unicode

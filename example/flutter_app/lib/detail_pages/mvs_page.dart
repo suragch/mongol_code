@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mongol_code/alternative/convert.dart';
 import 'package:mongol_code/mongol_code.dart';
 
 class MvsPage extends StatefulWidget {
@@ -27,7 +28,7 @@ class _MvsPageState extends State<MvsPage> {
   }
 
   String _getVariant(String text) {
-    return code.unicodeToMenksoft(text);
+    return convertUnicodeToMenksoft(text);
   }
 
   @override

@@ -69,13 +69,13 @@ bool _isTodoSibeManchu(int codeUnit) {
   return codeUnit >= 0x1843 && codeUnit <= 0x18AA;
 }
 
-bool _isFVS(int? codeUnit) {
-  if (codeUnit == null) return false;
-  return codeUnit == Unicode.FVS1 || //
-      codeUnit == Unicode.FVS2 ||
-      codeUnit == Unicode.FVS3 ||
-      codeUnit == Unicode.FVS4;
-}
+// bool _isFVS(int? codeUnit) {
+//   if (codeUnit == null) return false;
+//   return codeUnit == Unicode.FVS1 || //
+//       codeUnit == Unicode.FVS2 ||
+//       codeUnit == Unicode.FVS3 ||
+//       codeUnit == Unicode.FVS4;
+// }
 
 // A segment may include multiple words or suffixes separated by MVS
 List<int> _processMongolianSegment(List<int> segment) {

@@ -1761,16 +1761,6 @@ class MongolWord {
         character == Unicode.KHA);
   }
 
-  bool _isTwoPartNameInitialVowel(int vowel, int fvs) {
-    // XXX There is no way to recognize initial E or EE
-    return (vowel == Unicode.A && fvs == Unicode.FVS1) ||
-        (vowel == Unicode.I && fvs == Unicode.FVS1) ||
-        (vowel == Unicode.O && fvs == Unicode.FVS1) ||
-        (vowel == Unicode.U && fvs == Unicode.FVS1) ||
-        (vowel == Unicode.OE && fvs == Unicode.FVS2) ||
-        (vowel == Unicode.UE && fvs == Unicode.FVS2);
-  }
-
   static bool _isOuVowel(int character) {
     return (character >= Unicode.O && character <= Unicode.UE);
   }

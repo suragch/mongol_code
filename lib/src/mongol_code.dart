@@ -1,9 +1,9 @@
 // import 'gender.dart';
-import 'package:mongol_code/alternative/convert.dart';
+// import 'package:mongol_code/alternative/convert.dart';
 
 import 'location.dart';
 import 'menksoft.dart';
-import 'menksoft_word.dart';
+// import 'menksoft_word.dart';
 import 'mongol_word.dart';
 import 'unicode.dart';
 
@@ -37,50 +37,50 @@ class MongolCode {
   // strange exception where the first UE does not get a long tooth
   // static const String _BUU_EXCEPTION = '\u182A\u1826\u1826';
 
-  String unicodeToMenksoft(String inputString) {
-    return convertUnicodeToMenksoft(inputString);
-    // final menksoftWithSpacingChars = unicodeToMenksoftSameIndex(inputString);
-    // return _stripControlChars(menksoftWithSpacingChars);
-  }
+  // String unicodeToMenksoft(String inputString) {
+  //   return convertUnicodeToMenksoft(inputString);
+  //   // final menksoftWithSpacingChars = unicodeToMenksoftSameIndex(inputString);
+  //   // return _stripControlChars(menksoftWithSpacingChars);
+  // }
 
-  String _stripControlChars(String stringWithControlChars) {
-    final length = stringWithControlChars.length;
-    final strippedString = StringBuffer();
-    for (var i = 0; i < length; i++) {
-      if (!_shouldBeStripped(stringWithControlChars, i)) {
-        strippedString.writeCharCode(stringWithControlChars.codeUnitAt(i));
-      }
-    }
-    return strippedString.toString();
-  }
+  // String _stripControlChars(String stringWithControlChars) {
+  //   final length = stringWithControlChars.length;
+  //   final strippedString = StringBuffer();
+  //   for (var i = 0; i < length; i++) {
+  //     if (!_shouldBeStripped(stringWithControlChars, i)) {
+  //       strippedString.writeCharCode(stringWithControlChars.codeUnitAt(i));
+  //     }
+  //   }
+  //   return strippedString.toString();
+  // }
 
-  bool _shouldBeStripped(String text, int index) {
-    final thisChar = text.codeUnitAt(index);
-    //noinspection SimplifiableIfStatement
-    if (_isNonPrintingChar(thisChar)) {
-      // old Menksoft code (in PUA region) context doesn't need
-      // Unicode control characters. But keep control characters
-      // in the context of Unicode text. (This allows font to render
-      // TodoScript text.)
-      return (index != 0 && _isPuaChar(text.codeUnitAt(index - 1)) ||
-          index != text.length - 1 && _isPuaChar(text.codeUnitAt(index + 1)));
-    }
-    return false;
-  }
+  // bool _shouldBeStripped(String text, int index) {
+  //   final thisChar = text.codeUnitAt(index);
+  //   //noinspection SimplifiableIfStatement
+  //   if (_isNonPrintingChar(thisChar)) {
+  //     // old Menksoft code (in PUA region) context doesn't need
+  //     // Unicode control characters. But keep control characters
+  //     // in the context of Unicode text. (This allows font to render
+  //     // TodoScript text.)
+  //     return (index != 0 && _isPuaChar(text.codeUnitAt(index - 1)) ||
+  //         index != text.length - 1 && _isPuaChar(text.codeUnitAt(index + 1)));
+  //   }
+  //   return false;
+  // }
 
-  bool _isPuaChar(int codeUnit) {
-    return codeUnit >= 0xE000 && codeUnit <= 0xF8FF;
-  }
+  // bool _isPuaChar(int codeUnit) {
+  //   return codeUnit >= 0xE000 && codeUnit <= 0xF8FF;
+  // }
 
-  bool _isNonPrintingChar(int codeUnit) {
-    return codeUnit == Unicode.MVS ||
-        codeUnit == Unicode.ZWJ ||
-        codeUnit == Unicode.ZWNJ ||
-        // codeUnit == Unicode.WJ ||
-        codeUnit == Unicode.FVS1 ||
-        codeUnit == Unicode.FVS2 ||
-        codeUnit == Unicode.FVS3;
-  }
+  // bool _isNonPrintingChar(int codeUnit) {
+  //   return codeUnit == Unicode.MVS ||
+  //       codeUnit == Unicode.ZWJ ||
+  //       codeUnit == Unicode.ZWNJ ||
+  //       // codeUnit == Unicode.WJ ||
+  //       codeUnit == Unicode.FVS1 ||
+  //       codeUnit == Unicode.FVS2 ||
+  //       codeUnit == Unicode.FVS3;
+  // }
 
   String unicodeToMenksoftSameIndex(String inputString) {
     if (inputString.isEmpty) return '';
@@ -300,36 +300,4 @@ class MongolCode {
         codeUnit == Unicode.OE ||
         codeUnit == Unicode.UE);
   }
-
-  // static bool needsLongToothU(List<int> word, int index) {
-  //   if (index < 0) return false;
-
-  //   if (word[index] != Unicode.OE && word[index] != Unicode.UE) {
-  //     return false;
-  //   }
-
-  //   if (index == 0) return true;
-
-  //   if (index == 1) {
-  //     if (isConsonant(word[0])) {
-  //       throw Exception('fix this');
-  //       // strange BUU exception
-  //       return _BUU_EXCEPTION != word;
-  //     }
-  //   }
-
-  //   //noinspection SimplifiableIfStatement
-  //   if (index == 2) {
-  //     return isConsonant(word[0]) && MongolCode.isFVS(word[1]);
-  //   }
-
-  //   return false;
-  // }
-
-  // Starts at the end of the word and works up
-  // if mixed genders only reports the first one from the bottom
-  // returns null if word does not end in a valid Mongolian character
-  // static Gender? getWordGender(List<int> word) {
-  //   return MongolWord.getGender(word);
-  // }
 }

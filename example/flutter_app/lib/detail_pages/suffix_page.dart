@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mongol_code/alternative/convert.dart';
 import 'package:mongol_code/mongol_code.dart';
 
 class SuffixPage extends StatefulWidget {
@@ -33,7 +34,7 @@ class _SuffixPageState extends State<SuffixPage> {
   }
 
   String _convert(String text) {
-    return code.unicodeToMenksoft(text);
+    return convertUnicodeToMenksoft(text);
   }
 
   @override
