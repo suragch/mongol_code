@@ -39,10 +39,18 @@ class _MvsPageState extends State<MvsPage> {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: ListView(
           children: [
+            _buildVariantRow('O', _getVariant('$nirugu\u1823$mvs$a')),
             _buildVariantRow('U', _getVariant('$nirugu\u1824$mvs$a')),
+            _buildVariantRow('OE', _getVariant('$nirugu\u1825$mvs$a')),
+            _buildVariantRow('UE', _getVariant('$nirugu\u1826$mvs$a')),
             _buildVariantRow('NA', _getVariant('$nirugu\u1828$mvs$a')),
+            _buildVariantRow('NA FVS1', _getVariant('$nirugu\u1828\u180B$mvs$a')),
+            _buildVariantRow('NA FVS2', _getVariant('$nirugu\u1828\u180C$mvs$a')),
             _buildVariantRow('QA', _getVariant('$nirugu\u182C$mvs$a')),
+            _buildVariantRow('QA FVS1', _getVariant('$nirugu\u182C\u180B$mvs$a')),
             _buildVariantRow('GA', _getVariant('$nirugu\u182D$mvs$a')),
+            _buildVariantRow('GA FVS1', _getVariant('$nirugu\u182D\u180B$mvs$a')),
+            _buildVariantRow('GA FVS3', _getVariant('$nirugu\u182D\u180D$mvs$a')),
             _buildVariantRow('MA', _getVariant('$nirugu\u182E$mvs$a')),
             _buildVariantRow('LA', _getVariant('$nirugu\u182F$mvs$a')),
             _buildVariantRow('SA', _getVariant('$nirugu\u1830$mvs$a')),

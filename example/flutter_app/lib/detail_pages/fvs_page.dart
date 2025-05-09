@@ -15,6 +15,7 @@ class _FvsPageState extends State<FvsPage> {
   final fvs1 = String.fromCharCode(Unicode.FVS1);
   final fvs2 = String.fromCharCode(Unicode.FVS2);
   final fvs3 = String.fromCharCode(Unicode.FVS3);
+  final fvs4 = String.fromCharCode(Unicode.FVS4);
   final nirugu = String.fromCharCode(Unicode.MONGOLIAN_NIRUGU);
 
   final List<String> mongolianCharacters = List.generate(
@@ -61,18 +62,22 @@ class _FvsPageState extends State<FvsPage> {
                 _buildVariantRow('FVS1', _getVariant('$char$fvs1')),
                 _buildVariantRow('FVS2', _getVariant('$char$fvs2')),
                 _buildVariantRow('FVS3', _getVariant('$char$fvs3')),
+                _buildVariantRow('FVS4', _getVariant('$char$fvs4')),
                 _buildVariantRow('INITIAL', _getVariant('$char$nirugu'), fontSize: 44, indent: 16),
                 _buildVariantRow('FVS1', _getVariant('$char$fvs1$nirugu')),
                 _buildVariantRow('FVS2', _getVariant('$char$fvs2$nirugu')),
                 _buildVariantRow('FVS3', _getVariant('$char$fvs3$nirugu')),
+                _buildVariantRow('FVS4', _getVariant('$char$fvs4$nirugu')),
                 _buildVariantRow('MEDIAL', _getVariant('$nirugu$char$nirugu'), fontSize: 44, indent: 16),
                 _buildVariantRow('FVS1', _getVariant('$nirugu$char$fvs1$nirugu')),
                 _buildVariantRow('FVS2', _getVariant('$nirugu$char$fvs2$nirugu')),
                 _buildVariantRow('FVS3', _getVariant('$nirugu$char$fvs3$nirugu')),
+                _buildVariantRow('FVS4', _getVariant('$nirugu$char$fvs4$nirugu')),
                 _buildVariantRow('FINAL', _getVariant('$nirugu$char'), fontSize: 44, indent: 16),
                 _buildVariantRow('FVS1', _getVariant('$nirugu$char$fvs1')),
                 _buildVariantRow('FVS2', _getVariant('$nirugu$char$fvs2')),
                 _buildVariantRow('FVS3', _getVariant('$nirugu$char$fvs3')),
+                _buildVariantRow('FVS4', _getVariant('$nirugu$char$fvs4')),
               ],
             );
           },

@@ -163,7 +163,6 @@ class MongolWord {
     }
     final renderedWord = <int>[];
     var charBelow = 0;
-    var charBelowFvs = 0;
 
     // start at the bottom of the word and work up (easier to record glyph shape this way)
     for (var i = _length - 1; i >= 0; i--) {
@@ -182,17 +181,17 @@ class MongolWord {
         case Unicode.I:
           _handleI(renderedWord, i, charAbove, charBelow);
         case Unicode.O:
-          _handleO(renderedWord, charAbove);
+          _handleO(renderedWord, charAbove, charBelow);
         case Unicode.U:
           _handleU(renderedWord, charAbove, charBelow);
         case Unicode.OE:
-          _handleOE(renderedWord, i, charAbove);
+          _handleOE(renderedWord, i, charAbove, charBelow);
         case Unicode.UE:
-          _handleUE(renderedWord, i, charAbove);
+          _handleUE(renderedWord, i, charAbove, charBelow);
         case Unicode.EE:
           _handleEE(renderedWord);
         case Unicode.NA:
-          _handleNA(renderedWord, i, charBelow, charBelowFvs);
+          _handleNA(renderedWord, i, charBelow);
         case Unicode.ANG:
           _handleANG(renderedWord);
         case Unicode.BA:
@@ -208,7 +207,7 @@ class MongolWord {
         case Unicode.LA:
           _handleLA(renderedWord, i, charAbove, charBelow);
         case Unicode.SA:
-          _handleSA(renderedWord, charBelow, charBelowFvs);
+          _handleSA(renderedWord, charBelow);
         case Unicode.SHA:
           _handleSHA(renderedWord, charBelow);
         case Unicode.TA:
@@ -267,7 +266,6 @@ class MongolWord {
       }
 
       charBelow = currentChar;
-      charBelowFvs = _fvs;
       _fvs = 0;
     }
 
@@ -463,7 +461,7 @@ class MongolWord {
     return false;
   }
 
-  void _handleO(List<int> renderedWord, int charAbove) {
+  void _handleO(List<int> renderedWord, int charAbove, int charBelow) {
     _gender = Gender.MASCULINE;
     switch (_location) {
       case Location.ISOLATE:
@@ -473,6 +471,9 @@ class MongolWord {
       case Location.MEDIAL:
         if (_fvs == fvs1) {
           renderedWord.add(Menksoft.MEDI_O_FVS1); // tooth + O
+        } else if (charBelow == Unicode.MVS) {
+          // Not defined in Chinese standard
+          renderedWord.add(Menksoft.FINA_O);
         } else {
           if (_isRoundLetter(charAbove)) {
             renderedWord.add(Menksoft.MEDI_O_BP); // After BPFK
@@ -538,7 +539,7 @@ class MongolWord {
     _glyphShapeBelow = Shape.STEM;
   }
 
-  void _handleOE(List<int> renderedWord, int positionInWord, int charAbove) {
+  void _handleOE(List<int> renderedWord, int positionInWord, int charAbove, int charBelow) {
     _gender = Gender.FEMININE;
     switch (_location) {
       case Location.ISOLATE:
@@ -558,6 +559,9 @@ class MongolWord {
           }
         } else if (_fvs == fvs2) {
           renderedWord.add(Menksoft.MEDI_OE_FVS2); // extra tooth for 2 part name
+        } else if (charBelow == Unicode.MVS) {
+          // Not defined in Chinese standard
+          renderedWord.add(Menksoft.FINA_OE);
         } else {
           if (_needsLongToothU(_inputWord, positionInWord)) {
             // *** first syllable long tooth rule ***
@@ -596,7 +600,7 @@ class MongolWord {
     _glyphShapeBelow = Shape.STEM;
   }
 
-  void _handleUE(List<int> renderedWord, int positionInWord, int charAbove) {
+  void _handleUE(List<int> renderedWord, int positionInWord, int charAbove, int charBelow) {
     _gender = Gender.FEMININE;
     switch (_location) {
       case Location.ISOLATE:
@@ -622,6 +626,9 @@ class MongolWord {
           }
         } else if (_fvs == fvs2) {
           renderedWord.add(Menksoft.MEDI_UE_FVS2); // extra tooth for 2 part name
+        } else if (charBelow == Unicode.MVS) {
+          // Not defined in Chinese standard
+          renderedWord.add(Menksoft.FINA_UE);
         } else {
           if (_needsLongToothU(_inputWord, positionInWord)) {
             // *** first syllable long tooth rule ***
@@ -675,7 +682,7 @@ class MongolWord {
     _glyphShapeBelow = Shape.TOOTH;
   }
 
-  void _handleNA(List<int> renderedWord, int positionInWord, int charBelow, int charBelowFvs) {
+  void _handleNA(List<int> renderedWord, int positionInWord, int charBelow) {
     switch (_location) {
       case Location.ISOLATE:
         if (_fvs == fvs1) {
@@ -1251,7 +1258,7 @@ class MongolWord {
     }
   }
 
-  void _handleSA(List<int> renderedWord, int charBelow, int charBelowFvs) {
+  void _handleSA(List<int> renderedWord, int charBelow) {
     switch (_location) {
       case Location.ISOLATE:
         renderedWord.add(Menksoft.ISOL_SA);
@@ -1262,7 +1269,7 @@ class MongolWord {
           renderedWord.add(Menksoft.INIT_SA_TOOTH);
         }
       case Location.MEDIAL:
-        if (_fvs == fvs1 && charBelowFvs == Unicode.MVS) {
+        if (_fvs == fvs1 && charBelow == Unicode.MVS) {
           renderedWord.add(Menksoft.MEDI_SA_FVS1_MVS); // short tail
           _glyphShapeBelow = Shape.STEM;
         } else if (charBelow == Unicode.MVS) {
