@@ -1,56 +1,20 @@
-import 'package:mongol_code/alternative/convert.dart';
+import 'package:mongol_code/alternative/convert_menksoft.dart';
+import 'package:mongol_code/alternative/convert_unicode.dart';
 import 'package:test/test.dart';
 import 'package:mongol_code/mongol_code.dart';
 
 MongolCode converter = MongolCode.instance;
 
-String convertMenksoftToUnicode(String menksoft) {
-  return converter.menksoftToUnicode(menksoft);
-}
+// String convertMenksoftToUnicode(String menksoft) {
+//   return converter.menksoftToUnicode(menksoft);
+// }
 
 String convertToUnicodeAndBackAgain(String menksoft) {
-  final unicode = converter.menksoftToUnicode(menksoft);
+  final unicode = convertMenksoftToUnicode(menksoft);
   return convertUnicodeToMenksoft(unicode);
 }
 
 void main() {
-  group('Menksoft -> Unicode: non-Menksoft strings', () {
-    test('emptyString', () async {
-      final unicode = '';
-      final result = convertMenksoftToUnicode(unicode);
-      final expected = '';
-      expect(result, expected);
-    });
-
-    test('englishKeyboardChars', () async {
-      final unicode = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#\$%^&*()-=_+`~;:\'" ,./<>?';
-      final result = convertMenksoftToUnicode(unicode);
-      final expected = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#\$%^&*()-=_+`~;:\'" ,./<>?';
-      expect(result, expected);
-    });
-
-    test('chineseChars', () async {
-      final unicode = '中文';
-      final result = convertMenksoftToUnicode(unicode);
-      final expected = '中文';
-      expect(result, expected);
-    });
-
-    test('emojiChars', () async {
-      final unicode = '\uD83D\uDE04\uD83D\uDD90\uD83C\uDFFC\uD83C\uDDF3\uD83C\uDDF4';
-      final result = convertMenksoftToUnicode(unicode);
-      final expected = '\uD83D\uDE04\uD83D\uDD90\uD83C\uDFFC\uD83C\uDDF3\uD83C\uDDF4';
-      expect(result, expected);
-    });
-
-    test('unicodeString', () async {
-      final unicode = 'ᠮᠤᠩᠭᠤᠯ';
-      final result = convertMenksoftToUnicode(unicode);
-      final expected = 'ᠮᠤᠩᠭᠤᠯ';
-      expect(result, expected);
-    });
-  });
-
   group('Menksoft -> Unicode: all isolate values', () {
     test('isolateE234', () async {
       final menksoft = '\uE234';

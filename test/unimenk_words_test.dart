@@ -1,4 +1,4 @@
-import 'package:mongol_code/alternative/convert.dart';
+import 'package:mongol_code/alternative/convert_unicode.dart';
 import 'package:test/test.dart';
 
 void printResult(String result, String expected) {

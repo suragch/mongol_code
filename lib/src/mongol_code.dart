@@ -129,44 +129,44 @@ class MongolCode {
     outputString.addAll(renderedWord);
   }
 
-  String menksoftToUnicode(String inputString) {
-    return inputString;
-    // if (inputString.isEmpty) return '';
+  // String menksoftToUnicode(String inputString) {
+  //   return inputString;
+  //   // if (inputString.isEmpty) return '';
 
-    // final outputString = StringBuffer();
-    // final menksoftWord = StringBuffer();
+  //   // final outputString = StringBuffer();
+  //   // final menksoftWord = StringBuffer();
 
-    // // Loop through characters in string
-    // final length = inputString.length;
-    // for (var i = 0; i < length; i++) {
-    //   final codeUnit = inputString.codeUnitAt(i);
-    //   if (isMenksoft(codeUnit) && !Menksoft.isMenksoftSpace(codeUnit)) {
-    //     menksoftWord.writeCharCode(codeUnit);
-    //     continue;
-    //   }
+  //   // // Loop through characters in string
+  //   // final length = inputString.length;
+  //   // for (var i = 0; i < length; i++) {
+  //   //   final codeUnit = inputString.codeUnitAt(i);
+  //   //   if (isMenksoft(codeUnit) && !Menksoft.isMenksoftSpace(codeUnit)) {
+  //   //     menksoftWord.writeCharCode(codeUnit);
+  //   //     continue;
+  //   //   }
 
-    //   if (menksoftWord.length > 0) {
-    //     _appendMenksoftWord(outputString, menksoftWord);
-    //     menksoftWord.clear();
-    //   }
+  //   //   if (menksoftWord.length > 0) {
+  //   //     _appendMenksoftWord(outputString, menksoftWord);
+  //   //     menksoftWord.clear();
+  //   //   }
 
-    //   // A space starts a new Mongol word but is not itself a Mongol char
-    //   if (Menksoft.isMenksoftSpace(codeUnit)) {
-    //     menksoftWord.writeCharCode(codeUnit);
-    //     continue;
-    //   }
+  //   //   // A space starts a new Mongol word but is not itself a Mongol char
+  //   //   if (Menksoft.isMenksoftSpace(codeUnit)) {
+  //   //     menksoftWord.writeCharCode(codeUnit);
+  //   //     continue;
+  //   //   }
 
-    //   // non-Menksoft character
-    //   outputString.writeCharCode(codeUnit);
-    // }
+  //   //   // non-Menksoft character
+  //   //   outputString.writeCharCode(codeUnit);
+  //   // }
 
-    // // Add any final substring
-    // if (menksoftWord.length > 0) {
-    //   _appendMenksoftWord(outputString, menksoftWord);
-    // }
+  //   // // Add any final substring
+  //   // if (menksoftWord.length > 0) {
+  //   //   _appendMenksoftWord(outputString, menksoftWord);
+  //   // }
 
-    // return outputString.toString();
-  }
+  //   // return outputString.toString();
+  // }
 
   // void _appendMenksoftWord(StringBuffer outputString, StringBuffer menksoftWord) {
   //   final unicodeWord = MenksoftWord(menksoftWord.toString()).convertToUnicode();

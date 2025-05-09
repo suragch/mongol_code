@@ -1,4 +1,4 @@
-import 'package:mongol_code/alternative/convert.dart';
+import 'package:mongol_code/alternative/convert_unicode.dart';
 import 'package:test/test.dart';
 import 'package:mongol_code/mongol_code.dart';
 
