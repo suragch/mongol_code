@@ -5,10 +5,6 @@ import 'package:mongol_code/mongol_code.dart';
 
 MongolCode converter = MongolCode.instance;
 
-// String convertMenksoftToUnicode(String menksoft) {
-//   return converter.menksoftToUnicode(menksoft);
-// }
-
 String convertToUnicodeAndBackAgain(String menksoft) {
   final unicode = convertMenksoftToUnicode(menksoft);
   return convertUnicodeToMenksoft(unicode);

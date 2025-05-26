@@ -436,29 +436,8 @@ class MongolWord {
       return true;
     }
     // or non long toothed OE/UE
-    return ((charAbove == Unicode.OE || charAbove == Unicode.UE) && !_needsLongToothU(_inputWord, positionInWord - 1));
-  }
-
-  bool _needsLongToothU(List<int> word, int index) {
-    if (index < 0) return false;
-
-    if (word[index] != Unicode.OE && word[index] != Unicode.UE) {
-      return false;
-    }
-
-    if (index == 0) return true;
-
-    if (index == 1) {
-      if (MongolCode.isConsonant(word[0])) {
-        return true;
-      }
-    }
-
-    if (index == 2) {
-      return MongolCode.isConsonant(word[0]) && MongolCode.isFVS(word[1]);
-    }
-
-    return false;
+    return ((charAbove == Unicode.OE || charAbove == Unicode.UE) &&
+        !MongolCode.needsLongToothU(_inputWord, positionInWord - 1));
   }
 
   void _handleO(List<int> renderedWord, int charAbove, int charBelow) {
@@ -563,7 +542,7 @@ class MongolWord {
           // Not defined in Chinese standard
           renderedWord.add(Menksoft.FINA_OE);
         } else {
-          if (_needsLongToothU(_inputWord, positionInWord)) {
+          if (MongolCode.needsLongToothU(_inputWord, positionInWord)) {
             // *** first syllable long tooth rule ***
             if (_isRoundLetterIncludingQG(charAbove)) {
               renderedWord.add(Menksoft.MEDI_OE_FVS1_BP); // first syllable long tooth UE after BPFK
@@ -630,7 +609,7 @@ class MongolWord {
           // Not defined in Chinese standard
           renderedWord.add(Menksoft.FINA_UE);
         } else {
-          if (_needsLongToothU(_inputWord, positionInWord)) {
+          if (MongolCode.needsLongToothU(_inputWord, positionInWord)) {
             // *** first syllable long tooth rule ***
             if (_isRoundLetterIncludingQG(charAbove)) {
               renderedWord.add(Menksoft.MEDI_UE_FVS1_BP); // first syllable long tooth UE after BPFK

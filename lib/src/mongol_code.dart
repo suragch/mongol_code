@@ -252,6 +252,29 @@ class MongolCode {
     return (codeUnit >= Unicode.FVS1 && codeUnit <= Unicode.FVS3);
   }
 
+  /// Whether the U or OE at the given index needs a long tooth.
+  static bool needsLongToothU(List<int> word, int index) {
+    if (index < 0) return false;
+
+    if (word[index] != Unicode.OE && word[index] != Unicode.UE) {
+      return false;
+    }
+
+    if (index == 0) return true;
+
+    if (index == 1) {
+      if (MongolCode.isConsonant(word[0])) {
+        return true;
+      }
+    }
+
+    if (index == 2) {
+      return MongolCode.isConsonant(word[0]) && MongolCode.isFVS(word[1]);
+    }
+
+    return false;
+  }
+
   /// Test if character is Mongolian
   /// Sibe/Manchu/Aligali are currently undefined (may or may not be handled in the future)
   ///
