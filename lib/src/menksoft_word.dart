@@ -7,10 +7,10 @@ import 'unicode.dart';
 class MenksoftWord {
   static const int SPACE = 0x0020;
 
-  late String _inputWord;
+  late List<int> _inputWord;
   late Location _location;
 
-  MenksoftWord(String menksoftWord) {
+  MenksoftWord(List<int> menksoftWord) {
     _inputWord = menksoftWord;
   }
 
@@ -32,18 +32,18 @@ class MenksoftWord {
     }
   }
 
-  String convertToUnicode() {
+  List<int> convertToUnicode() {
     final outputString = <int>[];
 
     if (_inputWord.isEmpty) {
-      return '';
+      return [];
     }
 
     var charAbove = 0;
-    var currentChar = _inputWord.codeUnitAt(0);
+    var currentChar = _inputWord[0];
     final length = _inputWord.length;
     for (var i = 0; i < length; i++) {
-      final charBelow = (i < length - 1) ? _inputWord.codeUnitAt(i + 1) : 0;
+      final charBelow = (i < length - 1) ? _inputWord[i + 1] : 0;
 
       _updateLocation(charAbove, charBelow);
 
@@ -173,7 +173,7 @@ class MenksoftWord {
       currentChar = charBelow;
     }
 
-    return outputString.toString();
+    return outputString;
   }
 
   bool _startsWithNnbsSuffix(List<int> outputString) {

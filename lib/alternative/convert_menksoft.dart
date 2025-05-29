@@ -4,46 +4,46 @@ import 'package:mongol_code/src/menksoft_word.dart';
 String convertMenksoftToUnicode(String inputString) {
   if (inputString.isEmpty) return '';
 
-  final outputString = StringBuffer();
-  final menksoftWord = StringBuffer();
+  final outputString = <int>[];
+  final menksoftWord = <int>[];
 
   // Loop through characters in string
   final length = inputString.length;
   for (var i = 0; i < length; i++) {
     final codeUnit = inputString.codeUnitAt(i);
     if (_isMenksoft(codeUnit) && !Menksoft.isMenksoftSpace(codeUnit)) {
-      menksoftWord.writeCharCode(codeUnit);
+      menksoftWord.add(codeUnit);
       continue;
     }
 
-    if (menksoftWord.length > 0) {
+    if (menksoftWord.isNotEmpty) {
       _appendMenksoftWord(outputString, menksoftWord);
       menksoftWord.clear();
     }
 
     // A space starts a new Mongol word but is not itself a Mongol char
     if (Menksoft.isMenksoftSpace(codeUnit)) {
-      menksoftWord.writeCharCode(codeUnit);
+      menksoftWord.add(codeUnit);
       continue;
     }
 
     // non-Menksoft character
-    outputString.writeCharCode(codeUnit);
+    outputString.add(codeUnit);
   }
 
   // Add any final substring
-  if (menksoftWord.length > 0) {
+  if (menksoftWord.isNotEmpty) {
     _appendMenksoftWord(outputString, menksoftWord);
   }
 
-  return outputString.toString();
+  return String.fromCharCodes(outputString);
 }
 
 bool _isMenksoft(int codeUnit) {
   return codeUnit >= Menksoft.MENKSOFT_START && codeUnit <= Menksoft.MENKSOFT_END;
 }
 
-void _appendMenksoftWord(StringBuffer outputString, StringBuffer menksoftWord) {
-  final unicodeWord = MenksoftWord(menksoftWord.toString()).convertToUnicode();
-  outputString.write(unicodeWord);
+void _appendMenksoftWord(List<int> outputString, List<int> menksoftWord) {
+  final unicodeWord = MenksoftWord(menksoftWord).convertToUnicode();
+  outputString.addAll(unicodeWord);
 }

@@ -10,6 +10,13 @@ void main() {
       expect(result, expected);
     });
 
+    test('spaceChar', () async {
+      final unicode = ' ';
+      final result = convertMenksoftToUnicode(unicode);
+      final expected = ' ';
+      expect(result, expected);
+    });
+
     test('englishKeyboardChars', () async {
       final unicode = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#\$%^&*()-=_+`~;:\'" ,./<>?';
       final result = convertMenksoftToUnicode(unicode);
