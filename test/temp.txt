@@ -6,3 +6,11 @@ void printResult(String actual, String expected) {
     'expected: ${expected.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}',
   );
 }
+
+
+import 'package:mongol_code/alternative/convert_menksoft.dart';
+import 'package:test/test.dart';
+
+void main() {
+    
+}
