@@ -1,4 +1,3 @@
-import 'gender.dart';
 import 'location.dart';
 import 'menksoft.dart';
 import 'mongol_code.dart';
@@ -176,8 +175,8 @@ class MenksoftWord {
     return outputString;
   }
 
-  bool _startsWithNnbsSuffix(List<int> outputString) {
-    return outputString.isNotEmpty && outputString[0] == Unicode.NNBS;
+  bool _startsWithMvs(List<int> outputString) {
+    return outputString.isNotEmpty && outputString[0] == Unicode.MVS;
   }
 
   void _handleA(List<int> outputString, int currentChar) {
@@ -187,33 +186,35 @@ class MenksoftWord {
           case Menksoft.ISOL_A_FVS1:
             outputString.add(Unicode.A);
             outputString.add(Unicode.FVS1);
+          case Menksoft.ISOL_A_FVS2:
+            outputString.add(Unicode.A);
+            outputString.add(Unicode.FVS2);
           case Menksoft.INIT_A:
             outputString.add(Unicode.A);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.INIT_A_FVS1:
             outputString.add(Unicode.A);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.FINA_A:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.A);
           case Menksoft.FINA_A_BP:
           case Menksoft.FINA_A_FVS1:
-          case Menksoft.FINA_A_MVS:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.A);
             outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_A:
           case Menksoft.MEDI_A_BP:
           case Menksoft.MEDI_A_UNKNOWN:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.A);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_A_FVS1:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.A);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.A);
         }
@@ -222,10 +223,10 @@ class MenksoftWord {
           case Menksoft.MEDI_A:
           case Menksoft.MEDI_A_BP:
           case Menksoft.MEDI_A_UNKNOWN:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.A);
           case Menksoft.MEDI_A_FVS1:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.A);
             outputString.add(Unicode.FVS1);
           default:
@@ -245,11 +246,11 @@ class MenksoftWord {
           case Menksoft.MEDI_A_BP:
           case Menksoft.MEDI_A_UNKNOWN:
             outputString.add(Unicode.A);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_A_FVS1:
             outputString.add(Unicode.A);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.A);
         }
@@ -260,28 +261,30 @@ class MenksoftWord {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
+          case Menksoft.ISOL_E_FVS1:
+            outputString.add(Unicode.E);
+            outputString.add(Unicode.FVS1);
           case Menksoft.INIT_E:
             outputString.add(Unicode.E);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.INIT_E_FVS1:
             outputString.add(Unicode.E);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.FINA_E:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.E);
           case Menksoft.FINA_E_BP:
           case Menksoft.FINA_E_FVS1:
-          case Menksoft.FINA_E_MVS:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.E);
             outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_E:
           case Menksoft.MEDI_E_BP:
           case Menksoft.MEDI_E_UNKNOWN:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.E);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.E);
         }
@@ -293,7 +296,7 @@ class MenksoftWord {
           case Menksoft.MEDI_E:
           case Menksoft.MEDI_E_BP:
           case Menksoft.MEDI_E_UNKNOWN:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.E);
           default:
             outputString.add(Unicode.E);
@@ -309,7 +312,7 @@ class MenksoftWord {
           case Menksoft.MEDI_E_BP:
           case Menksoft.MEDI_E_UNKNOWN:
             outputString.add(Unicode.E);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.E);
         }
@@ -320,32 +323,34 @@ class MenksoftWord {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
+          case Menksoft.ISOL_I_FVS1:
+            outputString.add(Unicode.I);
+            outputString.add(Unicode.FVS1);
           case Menksoft.INIT_I:
             outputString.add(Unicode.I);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.FINA_I:
           case Menksoft.FINA_I_BP:
-          case Menksoft.ISOL_I_FVS1:
-            if (!_startsWithNnbsSuffix(outputString)) {
-              outputString.add(Unicode.ZWJ);
+            if (!_startsWithMvs(outputString)) {
+              outputString.add(Unicode.MONGOLIAN_NIRUGU);
             }
             outputString.add(Unicode.I);
           case Menksoft.MEDI_I:
           case Menksoft.MEDI_I_BP:
           case Menksoft.INIT_I_FVS1:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.I);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_I_FVS1:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.I);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_I_FVS2:
-            outputString.add(Unicode.ZWJ);
-            outputString.add(Unicode.YA);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.I);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.FVS2);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.I);
         }
@@ -354,16 +359,16 @@ class MenksoftWord {
           case Menksoft.MEDI_I:
           case Menksoft.MEDI_I_BP:
           case Menksoft.INIT_I_FVS1:
-            if (!_startsWithNnbsSuffix(outputString)) {
-              outputString.add(Unicode.ZWJ);
+            if (!_startsWithMvs(outputString)) {
+              outputString.add(Unicode.MONGOLIAN_NIRUGU);
             }
             outputString.add(Unicode.I);
           case Menksoft.MEDI_I_FVS1:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.I);
             outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_I_FVS2:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.YA);
             outputString.add(Unicode.I);
           default:
@@ -390,15 +395,15 @@ class MenksoftWord {
           case Menksoft.MEDI_I_BP:
           case Menksoft.INIT_I_FVS1:
             outputString.add(Unicode.I);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_I_FVS1:
             outputString.add(Unicode.I);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_I_FVS2:
             outputString.add(Unicode.YA);
             outputString.add(Unicode.I);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.I);
         }
@@ -423,42 +428,42 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.INIT_O:
             outputString.add(Unicode.O);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.FINA_O:
-            if (_startsWithNnbsSuffix(outputString)) {
+            if (_startsWithMvs(outputString)) {
               // substituting more standard U suffix
               outputString.add(Unicode.U);
             } else {
-              outputString.add(Unicode.ZWJ);
+              outputString.add(Unicode.MONGOLIAN_NIRUGU);
               outputString.add(Unicode.O);
             }
           case Menksoft.FINA_O_FVS1:
           case Menksoft.FINA_O_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.O);
             outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_O_FVS1:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.O);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_O:
           case Menksoft.MEDI_O_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.O);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.O);
         }
       case Location.INITIAL:
         switch (currentChar) {
           case Menksoft.MEDI_O_FVS1:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.O);
             outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_O:
           case Menksoft.MEDI_O_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.O);
           default:
             outputString.add(Unicode.O);
@@ -478,10 +483,10 @@ class MenksoftWord {
             outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_O_FVS1:
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_O:
           case Menksoft.MEDI_O_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
         }
     }
   }
@@ -492,40 +497,40 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.INIT_U:
             outputString.add(Unicode.U);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.FINA_U:
-            if (!_startsWithNnbsSuffix(outputString)) {
-              outputString.add(Unicode.ZWJ);
+            if (!_startsWithMvs(outputString)) {
+              outputString.add(Unicode.MONGOLIAN_NIRUGU);
             }
             outputString.add(Unicode.U);
           case Menksoft.FINA_U_FVS1:
           case Menksoft.FINA_U_FVS1_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.U);
             outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_U_FVS1:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.U);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_U:
           case Menksoft.MEDI_U_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.U);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.U);
         }
       case Location.INITIAL:
         switch (currentChar) {
           case Menksoft.MEDI_U_FVS1:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.U);
             outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_U:
           case Menksoft.MEDI_U_BP:
-            if (!_startsWithNnbsSuffix(outputString)) {
-              outputString.add(Unicode.ZWJ);
+            if (!_startsWithMvs(outputString)) {
+              outputString.add(Unicode.MONGOLIAN_NIRUGU);
             }
             outputString.add(Unicode.U);
           default:
@@ -546,10 +551,10 @@ class MenksoftWord {
             outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_U_FVS1:
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_U:
           case Menksoft.MEDI_U_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
         }
     }
   }
@@ -564,58 +569,58 @@ class MenksoftWord {
             outputString.add(Unicode.FVS1);
           case Menksoft.INIT_OE:
             outputString.add(Unicode.OE);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.FINA_OE:
-            if (_startsWithNnbsSuffix(outputString)) {
+            if (_startsWithMvs(outputString)) {
               // substituting more standard UE suffix
               outputString.add(Unicode.UE);
             } else {
-              outputString.add(Unicode.ZWJ);
+              outputString.add(Unicode.MONGOLIAN_NIRUGU);
               outputString.add(Unicode.OE);
             }
           case Menksoft.FINA_OE_FVS1:
           case Menksoft.FINA_OE_FVS1_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.OE);
             outputString.add(Unicode.FVS1);
           case Menksoft.FINA_OE_FVS2:
           case Menksoft.FINA_OE_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             // substituting because undefined in unicode
             outputString.add(Unicode.O);
             outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_OE_FVS2:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.OE);
             outputString.add(Unicode.FVS2);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_OE:
           case Menksoft.MEDI_OE_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.OE);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_OE_FVS1:
           case Menksoft.MEDI_OE_FVS1_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.OE);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.OE);
         }
       case Location.INITIAL:
         switch (currentChar) {
           case Menksoft.MEDI_OE_FVS2:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.OE);
             outputString.add(Unicode.FVS2);
           case Menksoft.MEDI_OE:
           case Menksoft.MEDI_OE_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.OE);
           case Menksoft.MEDI_OE_FVS1:
           case Menksoft.MEDI_OE_FVS1_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.OE);
             outputString.add(Unicode.FVS1);
           default:
@@ -637,14 +642,14 @@ class MenksoftWord {
             outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_OE_FVS2:
             outputString.add(Unicode.FVS2);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_OE:
           case Menksoft.MEDI_OE_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_OE_FVS1:
           case Menksoft.MEDI_OE_FVS1_BP:
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
         }
     }
   }
@@ -658,57 +663,57 @@ class MenksoftWord {
             outputString.add(Unicode.FVS1);
           case Menksoft.INIT_UE:
             outputString.add(Unicode.UE);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.FINA_UE:
-            if (!_startsWithNnbsSuffix(outputString)) {
-              outputString.add(Unicode.ZWJ);
+            if (!_startsWithMvs(outputString)) {
+              outputString.add(Unicode.MONGOLIAN_NIRUGU);
             }
             outputString.add(Unicode.UE);
           case Menksoft.FINA_UE_FVS1:
           case Menksoft.FINA_UE_FVS1_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.UE);
             outputString.add(Unicode.FVS1);
           case Menksoft.FINA_UE_FVS2:
           case Menksoft.FINA_UE_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             // substituting because undefined in unicode
             outputString.add(Unicode.U);
             outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_UE_FVS2:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.UE);
             outputString.add(Unicode.FVS2);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_UE:
           case Menksoft.MEDI_UE_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.UE);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_UE_FVS1:
           case Menksoft.MEDI_UE_FVS1_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.UE);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.UE);
         }
       case Location.INITIAL:
         switch (currentChar) {
           case Menksoft.MEDI_UE_FVS2:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.UE);
             outputString.add(Unicode.FVS2);
           case Menksoft.MEDI_UE:
           case Menksoft.MEDI_UE_BP:
-            if (!_startsWithNnbsSuffix(outputString)) {
-              outputString.add(Unicode.ZWJ);
+            if (!_startsWithMvs(outputString)) {
+              outputString.add(Unicode.MONGOLIAN_NIRUGU);
             }
             outputString.add(Unicode.UE);
           case Menksoft.MEDI_UE_FVS1:
           case Menksoft.MEDI_UE_FVS1_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.UE);
             outputString.add(Unicode.FVS1);
           default:
@@ -736,14 +741,14 @@ class MenksoftWord {
             outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_UE_FVS2:
             outputString.add(Unicode.FVS2);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_UE:
           case Menksoft.MEDI_UE_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_UE_FVS1:
           case Menksoft.MEDI_UE_FVS1_BP:
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
         }
     }
   }
@@ -754,13 +759,13 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.INIT_EE:
             outputString.add(Unicode.EE);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_EE:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.EE);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.FINA_EE:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.EE);
           default:
             outputString.add(Unicode.EE);
@@ -768,7 +773,7 @@ class MenksoftWord {
       case Location.INITIAL:
         switch (currentChar) {
           case Menksoft.MEDI_EE:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.EE);
           default:
             outputString.add(Unicode.EE);
@@ -784,7 +789,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_EE:
             outputString.add(Unicode.EE);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.EE);
         }
@@ -793,7 +798,7 @@ class MenksoftWord {
 
   void _handleAng(List<int> outputString, int currentChar) {
     if (_location == Location.ISOLATE && currentChar == Menksoft.FINA_ANG) {
-      outputString.add(Unicode.ZWJ);
+      outputString.add(Unicode.MONGOLIAN_NIRUGU);
     }
     outputString.add(Unicode.ANG);
   }
@@ -806,28 +811,28 @@ class MenksoftWord {
           case Menksoft.INIT_NA_FVS1_TOOTH:
             outputString.add(Unicode.NA);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.FINA_NA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.NA);
           // case Menksoft.MEDI_NA_FVS2:
-          //   outputString.add(Unicode.ZWJ);
+          //   outputString.add(Unicode.MONGOLIAN_NIRUGU);
           //   outputString.add(Unicode.NA);
           //   outputString.add(Unicode.FVS2);
-          //   outputString.add(Unicode.ZWJ);
+          //   outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_NA_STEM:
           case Menksoft.MEDI_NA_TOOTH:
           case Menksoft.MEDI_NA_NG:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.NA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_NA_FVS1_STEM:
           case Menksoft.MEDI_NA_FVS1_TOOTH:
           case Menksoft.MEDI_NA_FVS1_NG:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.NA);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.NA);
         }
@@ -847,7 +852,7 @@ class MenksoftWord {
           case Menksoft.MEDI_NA_TOOTH:
             outputString.add(Unicode.NA);
             if (Menksoft.isMenksoftVowel(charAbove) && Menksoft.isMenksoftVowel(charBelow)) {
-              outputString.add(Unicode.ZWJ);
+              outputString.add(Unicode.MONGOLIAN_NIRUGU);
             }
           case Menksoft.MEDI_NA_FVS1_NG:
           case Menksoft.MEDI_NA_FVS1_STEM:
@@ -864,18 +869,18 @@ class MenksoftWord {
           // case Menksoft.MEDI_NA_FVS2:
           //   outputString.add(Unicode.NA);
           //   outputString.add(Unicode.FVS2);
-          //   outputString.add(Unicode.ZWJ);
+          //   outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_NA_STEM:
           case Menksoft.MEDI_NA_TOOTH:
           case Menksoft.MEDI_NA_NG:
             outputString.add(Unicode.NA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_NA_FVS1_STEM:
           case Menksoft.MEDI_NA_FVS1_TOOTH:
           case Menksoft.MEDI_NA_FVS1_NG:
             outputString.add(Unicode.NA);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.NA);
         }
@@ -887,10 +892,10 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.FINA_BA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.BA);
           case Menksoft.FINA_BA_FVS1:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.BA);
             outputString.add(Unicode.FVS1);
           default:
@@ -907,7 +912,7 @@ class MenksoftWord {
 
   void _handlePa(List<int> outputString, int currentChar) {
     if (_location == Location.ISOLATE && currentChar == Menksoft.FINA_PA) {
-      outputString.add(Unicode.ZWJ);
+      outputString.add(Unicode.MONGOLIAN_NIRUGU);
     }
     outputString.add(Unicode.PA);
   }
@@ -928,29 +933,29 @@ class MenksoftWord {
             // treat the dotted masculine Q as a G
             outputString.add(Unicode.GA);
           case Menksoft.FINA_QA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.QA);
           case Menksoft.MEDI_QA_FVS2_CONS:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.GA);
             outputString.add(Unicode.FVS3);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_QA_FVS1:
             // treat the dotted masculine Q as a G
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.GA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_QA_FVS1_MVS:
             // treat the dotted masculine Q as a G
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.GA);
             outputString.add(Unicode.FVS2);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_QA_STEM:
           case Menksoft.MEDI_QA_TOOTH:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.QA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.QA);
         }
@@ -962,7 +967,7 @@ class MenksoftWord {
             outputString.add(Unicode.GA);
           case Menksoft.MEDI_QA_STEM:
           case Menksoft.MEDI_QA_TOOTH:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.QA);
           default:
             outputString.add(Unicode.QA);
@@ -991,20 +996,20 @@ class MenksoftWord {
           case Menksoft.MEDI_QA_FVS2_CONS:
             outputString.add(Unicode.GA);
             outputString.add(Unicode.FVS3);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_QA_FVS1:
             // treat the dotted masculine Q as a G
             outputString.add(Unicode.GA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_QA_FVS1_MVS:
             // treat the dotted masculine Q as a G
             outputString.add(Unicode.GA);
             outputString.add(Unicode.FVS2);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_QA_STEM:
           case Menksoft.MEDI_QA_TOOTH:
             outputString.add(Unicode.QA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.QA);
         }
@@ -1021,33 +1026,33 @@ class MenksoftWord {
     //         // treat the undotted masculine G as a Q
     //         outputString.add(Unicode.QA);
     //       case Menksoft.FINA_GA:
-    //         outputString.add(Unicode.ZWJ);
+    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
     //         outputString.add(Unicode.GA);
     //       case Menksoft.FINA_GA_FVS2:
-    //         outputString.add(Unicode.ZWJ);
+    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
     //         outputString.add(Unicode.GA);
     //         outputString.add(Unicode.FVS2);
     //       case Menksoft.MEDI_GA:
-    //         outputString.add(Unicode.ZWJ);
+    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
     //         outputString.add(Unicode.GA);
-    //         outputString.add(Unicode.ZWJ);
+    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
     //       case Menksoft.MEDI_GA_FVS1_STEM:
     //       case Menksoft.MEDI_GA_FVS1_TOOTH:
-    //         outputString.add(Unicode.ZWJ);
+    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
     //         outputString.add(Unicode.GA);
     //         outputString.add(Unicode.FVS1);
-    //         outputString.add(Unicode.ZWJ);
+    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
     //       case Menksoft.MEDI_GA_FVS3_MVS:
-    //         outputString.add(Unicode.ZWJ);
+    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
     //         outputString.add(Unicode.GA);
     //         outputString.add(Unicode.FVS2);
-    //         outputString.add(Unicode.ZWJ);
+    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
     //       case Menksoft.MEDI_GA_FVS2_STEM:
     //       case Menksoft.MEDI_GA_FVS2_TOOTH:
-    //         outputString.add(Unicode.ZWJ);
+    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
     //         outputString.add(Unicode.GA);
     //         outputString.add(Unicode.FVS3);
-    //         outputString.add(Unicode.ZWJ);
+    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
     //       default:
     //         outputString.add(Unicode.GA);
     //     }
@@ -1083,18 +1088,18 @@ class MenksoftWord {
     //           outputString.add(Unicode.FVS2);
     //         }
     //       case Menksoft.MEDI_GA:
-    //         outputString.add(Unicode.ZWJ);
+    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
     //       case Menksoft.MEDI_GA_FVS1_STEM:
     //       case Menksoft.MEDI_GA_FVS1_TOOTH:
     //         outputString.add(Unicode.FVS1);
-    //         outputString.add(Unicode.ZWJ);
+    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
     //       case Menksoft.MEDI_GA_FVS3_MVS:
     //         outputString.add(Unicode.FVS2);
-    //         outputString.add(Unicode.ZWJ);
+    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
     //       case Menksoft.MEDI_GA_FVS2_STEM:
     //       case Menksoft.MEDI_GA_FVS2_TOOTH:
     //         outputString.add(Unicode.FVS3);
-    //         outputString.add(Unicode.ZWJ);
+    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
     //     }
     // }
   }
@@ -1104,14 +1109,14 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.FINA_MA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.MA);
           case Menksoft.MEDI_MA_BP:
           case Menksoft.MEDI_MA_STEM_LONG:
           case Menksoft.MEDI_MA_TOOTH:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.MA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.MA);
         }
@@ -1120,7 +1125,7 @@ class MenksoftWord {
           case Menksoft.MEDI_MA_BP:
           case Menksoft.MEDI_MA_STEM_LONG:
           case Menksoft.MEDI_MA_TOOTH:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.MA);
           default:
             outputString.add(Unicode.MA);
@@ -1133,7 +1138,7 @@ class MenksoftWord {
           case Menksoft.MEDI_MA_STEM_LONG:
           case Menksoft.MEDI_MA_TOOTH:
             outputString.add(Unicode.MA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.MA);
         }
@@ -1145,14 +1150,14 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.FINA_LA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.LA);
           case Menksoft.MEDI_LA_BP:
           case Menksoft.MEDI_LA_STEM_LONG:
           case Menksoft.MEDI_LA_TOOTH:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.LA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.LA);
         }
@@ -1161,7 +1166,7 @@ class MenksoftWord {
           case Menksoft.MEDI_LA_BP:
           case Menksoft.MEDI_LA_STEM_LONG:
           case Menksoft.MEDI_LA_TOOTH:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.LA);
           default:
             outputString.add(Unicode.LA);
@@ -1174,7 +1179,7 @@ class MenksoftWord {
           case Menksoft.MEDI_LA_STEM_LONG:
           case Menksoft.MEDI_LA_TOOTH:
             outputString.add(Unicode.LA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.LA);
         }
@@ -1186,17 +1191,17 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.FINA_SA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.SA);
           case Menksoft.FINA_SA_FVS1:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.SA);
             outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_SA_STEM:
           case Menksoft.MEDI_SA_TOOTH:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.SA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.SA);
         }
@@ -1204,7 +1209,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_SA_STEM:
           case Menksoft.MEDI_SA_TOOTH:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.SA);
           default:
             outputString.add(Unicode.SA);
@@ -1216,7 +1221,7 @@ class MenksoftWord {
           case Menksoft.MEDI_SA_STEM:
           case Menksoft.MEDI_SA_TOOTH:
             outputString.add(Unicode.SA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.SA);
         }
@@ -1228,13 +1233,13 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.FINA_SHA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.SHA);
           case Menksoft.MEDI_SHA_STEM:
           case Menksoft.MEDI_SHA_TOOTH:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.SHA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.SHA);
         }
@@ -1242,7 +1247,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_SHA_STEM:
           case Menksoft.MEDI_SHA_TOOTH:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.SHA);
           default:
             outputString.add(Unicode.SHA);
@@ -1254,7 +1259,7 @@ class MenksoftWord {
           case Menksoft.MEDI_SHA_STEM:
           case Menksoft.MEDI_SHA_TOOTH:
             outputString.add(Unicode.SHA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.SHA);
         }
@@ -1266,29 +1271,29 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.FINA_TA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.TA);
           case Menksoft.MEDI_TA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.TA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_TA_FVS1_STEM:
           case Menksoft.MEDI_TA_FVS1_TOOTH:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.TA);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.TA);
         }
       case Location.INITIAL:
         switch (currentChar) {
           case Menksoft.MEDI_TA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.TA);
           case Menksoft.MEDI_TA_FVS1_STEM:
           case Menksoft.MEDI_TA_FVS1_TOOTH:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.TA);
             outputString.add(Unicode.FVS1);
           default:
@@ -1307,12 +1312,12 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_TA:
             outputString.add(Unicode.TA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_TA_FVS1_STEM:
           case Menksoft.MEDI_TA_FVS1_TOOTH:
             outputString.add(Unicode.TA);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.TA);
         }
@@ -1328,33 +1333,33 @@ class MenksoftWord {
             // replace isolated DA that looks like TA with actual TA
             outputString.add(Unicode.TA);
           case Menksoft.FINA_DA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.DA);
           case Menksoft.FINA_DA_FVS1:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.DA);
             outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_DA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.DA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_DA_FVS1:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.DA);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.DA);
         }
       case Location.INITIAL:
         switch (currentChar) {
           case Menksoft.MEDI_DA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.DA);
           case Menksoft.INIT_DA_FVS1:
           case Menksoft.MEDI_DA_FVS1:
             outputString.add(Unicode.DA);
-            if (!_startsWithNnbsSuffix(outputString)) {
+            if (!_startsWithMvs(outputString)) {
               outputString.add(Unicode.FVS1);
             }
           default:
@@ -1366,11 +1371,11 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_DA:
             outputString.add(Unicode.DA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_DA_FVS1:
             outputString.add(Unicode.DA);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.DA);
         }
@@ -1382,7 +1387,7 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.FINA_CHA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.CHA);
           default:
             outputString.add(Unicode.CHA);
@@ -1395,7 +1400,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_CHA:
             outputString.add(Unicode.CHA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.CHA);
         }
@@ -1407,16 +1412,16 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.FINA_JA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.JA);
           case Menksoft.MEDI_JA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.JA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_JA_MVS:
             // ignoring ancient form,
             // it looks like a final I so make it one
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.I);
           default:
             outputString.add(Unicode.JA);
@@ -1426,13 +1431,13 @@ class MenksoftWord {
           case Menksoft.INIT_JA_STEM:
           case Menksoft.INIT_JA_TOOTH:
             // if user used a JA to write a YA suffix then replace it
-            if (_startsWithNnbsSuffix(outputString)) {
+            if (_startsWithMvs(outputString)) {
               outputString.add(Unicode.YA);
             } else {
               outputString.add(Unicode.JA);
             }
           case Menksoft.MEDI_JA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.JA);
           default:
             outputString.add(Unicode.JA);
@@ -1443,7 +1448,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_JA:
             outputString.add(Unicode.JA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_JA_MVS:
             // ignoring ancient form,
             // it looks like a final I so make it one
@@ -1459,12 +1464,12 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.FINA_YA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.YA);
           case Menksoft.MEDI_YA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.YA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.YA);
         }
@@ -1472,7 +1477,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_YA:
             outputString.add(Unicode.YA);
-            if (!_startsWithNnbsSuffix(outputString)) {
+            if (!_startsWithMvs(outputString)) {
               outputString.add(Unicode.FVS1);
             }
           default:
@@ -1493,7 +1498,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_YA:
             outputString.add(Unicode.YA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.YA);
         }
@@ -1505,7 +1510,7 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.FINA_RA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.RA);
           default:
             outputString.add(Unicode.RA);
@@ -1519,7 +1524,7 @@ class MenksoftWord {
           case Menksoft.MEDI_RA_STEM:
           case Menksoft.MEDI_RA_TOOTH:
             outputString.add(Unicode.RA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.RA);
         }
@@ -1531,11 +1536,11 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.FINA_WA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.WA);
           // case Menksoft.FINA_WA_MVS:
           //   // an isolate final WA looks like a final U so make it one
-          //   outputString.add(Unicode.ZWJ);
+          //   outputString.add(Unicode.MONGOLIAN_NIRUGU);
           //   outputString.add(Unicode.U);
           default:
             outputString.add(Unicode.WA);
@@ -1556,7 +1561,7 @@ class MenksoftWord {
           //   outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_WA:
             outputString.add(Unicode.WA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.WA);
         }
@@ -1565,21 +1570,21 @@ class MenksoftWord {
 
   void _handleFa(List<int> outputString, int currentChar) {
     if (_location == Location.ISOLATE && currentChar == Menksoft.FINA_FA) {
-      outputString.add(Unicode.ZWJ);
+      outputString.add(Unicode.MONGOLIAN_NIRUGU);
     }
     outputString.add(Unicode.FA);
   }
 
   void _handleKa(List<int> outputString, int currentChar) {
     if (_location == Location.ISOLATE && currentChar == Menksoft.FINA_KA) {
-      outputString.add(Unicode.ZWJ);
+      outputString.add(Unicode.MONGOLIAN_NIRUGU);
     }
     outputString.add(Unicode.KA);
   }
 
   void _handleKha(List<int> outputString, int currentChar) {
     if (_location == Location.ISOLATE && currentChar == Menksoft.FINA_KHA) {
-      outputString.add(Unicode.ZWJ);
+      outputString.add(Unicode.MONGOLIAN_NIRUGU);
     }
     outputString.add(Unicode.KHA);
   }
@@ -1589,7 +1594,7 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.FINA_TSA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.TSA);
           default:
             outputString.add(Unicode.TSA);
@@ -1602,7 +1607,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_TSA:
             outputString.add(Unicode.TSA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.TSA);
         }
@@ -1614,7 +1619,7 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.FINA_ZA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.ZA);
           default:
             outputString.add(Unicode.ZA);
@@ -1627,7 +1632,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_ZA:
             outputString.add(Unicode.ZA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.ZA);
         }
@@ -1639,19 +1644,19 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.FINA_HAA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.HAA);
           case Menksoft.MEDI_HAA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.HAA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.HAA);
         }
       case Location.INITIAL:
         switch (currentChar) {
           case Menksoft.MEDI_HAA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.HAA);
           default:
             outputString.add(Unicode.HAA);
@@ -1662,7 +1667,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_HAA:
             outputString.add(Unicode.HAA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.HAA);
         }
@@ -1674,7 +1679,7 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.FINA_ZRA:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.ZRA);
           default:
             outputString.add(Unicode.ZRA);
@@ -1687,7 +1692,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_ZRA:
             outputString.add(Unicode.ZRA);
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.ZRA);
         }
@@ -1700,7 +1705,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_LHA:
           case Menksoft.MEDI_LHA_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.LHA);
           default:
             outputString.add(Unicode.LHA);
@@ -1709,7 +1714,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_LHA:
           case Menksoft.MEDI_LHA_BP:
-            outputString.add(Unicode.ZWJ);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.LHA);
           default:
             outputString.add(Unicode.LHA);
@@ -1728,34 +1733,10 @@ class MenksoftWord {
   }
 
   void _handleSpace(List<int> outputString, int currentChar, int charBelow) {
-    if (currentChar == Menksoft.NONBREAKING_SPACE) {
-      outputString.add(Unicode.NNBS);
-      return;
-    }
-
-    switch (charBelow) {
-      case Menksoft.INIT_A_FVS1:
-      case Menksoft.FINA_I:
-      case Menksoft.MEDI_I:
-      case Menksoft.INIT_I_FVS1:
-      case Menksoft.ISOL_I_FVS1:
-      case Menksoft.MEDI_O:
-      case Menksoft.MEDI_O_BP:
-      case Menksoft.FINA_O:
-      case Menksoft.MEDI_U:
-      case Menksoft.MEDI_U_BP:
-      case Menksoft.FINA_U:
-      case Menksoft.MEDI_OE:
-      case Menksoft.MEDI_OE_BP:
-      case Menksoft.FINA_OE:
-      case Menksoft.MEDI_UE:
-      case Menksoft.MEDI_UE_BP:
-      case Menksoft.FINA_UE:
-      case Menksoft.FINA_YA:
-      case Menksoft.INIT_YA_FVS1:
-        outputString.add(Unicode.NNBS);
-      default:
-        outputString.add(SPACE);
+    if (currentChar == Menksoft.NONBREAKING_SPACE && Menksoft.isMenksoftLetter(charBelow)) {
+      outputString.add(Unicode.MVS);
+    } else {
+      outputString.add(SPACE);
     }
   }
 
