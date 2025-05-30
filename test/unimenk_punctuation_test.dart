@@ -158,63 +158,63 @@ void main() {
     });
 
     test('punctuationQuestionExclamation', () async {
-      final unicode = Unicode.QUESTION_EXCLAMATION_MARK;
+      final unicode = Unicode.QUESTION_EXCLAMATION;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
       final expected = String.fromCharCode(Menksoft.QUESTION_EXCLAMATION);
       expect(result, expected);
     });
 
     test('punctuationExclamationQuestion', () async {
-      final unicode = Unicode.EXCLAMATION_QUESTION_MARK;
+      final unicode = Unicode.EXCLAMATION_QUESTION;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
       final expected = String.fromCharCode(Menksoft.EXCLAMATION_QUESTION);
       expect(result, expected);
     });
 
     test('punctuationExclamation', () async {
-      final unicode = Unicode.VERTICAL_EXCLAMATION_MARK;
+      final unicode = Unicode.FULLWIDTH_EXCLAMATION;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
       final expected = String.fromCharCode(Menksoft.EXCLAMATION);
       expect(result, expected);
     });
 
     test('punctuationQuestion', () async {
-      final unicode = Unicode.VERTICAL_QUESTION_MARK;
+      final unicode = Unicode.FULLWIDTH_QUESTION;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
       final expected = String.fromCharCode(Menksoft.QUESTION);
       expect(result, expected);
     });
 
     test('punctuationSemicolon', () async {
-      final unicode = Unicode.VERTICAL_SEMICOLON;
+      final unicode = Unicode.FULLWIDTH_SEMICOLON;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
       final expected = String.fromCharCode(Menksoft.SEMICOLON);
       expect(result, expected);
     });
 
     test('punctuationLeftParenthesis', () async {
-      final unicode = Unicode.VERTICAL_LEFT_PARENTHESIS;
+      final unicode = Unicode.FULLWIDTH_LEFT_PARENTHESIS;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
       final expected = String.fromCharCode(Menksoft.LEFT_PARENTHESIS);
       expect(result, expected);
     });
 
     test('punctuationRightParenthesis', () async {
-      final unicode = Unicode.VERTICAL_RIGHT_PARENTHESIS;
+      final unicode = Unicode.FULLWIDTH_RIGHT_PARENTHESIS;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
       final expected = String.fromCharCode(Menksoft.RIGHT_PARENTHESIS);
       expect(result, expected);
     });
 
     test('punctuationLeftAngleBracket', () async {
-      final unicode = Unicode.VERTICAL_LEFT_ANGLE_BRACKET;
+      final unicode = Unicode.LEFT_ANGLE_BRACKET;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
       final expected = String.fromCharCode(Menksoft.LEFT_ANGLE_BRACKET);
       expect(result, expected);
     });
 
     test('punctuationRightAngleBracket', () async {
-      final unicode = Unicode.VERTICAL_RIGHT_ANGLE_BRACKET;
+      final unicode = Unicode.RIGHT_ANGLE_BRACKET;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
       final expected = String.fromCharCode(Menksoft.RIGHT_ANGLE_BRACKET);
       expect(result, expected);
@@ -235,14 +235,14 @@ void main() {
     });
 
     test('punctuationLeftDoubleAngleBracket', () async {
-      final unicode = Unicode.VERTICAL_LEFT_DOUBLE_ANGLE_BRACKET;
+      final unicode = Unicode.LEFT_DOUBLE_ANGLE_BRACKET;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
       final expected = String.fromCharCode(Menksoft.LEFT_DOUBLE_ANGLE_BRACKET);
       expect(result, expected);
     });
 
     test('punctuationRightDoubleAngleBracket', () async {
-      final unicode = Unicode.VERTICAL_RIGHT_DOUBLE_ANGLE_BRACKET;
+      final unicode = Unicode.RIGHT_DOUBLE_ANGLE_BRACKET;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
       final expected = String.fromCharCode(Menksoft.RIGHT_DOUBLE_ANGLE_BRACKET);
       expect(result, expected);

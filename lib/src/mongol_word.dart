@@ -70,33 +70,33 @@ class MongolWord {
         return Menksoft.FULL_WIDTH_COMMA;
       case Unicode.VERTICAL_COLON:
         return Menksoft.COLON;
-      case Unicode.VERTICAL_SEMICOLON:
+      case Unicode.FULLWIDTH_SEMICOLON:
         return Menksoft.SEMICOLON;
-      case Unicode.VERTICAL_EXCLAMATION_MARK:
+      case Unicode.FULLWIDTH_EXCLAMATION:
         return Menksoft.EXCLAMATION;
-      case Unicode.VERTICAL_QUESTION_MARK:
+      case Unicode.FULLWIDTH_QUESTION:
         return Menksoft.QUESTION;
-      case Unicode.VERTICAL_HORIZONTAL_ELLIPSIS:
-        return Menksoft.ELLIPSIS;
+      // case Unicode.VERTICAL_HORIZONTAL_ELLIPSIS:
+      //   return Menksoft.ELLIPSIS;
       case Unicode.VERTICAL_EM_DASH:
         return Menksoft.EM_DASH;
       case Unicode.VERTICAL_EN_DASH:
         return Menksoft.EN_DASH;
-      case Unicode.VERTICAL_LEFT_PARENTHESIS:
+      case Unicode.FULLWIDTH_LEFT_PARENTHESIS:
         return Menksoft.LEFT_PARENTHESIS;
-      case Unicode.VERTICAL_RIGHT_PARENTHESIS:
+      case Unicode.FULLWIDTH_RIGHT_PARENTHESIS:
         return Menksoft.RIGHT_PARENTHESIS;
       case Unicode.VERTICAL_LEFT_TORTOISE_SHELL_BRACKET:
         return Menksoft.LEFT_TORTOISE_SHELL_BRACKET;
       case Unicode.VERTICAL_RIGHT_TORTOISE_SHELL_BRACKET:
         return Menksoft.RIGHT_TORTOISE_SHELL_BRACKET;
-      case Unicode.VERTICAL_LEFT_DOUBLE_ANGLE_BRACKET:
+      case Unicode.LEFT_DOUBLE_ANGLE_BRACKET:
         return Menksoft.LEFT_DOUBLE_ANGLE_BRACKET;
-      case Unicode.VERTICAL_RIGHT_DOUBLE_ANGLE_BRACKET:
+      case Unicode.RIGHT_DOUBLE_ANGLE_BRACKET:
         return Menksoft.RIGHT_DOUBLE_ANGLE_BRACKET;
-      case Unicode.VERTICAL_LEFT_ANGLE_BRACKET:
+      case Unicode.LEFT_ANGLE_BRACKET:
         return Menksoft.LEFT_ANGLE_BRACKET;
-      case Unicode.VERTICAL_RIGHT_ANGLE_BRACKET:
+      case Unicode.RIGHT_ANGLE_BRACKET:
         return Menksoft.RIGHT_ANGLE_BRACKET;
       case Unicode.VERTICAL_LEFT_WHITE_CORNER_BRACKET:
         return Menksoft.LEFT_WHITE_CORNER_BRACKET;
@@ -106,9 +106,9 @@ class MongolWord {
         return Menksoft.MIDDLE_DOT;
       case Unicode.REFERENCE_MARK:
         return Menksoft.REFERENCE_MARK;
-      case Unicode.QUESTION_EXCLAMATION_MARK:
+      case Unicode.QUESTION_EXCLAMATION:
         return Menksoft.QUESTION_EXCLAMATION;
-      case Unicode.EXCLAMATION_QUESTION_MARK:
+      case Unicode.EXCLAMATION_QUESTION:
         return Menksoft.EXCLAMATION_QUESTION;
       case Unicode.MONGOLIAN_BIRGA:
         return Menksoft.BIRGA;

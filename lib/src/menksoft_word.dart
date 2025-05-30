@@ -2212,31 +2212,31 @@ class MenksoftWord {
         outputString.add(Unicode.MONGOLIAN_DIGIT_NINE);
         break;
       case Menksoft.QUESTION_EXCLAMATION:
-        outputString.add(Unicode.QUESTION_EXCLAMATION_MARK);
+        outputString.add(Unicode.QUESTION_EXCLAMATION);
         break;
       case Menksoft.EXCLAMATION_QUESTION:
-        outputString.add(Unicode.EXCLAMATION_QUESTION_MARK);
+        outputString.add(Unicode.EXCLAMATION_QUESTION);
         break;
       case Menksoft.EXCLAMATION:
-        outputString.add(Unicode.VERTICAL_EXCLAMATION_MARK);
+        outputString.add(Unicode.FULLWIDTH_EXCLAMATION);
         break;
       case Menksoft.QUESTION:
-        outputString.add(Unicode.VERTICAL_QUESTION_MARK);
+        outputString.add(Unicode.FULLWIDTH_QUESTION);
         break;
       case Menksoft.SEMICOLON:
-        outputString.add(Unicode.VERTICAL_SEMICOLON);
+        outputString.add(Unicode.FULLWIDTH_SEMICOLON);
         break;
       case Menksoft.LEFT_PARENTHESIS:
-        outputString.add(Unicode.VERTICAL_LEFT_PARENTHESIS);
+        outputString.add(Unicode.FULLWIDTH_LEFT_PARENTHESIS);
         break;
       case Menksoft.RIGHT_PARENTHESIS:
-        outputString.add(Unicode.VERTICAL_RIGHT_PARENTHESIS);
+        outputString.add(Unicode.FULLWIDTH_RIGHT_PARENTHESIS);
         break;
       case Menksoft.LEFT_ANGLE_BRACKET:
-        outputString.add(Unicode.VERTICAL_LEFT_ANGLE_BRACKET);
+        outputString.add(Unicode.LEFT_ANGLE_BRACKET);
         break;
       case Menksoft.RIGHT_ANGLE_BRACKET:
-        outputString.add(Unicode.VERTICAL_RIGHT_ANGLE_BRACKET);
+        outputString.add(Unicode.RIGHT_ANGLE_BRACKET);
         break;
       case Menksoft.LEFT_TORTOISE_SHELL_BRACKET:
         outputString.add(Unicode.VERTICAL_LEFT_TORTOISE_SHELL_BRACKET);
@@ -2245,10 +2245,10 @@ class MenksoftWord {
         outputString.add(Unicode.VERTICAL_RIGHT_TORTOISE_SHELL_BRACKET);
         break;
       case Menksoft.LEFT_DOUBLE_ANGLE_BRACKET:
-        outputString.add(Unicode.VERTICAL_LEFT_DOUBLE_ANGLE_BRACKET);
+        outputString.add(Unicode.LEFT_DOUBLE_ANGLE_BRACKET);
         break;
       case Menksoft.RIGHT_DOUBLE_ANGLE_BRACKET:
-        outputString.add(Unicode.VERTICAL_RIGHT_DOUBLE_ANGLE_BRACKET);
+        outputString.add(Unicode.RIGHT_DOUBLE_ANGLE_BRACKET);
         break;
       case Menksoft.LEFT_WHITE_CORNER_BRACKET:
         outputString.add(Unicode.VERTICAL_LEFT_WHITE_CORNER_BRACKET);

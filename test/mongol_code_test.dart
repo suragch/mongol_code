@@ -168,63 +168,63 @@ void main() {
     test('punctuationQuestionExclamation', () async {
       final menksoft = Menksoft.QUESTION_EXCLAMATION;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
-      final expected = String.fromCharCode(Unicode.QUESTION_EXCLAMATION_MARK);
+      final expected = String.fromCharCode(Unicode.QUESTION_EXCLAMATION);
       expect(result, expected);
     });
 
     test('punctuationExclamationQuestion', () async {
       final menksoft = Menksoft.EXCLAMATION_QUESTION;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
-      final expected = String.fromCharCode(Unicode.EXCLAMATION_QUESTION_MARK);
+      final expected = String.fromCharCode(Unicode.EXCLAMATION_QUESTION);
       expect(result, expected);
     });
 
     test('punctuationExclamation', () async {
       final menksoft = Menksoft.EXCLAMATION;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
-      final expected = String.fromCharCode(Unicode.VERTICAL_EXCLAMATION_MARK);
+      final expected = String.fromCharCode(Unicode.FULLWIDTH_EXCLAMATION);
       expect(result, expected);
     });
 
     test('punctuationQuestion', () async {
       final menksoft = Menksoft.QUESTION;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
-      final expected = String.fromCharCode(Unicode.VERTICAL_QUESTION_MARK);
+      final expected = String.fromCharCode(Unicode.FULLWIDTH_QUESTION);
       expect(result, expected);
     });
 
     test('punctuationSemicolon', () async {
       final menksoft = Menksoft.SEMICOLON;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
-      final expected = String.fromCharCode(Unicode.VERTICAL_SEMICOLON);
+      final expected = String.fromCharCode(Unicode.FULLWIDTH_SEMICOLON);
       expect(result, expected);
     });
 
     test('punctuationLeftParenthesis', () async {
       final menksoft = Menksoft.LEFT_PARENTHESIS;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
-      final expected = String.fromCharCode(Unicode.VERTICAL_LEFT_PARENTHESIS);
+      final expected = String.fromCharCode(Unicode.FULLWIDTH_LEFT_PARENTHESIS);
       expect(result, expected);
     });
 
     test('punctuationRightParenthesis', () async {
       final menksoft = Menksoft.RIGHT_PARENTHESIS;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
-      final expected = String.fromCharCode(Unicode.VERTICAL_RIGHT_PARENTHESIS);
+      final expected = String.fromCharCode(Unicode.FULLWIDTH_RIGHT_PARENTHESIS);
       expect(result, expected);
     });
 
     test('punctuationLeftAngleBracket', () async {
       final menksoft = Menksoft.LEFT_ANGLE_BRACKET;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
-      final expected = String.fromCharCode(Unicode.VERTICAL_LEFT_ANGLE_BRACKET);
+      final expected = String.fromCharCode(Unicode.LEFT_ANGLE_BRACKET);
       expect(result, expected);
     });
 
     test('punctuationRightAngleBracket', () async {
       final menksoft = Menksoft.RIGHT_ANGLE_BRACKET;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
-      final expected = String.fromCharCode(Unicode.VERTICAL_RIGHT_ANGLE_BRACKET);
+      final expected = String.fromCharCode(Unicode.RIGHT_ANGLE_BRACKET);
       expect(result, expected);
     });
 
@@ -245,14 +245,14 @@ void main() {
     test('punctuationLeftDoubleAngleBracket', () async {
       final menksoft = Menksoft.LEFT_DOUBLE_ANGLE_BRACKET;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
-      final expected = String.fromCharCode(Unicode.VERTICAL_LEFT_DOUBLE_ANGLE_BRACKET);
+      final expected = String.fromCharCode(Unicode.LEFT_DOUBLE_ANGLE_BRACKET);
       expect(result, expected);
     });
 
     test('punctuationRightDoubleAngleBracket', () async {
       final menksoft = Menksoft.RIGHT_DOUBLE_ANGLE_BRACKET;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
-      final expected = String.fromCharCode(Unicode.VERTICAL_RIGHT_DOUBLE_ANGLE_BRACKET);
+      final expected = String.fromCharCode(Unicode.RIGHT_DOUBLE_ANGLE_BRACKET);
       expect(result, expected);
     });
 

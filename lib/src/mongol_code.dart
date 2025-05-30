@@ -215,13 +215,13 @@ class MongolCode {
         _isMongolianDigit(codeUnit) ||
         codeUnit == Unicode.MIDDLE_DOT ||
         codeUnit == Unicode.REFERENCE_MARK ||
-        codeUnit == Unicode.QUESTION_EXCLAMATION_MARK ||
-        codeUnit == Unicode.EXCLAMATION_QUESTION_MARK ||
+        codeUnit == Unicode.QUESTION_EXCLAMATION ||
+        codeUnit == Unicode.EXCLAMATION_QUESTION ||
         codeUnit == Unicode.PUNCTUATION_X;
   }
 
   bool _isVerticalPresentationForm(int codeUnit) {
-    return (codeUnit >= Unicode.VERTICAL_COMMA && codeUnit <= Unicode.VERTICAL_RIGHT_SQUARE_BRACKET);
+    return (codeUnit >= Unicode.VERTICAL_COMMA && codeUnit <= Unicode.FULLWIDTH_RIGHT_SQUARE_BRACKET);
   }
 
   bool _isMongolianPunctuation(int codeUnit) {

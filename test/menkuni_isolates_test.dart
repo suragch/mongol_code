@@ -189,63 +189,63 @@ void main() {
     test('isolateE24E', () async {
       final menksoft = '\uE24E';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCode(Unicode.QUESTION_EXCLAMATION_MARK);
+      final expected = String.fromCharCode(Unicode.QUESTION_EXCLAMATION);
       expect(result, expected);
     });
 
     test('isolateE24F', () async {
       final menksoft = '\uE24F';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCode(Unicode.EXCLAMATION_QUESTION_MARK);
+      final expected = String.fromCharCode(Unicode.EXCLAMATION_QUESTION);
       expect(result, expected);
     });
 
     test('isolateE250', () async {
       final menksoft = '\uE250';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCode(Unicode.VERTICAL_EXCLAMATION_MARK);
+      final expected = String.fromCharCode(Unicode.FULLWIDTH_EXCLAMATION);
       expect(result, expected);
     });
 
     test('isolateE251', () async {
       final menksoft = '\uE251';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCode(Unicode.VERTICAL_QUESTION_MARK);
+      final expected = String.fromCharCode(Unicode.FULLWIDTH_QUESTION);
       expect(result, expected);
     });
 
     test('isolateE252', () async {
       final menksoft = '\uE252';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCode(Unicode.VERTICAL_SEMICOLON);
+      final expected = String.fromCharCode(Unicode.FULLWIDTH_SEMICOLON);
       expect(result, expected);
     });
 
     test('isolateE253', () async {
       final menksoft = '\uE253';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCode(Unicode.VERTICAL_LEFT_PARENTHESIS);
+      final expected = String.fromCharCode(Unicode.FULLWIDTH_LEFT_PARENTHESIS);
       expect(result, expected);
     });
 
     test('isolateE254', () async {
       final menksoft = '\uE254';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCode(Unicode.VERTICAL_RIGHT_PARENTHESIS);
+      final expected = String.fromCharCode(Unicode.FULLWIDTH_RIGHT_PARENTHESIS);
       expect(result, expected);
     });
 
     test('isolateE255', () async {
       final menksoft = '\uE255';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCode(Unicode.VERTICAL_LEFT_ANGLE_BRACKET);
+      final expected = String.fromCharCode(Unicode.LEFT_ANGLE_BRACKET);
       expect(result, expected);
     });
 
     test('isolateE256', () async {
       final menksoft = '\uE256';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCode(Unicode.VERTICAL_RIGHT_ANGLE_BRACKET);
+      final expected = String.fromCharCode(Unicode.RIGHT_ANGLE_BRACKET);
       expect(result, expected);
     });
 
@@ -266,14 +266,14 @@ void main() {
     test('isolateE259', () async {
       final menksoft = '\uE259';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCode(Unicode.VERTICAL_LEFT_DOUBLE_ANGLE_BRACKET);
+      final expected = String.fromCharCode(Unicode.LEFT_DOUBLE_ANGLE_BRACKET);
       expect(result, expected);
     });
 
     test('isolateE25A', () async {
       final menksoft = '\uE25A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCode(Unicode.VERTICAL_RIGHT_DOUBLE_ANGLE_BRACKET);
+      final expected = String.fromCharCode(Unicode.RIGHT_DOUBLE_ANGLE_BRACKET);
       expect(result, expected);
     });
 
