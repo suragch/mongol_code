@@ -84,28 +84,28 @@ void main() {
     test('isolateE23F', () async {
       final menksoft = '\uE23F';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = '\uD805\uDE60'; //BIRGA_WITH_ORNAMENT
+      final expected = '\u1800\u180B'; //BIRGA_WITH_ORNAMENT
       expect(result, expected);
     });
 
     test('isolateE240', () async {
       final menksoft = '\uE240';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = '\uD805\uDE61'; // ROTATED_BIRGA
+      final expected = '\u1800\u180C'; // ROTATED_BIRGA
       expect(result, expected);
     });
 
     test('isolateE241', () async {
       final menksoft = '\uE241';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = '\uD805\uDE62'; // DOUBLE_BIRGA_WITH_ORNAMENT
+      final expected = '\u1800\u180D'; // DOUBLE_BIRGA_WITH_ORNAMENT
       expect(result, expected);
     });
 
     test('isolateE242', () async {
       final menksoft = '\uE242';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = '\uD805\uDE63'; // TRIPLE_BIRGA_WITH_ORNAMENT
+      final expected = '\u1800\u180F'; // TRIPLE_BIRGA_WITH_ORNAMENT
       expect(result, expected);
     });
 

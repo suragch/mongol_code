@@ -260,6 +260,8 @@ class MongolWord {
           _handleNonPrintingChar(renderedWord);
           _fvs = currentChar;
           continue;
+        case Unicode.MONGOLIAN_BIRGA:
+          _handleBirga(renderedWord);
         default:
           // catch any other characters and just insert them directly
           renderedWord.add(currentChar);
@@ -1713,6 +1715,21 @@ class MongolWord {
         break;
     }
     _glyphShapeBelow = Shape.STEM;
+  }
+
+  void _handleBirga(List<int> renderedWord) {
+    switch (_fvs) {
+      case Unicode.FVS1:
+        renderedWord.add(Menksoft.BIRGA_WITH_ORNAMENT);
+      case Unicode.FVS2:
+        renderedWord.add(Menksoft.ROTATED_BIRGA);
+      case Unicode.FVS3:
+        renderedWord.add(Menksoft.DOUBLE_BIRGA_WITH_ORNAMENT);
+      case Unicode.FVS4:
+        renderedWord.add(Menksoft.TRIPLE_BIRGA_WITH_ORNAMENT);
+      default:
+        renderedWord.add(Menksoft.BIRGA);
+    }
   }
 
   void _handleNonPrintingChar(List<int> renderedWord) {

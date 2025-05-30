@@ -15,7 +15,7 @@ String convertUnicodeToMenksoft(String input) {
     // Pass through non-Mongolian word characters
     while (segmentStart < codeUnits.length && !_isMongolianSegmentCharacter(codeUnits[segmentStart])) {
       var codeUnit = codeUnits[segmentStart];
-      // do a direct map replacement for punctuation
+      // do a direct map replacement for punctuation (Birga handled separately)
       if (unicodeToMenksoftPunctuation.keys.contains(codeUnit)) {
         codeUnit = unicodeToMenksoftPunctuation[codeUnit]!;
       }
@@ -47,9 +47,9 @@ bool _isMongolianSegmentCharacter(int codeUnit) {
   return _isMongolianWordCharacter(codeUnit) || _isTodoSibeManchu(codeUnit) || _isBackSupportChar(codeUnit);
 }
 
-// Mongolian letter or control character
+// Mongolian letter or control character or Birga
 bool _isMongolianWordCharacter(int codeUnit) {
-  return _isControlCharacter(codeUnit) || _isMongolianLetter(codeUnit);
+  return _isControlCharacter(codeUnit) || _isMongolianLetter(codeUnit) || codeUnit == Unicode.MONGOLIAN_BIRGA;
 }
 
 // FVS or MVS

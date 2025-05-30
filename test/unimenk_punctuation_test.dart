@@ -74,9 +74,37 @@ void main() {
     });
 
     test('punctuationNirugu', () async {
-      final unicode = '\u180A';
-      final result = convertUnicodeToMenksoft(unicode);
+      final unicode = Unicode.MONGOLIAN_NIRUGU;
+      final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
       final expected = String.fromCharCode(Menksoft.NIRUGU);
+      expect(result, expected);
+    });
+
+    test('punctuationBirgaDecoration', () async {
+      final unicode = '\u1800\u180B';
+      final result = convertUnicodeToMenksoft(unicode);
+      final expected = String.fromCharCode(Menksoft.BIRGA_WITH_ORNAMENT);
+      expect(result, expected);
+    });
+
+    test('punctuationBirgaRotated', () async {
+      final unicode = '\u1800\u180C';
+      final result = convertUnicodeToMenksoft(unicode);
+      final expected = String.fromCharCode(Menksoft.ROTATED_BIRGA);
+      expect(result, expected);
+    });
+
+    test('punctuationBirgaDouble', () async {
+      final unicode = '\u1800\u180D';
+      final result = convertUnicodeToMenksoft(unicode);
+      final expected = String.fromCharCode(Menksoft.DOUBLE_BIRGA_WITH_ORNAMENT);
+      expect(result, expected);
+    });
+
+    test('punctuationBirgaTriple', () async {
+      final unicode = '\u1800\u180F';
+      final result = convertUnicodeToMenksoft(unicode);
+      final expected = String.fromCharCode(Menksoft.TRIPLE_BIRGA_WITH_ORNAMENT);
       expect(result, expected);
     });
 

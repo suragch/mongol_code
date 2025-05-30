@@ -8,7 +8,6 @@ const Map<int, int> unicodeToMenksoftPunctuation = {
   Unicode.FULLWIDTH_SEMICOLON: Menksoft.SEMICOLON,
   Unicode.FULLWIDTH_EXCLAMATION: Menksoft.EXCLAMATION,
   Unicode.FULLWIDTH_QUESTION: Menksoft.QUESTION,
-  // Unicode.MONGOLIAN_ELLIPSIS: Menksoft.ELLIPSIS,
   Unicode.VERTICAL_EM_DASH: Menksoft.EM_DASH,
   Unicode.VERTICAL_EN_DASH: Menksoft.EN_DASH,
   Unicode.FULLWIDTH_LEFT_PARENTHESIS: Menksoft.LEFT_PARENTHESIS,
@@ -25,7 +24,7 @@ const Map<int, int> unicodeToMenksoftPunctuation = {
   Unicode.REFERENCE_MARK: Menksoft.REFERENCE_MARK,
   Unicode.QUESTION_EXCLAMATION: Menksoft.QUESTION_EXCLAMATION,
   Unicode.EXCLAMATION_QUESTION: Menksoft.EXCLAMATION_QUESTION,
-  Unicode.MONGOLIAN_BIRGA: Menksoft.BIRGA,
+  // Unicode.MONGOLIAN_BIRGA: Menksoft.BIRGA, // Handle this as Mongol Word
   Unicode.MONGOLIAN_ELLIPSIS: Menksoft.ELLIPSIS,
   Unicode.MONGOLIAN_COMMA: Menksoft.COMMA,
   Unicode.MONGOLIAN_FULL_STOP: Menksoft.FULL_STOP,
