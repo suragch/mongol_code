@@ -5,6 +5,7 @@ import 'package:flutter_app/detail_pages/words_page.dart';
 
 import 'detail_pages/fvs_page.dart';
 import 'detail_pages/mvs_page.dart';
+import 'detail_pages/one_way_conversion_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -65,6 +66,17 @@ class _HomePageState extends State<HomePage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const TwoLetterWordPage(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: Text('One-way conversion'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const OneWayConversionPage(),
                   ),
                 );
               },
