@@ -1,6 +1,7 @@
 // import 'gender.dart';
 // import 'package:mongol_code/alternative/convert.dart';
 
+import 'gender.dart';
 import 'location.dart';
 import 'menksoft.dart';
 // import 'menksoft_word.dart';
@@ -284,6 +285,18 @@ class MongolCode {
     }
 
     return false;
+  }
+
+  static Gender genderOf({required List<int> word, int? beforeIndex}) {
+    int index = beforeIndex ?? word.length - 1;
+    for (var i = index; i >= 0; i--) {
+      if (MongolCode.isMasculineVowel(word[i])) {
+        return Gender.MASCULINE;
+      } else if (MongolCode.isFeminineVowel(word[i])) {
+        return Gender.FEMININE;
+      }
+    }
+    return Gender.NEUTER;
   }
 
   /// Test if character is Mongolian

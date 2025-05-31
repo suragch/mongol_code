@@ -2,9 +2,9 @@ import 'package:mongol_code/alternative/convert_menksoft.dart';
 import 'package:mongol_code/mongol_code.dart';
 import 'package:test/test.dart';
 
-void printResult(String actual, String expected) {
+void printResult(String result, String expected) {
   print(
-    'actual:   ${actual.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}\n'
+    'result:   ${result.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}\n'
     'expected: ${expected.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}',
   );
 }
@@ -1198,8 +1198,7 @@ void main() {
       final expected = String.fromCharCodes([
         Unicode.MONGOLIAN_NIRUGU,
         Unicode.NA,
-        Unicode.FVS2,
-        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.FVS1,
       ]);
       expect(result, expected);
     });
@@ -1431,7 +1430,8 @@ void main() {
     test('isolateE2D1', () async {
       final menksoft = '\uE2D1';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.QA, Unicode.FVS1]);
+      final expected = String.fromCharCodes([Unicode.QA, Unicode.FVS4]);
+      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -1537,9 +1537,7 @@ void main() {
     test('isolateE2DD', () async {
       final menksoft = '\uE2DD';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([
-        Unicode.QA,
-      ]); // Menksoft form is not possible to make in Unicode?
+      final expected = String.fromCharCodes([Unicode.QA, Unicode.FVS2]);
       expect(result, expected);
     });
 
@@ -1573,6 +1571,7 @@ void main() {
       final menksoft = '\uE2E1';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = String.fromCharCodes([Unicode.GA]);
+      printResult(result, expected);
       expect(result, expected);
     });
 

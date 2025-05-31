@@ -1011,7 +1011,10 @@ class MongolWord {
             // does medial QA before a consonant ever happen
             // in a real word?
             if (_gender == Gender.NEUTER) {
-              _gender = _getWordGenderAboveIndex(positionInWord, _inputWord);
+              _gender = MongolCode.genderOf(
+                word: _inputWord,
+                beforeIndex: positionInWord,
+              );
             }
             if (_gender == Gender.FEMININE ||
                 (_gender == Gender.NEUTER && charAbove == Unicode.I)) {
@@ -1040,17 +1043,6 @@ class MongolWord {
         }
         _glyphShapeBelow = Shape.TOOTH;
     }
-  }
-
-  Gender _getWordGenderAboveIndex(int index, List<int> word) {
-    for (var i = index - 1; i >= 0; i--) {
-      if (MongolCode.isMasculineVowel(word[i])) {
-        return Gender.MASCULINE;
-      } else if (MongolCode.isFeminineVowel(word[i])) {
-        return Gender.FEMININE;
-      }
-    }
-    return Gender.NEUTER;
   }
 
   void _handleGA(
@@ -1199,7 +1191,10 @@ class MongolWord {
             // consonant
             if (_gender == Gender.NEUTER ||
                 MongolCode.isMasculineVowel(charAbove)) {
-              _gender = _getWordGenderAboveIndex(positionInWord, _inputWord);
+              _gender = MongolCode.genderOf(
+                word: _inputWord,
+                beforeIndex: positionInWord,
+              );
             }
             // *** medial GA before consonant rule ***
             if (_gender == Gender.FEMININE ||
@@ -1251,7 +1246,10 @@ class MongolWord {
         } else if (charBelow == Unicode.MVS) {
           renderedWord.add(Menksoft.MEDI_GA_FVS3_MVS); // MVS
         } else {
-          _gender = _getWordGenderAboveIndex(positionInWord, _inputWord);
+          _gender = MongolCode.genderOf(
+            word: _inputWord,
+            beforeIndex: positionInWord,
+          );
           if (_gender == Gender.MASCULINE) {
             renderedWord.add(Menksoft.FINA_GA); // masculine
           } else {
@@ -1290,7 +1288,10 @@ class MongolWord {
           ); // tail extended for round letter
         } else if (charAbove == Unicode.GA) {
           if (_gender == Gender.NEUTER) {
-            _gender = _getWordGenderAboveIndex(positionInWord, _inputWord);
+            _gender = MongolCode.genderOf(
+              word: _inputWord,
+              beforeIndex: positionInWord,
+            );
           }
           if (_gender != Gender.MASCULINE ||
               // feminine G when between consonants
@@ -1347,7 +1348,10 @@ class MongolWord {
           ); // tail extended for round letter
         } else if (charAbove == Unicode.GA) {
           if (_gender == Gender.NEUTER) {
-            _gender = _getWordGenderAboveIndex(positionInWord, _inputWord);
+            _gender = MongolCode.genderOf(
+              word: _inputWord,
+              beforeIndex: positionInWord,
+            );
           }
           if (_gender != Gender.MASCULINE ||
               // feminine G when between consonants
@@ -1801,7 +1805,10 @@ class MongolWord {
           ); // tail extended for round letter
         } else if (charAbove == Unicode.QA || charAbove == Unicode.GA) {
           if (_gender == Gender.NEUTER) {
-            _gender = _getWordGenderAboveIndex(positionInWord, _inputWord);
+            _gender = MongolCode.genderOf(
+              word: _inputWord,
+              beforeIndex: positionInWord,
+            );
           }
           if (_gender == Gender.FEMININE) {
             renderedWord.add(

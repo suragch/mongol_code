@@ -1,3 +1,4 @@
+import 'gender.dart';
 import 'location.dart';
 import 'menksoft.dart';
 import 'mongol_code.dart';
@@ -834,11 +835,10 @@ class MenksoftWord {
           case Menksoft.FINA_NA:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.NA);
-          // case Menksoft.MEDI_NA_FVS2:
-          //   outputString.add(Unicode.MONGOLIAN_NIRUGU);
-          //   outputString.add(Unicode.NA);
-          //   outputString.add(Unicode.FVS2);
-          //   outputString.add(Unicode.MONGOLIAN_NIRUGU);
+          case Menksoft.FINA_NA_FVS1:
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+            outputString.add(Unicode.NA);
+            outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_NA_STEM:
           case Menksoft.MEDI_NA_TOOTH:
           case Menksoft.MEDI_NA_NG:
@@ -886,10 +886,9 @@ class MenksoftWord {
         }
       case Location.FINAL:
         switch (currentChar) {
-          // case Menksoft.MEDI_NA_FVS2:
-          //   outputString.add(Unicode.NA);
-          //   outputString.add(Unicode.FVS2);
-          //   outputString.add(Unicode.MONGOLIAN_NIRUGU);
+          case Menksoft.FINA_NA_FVS1:
+            outputString.add(Unicode.NA);
+            outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_NA_STEM:
           case Menksoft.MEDI_NA_TOOTH:
           case Menksoft.MEDI_NA_NG:
@@ -942,34 +941,36 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.ISOL_QA_FVS1:
+          case Menksoft.INIT_QA_FVS1_TOOTH:
+            // treat the dotted masculine Q as a G
+            outputString.add(Unicode.GA);
+          case Menksoft.ISOL_QA_FVS2:
+          case Menksoft.INIT_QA_FVS2_OU:
+          case Menksoft.MEDI_QA_FVS2_CONS:
+          case Menksoft.MEDI_QA_FVS2_OU:
+          case Menksoft.MEDI_QA_FVS2:
+            outputString.add(Unicode.QA);
+            outputString.add(Unicode.FVS2);
+          case Menksoft.ISOL_QA_FVS4:
           case Menksoft.INIT_QA_FVS4_OU:
           case Menksoft.MEDI_QA_FVS4:
           case Menksoft.MEDI_QA_FVS4_OU:
           case Menksoft.MEDI_QA_FVS4_CONS:
             outputString.add(Unicode.QA);
-            outputString.add(Unicode.FVS1);
-          case Menksoft.INIT_QA_FVS1_STEM:
-          case Menksoft.INIT_QA_FVS1_TOOTH:
-            // treat the dotted masculine Q as a G
-            outputString.add(Unicode.GA);
+            outputString.add(Unicode.FVS4);
           case Menksoft.FINA_QA:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.QA);
-          case Menksoft.MEDI_QA_FVS2_CONS:
-            outputString.add(Unicode.MONGOLIAN_NIRUGU);
-            outputString.add(Unicode.GA);
-            outputString.add(Unicode.FVS3);
-            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_QA_FVS1:
-            // treat the dotted masculine Q as a G
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
-            outputString.add(Unicode.GA);
+            outputString.add(Unicode.QA);
+            outputString.add(Unicode.FVS1);
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_QA_FVS1_MVS:
-            // treat the dotted masculine Q as a G
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
-            outputString.add(Unicode.GA);
-            outputString.add(Unicode.FVS2);
+            outputString.add(Unicode.QA);
+            outputString.add(Unicode.FVS1);
+            outputString.add(Unicode.MVS);
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_QA_STEM:
           case Menksoft.MEDI_QA_TOOTH:
@@ -1037,91 +1038,93 @@ class MenksoftWord {
   }
 
   void _handleGa(List<int> outputString, int currentChar) {
-    // final gender = MongolCode.getWordGender(outputString.toString());
-    // switch (_location) {
-    //   case Location.ISOLATE:
-    //     switch (currentChar) {
-    //       case Menksoft.INIT_GA_FVS1_STEM:
-    //       case Menksoft.INIT_GA_FVS1_TOOTH:
-    //         // treat the undotted masculine G as a Q
-    //         outputString.add(Unicode.QA);
-    //       case Menksoft.FINA_GA:
-    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
-    //         outputString.add(Unicode.GA);
-    //       case Menksoft.FINA_GA_FVS2:
-    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
-    //         outputString.add(Unicode.GA);
-    //         outputString.add(Unicode.FVS2);
-    //       case Menksoft.MEDI_GA:
-    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
-    //         outputString.add(Unicode.GA);
-    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
-    //       case Menksoft.MEDI_GA_FVS1_STEM:
-    //       case Menksoft.MEDI_GA_FVS1_TOOTH:
-    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
-    //         outputString.add(Unicode.GA);
-    //         outputString.add(Unicode.FVS1);
-    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
-    //       case Menksoft.MEDI_GA_FVS3_MVS:
-    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
-    //         outputString.add(Unicode.GA);
-    //         outputString.add(Unicode.FVS2);
-    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
-    //       case Menksoft.MEDI_GA_FVS2_STEM:
-    //       case Menksoft.MEDI_GA_FVS2_TOOTH:
-    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
-    //         outputString.add(Unicode.GA);
-    //         outputString.add(Unicode.FVS3);
-    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
-    //       default:
-    //         outputString.add(Unicode.GA);
-    //     }
-    //   case Location.INITIAL:
-    //     switch (currentChar) {
-    //       case Menksoft.INIT_GA_FVS1_STEM:
-    //       case Menksoft.INIT_GA_FVS1_TOOTH:
-    //         // treat the undotted masculine G as a Q
-    //         outputString.add(Unicode.QA);
-    //       default:
-    //         outputString.add(Unicode.GA);
-    //     }
-    //   case Location.MEDIAL:
-    //     switch (currentChar) {
-    //       case Menksoft.MEDI_GA_FVS2_TOOTH:
-    //       case Menksoft.MEDI_GA_FVS2_STEM:
-    //         outputString.add(Unicode.GA);
-    //         if (gender == Gender.MASCULINE) {
-    //           outputString.add(Unicode.FVS3);
-    //         }
-    //       default:
-    //         outputString.add(Unicode.GA);
-    //     }
-    //   case Location.FINAL:
-    //     outputString.add(Unicode.GA);
-    //     switch (currentChar) {
-    //       case Menksoft.FINA_GA_FVS1:
-    //         if (gender == Gender.NEUTER) {
-    //           outputString.add(Unicode.FVS1);
-    //         }
-    //       case Menksoft.FINA_GA_FVS2:
-    //         if (gender == Gender.MASCULINE) {
-    //           outputString.add(Unicode.FVS2);
-    //         }
-    //       case Menksoft.MEDI_GA:
-    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
-    //       case Menksoft.MEDI_GA_FVS1_STEM:
-    //       case Menksoft.MEDI_GA_FVS1_TOOTH:
-    //         outputString.add(Unicode.FVS1);
-    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
-    //       case Menksoft.MEDI_GA_FVS3_MVS:
-    //         outputString.add(Unicode.FVS2);
-    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
-    //       case Menksoft.MEDI_GA_FVS2_STEM:
-    //       case Menksoft.MEDI_GA_FVS2_TOOTH:
-    //         outputString.add(Unicode.FVS3);
-    //         outputString.add(Unicode.MONGOLIAN_NIRUGU);
-    //     }
-    // }
+    switch (_location) {
+      case Location.ISOLATE:
+        switch (currentChar) {
+          case Menksoft.INIT_GA_FVS1_STEM:
+          case Menksoft.INIT_GA_FVS1_TOOTH:
+            // treat the undotted masculine G as a Q
+            outputString.add(Unicode.QA);
+          case Menksoft.FINA_GA:
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+            outputString.add(Unicode.GA);
+          case Menksoft.FINA_GA_FVS2:
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+            outputString.add(Unicode.GA);
+            outputString.add(Unicode.FVS2);
+          case Menksoft.MEDI_GA:
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+            outputString.add(Unicode.GA);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+          case Menksoft.MEDI_GA_FVS1_STEM:
+          case Menksoft.MEDI_GA_FVS1_TOOTH:
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+            outputString.add(Unicode.GA);
+            outputString.add(Unicode.FVS1);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+          case Menksoft.MEDI_GA_FVS3_MVS:
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+            outputString.add(Unicode.GA);
+            outputString.add(Unicode.FVS2);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+          case Menksoft.MEDI_GA_FVS2_STEM:
+          case Menksoft.MEDI_GA_FVS2_TOOTH:
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+            outputString.add(Unicode.GA);
+            outputString.add(Unicode.FVS3);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+          default:
+            outputString.add(Unicode.GA);
+        }
+      case Location.INITIAL:
+        switch (currentChar) {
+          case Menksoft.INIT_GA_FVS1_STEM:
+          case Menksoft.INIT_GA_FVS1_TOOTH:
+            // treat the undotted masculine G as a Q
+            outputString.add(Unicode.QA);
+          default:
+            outputString.add(Unicode.GA);
+        }
+      case Location.MEDIAL:
+        switch (currentChar) {
+          case Menksoft.MEDI_GA_FVS2_TOOTH:
+          case Menksoft.MEDI_GA_FVS2_STEM:
+            outputString.add(Unicode.GA);
+
+            final gender = MongolCode.genderOf(word: outputString);
+            if (gender == Gender.MASCULINE) {
+              outputString.add(Unicode.FVS3);
+            }
+          default:
+            outputString.add(Unicode.GA);
+        }
+      case Location.FINAL:
+        outputString.add(Unicode.GA);
+        final gender = MongolCode.genderOf(word: outputString);
+        switch (currentChar) {
+          case Menksoft.FINA_GA_FVS1:
+            if (gender == Gender.NEUTER) {
+              outputString.add(Unicode.FVS1);
+            }
+          case Menksoft.FINA_GA_FVS2:
+            if (gender == Gender.MASCULINE) {
+              outputString.add(Unicode.FVS2);
+            }
+          case Menksoft.MEDI_GA:
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+          case Menksoft.MEDI_GA_FVS1_STEM:
+          case Menksoft.MEDI_GA_FVS1_TOOTH:
+            outputString.add(Unicode.FVS1);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+          case Menksoft.MEDI_GA_FVS3_MVS:
+            outputString.add(Unicode.FVS2);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+          case Menksoft.MEDI_GA_FVS2_STEM:
+          case Menksoft.MEDI_GA_FVS2_TOOTH:
+            outputString.add(Unicode.FVS3);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+        }
+    }
   }
 
   void _handleMa(List<int> outputString, int currentChar) {
