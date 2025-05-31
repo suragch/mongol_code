@@ -961,16 +961,16 @@ class MenksoftWord {
           case Menksoft.FINA_QA:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.QA);
+          case Menksoft.FINA_QA_FVS1:
+            // treat the dotted masculine Q as a G
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+            outputString.add(Unicode.GA);
+            outputString.add(Unicode.FVS3);
           case Menksoft.MEDI_QA_FVS1:
+            // treat the dotted masculine Q as a G
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
-            outputString.add(Unicode.QA);
+            outputString.add(Unicode.GA);
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.MONGOLIAN_NIRUGU);
-          case Menksoft.MEDI_QA_FVS1_MVS:
-            outputString.add(Unicode.MONGOLIAN_NIRUGU);
-            outputString.add(Unicode.QA);
-            outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.MVS);
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_QA_STEM:
           case Menksoft.MEDI_QA_TOOTH:
@@ -1048,10 +1048,14 @@ class MenksoftWord {
           case Menksoft.FINA_GA:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.GA);
-          case Menksoft.FINA_GA_FVS2:
+          case Menksoft.FINA_GA_FVS1:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.GA);
-            outputString.add(Unicode.FVS2);
+            outputString.add(Unicode.FVS1);
+          case Menksoft.FINA_GA_FVS3:
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+            outputString.add(Unicode.GA);
+            outputString.add(Unicode.FVS3);
           case Menksoft.MEDI_GA:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.GA);
@@ -1062,16 +1066,11 @@ class MenksoftWord {
             outputString.add(Unicode.GA);
             outputString.add(Unicode.FVS1);
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
-          case Menksoft.MEDI_GA_FVS3_MVS:
-            outputString.add(Unicode.MONGOLIAN_NIRUGU);
-            outputString.add(Unicode.GA);
-            outputString.add(Unicode.FVS2);
-            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_GA_FVS2_STEM:
           case Menksoft.MEDI_GA_FVS2_TOOTH:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.GA);
-            outputString.add(Unicode.FVS3);
+            outputString.add(Unicode.FVS2);
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.GA);
@@ -1491,13 +1490,17 @@ class MenksoftWord {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
+          case Menksoft.ISOL_YA_FVS1:
+            outputString.add(Unicode.YA);
+            outputString.add(Unicode.FVS1);
+          case Menksoft.MEDI_YA_FVS2:
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+            outputString.add(Unicode.YA);
+            outputString.add(Unicode.FVS2);
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.FINA_YA:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.YA);
-          case Menksoft.MEDI_YA:
-            outputString.add(Unicode.MONGOLIAN_NIRUGU);
-            outputString.add(Unicode.YA);
-            outputString.add(Unicode.MONGOLIAN_NIRUGU);
           default:
             outputString.add(Unicode.YA);
         }
@@ -1572,10 +1575,10 @@ class MenksoftWord {
           case Menksoft.FINA_WA:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.WA);
-          // case Menksoft.FINA_WA_MVS:
-          //   // an isolate final WA looks like a final U so make it one
-          //   outputString.add(Unicode.MONGOLIAN_NIRUGU);
-          //   outputString.add(Unicode.U);
+          case Menksoft.FINA_WA_FVS1:
+            // an isolate final WA looks like a final U so make it one
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+            outputString.add(Unicode.U);
           default:
             outputString.add(Unicode.WA);
         }
