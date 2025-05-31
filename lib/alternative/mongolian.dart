@@ -121,7 +121,10 @@ class Mongolian {
   }
 
   static bool isFeminineVowel(int codeUnit) {
-    return (codeUnit == E || codeUnit == EE || codeUnit == OE || codeUnit == UE);
+    return (codeUnit == E ||
+        codeUnit == EE ||
+        codeUnit == OE ||
+        codeUnit == UE);
   }
 
   static bool isConsonant(int codeUnit) {
@@ -134,7 +137,11 @@ class Mongolian {
 
   /// Mongolian Combining Consonant
   static bool isMcc(int? character) {
-    return character == BA || character == PA || character == FA || character == KA || character == KHA;
+    return character == BA ||
+        character == PA ||
+        character == FA ||
+        character == KA ||
+        character == KHA;
   }
 
   /// Mongolian Conditional Combining Consonant

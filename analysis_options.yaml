@@ -11,3 +11,6 @@ analyzer:
 linter:
   rules:
     constant_identifier_names: false
+
+formatter:
+  page_width: 80

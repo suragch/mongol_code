@@ -63,7 +63,9 @@ void main() {
     test('isolateE23B', () async {
       final menksoft = '\uE23B';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCode(Unicode.MONGOLIAN_SIBE_SYLLABLE_BOUNDARY_MARKER);
+      final expected = String.fromCharCode(
+        Unicode.MONGOLIAN_SIBE_SYLLABLE_BOUNDARY_MARKER,
+      );
       expect(result, expected);
     });
 
@@ -259,14 +261,18 @@ void main() {
     test('isolateE257', () async {
       final menksoft = '\uE257';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCode(Unicode.VERTICAL_LEFT_TORTOISE_SHELL_BRACKET);
+      final expected = String.fromCharCode(
+        Unicode.VERTICAL_LEFT_TORTOISE_SHELL_BRACKET,
+      );
       expect(result, expected);
     });
 
     test('isolateE258', () async {
       final menksoft = '\uE258';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCode(Unicode.VERTICAL_RIGHT_TORTOISE_SHELL_BRACKET);
+      final expected = String.fromCharCode(
+        Unicode.VERTICAL_RIGHT_TORTOISE_SHELL_BRACKET,
+      );
       expect(result, expected);
     });
 
@@ -287,14 +293,18 @@ void main() {
     test('isolateE25B', () async {
       final menksoft = '\uE25B';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCode(Unicode.VERTICAL_LEFT_WHITE_CORNER_BRACKET);
+      final expected = String.fromCharCode(
+        Unicode.VERTICAL_LEFT_WHITE_CORNER_BRACKET,
+      );
       expect(result, expected);
     });
 
     test('isolateE25C', () async {
       final menksoft = '\uE25C';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCode(Unicode.VERTICAL_RIGHT_WHITE_CORNER_BRACKET);
+      final expected = String.fromCharCode(
+        Unicode.VERTICAL_RIGHT_WHITE_CORNER_BRACKET,
+      );
       expect(result, expected);
     });
 
@@ -368,28 +378,42 @@ void main() {
     test('isolateE266', () async {
       final menksoft = '\uE266';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.A, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.A,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE267', () async {
       final menksoft = '\uE267';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.A, Unicode.FVS1, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.A,
+        Unicode.FVS1,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE268', () async {
       final menksoft = '\uE268';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.A]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.A,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE269', () async {
       final menksoft = '\uE269';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.A, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.A,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
@@ -403,21 +427,33 @@ void main() {
     test('isolateE26B', () async {
       final menksoft = '\uE26B';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.A, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.A,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE26C', () async {
       final menksoft = '\uE26C';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.A, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.A,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE26D', () async {
       final menksoft = '\uE26D';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.A, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.A,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -436,7 +472,11 @@ void main() {
     test('isolateE26F', () async {
       final menksoft = '\uE26F';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.A, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.A,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -450,21 +490,31 @@ void main() {
     test('isolateE271', () async {
       final menksoft = '\uE271';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.E, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.E,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE272', () async {
       final menksoft = '\uE272';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.E, Unicode.FVS1, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.E,
+        Unicode.FVS1,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE273', () async {
       final menksoft = '\uE273';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.E]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.E,
+      ]);
       expect(result, expected);
     });
 
@@ -478,28 +528,44 @@ void main() {
     test('isolateE275', () async {
       final menksoft = '\uE275';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.E, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.E,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE276', () async {
       final menksoft = '\uE276';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.E, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.E,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE277', () async {
       final menksoft = '\uE277';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.E, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.E,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE278', () async {
       final menksoft = '\uE278';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.E, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.E,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -513,21 +579,30 @@ void main() {
     test('isolateE27A', () async {
       final menksoft = '\uE27A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.I, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.I,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE27B', () async {
       final menksoft = '\uE27B';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.I]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.I,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE27C', () async {
       final menksoft = '\uE27C';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.I]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.I,
+      ]);
       expect(result, expected);
     });
 
@@ -546,21 +621,33 @@ void main() {
     test('isolateE27E', () async {
       final menksoft = '\uE27E';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.I, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.I,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE27F', () async {
       final menksoft = '\uE27F';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.I, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.I,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE280', () async {
       final menksoft = '\uE280';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.I, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.I,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -593,28 +680,42 @@ void main() {
     test('isolateE284', () async {
       final menksoft = '\uE284';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.O, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.O,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE285', () async {
       final menksoft = '\uE285';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.O]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.O,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE286', () async {
       final menksoft = '\uE286';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.O, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.O,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE287', () async {
       final menksoft = '\uE287';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.O, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.O,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
@@ -633,14 +734,22 @@ void main() {
     test('isolateE289', () async {
       final menksoft = '\uE289';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.O, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.O,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE28A', () async {
       final menksoft = '\uE28A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.O, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.O,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -654,28 +763,42 @@ void main() {
     test('isolateE28C', () async {
       final menksoft = '\uE28C';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.U, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.U,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE28D', () async {
       final menksoft = '\uE28D';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.U]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.U,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE28E', () async {
       final menksoft = '\uE28E';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.U, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.U,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE28F', () async {
       final menksoft = '\uE28F';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.U, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.U,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
@@ -694,14 +817,22 @@ void main() {
     test('isolateE291', () async {
       final menksoft = '\uE291';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.U, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.U,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE292', () async {
       final menksoft = '\uE292';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.U, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.U,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -722,42 +853,64 @@ void main() {
     test('isolateE295', () async {
       final menksoft = '\uE295';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.OE, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.OE,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE296', () async {
       final menksoft = '\uE296';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.OE]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.OE,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE297', () async {
       final menksoft = '\uE297';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.OE, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.OE,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE298', () async {
       final menksoft = '\uE298';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.OE, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.OE,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE299', () async {
       final menksoft = '\uE299';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.O, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.O,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE29A', () async {
       final menksoft = '\uE29A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.O, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.O,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
@@ -800,14 +953,22 @@ void main() {
     test('isolateE29E', () async {
       final menksoft = '\uE29E';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.OE, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.OE,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE29F', () async {
       final menksoft = '\uE29F';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.OE, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.OE,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -828,42 +989,64 @@ void main() {
     test('isolateE2A2', () async {
       final menksoft = '\uE2A2';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.UE, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.UE,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2A3', () async {
       final menksoft = '\uE2A3';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.UE]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.UE,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2A4', () async {
       final menksoft = '\uE2A4';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.UE, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.UE,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2A5', () async {
       final menksoft = '\uE2A5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.UE, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.UE,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2A6', () async {
       final menksoft = '\uE2A6';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.U, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.U,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2A7', () async {
       final menksoft = '\uE2A7';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.U, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.U,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
@@ -906,14 +1089,22 @@ void main() {
     test('isolateE2AB', () async {
       final menksoft = '\uE2AB';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.UE, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.UE,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2AC', () async {
       final menksoft = '\uE2AC';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.UE, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.UE,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -927,21 +1118,31 @@ void main() {
     test('isolateE2AE', () async {
       final menksoft = '\uE2AE';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.EE, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.EE,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2AF', () async {
       final menksoft = '\uE2AF';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.EE]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.EE,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2B0', () async {
       final menksoft = '\uE2B0';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.EE, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.EE,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -955,7 +1156,11 @@ void main() {
     test('isolateE2B2', () async {
       final menksoft = '\uE2B2';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.NA, Unicode.FVS1, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.NA,
+        Unicode.FVS1,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -969,14 +1174,21 @@ void main() {
     test('isolateE2B4', () async {
       final menksoft = '\uE2B4';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.NA, Unicode.FVS1, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.NA,
+        Unicode.FVS1,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2B5', () async {
       final menksoft = '\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.NA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.NA,
+      ]);
       expect(result, expected);
     });
 
@@ -1007,7 +1219,11 @@ void main() {
     test('isolateE2B8', () async {
       final menksoft = '\uE2B8';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.NA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.NA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -1026,14 +1242,21 @@ void main() {
     test('isolateE2BA', () async {
       final menksoft = '\uE2BA';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.NA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.NA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2BB', () async {
       final menksoft = '\uE2BB';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.ANG]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.ANG,
+      ]);
       expect(result, expected);
     });
 
@@ -1073,7 +1296,11 @@ void main() {
     test('isolateE2C0', () async {
       final menksoft = '\uE2C0';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.NA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.NA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -1094,14 +1321,21 @@ void main() {
     test('isolateE2C3', () async {
       final menksoft = '\uE2C3';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.BA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.BA,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2C4', () async {
       final menksoft = '\uE2C4';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.BA, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.BA,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
@@ -1143,7 +1377,10 @@ void main() {
     test('isolateE2CA', () async {
       final menksoft = '\uE2CA';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.PA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.PA,
+      ]);
       expect(result, expected);
     });
 
@@ -1185,7 +1422,9 @@ void main() {
     test('isolateE2D0', () async {
       final menksoft = '\uE2D0';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.QA]); // Menksoft form is not possible to make in Unicode?
+      final expected = String.fromCharCodes([
+        Unicode.QA,
+      ]); // Menksoft form is not possible to make in Unicode?
       expect(result, expected);
     });
 
@@ -1227,7 +1466,10 @@ void main() {
     test('isolateE2D6', () async {
       final menksoft = '\uE2D6';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.QA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.QA,
+      ]);
       expect(result, expected);
     });
 
@@ -1246,21 +1488,31 @@ void main() {
     test('isolateE2D8', () async {
       final menksoft = '\uE2D8';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.QA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.QA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2D9', () async {
       final menksoft = '\uE2D9';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.GA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.GA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2DA', () async {
       final menksoft = '\uE2DA';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.QA]); // Menksoft form is not possible to make in Unicode?
+      final expected = String.fromCharCodes([
+        Unicode.QA,
+      ]); // Menksoft form is not possible to make in Unicode?
       expect(result, expected);
     });
 
@@ -1274,14 +1526,20 @@ void main() {
     test('isolateE2DC', () async {
       final menksoft = '\uE2DC';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.QA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.QA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2DD', () async {
       final menksoft = '\uE2DD';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.QA]); // Menksoft form is not possible to make in Unicode?
+      final expected = String.fromCharCodes([
+        Unicode.QA,
+      ]); // Menksoft form is not possible to make in Unicode?
       expect(result, expected);
     });
 
@@ -1328,7 +1586,9 @@ void main() {
     test('isolateE2E3', () async {
       final menksoft = '\uE2E3';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.GA]); // Menksoft form is not possible to make in Unicode?
+      final expected = String.fromCharCodes([
+        Unicode.GA,
+      ]); // Menksoft form is not possible to make in Unicode?
       expect(result, expected);
     });
 
@@ -1349,21 +1609,30 @@ void main() {
     test('isolateE2E6', () async {
       final menksoft = '\uE2E6';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.GA]); // Menksoft form is not possible to make in Unicode?
+      final expected = String.fromCharCodes([
+        Unicode.GA,
+      ]); // Menksoft form is not possible to make in Unicode?
       expect(result, expected);
     });
 
     test('isolateE2E7', () async {
       final menksoft = '\uE2E7';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.GA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.GA,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2E8', () async {
       final menksoft = '\uE2E8';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.GA, Unicode.FVS2]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.GA,
+        Unicode.FVS2,
+      ]);
       expect(result, expected);
     });
 
@@ -1394,7 +1663,9 @@ void main() {
     test('isolateE2EB', () async {
       final menksoft = '\uE2EB';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.GA]); // Menksoft form is not possible to make in Unicode?
+      final expected = String.fromCharCodes([
+        Unicode.GA,
+      ]); // Menksoft form is not possible to make in Unicode?
       expect(result, expected);
     });
 
@@ -1413,14 +1684,20 @@ void main() {
     test('isolateE2ED', () async {
       final menksoft = '\uE2ED';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.GA]); // Menksoft form is not possible to make in Unicode?
+      final expected = String.fromCharCodes([
+        Unicode.GA,
+      ]); // Menksoft form is not possible to make in Unicode?
       expect(result, expected);
     });
 
     test('isolateE2EE', () async {
       final menksoft = '\uE2EE';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.GA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.GA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -1465,28 +1742,43 @@ void main() {
     test('isolateE2F3', () async {
       final menksoft = '\uE2F3';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.MA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.MA,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2F4', () async {
       final menksoft = '\uE2F4';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.MA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.MA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2F5', () async {
       final menksoft = '\uE2F5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.MA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.MA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2F6', () async {
       final menksoft = '\uE2F6';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.MA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.MA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -1507,28 +1799,43 @@ void main() {
     test('isolateE2F9', () async {
       final menksoft = '\uE2F9';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.LA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.LA,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2FA', () async {
       final menksoft = '\uE2FA';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.LA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.LA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2FB', () async {
       final menksoft = '\uE2FB';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.LA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.LA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE2FC', () async {
       final menksoft = '\uE2FC';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.LA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.LA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -1549,28 +1856,43 @@ void main() {
     test('isolateE2FF', () async {
       final menksoft = '\uE2FF';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.SA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.SA,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE300', () async {
       final menksoft = '\uE300';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.SA, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.SA,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE301', () async {
       final menksoft = '\uE301';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.SA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.SA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE302', () async {
       final menksoft = '\uE302';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.SA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.SA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -1591,21 +1913,32 @@ void main() {
     test('isolateE305', () async {
       final menksoft = '\uE305';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.SHA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.SHA,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE306', () async {
       final menksoft = '\uE306';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.SHA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.SHA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE307', () async {
       final menksoft = '\uE307';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.SHA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.SHA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -1626,14 +1959,21 @@ void main() {
     test('isolateE30A', () async {
       final menksoft = '\uE30A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.TA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.TA,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE30B', () async {
       final menksoft = '\uE30B';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.TA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.TA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -1685,14 +2025,21 @@ void main() {
     test('isolateE311', () async {
       final menksoft = '\uE311';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.DA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.DA,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE312', () async {
       final menksoft = '\uE312';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.DA, Unicode.FVS1]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.DA,
+        Unicode.FVS1,
+      ]);
       expect(result, expected);
     });
 
@@ -1711,7 +2058,11 @@ void main() {
     test('isolateE314', () async {
       final menksoft = '\uE314';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.DA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.DA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -1725,7 +2076,10 @@ void main() {
     test('isolateE316', () async {
       final menksoft = '\uE316';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.CHA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.CHA,
+      ]);
       expect(result, expected);
     });
 
@@ -1760,21 +2114,31 @@ void main() {
     test('isolateE31B', () async {
       final menksoft = '\uE31B';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.JA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.JA,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE31C', () async {
       final menksoft = '\uE31C';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.I]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.I,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE31D', () async {
       final menksoft = '\uE31D';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.JA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.JA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -1788,7 +2152,10 @@ void main() {
     test('isolateE31F', () async {
       final menksoft = '\uE31F';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.YA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.YA,
+      ]);
       expect(result, expected);
     });
 
@@ -1802,7 +2169,11 @@ void main() {
     test('isolateE321', () async {
       final menksoft = '\uE321';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.YA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.YA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -1830,7 +2201,10 @@ void main() {
     test('isolateE325', () async {
       final menksoft = '\uE325';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.RA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.RA,
+      ]);
       expect(result, expected);
     });
 
@@ -1865,14 +2239,20 @@ void main() {
     test('isolateE32A', () async {
       final menksoft = '\uE32A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.WA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.WA,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE32B', () async {
       final menksoft = '\uE32B';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.U]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.U,
+      ]);
       expect(result, expected);
     });
 
@@ -1900,7 +2280,10 @@ void main() {
     test('isolateE32F', () async {
       final menksoft = '\uE32F';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.FA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.FA,
+      ]);
       expect(result, expected);
     });
 
@@ -1942,7 +2325,10 @@ void main() {
     test('isolateE335', () async {
       final menksoft = '\uE335';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.KA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.KA,
+      ]);
       expect(result, expected);
     });
 
@@ -1984,7 +2370,10 @@ void main() {
     test('isolateE33B', () async {
       final menksoft = '\uE33B';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.KHA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.KHA,
+      ]);
       expect(result, expected);
     });
 
@@ -2019,7 +2408,10 @@ void main() {
     test('isolateE340', () async {
       final menksoft = '\uE340';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.TSA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.TSA,
+      ]);
       expect(result, expected);
     });
 
@@ -2040,7 +2432,10 @@ void main() {
     test('isolateE343', () async {
       final menksoft = '\uE343';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.ZA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.ZA,
+      ]);
       expect(result, expected);
     });
 
@@ -2061,14 +2456,21 @@ void main() {
     test('isolateE346', () async {
       final menksoft = '\uE346';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.HAA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.HAA,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE347', () async {
       final menksoft = '\uE347';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.HAA, Unicode.MONGOLIAN_NIRUGU]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.HAA,
+        Unicode.MONGOLIAN_NIRUGU,
+      ]);
       expect(result, expected);
     });
 
@@ -2089,7 +2491,10 @@ void main() {
     test('isolateE34A', () async {
       final menksoft = '\uE34A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.ZRA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.ZRA,
+      ]);
       expect(result, expected);
     });
 
@@ -2103,14 +2508,20 @@ void main() {
     test('isolateE34C', () async {
       final menksoft = '\uE34C';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.LHA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.LHA,
+      ]);
       expect(result, expected);
     });
 
     test('isolateE34D', () async {
       final menksoft = '\uE34D';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.MONGOLIAN_NIRUGU, Unicode.LHA]);
+      final expected = String.fromCharCodes([
+        Unicode.MONGOLIAN_NIRUGU,
+        Unicode.LHA,
+      ]);
       expect(result, expected);
     });
 

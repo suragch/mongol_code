@@ -21,7 +21,8 @@ void main() {
     test('egeshigWord', () async {
       final unicode = 'ᠡᠭᠡᠰᠢᠭ ᠢᠨᠦ'; // EGESIG (NNBSP) INU
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE271\uE2EB\uE277\uE301\uE27E\uE2E8\uE263\uE27A\uE2B9\uE2A3';
+      final expected =
+          '\uE271\uE2EB\uE277\uE301\uE27E\uE2E8\uE263\uE27A\uE2B9\uE2A3';
       expect(result, expected);
     });
 
@@ -33,7 +34,8 @@ void main() {
     });
 
     test('bujigWord', () async {
-      final unicode = 'ᠪᠦᠵᠢᠭ ᠢ ᠪᠡᠨ ᠶᠦᠭᠡᠨ'; // BUJIG (NNBSP) I (NNBSP) BEN (NNBSP) YUGEN
+      final unicode =
+          'ᠪᠦᠵᠢᠭ ᠢ ᠪᠡᠨ ᠶᠦᠭᠡᠨ'; // BUJIG (NNBSP) I (NNBSP) BEN (NNBSP) YUGEN
       final result = convertUnicodeToMenksoft(unicode);
       final expected =
           '\uE2C2\uE2AA\uE31D\uE27E\uE2E8\uE263\uE282\uE263\uE2C1\uE277\uE2B5\uE263\uE31E\uE2AB\uE2EB\uE277\uE2B5';
@@ -43,7 +45,8 @@ void main() {
     test('chirigWord', () async {
       final unicode = 'ᠴᠢᠷᠢᠭ ᠮᠠᠨᠢ'; // CHIRIG (NNBSP) MANI
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE315\uE27E\uE327\uE27E\uE2E8\uE263\uE2F1\uE26C\uE2B7\uE27B';
+      final expected =
+          '\uE315\uE27E\uE327\uE27E\uE2E8\uE263\uE2F1\uE26C\uE2B7\uE27B';
       expect(result, expected);
     });
 
@@ -55,7 +58,8 @@ void main() {
     });
 
     test('qugjimWord', () async {
-      final unicode = 'ᠬᠦᠭᠵᠢᠮ ᠳᠦᠷ ᠢᠶᠡᠨ ᠳᠡᠭᠡᠨ'; // QUGJIM (NNBSP) DUR (NNBSP) IYEN (NNBSP) DEGEN
+      final unicode =
+          'ᠬᠦᠭᠵᠢᠮ ᠳᠦᠷ ᠢᠶᠡᠨ ᠳᠡᠭᠡᠨ'; // QUGJIM (NNBSP) DUR (NNBSP) IYEN (NNBSP) DEGEN
       final result = convertUnicodeToMenksoft(unicode);
       final expected =
           '\uE2D4\uE2AA\uE2F0\uE31D\uE27E\uE2F3\uE263\uE310\uE2AB\uE325\uE263\uE280\uE321\uE276\uE2B5\uE263\uE310\uE276\uE2EB\uE277\uE2B5';
@@ -65,33 +69,38 @@ void main() {
     test('buridgelWord', () async {
       final unicode = 'ᠪᠦᠷᠢᠳᠭᠡᠯ ᠢᠶᠡᠨ'; // BURIDGEL (NNBSP) IYEN
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE2C2\uE2AA\uE327\uE27E\uE314\uE2EB\uE277\uE2F9\uE263\uE280\uE321\uE276\uE2B5';
+      final expected =
+          '\uE2C2\uE2AA\uE327\uE27E\uE314\uE2EB\uE277\uE2F9\uE263\uE280\uE321\uE276\uE2B5';
       expect(result, expected);
     });
 
     test('sedqilWord', () async {
       final unicode = 'ᠰᠡᠳᠬᠢᠯ ᠮᠢᠨᠢ'; // SEDQIL (NNBSP) MINI
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE2FD\uE276\uE314\uE2DA\uE27F\uE2F9\uE263\uE2F1\uE27E\uE2B7\uE27B';
+      final expected =
+          '\uE2FD\uE276\uE314\uE2DA\uE27F\uE2F9\uE263\uE2F1\uE27E\uE2B7\uE27B';
       expect(result, expected);
     });
 
     test('uiledburiWord', () async {
       final unicode = 'ᠦᠢᠯᠡᠳᠪᠦᠷᠢ ᠳᠦ'; // UILEDBURI (NNBSP) DU
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE2A2\uE27E\uE2FA\uE276\uE314\uE2C6\uE2AC\uE327\uE27B\uE263\uE310\uE2A3';
+      final expected =
+          '\uE2A2\uE27E\uE2FA\uE276\uE314\uE2C6\uE2AC\uE327\uE27B\uE263\uE310\uE2A3';
       expect(result, expected);
     });
 
     test('jeligudqenWord', () async {
       final unicode = 'ᠵᠡᠯᠢᠭᠦᠳᠬᠡᠨ ᠦ'; // JELIGUDQEN (NNBSP) U
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE31A\uE276\uE2FA\uE27E\uE2ED\uE2AC\uE314\uE2DA\uE277\uE2B5\uE263\uE2A3';
+      final expected =
+          '\uE31A\uE276\uE2FA\uE27E\uE2ED\uE2AC\uE314\uE2DA\uE277\uE2B5\uE263\uE2A3';
       expect(result, expected);
     });
 
     test('manggalWord', () async {
-      final unicode = 'ᠮᠠᠩᠭᠠᠯ ᠳᠤᠷ ᠢᠶᠠᠨ ᠳᠠᠭᠠᠨ'; // MANGGAL (NNBSP) DUR (NNBSP) IYAN (NNBSP) DAGAN
+      final unicode =
+          'ᠮᠠᠩᠭᠠᠯ ᠳᠤᠷ ᠢᠶᠠᠨ ᠳᠠᠭᠠᠨ'; // MANGGAL (NNBSP) DUR (NNBSP) IYAN (NNBSP) DAGAN
       final result = convertUnicodeToMenksoft(unicode);
       final expected =
           '\uE2F1\uE26C\uE2BC\uE2EA\uE26C\uE2F9\uE263\uE310\uE291\uE325\uE263\uE280\uE321\uE26C\uE2B5\uE263\uE310\uE26C\uE2EA\uE26C\uE2B5';
@@ -106,7 +115,8 @@ void main() {
     });
 
     test('sodnamPlusWord', () async {
-      final unicode = 'ᠰᠣᠳᠨᠠᠮ ᠠᠴᠠ ᠪᠠᠨ ᠠᠴᠠᠭᠠᠨ'; // SODNAM (NNBSP) ACHA (NNBSP) BAN (NNBSP) ACHAGAN
+      final unicode =
+          'ᠰᠣᠳᠨᠠᠮ ᠠᠴᠠ ᠪᠠᠨ ᠠᠴᠠᠭᠠᠨ'; // SODNAM (NNBSP) ACHA (NNBSP) BAN (NNBSP) ACHAGAN
       final result = convertUnicodeToMenksoft(unicode);
       final expected =
           '\uE2FE\uE289\uE314\uE2B7\uE26C\uE2F3\uE263\uE267\uE317\uE268\uE263\uE2C1\uE26D\uE2B5\uE263\uE267\uE317\uE26C\uE2EA\uE26C\uE2B5';
@@ -116,28 +126,32 @@ void main() {
     test('lhagbaWord', () async {
       final unicode = 'ᡀᠠᠭᠪᠠ ᠯᠤᠭ᠎ᠠ'; // LHAGBA (NNBSP) LUG(MVS)A
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE34B\uE26C\uE2EE\uE2C5\uE26B\uE263\uE2F8\uE291\uE2E9\uE26A';
+      final expected =
+          '\uE34B\uE26C\uE2EE\uE2C5\uE26B\uE263\uE2F8\uE291\uE2E9\uE26A';
       expect(result, expected);
     });
 
     test('chebegmedWord', () async {
       final unicode = 'ᠴᠡᠪᠡᠭᠮᠡᠳ ᠯᠦᠭᠡ'; // CHEBEGMED (NNBSP) LUGE
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE315\uE276\uE2C5\uE277\uE2EB\uE2F6\uE276\uE311\uE263\uE2F8\uE2AB\uE2EB\uE275';
+      final expected =
+          '\uE315\uE276\uE2C5\uE277\uE2EB\uE2F6\uE276\uE311\uE263\uE2F8\uE2AB\uE2EB\uE275';
       expect(result, expected);
     });
 
     test('tsementWord', () async {
       final unicode = 'ᠼᠧᠮᠧᠨᠲ ᠲᠠᠢᠭᠠᠨ'; // TSEMENT (NNBSP) TAIGAN
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE33F\uE2B0\uE2F4\uE2B0\uE2BA\uE30A\uE263\uE308\uE26C\uE281\uE2EA\uE26C\uE2B5';
+      final expected =
+          '\uE33F\uE2B0\uE2F4\uE2B0\uE2BA\uE30A\uE263\uE308\uE26C\uE281\uE2EA\uE26C\uE2B5';
       expect(result, expected);
     });
 
     test('uniyeWord', () async {
       final unicode = 'ᠦᠨᠢᠶ᠎ᠡ ᠲᠡᠢᠭᠡᠨ'; // UNIY(MVS)E (NNBSP) TEIGEN
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE2A2\uE2B7\uE27E\uE31F\uE274\uE263\uE308\uE276\uE281\uE2EB\uE277\uE2B5';
+      final expected =
+          '\uE2A2\uE2B7\uE27E\uE31F\uE274\uE263\uE308\uE276\uE281\uE2EB\uE277\uE2B5';
       expect(result, expected);
     });
 
@@ -172,7 +186,8 @@ void main() {
     test('daljiigsanWord', () async {
       final unicode = 'ᠳᠠᠯᠵᠢᠢᠭᠰᠠᠨ'; // DALJIIGSAN
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE30E\uE26C\uE2FB\uE31D\uE27E\uE27E\uE2EE\uE301\uE26C\uE2B5';
+      final expected =
+          '\uE30E\uE26C\uE2FB\uE31D\uE27E\uE27E\uE2EE\uE301\uE26C\uE2B5';
       expect(result, expected);
     });
 
@@ -193,14 +208,16 @@ void main() {
     test('sigsiglequWord', () async {
       final unicode = 'ᠰᠢᠭᠰᠢᠭᠯᠡᠬᠦ'; // SIGSIGLEQU
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE2FD\uE27E\uE2EF\uE301\uE27E\uE2EB\uE2FC\uE276\uE2DD\uE2A7';
+      final expected =
+          '\uE2FD\uE27E\uE2EF\uE301\uE27E\uE2EB\uE2FC\uE276\uE2DD\uE2A7';
       expect(result, expected);
     });
 
     test('diglimsigsenWord', () async {
       final unicode = 'ᠳᠢᠭᠯᠢᠮᠰᠢᠭᠰᠡᠨ'; // DIGLIMSIGSEN
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE30E\uE27E\uE2EB\uE2FC\uE27E\uE2F4\uE301\uE27E\uE2EF\uE301\uE276\uE2B5';
+      final expected =
+          '\uE30E\uE27E\uE2EB\uE2FC\uE27E\uE2F4\uE301\uE27E\uE2EF\uE301\uE276\uE2B5';
       expect(result, expected);
     });
 
@@ -438,7 +455,8 @@ void main() {
     test('narangerelWord', () async {
       final unicode = 'ᠨᠠᠷᠠᠨᠭᠡᠷᠡᠯ'; // NARANGEREL
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE2B1\uE26C\uE327\uE26C\uE2B8\uE2EB\uE277\uE327\uE276\uE2F9';
+      final expected =
+          '\uE2B1\uE26C\uE327\uE26C\uE2B8\uE2EB\uE277\uE327\uE276\uE2F9';
       expect(result, expected);
     });
 
@@ -452,7 +470,8 @@ void main() {
     test('bayanunderWord', () async {
       final unicode = 'ᠪᠠᠶᠠᠨ\u180Cᠦ\u180Cᠨᠳᠦᠷ'; // BAYAN(FSV2)U(FVS2)NDUR
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE2C1\uE26D\uE320\uE26C\uE2BA\uE2A8\uE2B8\uE313\uE2AB\uE325';
+      final expected =
+          '\uE2C1\uE26D\uE320\uE26C\uE2BA\uE2A8\uE2B8\uE313\uE2AB\uE325';
       expect(result, expected);
     });
 
@@ -474,7 +493,8 @@ void main() {
     test('anggilumchechegWord', () async {
       final unicode = 'ᠠᠩᠭᠢᠯᠤᠮᠴᠡᠴᠡᠭ'; // ANGGILUMCHECHEG
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE266\uE2BD\uE2EB\uE27F\uE2FB\uE291\uE2F5\uE317\uE276\uE317\uE276\uE2E8';
+      final expected =
+          '\uE266\uE2BD\uE2EB\uE27F\uE2FB\uE291\uE2F5\uE317\uE276\uE317\uE276\uE2E8';
       expect(result, expected);
     });
 

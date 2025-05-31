@@ -63,7 +63,9 @@ void main() {
     test('punctuationSibeSyllableBoundaryMarker', () async {
       final menksoft = Menksoft.SIBE_SYLLABLE_BOUNDARY_MARKER;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
-      final expected = String.fromCharCode(Unicode.MONGOLIAN_SIBE_SYLLABLE_BOUNDARY_MARKER);
+      final expected = String.fromCharCode(
+        Unicode.MONGOLIAN_SIBE_SYLLABLE_BOUNDARY_MARKER,
+      );
       expect(result, expected);
     });
 
@@ -231,14 +233,18 @@ void main() {
     test('punctuationLeftBracket', () async {
       final menksoft = Menksoft.LEFT_TORTOISE_SHELL_BRACKET;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
-      final expected = String.fromCharCode(Unicode.VERTICAL_LEFT_TORTOISE_SHELL_BRACKET);
+      final expected = String.fromCharCode(
+        Unicode.VERTICAL_LEFT_TORTOISE_SHELL_BRACKET,
+      );
       expect(result, expected);
     });
 
     test('punctuationRightBracket', () async {
       final menksoft = Menksoft.RIGHT_TORTOISE_SHELL_BRACKET;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
-      final expected = String.fromCharCode(Unicode.VERTICAL_RIGHT_TORTOISE_SHELL_BRACKET);
+      final expected = String.fromCharCode(
+        Unicode.VERTICAL_RIGHT_TORTOISE_SHELL_BRACKET,
+      );
       expect(result, expected);
     });
 
@@ -259,14 +265,18 @@ void main() {
     test('punctuationLeftWhiteCornerBracket', () async {
       final menksoft = Menksoft.LEFT_WHITE_CORNER_BRACKET;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
-      final expected = String.fromCharCode(Unicode.VERTICAL_LEFT_WHITE_CORNER_BRACKET);
+      final expected = String.fromCharCode(
+        Unicode.VERTICAL_LEFT_WHITE_CORNER_BRACKET,
+      );
       expect(result, expected);
     });
 
     test('punctuationRightWhiteCornerBracket', () async {
       final menksoft = Menksoft.RIGHT_WHITE_CORNER_BRACKET;
       final result = convertMenksoftToUnicode(String.fromCharCode(menksoft));
-      final expected = String.fromCharCode(Unicode.VERTICAL_RIGHT_WHITE_CORNER_BRACKET);
+      final expected = String.fromCharCode(
+        Unicode.VERTICAL_RIGHT_WHITE_CORNER_BRACKET,
+      );
       expect(result, expected);
     });
 
@@ -322,7 +332,8 @@ void main() {
     });
 
     test('egeshigWord', () async {
-      final menksoft = '\uE271\uE2EB\uE277\uE301\uE27E\uE2E8\uE263\uE27A\uE2B9\uE2A3'; // EGESIG (NNBSP) INU
+      final menksoft =
+          '\uE271\uE2EB\uE277\uE301\uE27E\uE2E8\uE263\uE27A\uE2B9\uE2A3'; // EGESIG (NNBSP) INU
       final result = convertMenksoftToUnicode(menksoft);
       final expected = 'ᠡᠭᠡᠰᠢᠭ ᠢᠨᠦ';
       expect(result, expected);
@@ -337,7 +348,8 @@ void main() {
     });
 
     test('chirigWord', () async {
-      final menksoft = '\uE315\uE27E\uE327\uE27E\uE2E8\uE263\uE2F1\uE26C\uE2B7\uE27B';
+      final menksoft =
+          '\uE315\uE27E\uE327\uE27E\uE2E8\uE263\uE2F1\uE26C\uE2B7\uE27B';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = 'ᠴᠢᠷᠢᠭ ᠮ\u1820ᠨᠢ'; // CHIRIG (NNBSP) MANI
       expect(result, expected);
@@ -354,33 +366,38 @@ void main() {
       final menksoft =
           '\uE2D4\uE2AA\uE2F0\uE31D\uE27E\uE2F3\uE263\uE310\uE2AB\uE325\uE263\uE280\uE321\uE276\uE2B5\uE263\uE310\uE276\uE2EB\uE277\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠬᠦᠭᠵᠢᠮ ᠳᠦᠷ ᠢᠶᠡᠨ ᠳᠡᠭᠡᠨ'; // QUGJIM (NNBSP) DUR (NNBSP) IYEN (NNBSP) DEGEN
+      final expected =
+          'ᠬᠦᠭᠵᠢᠮ ᠳᠦᠷ ᠢᠶᠡᠨ ᠳᠡᠭᠡᠨ'; // QUGJIM (NNBSP) DUR (NNBSP) IYEN (NNBSP) DEGEN
       expect(result, expected);
     });
 
     test('buridgelWord', () async {
-      final menksoft = '\uE2C2\uE2AA\uE327\uE27E\uE314\uE2EB\uE277\uE2F9\uE263\uE280\uE321\uE276\uE2B5';
+      final menksoft =
+          '\uE2C2\uE2AA\uE327\uE27E\uE314\uE2EB\uE277\uE2F9\uE263\uE280\uE321\uE276\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = 'ᠪᠦᠷᠢᠳᠭᠡᠯ ᠢᠶᠡᠨ'; // BURIDGEL (NNBSP) IYEN
       expect(result, expected);
     });
 
     test('sedqilWord', () async {
-      final menksoft = '\uE2FD\uE276\uE314\uE2DA\uE27F\uE2F9\uE263\uE2F1\uE27E\uE2B7\uE27B';
+      final menksoft =
+          '\uE2FD\uE276\uE314\uE2DA\uE27F\uE2F9\uE263\uE2F1\uE27E\uE2B7\uE27B';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = 'ᠰᠡᠳᠬᠢᠯ ᠮᠢᠨᠢ'; // SEDQIL (NNBSP) MINI
       expect(result, expected);
     });
 
     test('uiledburiWord', () async {
-      final menksoft = '\uE2A2\uE27E\uE2FA\uE276\uE314\uE2C6\uE2AC\uE327\uE27B\uE263\uE310\uE2A3';
+      final menksoft =
+          '\uE2A2\uE27E\uE2FA\uE276\uE314\uE2C6\uE2AC\uE327\uE27B\uE263\uE310\uE2A3';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = 'ᠦᠢᠯᠡᠳᠪᠦᠷᠢ ᠳᠦ'; // UILEDBURI (NNBSP) DU
       expect(result, expected);
     });
 
     test('jeligudqenWord', () async {
-      final menksoft = '\uE31A\uE276\uE2FA\uE27E\uE2ED\uE2AC\uE314\uE2DA\uE277\uE2B5\uE263\uE2A3';
+      final menksoft =
+          '\uE31A\uE276\uE2FA\uE27E\uE2ED\uE2AC\uE314\uE2DA\uE277\uE2B5\uE263\uE2A3';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = 'ᠵᠡᠯᠢᠭᠦᠳᠬᠡᠨ ᠦ'; // JELIGUDQEN (NNBSP) U
       expect(result, expected);
@@ -412,28 +429,32 @@ void main() {
     });
 
     test('lhagbaWord', () async {
-      final menksoft = '\uE34B\uE26C\uE2EE\uE2C5\uE26B\uE263\uE2F8\uE291\uE2E9\uE26A';
+      final menksoft =
+          '\uE34B\uE26C\uE2EE\uE2C5\uE26B\uE263\uE2F8\uE291\uE2E9\uE26A';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = 'ᡀ\u1820ᠭᠪ\u1820 ᠯᠤᠭ᠎\u1820'; // LHAGBA (NNBSP) LUG(MVS)A
       expect(result, expected);
     });
 
     test('chebegmedWord', () async {
-      final menksoft = '\uE315\uE276\uE2C5\uE277\uE2EB\uE2F6\uE276\uE311\uE263\uE2F8\uE2AB\uE2EB\uE275';
+      final menksoft =
+          '\uE315\uE276\uE2C5\uE277\uE2EB\uE2F6\uE276\uE311\uE263\uE2F8\uE2AB\uE2EB\uE275';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = 'ᠴᠡᠪᠡᠭᠮᠡᠳ ᠯᠦᠭᠡ'; // CHEBEGMED (NNBSP) LUGE
       expect(result, expected);
     });
 
     test('tsementWord', () async {
-      final menksoft = '\uE33F\uE2B0\uE2F4\uE2B0\uE2BA\uE30A\uE263\uE308\uE26C\uE321\uE27E\uE2EA\uE26C\uE2B5';
+      final menksoft =
+          '\uE33F\uE2B0\uE2F4\uE2B0\uE2BA\uE30A\uE263\uE308\uE26C\uE321\uE27E\uE2EA\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = 'ᠼᠧᠮᠧᠨᠲ ᠲ\u1820ᠶᠢᠭ\u1820ᠨ'; // TSEMENT (NNBSP) TAYIGAN
       expect(result, expected);
     });
 
     test('uniyeWord', () async {
-      final menksoft = '\uE2A2\uE2B7\uE27E\uE31F\uE274\uE263\uE308\uE276\uE321\uE27E\uE2EB\uE277\uE2B5';
+      final menksoft =
+          '\uE2A2\uE2B7\uE27E\uE31F\uE274\uE263\uE308\uE276\uE321\uE27E\uE2EB\uE277\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = 'ᠦᠨᠢᠶ᠎ᠡ ᠲᠡᠶᠢᠭᠡᠨ'; // UNIY(MVS)E (NNBSP) TEYIGEN
       expect(result, expected);
@@ -468,7 +489,8 @@ void main() {
     });
 
     test('daljiygsanWord', () async {
-      final menksoft = '\uE30E\uE26C\uE2FB\uE31D\uE27E\uE321\uE2EE\uE301\uE26C\uE2B5';
+      final menksoft =
+          '\uE30E\uE26C\uE2FB\uE31D\uE27E\uE321\uE2EE\uE301\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = 'ᠳ\u1820ᠯᠵᠢᠶᠭᠰ\u1820ᠨ'; // DALJIYGSAN
       expect(result, expected);
@@ -489,14 +511,16 @@ void main() {
     });
 
     test('sigsiglequWord', () async {
-      final menksoft = '\uE2FD\uE27E\uE2EB\uE301\uE27E\uE2EB\uE2FC\uE276\uE2DD\uE2A7';
+      final menksoft =
+          '\uE2FD\uE27E\uE2EB\uE301\uE27E\uE2EB\uE2FC\uE276\uE2DD\uE2A7';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = 'ᠰᠢᠭᠰᠢᠭᠯᠡᠬᠦ'; // SIGSIGLEQU
       expect(result, expected);
     });
 
     test('diglimsigsenWord', () async {
-      final menksoft = '\uE30E\uE27E\uE2EB\uE2FC\uE27E\uE2F4\uE301\uE27E\uE2EB\uE301\uE276\uE2B5';
+      final menksoft =
+          '\uE30E\uE27E\uE2EB\uE2FC\uE27E\uE2F4\uE301\uE27E\uE2EB\uE301\uE276\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = 'ᠳᠢᠭᠯᠢᠮᠰᠢᠭᠰᠡᠨ'; // DIGLIMSIGSEN
       expect(result, expected);
@@ -545,7 +569,8 @@ void main() {
     });
 
     test('neigemligWord', () async {
-      final menksoft = '\uE2B1\uE276\uE321\uE27E\uE2EB\uE277\uE2F5\uE2FA\uE27E\uE2E8';
+      final menksoft =
+          '\uE2B1\uE276\uE321\uE27E\uE2EB\uE277\uE2F5\uE2FA\uE27E\uE2E8';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = 'ᠨᠡᠶᠢᠭᠡᠮᠯᠢᠭ'; // NEYIGEMLIG
       expect(result, expected);
@@ -617,7 +642,8 @@ void main() {
     test('naimaWordMenksoftVersion', () async {
       final menksoft = '\uE2B1\uE26C\uE27E\uE2F5\uE268';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠨ\u1820ᠢ\u180Cᠮ\u1820'; // NAI(FVS2)MA (not defined in Unicode 10.0)
+      final expected =
+          'ᠨ\u1820ᠢ\u180Cᠮ\u1820'; // NAI(FVS2)MA (not defined in Unicode 10.0)
       expect(result, expected);
     });
 
@@ -755,7 +781,8 @@ void main() {
     });
 
     test('narangerelWord', () async {
-      final menksoft = '\uE2B1\uE26C\uE327\uE26C\uE2B8\uE2EB\uE277\uE327\uE276\uE2F9';
+      final menksoft =
+          '\uE2B1\uE26C\uE327\uE26C\uE2B8\uE2EB\uE277\uE327\uE276\uE2F9';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = 'ᠨ\u1820ᠷ\u1820ᠨᠭᠡᠷᠡᠯ'; // NARANGEREL
       expect(result, expected);
@@ -769,7 +796,8 @@ void main() {
     });
 
     test('bayanunderWord', () async {
-      final menksoft = '\uE2C1\uE26D\uE320\uE26C\uE2BA\uE2A8\uE2B8\uE313\uE2AB\uE325';
+      final menksoft =
+          '\uE2C1\uE26D\uE320\uE26C\uE2BA\uE2A8\uE2B8\uE313\uE2AB\uE325';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = 'ᠪ\u1820ᠶ\u1820ᠨ\u200Dᠦ᠌ᠨᠳᠦᠷ'; // BAYAN(ZWJ)U(FVS1)NDUR
       expect(result, expected);
@@ -783,7 +811,8 @@ void main() {
     });
 
     test('anggilumchechegWord', () async {
-      final menksoft = '\uE266\uE2BD\uE2EB\uE27F\uE2FB\uE291\uE2F5\uE317\uE276\uE317\uE276\uE2E8';
+      final menksoft =
+          '\uE266\uE2BD\uE2EB\uE27F\uE2FB\uE291\uE2F5\uE317\uE276\uE317\uE276\uE2E8';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = '\u1820ᠩᠭᠢᠯᠤᠮᠴᠡᠴᠡᠭ'; // ANGGILUMCHECHEG
       expect(result, expected);

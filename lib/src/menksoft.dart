@@ -153,7 +153,8 @@ class Menksoft {
   static const int MEDI_UE_BP = 0xE2AC; // no tooth
   static const int MEDI_UE_FVS1 = 0xE2A9; // tooth
   static const int MEDI_UE_FVS1_BP = 0xE2AA; // tooth
-  static const int MEDI_UE_FVS2 = 0xE2A8; // short tooth first with later long tooth
+  static const int MEDI_UE_FVS2 =
+      0xE2A8; // short tooth first with later long tooth
   static const int FINA_UE = 0xE2A3; // swirl
   static const int FINA_UE_BP = 0xE2A7; // no tooth
   static const int FINA_UE_FVS1 = 0xE2A4; // tooth
@@ -191,8 +192,10 @@ class Menksoft {
   static const int INIT_ANG_ROUND = 0xE2BD;
   static const int INIT_ANG_STEM = 0xE2BE;
   static const int MEDI_ANG_TOOTH = 0xE2BC; // good for following tooth
-  static const int MEDI_ANG_ROUND = 0xE2BD; // good for following round letter like B P H K
-  static const int MEDI_ANG_STEM = 0xE2BE; // good for following stem letter like J CH R
+  static const int MEDI_ANG_ROUND =
+      0xE2BD; // good for following round letter like B P H K
+  static const int MEDI_ANG_STEM =
+      0xE2BE; // good for following stem letter like J CH R
   static const int FINA_ANG = 0xE2BB;
   static const int ANG_END = 0xE2BE;
 
@@ -238,7 +241,8 @@ class Menksoft {
   static const int MEDI_QA_FVS2_CONS = 0xE2DF; // feminine before consonant
   static const int MEDI_QA_FVS4 = 0xE2DB; // dotted feminine
   static const int MEDI_QA_FVS4_OU = 0xE2DE;
-  static const int MEDI_QA_FVS4_CONS = 0xE2E0; // dotted feminine before consonant
+  static const int MEDI_QA_FVS4_CONS =
+      0xE2E0; // dotted feminine before consonant
   static const int MEDI_QA_MVS = 0xE2D6;
   static const int MEDI_QA_FVS1_MVS = 0xE2D7; // dotted
   static const int FINA_QA = 0xE2D6;
@@ -266,7 +270,8 @@ class Menksoft {
   static const int MEDI_GA_FVS2_STEM = 0xE2F0; // feminine before consonant
   static const int MEDI_GA_FVS4 = 0xE2DB; // dotted feminine (using QA glyph)
   static const int MEDI_GA_FVS4_OU = 0xE2DE; // dotted feminine (using QA glyph)
-  static const int MEDI_GA_FVS4_CONS = 0xE2E0; // dotted feminine before consonant (using QA glyph)
+  static const int MEDI_GA_FVS4_CONS =
+      0xE2E0; // dotted feminine before consonant (using QA glyph)
   static const int MEDI_GA_FVS3_MVS = 0xE2E9;
   static const int MEDI_GA_FVS1_MVS = 0xE2D6; // (using QA glyph)
   static const int FINA_GA = 0xE2E8; // feminine
@@ -279,8 +284,10 @@ class Menksoft {
   static const int INIT_MA_TOOTH = 0xE2F1;
   static const int INIT_MA_STEM_LONG = 0xE2F2;
   static const int MEDI_MA_TOOTH = 0xE2F4;
-  static const int MEDI_MA_STEM_LONG = 0xE2F5; // long stem GV, use this if M or L follows
-  static const int MEDI_MA_BP = 0xE2F6; // use this if following a B, P, H, K, etc.
+  static const int MEDI_MA_STEM_LONG =
+      0xE2F5; // long stem GV, use this if M or L follows
+  static const int MEDI_MA_BP =
+      0xE2F6; // use this if following a B, P, H, K, etc.
   static const int MEDI_MA_MVS = 0xE2F3;
   static const int FINA_MA = 0xE2F3;
 
@@ -290,7 +297,8 @@ class Menksoft {
   static const int INIT_LA_STEM_LONG = 0xE2F8;
   static const int MEDI_LA_TOOTH = 0xE2FA;
   static const int MEDI_LA_STEM_LONG = 0xE2FB; // use this if M or L follows
-  static const int MEDI_LA_BP = 0xE2FC; // use this if following a B, P, H, K, etc.
+  static const int MEDI_LA_BP =
+      0xE2FC; // use this if following a B, P, H, K, etc.
   static const int MEDI_LA_MVS = 0xE2F9;
   static const int FINA_LA = 0xE2F9;
 
@@ -459,7 +467,9 @@ class Menksoft {
   static const int SPACE = 0x0020;
 
   static bool isMenksoftSpace(int codeUnit) {
-    return codeUnit == NONBREAKING_SPACE || codeUnit == UNKNOWN_SPACE || codeUnit == SPACE;
+    return codeUnit == NONBREAKING_SPACE ||
+        codeUnit == UNKNOWN_SPACE ||
+        codeUnit == SPACE;
   }
 
   static bool isMenksoftLetter(int character) {

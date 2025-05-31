@@ -55,7 +55,9 @@ void main() {
     test('punctuationSibeSyllableBoundaryMarker', () async {
       final unicode = Unicode.MONGOLIAN_SIBE_SYLLABLE_BOUNDARY_MARKER;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.SIBE_SYLLABLE_BOUNDARY_MARKER);
+      final expected = String.fromCharCode(
+        Menksoft.SIBE_SYLLABLE_BOUNDARY_MARKER,
+      );
       expect(result, expected);
     });
 
@@ -251,14 +253,18 @@ void main() {
     test('punctuationLeftBracket', () async {
       final unicode = Unicode.VERTICAL_LEFT_TORTOISE_SHELL_BRACKET;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.LEFT_TORTOISE_SHELL_BRACKET);
+      final expected = String.fromCharCode(
+        Menksoft.LEFT_TORTOISE_SHELL_BRACKET,
+      );
       expect(result, expected);
     });
 
     test('punctuationRightBracket', () async {
       final unicode = Unicode.VERTICAL_RIGHT_TORTOISE_SHELL_BRACKET;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.RIGHT_TORTOISE_SHELL_BRACKET);
+      final expected = String.fromCharCode(
+        Menksoft.RIGHT_TORTOISE_SHELL_BRACKET,
+      );
       expect(result, expected);
     });
 
@@ -328,7 +334,8 @@ void main() {
     test('punctuationSuffixSpace', () async {
       final unicode = Unicode.NNBS;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = ''; // empty string, NNBS converted to MVS, which is invalid alone
+      final expected =
+          ''; // empty string, NNBS converted to MVS, which is invalid alone
       expect(result, expected);
     });
   });

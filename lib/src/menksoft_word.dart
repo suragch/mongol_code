@@ -164,7 +164,8 @@ class MenksoftWord {
       charAbove = currentChar;
 
       // fix missing space
-      if (Menksoft.isMenksoftFinalIsolateGlyph(currentChar) && Menksoft.isMenksoftInitialIsolateGlyph(charBelow)) {
+      if (Menksoft.isMenksoftFinalIsolateGlyph(currentChar) &&
+          Menksoft.isMenksoftInitialIsolateGlyph(charBelow)) {
         outputString.add(SPACE);
         charAbove = 0;
       }
@@ -319,7 +320,12 @@ class MenksoftWord {
     }
   }
 
-  void _handleI(List<int> outputString, int currentChar, int charAbove, int charBelow) {
+  void _handleI(
+    List<int> outputString,
+    int currentChar,
+    int charAbove,
+    int charBelow,
+  ) {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
@@ -415,11 +421,13 @@ class MenksoftWord {
   }
 
   bool _isMenksoftA(int character) {
-    return character >= Menksoft.A_START && character <= Menksoft.MEDI_A_UNKNOWN;
+    return character >= Menksoft.A_START &&
+        character <= Menksoft.MEDI_A_UNKNOWN;
   }
 
   bool _isMenksoftM(int character) {
-    return character >= Menksoft.INIT_MA_TOOTH && character <= Menksoft.MEDI_MA_BP;
+    return character >= Menksoft.INIT_MA_TOOTH &&
+        character <= Menksoft.MEDI_MA_BP;
   }
 
   void _handleO(List<int> outputString, int currentChar) {
@@ -753,7 +761,12 @@ class MenksoftWord {
     }
   }
 
-  void _handleEE(List<int> outputString, int currentChar, int charAbove, int charBelow) {
+  void _handleEE(
+    List<int> outputString,
+    int currentChar,
+    int charAbove,
+    int charBelow,
+  ) {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
@@ -780,7 +793,8 @@ class MenksoftWord {
         }
       case Location.MEDIAL:
         // replace EE between two vowels with W
-        if (Menksoft.isMenksoftVowel(charAbove) && Menksoft.isMenksoftVowel(charBelow)) {
+        if (Menksoft.isMenksoftVowel(charAbove) &&
+            Menksoft.isMenksoftVowel(charBelow)) {
           outputString.add(Unicode.WA);
         } else {
           outputString.add(Unicode.EE);
@@ -803,7 +817,12 @@ class MenksoftWord {
     outputString.add(Unicode.ANG);
   }
 
-  void _handleNa(List<int> outputString, int currentChar, int charAbove, int charBelow) {
+  void _handleNa(
+    List<int> outputString,
+    int currentChar,
+    int charAbove,
+    int charBelow,
+  ) {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
@@ -851,7 +870,8 @@ class MenksoftWord {
           case Menksoft.MEDI_NA_STEM:
           case Menksoft.MEDI_NA_TOOTH:
             outputString.add(Unicode.NA);
-            if (Menksoft.isMenksoftVowel(charAbove) && Menksoft.isMenksoftVowel(charBelow)) {
+            if (Menksoft.isMenksoftVowel(charAbove) &&
+                Menksoft.isMenksoftVowel(charBelow)) {
               outputString.add(Unicode.MONGOLIAN_NIRUGU);
             }
           case Menksoft.MEDI_NA_FVS1_NG:
@@ -1459,7 +1479,12 @@ class MenksoftWord {
     }
   }
 
-  void _handleYa(List<int> outputString, int currentChar, int charAbove, int charBelow) {
+  void _handleYa(
+    List<int> outputString,
+    int currentChar,
+    int charAbove,
+    int charBelow,
+  ) {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
@@ -1487,7 +1512,8 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_YA_FVS1:
             outputString.add(Unicode.YA);
-            if (Menksoft.isMenksoftVowel(charAbove) && Menksoft.isMenksoftI(charBelow)) {
+            if (Menksoft.isMenksoftVowel(charAbove) &&
+                Menksoft.isMenksoftI(charBelow)) {
               // override context rule that would make a normal Y straight
               outputString.add(Unicode.FVS1);
             }
@@ -1531,7 +1557,12 @@ class MenksoftWord {
     }
   }
 
-  void _handleWa(List<int> outputString, int currentChar, int charAbove, int charBelow) {
+  void _handleWa(
+    List<int> outputString,
+    int currentChar,
+    int charAbove,
+    int charBelow,
+  ) {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
@@ -1549,7 +1580,8 @@ class MenksoftWord {
         outputString.add(Unicode.WA);
       case Location.MEDIAL:
         // replace W between two consonants with EE
-        if (Menksoft.isMenksoftConsonant(charAbove) && Menksoft.isMenksoftConsonant(charBelow)) {
+        if (Menksoft.isMenksoftConsonant(charAbove) &&
+            Menksoft.isMenksoftConsonant(charBelow)) {
           outputString.add(Unicode.EE);
         } else {
           outputString.add(Unicode.WA);
@@ -1733,7 +1765,8 @@ class MenksoftWord {
   }
 
   void _handleSpace(List<int> outputString, int currentChar, int charBelow) {
-    if (currentChar == Menksoft.NONBREAKING_SPACE && Menksoft.isMenksoftLetter(charBelow)) {
+    if (currentChar == Menksoft.NONBREAKING_SPACE &&
+        Menksoft.isMenksoftLetter(charBelow)) {
       outputString.add(Unicode.MVS);
     } else {
       outputString.add(SPACE);
@@ -1840,6 +1873,8 @@ class MenksoftWord {
   }
 
   bool _isMenksoftSpaceChar(int character) {
-    return character == SPACE || character == Menksoft.NONBREAKING_SPACE || character == Menksoft.UNKNOWN_SPACE;
+    return character == SPACE ||
+        character == Menksoft.NONBREAKING_SPACE ||
+        character == Menksoft.UNKNOWN_SPACE;
   }
 }

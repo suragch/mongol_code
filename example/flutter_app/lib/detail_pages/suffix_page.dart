@@ -12,21 +12,34 @@ class SuffixPage extends StatefulWidget {
 class _SuffixPageState extends State<SuffixPage> {
   final code = MongolCode.instance;
 
-  Widget _buildVariantRow(String unicode, String menksoft, {double fontSize = 32}) {
+  Widget _buildVariantRow(
+    String unicode,
+    String menksoft, {
+    double fontSize = 32,
+  }) {
     final same = unicode == menksoft;
     return Row(
       children: [
         Flexible(
           child: FittedBox(
             fit: BoxFit.scaleDown,
-            child: Text(unicode, style: TextStyle(fontSize: fontSize, color: same ? Colors.green : Colors.red)),
+            child: Text(
+              unicode,
+              style: TextStyle(
+                fontSize: fontSize,
+                color: same ? Colors.green : Colors.red,
+              ),
+            ),
           ),
         ),
         SizedBox(width: 16),
         Flexible(
           child: FittedBox(
             fit: BoxFit.scaleDown,
-            child: Text(menksoft, style: TextStyle(fontSize: fontSize, color: Colors.blue)),
+            child: Text(
+              menksoft,
+              style: TextStyle(fontSize: fontSize, color: Colors.blue),
+            ),
           ),
         ),
       ],

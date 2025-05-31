@@ -23,7 +23,12 @@ class _FvsPageState extends State<FvsPage> {
     (index) => String.fromCharCode(0x1820 + index),
   );
 
-  Widget _buildVariantRow(String label, String text, {double fontSize = 32, double indent = 32}) {
+  Widget _buildVariantRow(
+    String label,
+    String text, {
+    double fontSize = 32,
+    double indent = 32,
+  }) {
     return Row(
       children: [
         SizedBox(width: indent),
@@ -53,27 +58,62 @@ class _FvsPageState extends State<FvsPage> {
               children: [
                 Row(
                   children: [
-                    Text('U+${(0x1820 + index).toRadixString(16).toUpperCase()}', style: const TextStyle(fontSize: 20)),
+                    Text(
+                      'U+${(0x1820 + index).toRadixString(16).toUpperCase()}',
+                      style: const TextStyle(fontSize: 20),
+                    ),
                     const SizedBox(width: 16),
                     Text(char, style: const TextStyle(fontSize: 44)),
                   ],
                 ),
-                _buildVariantRow('ISOLATE', _getVariant(char), fontSize: 44, indent: 16),
+                _buildVariantRow(
+                  'ISOLATE',
+                  _getVariant(char),
+                  fontSize: 44,
+                  indent: 16,
+                ),
                 _buildVariantRow('FVS1', _getVariant('$char$fvs1')),
                 _buildVariantRow('FVS2', _getVariant('$char$fvs2')),
                 _buildVariantRow('FVS3', _getVariant('$char$fvs3')),
                 _buildVariantRow('FVS4', _getVariant('$char$fvs4')),
-                _buildVariantRow('INITIAL', _getVariant('$char$nirugu'), fontSize: 44, indent: 16),
+                _buildVariantRow(
+                  'INITIAL',
+                  _getVariant('$char$nirugu'),
+                  fontSize: 44,
+                  indent: 16,
+                ),
                 _buildVariantRow('FVS1', _getVariant('$char$fvs1$nirugu')),
                 _buildVariantRow('FVS2', _getVariant('$char$fvs2$nirugu')),
                 _buildVariantRow('FVS3', _getVariant('$char$fvs3$nirugu')),
                 _buildVariantRow('FVS4', _getVariant('$char$fvs4$nirugu')),
-                _buildVariantRow('MEDIAL', _getVariant('$nirugu$char$nirugu'), fontSize: 44, indent: 16),
-                _buildVariantRow('FVS1', _getVariant('$nirugu$char$fvs1$nirugu')),
-                _buildVariantRow('FVS2', _getVariant('$nirugu$char$fvs2$nirugu')),
-                _buildVariantRow('FVS3', _getVariant('$nirugu$char$fvs3$nirugu')),
-                _buildVariantRow('FVS4', _getVariant('$nirugu$char$fvs4$nirugu')),
-                _buildVariantRow('FINAL', _getVariant('$nirugu$char'), fontSize: 44, indent: 16),
+                _buildVariantRow(
+                  'MEDIAL',
+                  _getVariant('$nirugu$char$nirugu'),
+                  fontSize: 44,
+                  indent: 16,
+                ),
+                _buildVariantRow(
+                  'FVS1',
+                  _getVariant('$nirugu$char$fvs1$nirugu'),
+                ),
+                _buildVariantRow(
+                  'FVS2',
+                  _getVariant('$nirugu$char$fvs2$nirugu'),
+                ),
+                _buildVariantRow(
+                  'FVS3',
+                  _getVariant('$nirugu$char$fvs3$nirugu'),
+                ),
+                _buildVariantRow(
+                  'FVS4',
+                  _getVariant('$nirugu$char$fvs4$nirugu'),
+                ),
+                _buildVariantRow(
+                  'FINAL',
+                  _getVariant('$nirugu$char'),
+                  fontSize: 44,
+                  indent: 16,
+                ),
                 _buildVariantRow('FVS1', _getVariant('$nirugu$char$fvs1')),
                 _buildVariantRow('FVS2', _getVariant('$nirugu$char$fvs2')),
                 _buildVariantRow('FVS3', _getVariant('$nirugu$char$fvs3')),

@@ -8,7 +8,8 @@ List<int>? applyMvsRule(List<int> word, int index) {
   assert(word.last == Unicode.A || word.last == Unicode.E);
 
   final consonant = word[index];
-  final vowel = word[index + 2] == Unicode.A ? Menksoft.FINA_A_MVS : Menksoft.FINA_E_MVS;
+  final vowel =
+      word[index + 2] == Unicode.A ? Menksoft.FINA_A_MVS : Menksoft.FINA_E_MVS;
   switch (consonant) {
     case Unicode.NA:
       return [Menksoft.MEDI_NA_FVS1_MVS, vowel];

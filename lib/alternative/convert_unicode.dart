@@ -13,7 +13,8 @@ String convertUnicodeToMenksoft(String input) {
     // 1. Find the next Mongolian segment
     int segmentStart = i;
     // Pass through non-Mongolian word characters
-    while (segmentStart < codeUnits.length && !_isMongolianSegmentCharacter(codeUnits[segmentStart])) {
+    while (segmentStart < codeUnits.length &&
+        !_isMongolianSegmentCharacter(codeUnits[segmentStart])) {
       var codeUnit = codeUnits[segmentStart];
       // do a direct map replacement for punctuation (Birga handled separately)
       if (unicodeToMenksoftPunctuation.keys.contains(codeUnit)) {
@@ -24,7 +25,8 @@ String convertUnicodeToMenksoft(String input) {
     }
     if (segmentStart == codeUnits.length) break;
     int segmentEnd = segmentStart;
-    while (segmentEnd < codeUnits.length && _isMongolianSegmentCharacter(codeUnits[segmentEnd])) {
+    while (segmentEnd < codeUnits.length &&
+        _isMongolianSegmentCharacter(codeUnits[segmentEnd])) {
       segmentEnd++;
     }
 
@@ -44,12 +46,16 @@ String convertUnicodeToMenksoft(String input) {
 // but including them allows building them into the collected word so that
 // the control characters are not filtered out of the Todo+ words.
 bool _isMongolianSegmentCharacter(int codeUnit) {
-  return _isMongolianWordCharacter(codeUnit) || _isTodoSibeManchu(codeUnit) || _isBackSupportChar(codeUnit);
+  return _isMongolianWordCharacter(codeUnit) ||
+      _isTodoSibeManchu(codeUnit) ||
+      _isBackSupportChar(codeUnit);
 }
 
 // Mongolian letter or control character or Birga
 bool _isMongolianWordCharacter(int codeUnit) {
-  return _isControlCharacter(codeUnit) || _isMongolianLetter(codeUnit) || codeUnit == Unicode.MONGOLIAN_BIRGA;
+  return _isControlCharacter(codeUnit) ||
+      _isMongolianLetter(codeUnit) ||
+      codeUnit == Unicode.MONGOLIAN_BIRGA;
 }
 
 // FVS or MVS

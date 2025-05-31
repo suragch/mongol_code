@@ -40,7 +40,8 @@ String convertMenksoftToUnicode(String inputString) {
 }
 
 bool _isMenksoft(int codeUnit) {
-  return codeUnit >= Menksoft.MENKSOFT_START && codeUnit <= Menksoft.MENKSOFT_END;
+  return codeUnit >= Menksoft.MENKSOFT_START &&
+      codeUnit <= Menksoft.MENKSOFT_END;
 }
 
 void _appendMenksoftWord(List<int> outputString, List<int> menksoftWord) {

@@ -109,7 +109,9 @@ class MongolCode {
       }
 
       if (_isConvertiblePunctuation(codeUnit)) {
-        final menksoftPunctuation = MongolWord.convertPunctuationToMenksoftCode(codeUnit);
+        final menksoftPunctuation = MongolWord.convertPunctuationToMenksoftCode(
+          codeUnit,
+        );
         outputString.add(menksoftPunctuation);
         continue;
       }
@@ -206,7 +208,8 @@ class MongolCode {
   }
 
   static bool isMenksoft(int codeUnit) {
-    return codeUnit >= Menksoft.MENKSOFT_START && codeUnit <= Menksoft.MENKSOFT_END;
+    return codeUnit >= Menksoft.MENKSOFT_START &&
+        codeUnit <= Menksoft.MENKSOFT_END;
   }
 
   bool _isConvertiblePunctuation(int codeUnit) {
@@ -221,15 +224,18 @@ class MongolCode {
   }
 
   bool _isVerticalPresentationForm(int codeUnit) {
-    return (codeUnit >= Unicode.VERTICAL_COMMA && codeUnit <= Unicode.FULLWIDTH_RIGHT_SQUARE_BRACKET);
+    return (codeUnit >= Unicode.VERTICAL_COMMA &&
+        codeUnit <= Unicode.FULLWIDTH_RIGHT_SQUARE_BRACKET);
   }
 
   bool _isMongolianPunctuation(int codeUnit) {
-    return (codeUnit >= Unicode.MONGOLIAN_BIRGA && codeUnit <= Unicode.MONGOLIAN_MANCHU_FULL_STOP);
+    return (codeUnit >= Unicode.MONGOLIAN_BIRGA &&
+        codeUnit <= Unicode.MONGOLIAN_MANCHU_FULL_STOP);
   }
 
   bool _isMongolianDigit(int codeUnit) {
-    return (codeUnit >= Unicode.MONGOLIAN_DIGIT_ZERO && codeUnit <= Unicode.MONGOLIAN_DIGIT_NINE);
+    return (codeUnit >= Unicode.MONGOLIAN_DIGIT_ZERO &&
+        codeUnit <= Unicode.MONGOLIAN_DIGIT_NINE);
   }
 
   static bool isVowel(int codeUnit) {
@@ -237,11 +243,16 @@ class MongolCode {
   }
 
   static bool isMasculineVowel(int codeUnit) {
-    return (codeUnit == Unicode.A || codeUnit == Unicode.O || codeUnit == Unicode.U);
+    return (codeUnit == Unicode.A ||
+        codeUnit == Unicode.O ||
+        codeUnit == Unicode.U);
   }
 
   static bool isFeminineVowel(int codeUnit) {
-    return (codeUnit == Unicode.E || codeUnit == Unicode.EE || codeUnit == Unicode.OE || codeUnit == Unicode.UE);
+    return (codeUnit == Unicode.E ||
+        codeUnit == Unicode.EE ||
+        codeUnit == Unicode.OE ||
+        codeUnit == Unicode.UE);
   }
 
   static bool isConsonant(int codeUnit) {
@@ -293,7 +304,8 @@ class MongolCode {
   }
 
   static bool isTodoAlphabet(int codeUnit) {
-    return codeUnit >= Unicode.TODO_LONG_VOWEL_SIGN && codeUnit <= Unicode.TODO_DZA;
+    return codeUnit >= Unicode.TODO_LONG_VOWEL_SIGN &&
+        codeUnit <= Unicode.TODO_DZA;
   }
 
   static bool isBGDRS(int codeUnit) {

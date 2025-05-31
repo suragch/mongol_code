@@ -25,31 +25,48 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               title: Text('FVS'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const FvsPage()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const FvsPage()),
+                );
               },
             ),
             ListTile(
               title: Text('MVS'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const MvsPage()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MvsPage()),
+                );
               },
             ),
             ListTile(
               title: Text('Words'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const WordsPage()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const WordsPage()),
+                );
               },
             ),
             ListTile(
               title: Text('Suffixes'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const SuffixPage()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SuffixPage()),
+                );
               },
             ),
             ListTile(
               title: Text('Two letters'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const TwoLetterWordPage()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const TwoLetterWordPage(),
+                  ),
+                );
               },
             ),
           ],

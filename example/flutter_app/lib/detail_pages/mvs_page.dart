@@ -16,7 +16,12 @@ class _MvsPageState extends State<MvsPage> {
   final nirugu = String.fromCharCode(Unicode.MONGOLIAN_NIRUGU);
   final a = String.fromCharCode(Unicode.A);
 
-  Widget _buildVariantRow(String label, String text, {double fontSize = 32, double indent = 32}) {
+  Widget _buildVariantRow(
+    String label,
+    String text, {
+    double fontSize = 32,
+    double indent = 32,
+  }) {
     return Row(
       children: [
         SizedBox(width: indent),
@@ -44,17 +49,35 @@ class _MvsPageState extends State<MvsPage> {
             _buildVariantRow('OE', _getVariant('$nirugu\u1825$mvs$a')),
             _buildVariantRow('UE', _getVariant('$nirugu\u1826$mvs$a')),
             _buildVariantRow('NA', _getVariant('$nirugu\u1828$mvs$a')),
-            _buildVariantRow('NA FVS1', _getVariant('$nirugu\u1828\u180B$mvs$a')),
-            _buildVariantRow('NA FVS2', _getVariant('$nirugu\u1828\u180C$mvs$a')),
+            _buildVariantRow(
+              'NA FVS1',
+              _getVariant('$nirugu\u1828\u180B$mvs$a'),
+            ),
+            _buildVariantRow(
+              'NA FVS2',
+              _getVariant('$nirugu\u1828\u180C$mvs$a'),
+            ),
             _buildVariantRow('QA', _getVariant('$nirugu\u182C$mvs$a')),
-            _buildVariantRow('QA FVS1', _getVariant('$nirugu\u182C\u180B$mvs$a')),
+            _buildVariantRow(
+              'QA FVS1',
+              _getVariant('$nirugu\u182C\u180B$mvs$a'),
+            ),
             _buildVariantRow('GA', _getVariant('$nirugu\u182D$mvs$a')),
-            _buildVariantRow('GA FVS1', _getVariant('$nirugu\u182D\u180B$mvs$a')),
-            _buildVariantRow('GA FVS3', _getVariant('$nirugu\u182D\u180D$mvs$a')),
+            _buildVariantRow(
+              'GA FVS1',
+              _getVariant('$nirugu\u182D\u180B$mvs$a'),
+            ),
+            _buildVariantRow(
+              'GA FVS3',
+              _getVariant('$nirugu\u182D\u180D$mvs$a'),
+            ),
             _buildVariantRow('MA', _getVariant('$nirugu\u182E$mvs$a')),
             _buildVariantRow('LA', _getVariant('$nirugu\u182F$mvs$a')),
             _buildVariantRow('SA', _getVariant('$nirugu\u1830$mvs$a')),
-            _buildVariantRow('SA FVS1', _getVariant('$nirugu\u1830\u180B$mvs$a')),
+            _buildVariantRow(
+              'SA FVS1',
+              _getVariant('$nirugu\u1830\u180B$mvs$a'),
+            ),
             _buildVariantRow('SHA', _getVariant('$nirugu\u1831$mvs$a')),
             _buildVariantRow('JA', _getVariant('$nirugu\u1835$mvs$a')),
             _buildVariantRow('YA', _getVariant('$nirugu\u1836$mvs$a')),
