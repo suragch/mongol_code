@@ -481,6 +481,8 @@ class MongolWord {
       case Location.FINAL:
         if (_fvs == fvs1) {
           renderedWord.add(Menksoft.FINA_O_FVS1); // round o
+        } else if (_fvs == fvs2) {
+          renderedWord.add(Menksoft.FINA_O);
         } else {
           if (_isRoundLetter(charAbove)) {
             renderedWord.add(Menksoft.FINA_O_BP); // After BPFK
@@ -521,7 +523,6 @@ class MongolWord {
             renderedWord.add(Menksoft.MEDI_U); // normal
           }
         }
-
       case Location.FINAL:
         if (_fvs == fvs1) {
           if (_isRoundLetter(charAbove)) {
@@ -529,8 +530,14 @@ class MongolWord {
           } else {
             renderedWord.add(Menksoft.FINA_U_FVS1); // round o
           }
-        } else {
+        } else if (_fvs == fvs2) {
           renderedWord.add(Menksoft.FINA_U);
+        } else {
+          if (_isRoundLetter(charAbove)) {
+            renderedWord.add(Menksoft.FINA_U_FVS1_BP); // After BPFK
+          } else {
+            renderedWord.add(Menksoft.FINA_U);
+          }
         }
     }
     _glyphShapeBelow = Shape.STEM;

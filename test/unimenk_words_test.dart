@@ -524,5 +524,12 @@ void main() {
       final expected = '\uE315\uE27E\uE2B9\uE28D\uE26A';
       expect(result, expected);
     });
+
+    test('abuWord', () async {
+      final unicode = 'ᠠᠪᠤ'; // ABU
+      final result = convertUnicodeToMenksoft(unicode);
+      final expected = '\uE266\uE2C6\uE28F';
+      expect(result, expected);
+    });
   });
 }
