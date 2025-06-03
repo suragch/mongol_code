@@ -121,7 +121,7 @@ class MenksoftWord {
         _handleTa(outputString, currentChar);
       } else if (currentChar < Menksoft.CHA_START) {
         // DA
-        _handleDa(outputString, currentChar);
+        _handleDa(outputString, currentChar, charBelow);
       } else if (currentChar < Menksoft.JA_START) {
         // CHA
         _handleCha(outputString, currentChar);
@@ -182,10 +182,6 @@ class MenksoftWord {
     }
 
     return outputString;
-  }
-
-  bool _startsWithMvs(List<int> outputString) {
-    return outputString.isNotEmpty && outputString[0] == Unicode.MVS;
   }
 
   void _handleA(List<int> outputString, int currentChar) {
@@ -345,9 +341,7 @@ class MenksoftWord {
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.FINA_I:
           case Menksoft.FINA_I_BP:
-            if (!_startsWithMvs(outputString)) {
-              outputString.add(Unicode.MONGOLIAN_NIRUGU);
-            }
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.I);
           case Menksoft.MEDI_I:
           case Menksoft.MEDI_I_BP:
@@ -373,9 +367,7 @@ class MenksoftWord {
           case Menksoft.MEDI_I:
           case Menksoft.MEDI_I_BP:
           case Menksoft.INIT_I_FVS1:
-            if (!_startsWithMvs(outputString)) {
-              outputString.add(Unicode.MONGOLIAN_NIRUGU);
-            }
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.I);
           case Menksoft.MEDI_I_FVS1:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
@@ -454,13 +446,8 @@ class MenksoftWord {
             outputString.add(Unicode.O);
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.FINA_O:
-            if (_startsWithMvs(outputString)) {
-              // substituting more standard U suffix
-              outputString.add(Unicode.U);
-            } else {
-              outputString.add(Unicode.MONGOLIAN_NIRUGU);
-              outputString.add(Unicode.O);
-            }
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+            outputString.add(Unicode.O);
           case Menksoft.FINA_O_FVS1:
           case Menksoft.FINA_O_BP:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
@@ -523,9 +510,7 @@ class MenksoftWord {
             outputString.add(Unicode.U);
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.FINA_U:
-            if (!_startsWithMvs(outputString)) {
-              outputString.add(Unicode.MONGOLIAN_NIRUGU);
-            }
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.U);
           case Menksoft.FINA_U_FVS1:
           case Menksoft.FINA_U_FVS1_BP:
@@ -553,9 +538,7 @@ class MenksoftWord {
             outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_U:
           case Menksoft.MEDI_U_BP:
-            if (!_startsWithMvs(outputString)) {
-              outputString.add(Unicode.MONGOLIAN_NIRUGU);
-            }
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.U);
           default:
             outputString.add(Unicode.U);
@@ -595,13 +578,8 @@ class MenksoftWord {
             outputString.add(Unicode.OE);
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.FINA_OE:
-            if (_startsWithMvs(outputString)) {
-              // substituting more standard UE suffix
-              outputString.add(Unicode.UE);
-            } else {
-              outputString.add(Unicode.MONGOLIAN_NIRUGU);
-              outputString.add(Unicode.OE);
-            }
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+            outputString.add(Unicode.OE);
           case Menksoft.FINA_OE_FVS1:
           case Menksoft.FINA_OE_FVS1_BP:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
@@ -696,9 +674,7 @@ class MenksoftWord {
             outputString.add(Unicode.UE);
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.FINA_UE:
-            if (!_startsWithMvs(outputString)) {
-              outputString.add(Unicode.MONGOLIAN_NIRUGU);
-            }
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.UE);
           case Menksoft.FINA_UE_FVS1:
           case Menksoft.FINA_UE_FVS1_BP:
@@ -738,9 +714,7 @@ class MenksoftWord {
             outputString.add(Unicode.FVS2);
           case Menksoft.MEDI_UE:
           case Menksoft.MEDI_UE_BP:
-            if (!_startsWithMvs(outputString)) {
-              outputString.add(Unicode.MONGOLIAN_NIRUGU);
-            }
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.UE);
           case Menksoft.MEDI_UE_FVS1:
           case Menksoft.MEDI_UE_FVS1_BP:
@@ -1367,7 +1341,7 @@ class MenksoftWord {
     }
   }
 
-  void _handleDa(List<int> outputString, int currentChar) {
+  void _handleDa(List<int> outputString, int currentChar, int charBelow) {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
@@ -1402,14 +1376,26 @@ class MenksoftWord {
           case Menksoft.INIT_DA_FVS1:
           case Menksoft.MEDI_DA_FVS1:
             outputString.add(Unicode.DA);
-            if (!_startsWithMvs(outputString)) {
+            outputString.add(Unicode.FVS1);
+          default:
+            outputString.add(Unicode.DA);
+        }
+      case Location.MEDIAL:
+        switch (currentChar) {
+          case Menksoft.INIT_DA_FVS1:
+          case Menksoft.MEDI_DA_FVS1:
+            outputString.add(Unicode.DA);
+            if (Menksoft.isMenksoftConsonant(charBelow)) {
+              outputString.add(Unicode.FVS1);
+            }
+          case Menksoft.MEDI_DA:
+            outputString.add(Unicode.DA);
+            if (Menksoft.isMenksoftVowel(charBelow)) {
               outputString.add(Unicode.FVS1);
             }
           default:
             outputString.add(Unicode.DA);
         }
-      case Location.MEDIAL:
-        outputString.add(Unicode.DA);
       case Location.FINAL:
         switch (currentChar) {
           case Menksoft.MEDI_DA:
@@ -1474,14 +1460,6 @@ class MenksoftWord {
         }
       case Location.INITIAL:
         switch (currentChar) {
-          case Menksoft.INIT_JA_STEM:
-          case Menksoft.INIT_JA_TOOTH:
-            // if user used a JA to write a YA suffix then replace it
-            if (_startsWithMvs(outputString)) {
-              outputString.add(Unicode.YA);
-            } else {
-              outputString.add(Unicode.JA);
-            }
           case Menksoft.MEDI_JA:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.JA);
@@ -1532,9 +1510,7 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_YA:
             outputString.add(Unicode.YA);
-            if (!_startsWithMvs(outputString)) {
-              outputString.add(Unicode.FVS1);
-            }
+            outputString.add(Unicode.FVS1);
           default:
             outputString.add(Unicode.YA);
         }

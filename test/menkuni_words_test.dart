@@ -582,5 +582,13 @@ void main() {
       final expected = '\u1820\u182A\u1822\u1833\u1820\u182C\u1826\u180B\u1826';
       expect(result, expected);
     });
+
+    test('alexandrWord', () async {
+      final menksoft = '\uE266\uE2FA\uE2B0\uE336\uE301\uE26C\uE2B8\uE313\uE325';
+      final result = convertMenksoftToUnicode(menksoft);
+      final expected =
+          '\u1820\u182F\u1827\u183A\u1830\u1820\u1828\u1833\u180B\u1837';
+      expect(result, expected);
+    });
   });
 }
