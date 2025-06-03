@@ -340,17 +340,17 @@ void main() {
       expect(result, expected);
     });
 
-    test('uuSuffix', () async {
-      final unicode = ' ᠤᠤ'; //
+    test('uuWord', () async {
+      final unicode = 'ᠤᠤ'; // not a suffix
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE263\uE292\uE28D';
+      final expected = '\uE292\uE28D';
       expect(result, expected);
     });
 
-    test('ueueSuffix', () async {
-      final unicode = ' ᠦᠦ'; //
+    test('ueueWord', () async {
+      final unicode = 'ᠦᠦ'; // not a suffix
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = '\uE263\uE2AC\uE2A3';
+      final expected = '\uE2AC\uE2A3';
       expect(result, expected);
     });
 

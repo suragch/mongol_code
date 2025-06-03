@@ -486,7 +486,6 @@ void main() {
       final unicode = 'ᠴᠣᠭᠴᠡᠴᠡᠭ'; // CHOGCHECHEG
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE315\uE289\uE2EE\uE317\uE276\uE317\uE276\uE2E8';
-      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -523,7 +522,6 @@ void main() {
       final unicode = 'ᠴᠢᠨᠤ᠎ᠠ'; // CHINU(MVS)A
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE315\uE27E\uE2B9\uE28D\uE26A';
-      printResult(result, expected);
       expect(result, expected);
     });
   });
