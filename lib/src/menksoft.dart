@@ -640,8 +640,4 @@ class Menksoft {
   static bool isMenksoftANG(int currentChar) {
     return (currentChar >= ANG_START && currentChar <= ANG_END);
   }
-
-  static bool isMenksoftI(int character) {
-    return character >= ISOL_I && character <= ISOL_I_FVS1;
-  }
 }

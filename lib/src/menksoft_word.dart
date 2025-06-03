@@ -393,7 +393,7 @@ class MenksoftWord {
           case Menksoft.MEDI_I:
           case Menksoft.MEDI_I_BP:
             if (Menksoft.isMenksoftVowel(charAbove) &&
-                Menksoft.isMenksoftI(charBelow)) {
+                _isLongToothI(charBelow)) {
               // Drop the I. It isn't needed for diphthongs.
             } else {
               outputString.add(Unicode.I);
@@ -427,6 +427,13 @@ class MenksoftWord {
             outputString.add(Unicode.I);
         }
     }
+  }
+
+  bool _isLongToothI(int character) {
+    return character == Menksoft.MEDI_I ||
+        character == Menksoft.MEDI_I_BP ||
+        character == Menksoft.INIT_I_FVS1 ||
+        character == Menksoft.MEDI_YA_FVS1;
   }
 
   bool _isMenksoftA(int character) {
@@ -880,7 +887,7 @@ class MenksoftWord {
             outputString.add(Unicode.NA);
             if (Menksoft.isMenksoftVowel(charAbove) &&
                 Menksoft.isMenksoftVowel(charBelow)) {
-              outputString.add(Unicode.MONGOLIAN_NIRUGU);
+              outputString.add(Unicode.FVS2);
             }
           case Menksoft.MEDI_NA_FVS1_NG:
           case Menksoft.MEDI_NA_FVS1_STEM:
@@ -1524,10 +1531,11 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_YA_FVS1:
             if (Menksoft.isMenksoftVowel(charAbove) &&
-                Menksoft.isMenksoftI(charBelow)) {
+                _isLongToothI(charBelow)) {
               // Drop the Y. It isn't needed for diphthongs.
             } else {
               outputString.add(Unicode.YA);
+              outputString.add(Unicode.FVS1);
             }
           default:
             outputString.add(Unicode.YA);
