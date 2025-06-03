@@ -465,7 +465,7 @@ void main() {
     test('quuWord', () async {
       final menksoft = '\uE2D4\uE2AA\uE2A3';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠬᠦᠦ'; // QUU
+      final expected = '\u182C\u1826\u1826'; // QUU
       expect(result, expected);
     });
 
@@ -565,6 +565,21 @@ void main() {
       final menksoft = '\uE2FD\uE27E\uE2E7';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = 'ᠰᠢᠭ᠋'; // SIG(FVS1)
+      expect(result, expected);
+    });
+
+    test('awangardWord', () async {
+      final menksoft = '\uE266\uE32C\uE26C\uE2B7\uE2EA\uE26C\uE327\uE312';
+      final result = convertMenksoftToUnicode(menksoft);
+      final expected =
+          '\u1820\u1838\u1820\u1828\u180B\u182D\u1820\u1837\u1833\u180B';
+      expect(result, expected);
+    });
+
+    test('abidaquuWord', () async {
+      final menksoft = '\uE266\uE2C5\uE27F\uE313\uE26C\uE2DD\uE2AA\uE2A3';
+      final result = convertMenksoftToUnicode(menksoft);
+      final expected = '\u1820\u182A\u1822\u1833\u1820\u182C\u1826\u180B\u1826';
       expect(result, expected);
     });
   });

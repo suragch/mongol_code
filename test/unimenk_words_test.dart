@@ -1,13 +1,7 @@
 import 'package:mongol_code/alternative/convert_unicode.dart';
 import 'package:test/test.dart';
 
-void printResult(String result, String expected) {
-  print(
-    'actual:   ${result.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}\n'
-    'expected: ${expected.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}',
-  );
-}
-// printResult(result, expected);
+import 'print_result.dart';
 
 void main() {
   group('Unicode -> Menksoft: Words', () {
@@ -529,6 +523,13 @@ void main() {
       final unicode = 'ᠠᠪᠤ'; // ABU
       final result = convertUnicodeToMenksoft(unicode);
       final expected = '\uE266\uE2C6\uE28F';
+      expect(result, expected);
+    });
+
+    test('aburqagWord', () async {
+      final unicode = '\u1820\u182A\u1824\u1837\u182C\u1820\u182D'; // ABURQAG
+      final result = convertUnicodeToMenksoft(unicode);
+      final expected = '\uE266\uE2C6\uE292\uE327\uE2D8\uE26C\uE2E7';
       expect(result, expected);
     });
   });

@@ -652,6 +652,13 @@ class MenksoftWord {
         }
       case Location.MEDIAL:
         switch (currentChar) {
+          case Menksoft.MEDI_OE_FVS1:
+          case Menksoft.MEDI_OE_FVS1_BP:
+            outputString.add(Unicode.OE);
+            final index = outputString.length - 1;
+            if (!MongolCode.needsLongToothU(outputString, index)) {
+              outputString.add(Unicode.FVS1);
+            }
           case Menksoft.MEDI_OE_FVS2:
             outputString.add(Unicode.OE);
             outputString.add(Unicode.FVS2);
@@ -746,6 +753,7 @@ class MenksoftWord {
       case Location.MEDIAL:
         switch (currentChar) {
           case Menksoft.MEDI_UE_FVS1:
+          case Menksoft.MEDI_UE_FVS1_BP:
             outputString.add(Unicode.UE);
             final index = outputString.length - 1;
             if (!MongolCode.needsLongToothU(outputString, index)) {
@@ -1411,6 +1419,9 @@ class MenksoftWord {
             outputString.add(Unicode.DA);
             outputString.add(Unicode.FVS1);
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
+          case Menksoft.FINA_DA_FVS1:
+            outputString.add(Unicode.DA);
+            outputString.add(Unicode.FVS1);
           default:
             outputString.add(Unicode.DA);
         }

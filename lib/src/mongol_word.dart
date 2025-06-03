@@ -1258,10 +1258,10 @@ class MongolWord {
             beforeIndex: positionInWord,
           );
           if (_gender == Gender.MASCULINE) {
-            renderedWord.add(Menksoft.FINA_GA); // masculine
+            renderedWord.add(Menksoft.FINA_GA_FVS1); // masculine
           } else {
             // Defaulting to feminine form for I
-            renderedWord.add(Menksoft.FINA_GA_FVS2); // feminine
+            renderedWord.add(Menksoft.FINA_GA); // feminine
           }
         }
         _glyphShapeBelow = Shape.TOOTH;
