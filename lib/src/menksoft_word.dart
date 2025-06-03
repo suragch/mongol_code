@@ -1,3 +1,5 @@
+import 'package:mongol_code/alternative/fixed_words_menk_uni.dart';
+
 import 'gender.dart';
 import 'location.dart';
 import 'menksoft.dart';
@@ -33,11 +35,16 @@ class MenksoftWord {
   }
 
   List<int> convertToUnicode() {
-    final outputString = <int>[];
-
     if (_inputWord.isEmpty) {
       return [];
     }
+
+    final fixedSequence = checkFixedSequenceMenkToUni(_inputWord);
+    if (fixedSequence != null) {
+      return fixedSequence;
+    }
+
+    final outputString = <int>[];
 
     var charAbove = 0;
     var currentChar = _inputWord[0];
@@ -1089,10 +1096,9 @@ class MenksoftWord {
           case Menksoft.MEDI_GA_FVS2_TOOTH:
           case Menksoft.MEDI_GA_FVS2_STEM:
             outputString.add(Unicode.GA);
-
             final gender = MongolCode.genderOf(word: outputString);
             if (gender == Gender.MASCULINE) {
-              outputString.add(Unicode.FVS3);
+              outputString.add(Unicode.FVS2);
             }
           default:
             outputString.add(Unicode.GA);
@@ -1102,21 +1108,20 @@ class MenksoftWord {
         final gender = MongolCode.genderOf(word: outputString);
         switch (currentChar) {
           case Menksoft.FINA_GA_FVS1:
-            if (gender == Gender.NEUTER) {
+            if (gender != Gender.MASCULINE) {
               outputString.add(Unicode.FVS1);
             }
           case Menksoft.FINA_GA_FVS2:
             if (gender == Gender.MASCULINE) {
               outputString.add(Unicode.FVS2);
             }
+          case Menksoft.FINA_GA_FVS3:
+            outputString.add(Unicode.FVS3);
           case Menksoft.MEDI_GA:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_GA_FVS1_STEM:
           case Menksoft.MEDI_GA_FVS1_TOOTH:
             outputString.add(Unicode.FVS1);
-            outputString.add(Unicode.MONGOLIAN_NIRUGU);
-          case Menksoft.MEDI_GA_FVS3_MVS:
-            outputString.add(Unicode.FVS2);
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_GA_FVS2_STEM:
           case Menksoft.MEDI_GA_FVS2_TOOTH:

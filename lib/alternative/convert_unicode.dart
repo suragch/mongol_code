@@ -1,4 +1,4 @@
-import 'package:mongol_code/alternative/fixed_words.dart';
+import 'package:mongol_code/alternative/fixed_words_uni_menk.dart';
 
 import '../mongol_code.dart';
 import '../src/mongol_word.dart';
@@ -175,7 +175,7 @@ List<int> _processMongolianWord(List<int> unicode) {
   // --- Apply Rules in Priority Order ---
 
   // 1. Check Fixed Sequences (GBT+25914-2023 Appendix D)
-  final fixedSequence = checkFixedSequence(unicode);
+  final fixedSequence = checkFixedSequenceUniToMenk(unicode);
   if (fixedSequence != null) {
     return fixedSequence;
   }

@@ -14,6 +14,7 @@ class _OneWayConversionPageState extends State<OneWayConversionPage> {
   String _inputCode = '';
   String _outputCode = '';
   String _conversion = '';
+  String _original = '';
   bool _isMenksoftToUnicode = true;
 
   @override
@@ -57,6 +58,7 @@ class _OneWayConversionPageState extends State<OneWayConversionPage> {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
+                  Text(_original, style: TextStyle(fontSize: 40)),
                   Text(_conversion, style: TextStyle(fontSize: 40)),
                   Text('Input'),
                   Text(_inputCode, style: TextStyle(fontSize: 12)),
@@ -79,16 +81,16 @@ class _OneWayConversionPageState extends State<OneWayConversionPage> {
   }
 
   void _convertText() {
-    final input = _convertToString(_inputController.text);
+    _original = _convertToString(_inputController.text);
     final String output;
     if (_isMenksoftToUnicode) {
-      output = convertMenksoftToUnicode(input);
+      output = convertMenksoftToUnicode(_original);
     } else {
-      output = convertUnicodeToMenksoft(input);
+      output = convertUnicodeToMenksoft(_original);
     }
     setState(() {
       _conversion = output;
-      _inputCode = _toHex(input);
+      _inputCode = _toHex(_original);
       _outputCode = _toHex(output);
     });
   }

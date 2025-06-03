@@ -1,9 +1,11 @@
 // GBT+25924-2023 Appendix D
 
-List<int>? checkFixedSequence(List<int> unicode) {
+List<int>? checkFixedSequenceUniToMenk(List<int> unicode) {
   final word = String.fromCharCodes(unicode);
   final menksoft =
-      _fixedTwoLetterWords[word] ?? _fixedSuffixes[word] ?? _fixedWords[word];
+      _fixedTwoLetterWordsUniToMenk[word] ??
+      _fixedSuffixesUniToMenk[word] ??
+      _fixedWordsUniToMenk[word];
   if (menksoft == null) return null;
   return menksoft.codeUnits;
 }
@@ -11,7 +13,7 @@ List<int>? checkFixedSequence(List<int> unicode) {
 // NCC: Non-combining consonants (NA, MA, LA, etc)
 // MCC: Mongolian combining consonants (BA, PA, FA, KA, KHA)
 // MCCC: Mongolian conditional combining consonants (QA, GA)
-const _fixedTwoLetterWords = {
+const _fixedTwoLetterWordsUniToMenk = {
   ////// FIXED TWO-LETTER WORDS //////
 
   // 1. NCC|MCCC + A
@@ -178,7 +180,7 @@ const _fixedTwoLetterWords = {
   '\u1831\u1822': '\uE303\uE27B',
 };
 
-const _fixedSuffixes = {
+const _fixedSuffixesUniToMenk = {
   // A
   '\u180E\u1820': '\uE263\uE26A',
   // E
@@ -282,7 +284,7 @@ const _fixedSuffixes = {
   '\u180E\u1833\u1821': '\uE263\uE310\uE273',
 };
 
-const _fixedWords = {
+const _fixedWordsUniToMenk = {
   // UU
   '\u1824\u1824': '\uE292\uE28D',
   // UEUE
