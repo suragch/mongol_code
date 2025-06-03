@@ -392,10 +392,15 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_I:
           case Menksoft.MEDI_I_BP:
-            outputString.add(Unicode.I);
-            if (_isLikeIofNaima(charAbove, charBelow)) {
-              // override double tooth for words like NAIMA
-              outputString.add(Unicode.FVS2);
+            if (Menksoft.isMenksoftVowel(charAbove) &&
+                Menksoft.isMenksoftI(charBelow)) {
+              // Drop the I. It isn't needed for diphthongs.
+            } else {
+              outputString.add(Unicode.I);
+              if (_isMenksoftA(charAbove) && _isMenksoftM(charBelow)) {
+                // override double tooth for words like NAIMA
+                outputString.add(Unicode.FVS3);
+              }
             }
           case Menksoft.MEDI_I_FVS1:
             outputString.add(Unicode.I);
@@ -422,10 +427,6 @@ class MenksoftWord {
             outputString.add(Unicode.I);
         }
     }
-  }
-
-  bool _isLikeIofNaima(int charAbove, int charBelow) {
-    return _isMenksoftA(charAbove) && _isMenksoftM(charBelow);
   }
 
   bool _isMenksoftA(int character) {
@@ -1522,11 +1523,11 @@ class MenksoftWord {
       case Location.MEDIAL:
         switch (currentChar) {
           case Menksoft.MEDI_YA_FVS1:
-            outputString.add(Unicode.YA);
             if (Menksoft.isMenksoftVowel(charAbove) &&
                 Menksoft.isMenksoftI(charBelow)) {
-              // override context rule that would make a normal Y straight
-              outputString.add(Unicode.FVS1);
+              // Drop the Y. It isn't needed for diphthongs.
+            } else {
+              outputString.add(Unicode.YA);
             }
           default:
             outputString.add(Unicode.YA);

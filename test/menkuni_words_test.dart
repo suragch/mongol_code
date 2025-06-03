@@ -32,7 +32,6 @@ void main() {
       final result = convertMenksoftToUnicode(menksoft);
       final expected =
           '\u182A\u1826\u1835\u1822\u182D\u180E\u1822\u180E\u182A\u1821\u1828\u180E\u1836\u1826\u182D\u1821\u1828'; // 'ᠪᠦᠵᠢᠭ ᠢ ᠪᠡᠨ ᠶᠦᠭᠡᠨ';
-      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -42,14 +41,13 @@ void main() {
       final result = convertMenksoftToUnicode(menksoft);
       final expected =
           '\u1834\u1822\u1837\u1822\u182D\u180E\u182E\u1820\u1828\u1822'; // 'ᠴᠢᠷᠢᠭ ᠮᠠᠨᠢ'; // CHIRIG (NNBSP) MANI
-      printResult(result, expected);
       expect(result, expected);
     });
 
     test('egchiWord', () async {
       final menksoft = '\uE271\uE2F0\uE317\uE273';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠡᠭᠴᠡ'; // EGCHI
+      final expected = '\u1821\u182D\u1834\u1821'; // 'ᠡᠭᠴᠡ'; // EGCHI
       expect(result, expected);
     });
 
@@ -57,8 +55,9 @@ void main() {
       final menksoft =
           '\uE2D4\uE2AA\uE2F0\uE31D\uE27E\uE2F3\uE263\uE310\uE2AB\uE325\uE263\uE280\uE321\uE276\uE2B5\uE263\uE310\uE276\uE2EB\uE277\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
+      // 'ᠬᠦᠭᠵᠢᠮ ᠳᠦᠷ ᠢᠶᠡᠨ ᠳᠡᠭᠡᠨ'; // QUGJIM (NNBSP) DUR (NNBSP) IYEN (NNBSP) DEGEN
       final expected =
-          'ᠬᠦᠭᠵᠢᠮ ᠳᠦᠷ ᠢᠶᠡᠨ ᠳᠡᠭᠡᠨ'; // QUGJIM (NNBSP) DUR (NNBSP) IYEN (NNBSP) DEGEN
+          '\u182C\u1826\u182D\u1835\u1822\u182E\u180E\u1833\u1826\u1837\u180E\u1822\u1836\u1821\u1828\u180E\u1833\u1821\u182D\u1821\u1828';
       expect(result, expected);
     });
 
@@ -66,7 +65,9 @@ void main() {
       final menksoft =
           '\uE2C2\uE2AA\uE327\uE27E\uE314\uE2EB\uE277\uE2F9\uE263\uE280\uE321\uE276\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠪᠦᠷᠢᠳᠭᠡᠯ ᠢᠶᠡᠨ'; // BURIDGEL (NNBSP) IYEN
+      final expected =
+          '\u182A\u1826\u1837\u1822\u1833\u182D\u1821\u182F\u180E\u1822\u1836\u1821\u1828';
+      // 'ᠪᠦᠷᠢᠳᠭᠡᠯ ᠢᠶᠡᠨ' BURIDGEL (NNBSP) IYEN
       expect(result, expected);
     });
 
@@ -74,7 +75,9 @@ void main() {
       final menksoft =
           '\uE2FD\uE276\uE314\uE2DA\uE27F\uE2F9\uE263\uE2F1\uE27E\uE2B7\uE27B';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠰᠡᠳᠬᠢᠯ ᠮᠢᠨᠢ'; // SEDQIL (NNBSP) MINI
+      final expected =
+          '\u1830\u1821\u1833\u182C\u1822\u182F\u180E\u182E\u1822\u1828\u1822';
+      // 'ᠰᠡᠳᠬᠢᠯ ᠮᠢᠨᠢ'; // SEDQIL (NNBSP) MINI
       expect(result, expected);
     });
 
@@ -82,7 +85,9 @@ void main() {
       final menksoft =
           '\uE2A2\uE27E\uE2FA\uE276\uE314\uE2C6\uE2AC\uE327\uE27B\uE263\uE310\uE2A3';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠦᠢᠯᠡᠳᠪᠦᠷᠢ ᠳᠦ'; // UILEDBURI (NNBSP) DU
+      final expected =
+          '\u1826\u1822\u182F\u1821\u1833\u182A\u1826\u1837\u1822\u180E\u1833\u1826';
+      //'ᠦᠢᠯᠡᠳᠪᠦᠷᠢ ᠳᠦ'; // UILEDBURI (NNBSP) DU
       expect(result, expected);
     });
 
@@ -90,7 +95,10 @@ void main() {
       final menksoft =
           '\uE31A\uE276\uE2FA\uE27E\uE2ED\uE2AC\uE314\uE2DA\uE277\uE2B5\uE263\uE2A3';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠵᠡᠯᠢᠭᠦᠳᠬᠡᠨ ᠦ'; // JELIGUDQEN (NNBSP) U
+      final expected =
+          '\u1835\u1821\u182F\u1822\u182D\u1826\u1833\u182C\u1821\u1828\u180E\u1826';
+      //'ᠵᠡᠯᠢᠭᠦᠳᠬᠡᠨ ᠦ'; // JELIGUDQEN (NNBSP) U
+      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -99,14 +107,18 @@ void main() {
           '\uE2F1\uE26C\uE2BC\uE2EA\uE26C\uE2F9\uE263\uE310\uE291\uE325\uE263\uE280\uE321\uE26C\uE2B5\uE263\uE310\uE26C\uE2EA\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
       final expected =
-          'ᠮᠠᠩᠭᠠᠯ ᠳᠤᠷ ᠢᠶᠠᠨ ᠳᠠᠭᠠᠨ'; // MANGGAL (NNBSP) DUR (NNBSP) IYAN (NNBSP) DAGAN
+          '\u182E\u1820\u1829\u182D\u1820\u182F\u180E\u1833\u1824\u1837\u180E\u1822\u1836\u1820\u1828\u180E\u1833\u1820\u182D\u1820\u1828';
+      //'ᠮᠠᠩᠭᠠᠯ ᠳᠤᠷ ᠢᠶᠠᠨ ᠳᠠᠭᠠᠨ'; // MANGGAL (NNBSP) DUR (NNBSP) IYAN (NNBSP) DAGAN
+      printResult(result, expected);
       expect(result, expected);
     });
 
     test('dengWord', () async {
       final menksoft = '\uE310\uE2A9\uE2BB\uE263\uE282';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠳ᠋ᠦᠩ ᠢ'; // D(FVS1)UNG (NNBSP) I
+      final expected = '\u1833\u180B\u1826\u1829\u180E\u1822';
+      //'ᠳ᠋ᠦᠩ ᠢ'; // D(FVS1)UNG (NNBSP) I
+      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -115,7 +127,9 @@ void main() {
           '\uE2FE\uE289\uE314\uE2B7\uE26C\uE2F3\uE263\uE267\uE317\uE268\uE263\uE2C1\uE26D\uE2B5\uE263\uE267\uE317\uE26C\uE2EA\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
       final expected =
-          'ᠰᠣᠳᠨᠠᠮ ᠠᠴᠠ ᠪᠠᠨ ᠠᠴᠠᠭᠠᠨ'; // SODNAM (NNBSP) ACHA (NNBSP) BAN (NNBSP) ACHAGAN
+          '\u1830\u1823\u1833\u1828\u1820\u182E\u180E\u1820\u1834\u1820\u180E\u182A\u1820\u1828\u180E\u1820\u1834\u1820\u182D\u1820\u1828';
+      // 'ᠰᠣᠳᠨᠠᠮ ᠠᠴᠠ ᠪᠠᠨ ᠠᠴᠠᠭᠠᠨ'; // SODNAM (NNBSP) ACHA (NNBSP) BAN (NNBSP) ACHAGAN
+      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -123,7 +137,10 @@ void main() {
       final menksoft =
           '\uE34B\uE26C\uE2EE\uE2C5\uE26B\uE263\uE2F8\uE291\uE2E9\uE26A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᡀᠠᠭᠪᠠ ᠯᠤᠭ᠎ᠠ'; // LHAGBA (NNBSP) LUG(MVS)A
+      final expected =
+          '\u1840\u1820\u182D\u182A\u1820\u180E\u182F\u1824\u182D\u180E\u1820';
+      // 'ᡀᠠᠭᠪᠠ ᠯᠤᠭ᠎ᠠ'; // LHAGBA (NNBSP) LUG(MVS)A
+      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -131,7 +148,10 @@ void main() {
       final menksoft =
           '\uE315\uE276\uE2C5\uE277\uE2EB\uE2F6\uE276\uE311\uE263\uE2F8\uE2AB\uE2EB\uE275';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠴᠡᠪᠡᠭᠮᠡᠳ ᠯᠦᠭᠡ'; // CHEBEGMED (NNBSP) LUGE
+      final expected =
+          '\u1834\u1821\u182A\u1821\u182D\u182E\u1821\u1833\u180E\u182F\u1826\u182D\u1821';
+      //'ᠴᠡᠪᠡᠭᠮᠡᠳ ᠯᠦᠭᠡ'; // CHEBEGMED (NNBSP) LUGE
+      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -139,7 +159,10 @@ void main() {
       final menksoft =
           '\uE33F\uE2B0\uE2F4\uE2B0\uE2BA\uE30A\uE263\uE308\uE26C\uE321\uE27E\uE2EA\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠼᠧᠮᠧᠨᠲ ᠲᠠᠶᠢᠭᠠᠨ'; // TSEMENT (NNBSP) TAYIGAN
+      final expected =
+          '\u183C\u1827\u182E\u1827\u1828\u1832\u180E\u1832\u1820\u1822\u182D\u1820\u1828';
+      // 'ᠼᠧᠮᠧᠨᠲ ᠲᠠᠢᠭᠠᠨ'; // TSEMENT (NNBSP) TAIGAN
+      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -147,14 +170,19 @@ void main() {
       final menksoft =
           '\uE2A2\uE2B7\uE27E\uE31F\uE274\uE263\uE308\uE276\uE321\uE27E\uE2EB\uE277\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠦᠨᠢᠶ᠎ᠡ ᠲᠡᠶᠢᠭᠡᠨ'; // UNIY(MVS)E (NNBSP) TEYIGEN
+      final expected =
+          '\u1826\u1828\u1822\u1836\u180E\u1821\u180E\u1832\u1821\u1822\u182D\u1821\u1828';
+      // 'ᠦᠨᠢᠶ᠎ᠡ ᠲᠡᠶᠢᠭᠡᠨ'; // UNIY(MVS)E (NNBSP) TEIGEN
+      printResult(result, expected);
       expect(result, expected);
     });
 
-    test('qoyinaWord', () async {
+    test('qoinaWord', () async {
       final menksoft = '\uE2D2\uE289\uE321\uE27E\uE2B6\uE26A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠬᠣᠶᠢᠨ᠎ᠠ'; // QOYIN(MVS)A
+      final expected = '\u182C\u1823\u1822\u1828\u180E\u1820';
+      // 'ᠬᠣᠶᠢᠨ᠎ᠠ'; // QOIN(MVS)A
+      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -238,10 +266,12 @@ void main() {
       expect(result, expected);
     });
 
-    test('bayigulquWord', () async {
+    test('baigulquWord', () async {
       final menksoft = '\uE2C1\uE26D\uE321\uE27E\uE2EC\uE291\uE2FA\uE2DC\uE28D';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠪᠠᠶᠢᠭᠤᠯᠬᠤ'; // BAYIGULQU
+      final expected = '\u182A\u1820\u1822\u182D\u1824\u182F\u182C\u1824';
+      // 'ᠪᠠᠢᠭᠤᠯᠬᠤ'; // BAIGULQU
+      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -263,7 +293,9 @@ void main() {
       final menksoft =
           '\uE2B1\uE276\uE321\uE27E\uE2EB\uE277\uE2F5\uE2FA\uE27E\uE2E8';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠨᠡᠶᠢᠭᠡᠮᠯᠢᠭ'; // NEYIGEMLIG
+      final expected = '\u1828\u1821\u1822\u182D\u1821\u182E\u182F\u1822\u182D';
+      // 'ᠨᠡᠶᠢᠭᠡᠮᠯᠢᠭ'; // NEIGEMLIG
+      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -298,7 +330,9 @@ void main() {
     test('programWord', () async {
       final menksoft = '\uE2C8\uE326\uE289\uE2EF\uE327\uE26C\uE2F3';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠫᠷᠣᠭ᠍ᠷᠠᠮ'; // PROG(FVS3)RAM
+      final expected = '\u182B\u1837\u1823\u182D\u180C\u1837\u1820\u182E';
+      // PROG(FVS2)RAM
+      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -345,10 +379,12 @@ void main() {
       expect(result, expected);
     });
 
-    test('nayijaWord', () async {
+    test('naijaWord', () async {
       final menksoft = '\uE2B1\uE26C\uE321\uE27E\uE31D\uE268';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠨᠠᠶᠢᠵᠠ'; // NAYIJA
+      final expected = '\u1828\u1820\u1822\u1835\u1820';
+      // 'ᠨᠠᠢᠵᠠ'; // NAIJA
+      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -360,37 +396,47 @@ void main() {
     });
 
     test('bayinaWord', () async {
+      // BAYIN-A in Menksoft should give BAIN-A in Unicode
       final menksoft = '\uE2C1\uE26D\uE321\uE27E\uE2B6\uE26A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠪᠠᠶᠢᠨ᠎ᠠ'; // BAYIN(MVS)A
+      final expected = '\u182A\u1820\u1822\u1828\u180E\u1820';
+      printResult(result, expected);
       expect(result, expected);
     });
 
     test('baiinaWord', () async {
+      // BAIIN-A in Menksoft should give BAIN-A in Unicode
       final menksoft = '\uE2C1\uE26D\uE27E\uE27E\uE2B6\uE26A';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠪᠠᠢᠢᠨ᠎ᠠ'; // BAIIN(MVS)A
+      final expected = '\u182A\u1820\u1822\u1828\u180E\u1820';
+      // final expected = 'ᠪᠠᠢᠨ᠎ᠠ';
       expect(result, expected);
     });
 
     test('saihanWord', () async {
       final menksoft = '\uE2FD\uE26C\uE321\uE27E\uE2D8\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠰᠠᠶᠢᠬᠠᠨ'; // SAYIHAN
+      final expected = '\u1830\u1820\u1836\u1822\u182C\u1820\u1828';
+      // 'ᠰᠠᠶᠢᠬᠠᠨ'; // SAYIHAN
+      printResult(result, expected);
       expect(result, expected);
     });
 
     test('sayihanWord', () async {
       final menksoft = '\uE2FD\uE26C\uE320\uE27E\uE2D8\uE26C\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠰᠠᠶ\u180Bᠢᠬᠠᠨ'; // SAY(FVS1)IHAN
+      final expected = '\u1830\u1820\u1836\u180B\u1822\u182C\u1820\u1828';
+      // 'ᠰᠠᠶ\u180Bᠢᠬᠠᠨ'; // SAY(FVS1)IHAN
+      printResult(result, expected);
       expect(result, expected);
     });
 
     test('sayiWord', () async {
       final menksoft = '\uE2FD\uE26C\uE320\uE27B';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠰᠠᠶ\u180Bᠢ'; // SAY(FVS1)I
+      final expected = '\u1830\u1820\u1836\u180B\u1822';
+      // 'ᠰᠠᠶ\u180Bᠢ'; // SAY(FVS1)I
+      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -404,14 +450,18 @@ void main() {
     test('namayiWord', () async {
       final menksoft = '\uE2B1\uE26C\uE2F4\uE26C\uE321\uE27B';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠨᠠᠮᠠᠶᠢ'; // NAMAYI
+      final expected = '\u1828\u1820\u182E\u1820\u1836\u1822';
+      // 'ᠨᠠᠮᠠᠶᠢ'; // NAMAYI
+      printResult(result, expected);
       expect(result, expected);
     });
 
     test('eyimuWord', () async {
       final menksoft = '\uE271\uE321\uE27E\uE2F5\uE2A3';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠡᠶᠢᠮᠦ'; // EYIMU
+      final expected = '\u1821\u1836\u1822\u182E\u1826';
+      // 'ᠡᠶᠢᠮᠦ'; // EYIMU
+      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -446,7 +496,9 @@ void main() {
     test('qeduyinWord', () async {
       final menksoft = '\uE2D0\uE277\uE313\uE2AB\uE321\uE27E\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠬᠡᠳᠦᠶᠢᠨ'; // QEDUYIN
+      final expected =
+          '\u182C\u1821\u1833\u1826\u1836\u1822\u1828'; // 'ᠬᠡᠳᠦᠶᠢᠨ'; // QEDUYIN
+      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -482,7 +534,10 @@ void main() {
     test('cholmonodoWord', () async {
       final menksoft = '\uE315\uE289\uE2FB\uE2F5\uE289\uE2BA\uE288\uE313\uE285';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠴᠣᠯᠮᠣᠨ\u200Dᠣ᠋ᠳᠣ'; // CHOLMON(ZWJ)O(FVS1)DO
+      final expected =
+          '\u1834\u1823\u182F\u182E\u1823\u1828\u200D\u1823\u180B\u1833\u1823';
+      // 'ᠴᠣᠯᠮᠣᠨ\u200Dᠣ᠋ᠳᠣ'; // CHOLMON(ZWJ)O(FVS1)DO
+      printResult(result, expected);
       expect(result, expected);
     });
 
@@ -490,7 +545,10 @@ void main() {
       final menksoft =
           '\uE2C1\uE26D\uE320\uE26C\uE2BA\uE2A8\uE2B8\uE313\uE2AB\uE325';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠪᠠᠶᠠᠨ\u200Dᠦ᠌ᠨᠳᠦᠷ'; // BAYAN(ZWJ)U(FVS1)NDUR
+      final expected =
+          '\u182A\u1820\u1836\u1820\u1828\u200D\u1826\u180C\u1828\u1833\u1826\u1837';
+      // 'ᠪᠠᠶᠠᠨ\u200Dᠦ᠌ᠨᠳᠦᠷ'; // BAYAN(ZWJ)U(FVS1)NDUR
+      printResult(result, expected);
       expect(result, expected);
     });
 
