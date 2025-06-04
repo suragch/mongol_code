@@ -2,15 +2,6 @@ import 'package:mongol_code/alternative/convert_unicode.dart';
 import 'package:test/test.dart';
 import 'package:mongol_code/mongol_code.dart';
 
-// printResult(result, expected);
-
-void printResult(String actual, String expected) {
-  print(
-    'actual:   ${actual.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}\n'
-    'expected: ${expected.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}',
-  );
-}
-
 void main() {
   group('Unicode -> Menksoft: all combinations of Unicode+FVS', () {
     group('A', () {

@@ -1,8 +1,6 @@
 import 'package:mongol_code/alternative/convert_unicode.dart';
 import 'package:test/test.dart';
 
-import 'print_result.dart';
-
 void main() {
   group('Unicode -> Menksoft: Words', () {
     test('bichigWord', () async {

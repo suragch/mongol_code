@@ -1,8 +1,6 @@
 import 'package:test/test.dart';
 import 'package:mongol_code/mongol_code.dart';
 
-MongolCode converter = MongolCode.instance;
-
 void main() {
   group('Unicode suffix lookup', () {
     test('getSuffixYinUnU_forMasculineWordEndingWithVowel_A', () async {

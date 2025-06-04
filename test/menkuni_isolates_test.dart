@@ -2,13 +2,6 @@ import 'package:mongol_code/alternative/convert_menksoft.dart';
 import 'package:mongol_code/mongol_code.dart';
 import 'package:test/test.dart';
 
-void printResult(String result, String expected) {
-  print(
-    'result:   ${result.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}\n'
-    'expected: ${expected.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}',
-  );
-}
-
 void main() {
   group('Menksoft -> Unicode: all isolate values', () {
     test('isolateE234', () async {

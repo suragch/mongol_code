@@ -1,13 +1,6 @@
 import 'package:mongol_code/alternative/convert_menksoft.dart';
 import 'package:test/test.dart';
 
-void printResult(String actual, String expected) {
-  print(
-    'actual:   ${actual.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}\n'
-    'expected: ${expected.codeUnits.map((e) => '0x${e.toRadixString(16).toUpperCase()}')}',
-  );
-}
-
 void main() {
   group('Menksoft -> Unicode: Suffixes', () {
     test('yinSuffix', () async {
