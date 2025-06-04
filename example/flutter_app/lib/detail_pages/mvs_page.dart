@@ -44,6 +44,7 @@ class _MvsPageState extends State<MvsPage> {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: ListView(
           children: [
+            _buildVariantRow('I', _getVariant('$nirugu\u1822$mvs$a')),
             _buildVariantRow('O', _getVariant('$nirugu\u1823$mvs$a')),
             _buildVariantRow('U', _getVariant('$nirugu\u1824$mvs$a')),
             _buildVariantRow('OE', _getVariant('$nirugu\u1825$mvs$a')),

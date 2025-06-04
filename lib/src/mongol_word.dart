@@ -406,31 +406,29 @@ class MongolWord {
       case Location.MEDIAL:
         if (_fvs == fvs1) {
           renderedWord.add(Menksoft.MEDI_I_FVS1);
-          break;
         } else if (_fvs == fvs2) {
           renderedWord.add(Menksoft.MEDI_I_FVS2);
-          break;
         } else if (_fvs == fvs3) {
           renderedWord.add(Menksoft.MEDI_I);
-          break;
+        } else if (charBelow == Unicode.MVS) {
+          renderedWord.add(Menksoft.FINA_I);
+        } else {
+          if (_isRoundLetterIncludingQG(charAbove)) {
+            // After BPFK
+            renderedWord.add(Menksoft.MEDI_I_BP);
+          } else if (_contextCallsForDoubleToothI(
+            positionInWord,
+            charAbove,
+            charBelow,
+          )) {
+            // *** AI, EI, OI, UI, OEI, UEI
+            // medial double tooth I diphthong rule ***
+            renderedWord.add(Menksoft.MEDI_I_FVS2); // double tooth
+          } else {
+            // normal single tooth I
+            renderedWord.add(Menksoft.MEDI_I);
+          }
         }
-        // After BPFK
-        if (_isRoundLetterIncludingQG(charAbove)) {
-          renderedWord.add(Menksoft.MEDI_I_BP);
-          break;
-        }
-        // *** AI, EI, OI, UI, OEI, UEI
-        // medial double tooth I diphthong rule ***
-        if (_contextCallsForDoubleToothI(
-          positionInWord,
-          charAbove,
-          charBelow,
-        )) {
-          renderedWord.add(Menksoft.MEDI_I_FVS2); // double tooth
-          break;
-        }
-        // normal single tooth I
-        renderedWord.add(Menksoft.MEDI_I);
       case Location.FINAL:
         if (_isRoundLetterIncludingQG(charAbove)) {
           renderedWord.add(Menksoft.FINA_I_BP);

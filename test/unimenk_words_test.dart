@@ -532,5 +532,14 @@ void main() {
       final expected = '\uE266\uE2C6\uE292\uE327\uE2D8\uE26C\uE2E7';
       expect(result, expected);
     });
+
+    test('badmaserjieWord', () async {
+      final unicode =
+          '\u182A\u1820\u1833\u182E\u1820\u1830\u1821\u1837\u1835\u1822\u180E\u1821';
+      final result = convertUnicodeToMenksoft(unicode);
+      final expected =
+          '\uE2C1\uE26D\uE314\uE2F4\uE26C\uE301\uE276\uE326\uE31D\uE27B\uE274';
+      expect(result, expected);
+    });
   });
 }
