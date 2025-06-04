@@ -103,7 +103,7 @@ class MenksoftWord {
         _handleQa(outputString, currentChar, charBelow);
       } else if (currentChar < Menksoft.MA_START) {
         // GA
-        _handleGa(outputString, currentChar);
+        _handleGa(outputString, currentChar, charAbove, charBelow);
       } else if (currentChar < Menksoft.LA_START) {
         // MA
         _handleMa(outputString, currentChar);
@@ -1034,7 +1034,12 @@ class MenksoftWord {
     }
   }
 
-  void _handleGa(List<int> outputString, int currentChar) {
+  void _handleGa(
+    List<int> outputString,
+    int currentChar,
+    int charAbove,
+    int charBelow,
+  ) {
     switch (_location) {
       case Location.ISOLATE:
         switch (currentChar) {
@@ -1086,8 +1091,9 @@ class MenksoftWord {
           case Menksoft.MEDI_GA_FVS2_TOOTH:
           case Menksoft.MEDI_GA_FVS2_STEM:
             outputString.add(Unicode.GA);
-            final gender = MongolCode.genderOf(word: outputString);
-            if (gender == Gender.MASCULINE) {
+            // If word contains masculine vowel and not surrounded by consonants
+            if (_inputWordContainsMasculineVowel() &&
+                (_isVowel(charAbove) || _isVowel(charBelow))) {
               outputString.add(Unicode.FVS2);
             }
           default:
@@ -1119,6 +1125,19 @@ class MenksoftWord {
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
         }
     }
+  }
+
+  bool _inputWordContainsMasculineVowel() {
+    for (int i = 0; i < _inputWord.length; i++) {
+      if (Menksoft.isMasculineVowel(_inputWord[i])) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  bool _isVowel(int character) {
+    return Menksoft.isMenksoftVowel(character);
   }
 
   void _handleMa(List<int> outputString, int currentChar) {
@@ -1586,18 +1605,17 @@ class MenksoftWord {
       case Location.INITIAL:
         outputString.add(Unicode.WA);
       case Location.MEDIAL:
-        // replace W between two consonants with EE
-        if (Menksoft.isMenksoftConsonant(charAbove) &&
-            Menksoft.isMenksoftConsonant(charBelow)) {
-          outputString.add(Unicode.EE);
-        } else {
-          outputString.add(Unicode.WA);
-        }
+        // We could replace W between two consonants with EE
+        // if (Menksoft.isMenksoftConsonant(charAbove) &&
+        //     Menksoft.isMenksoftConsonant(charBelow)) {
+        //   outputString.add(Unicode.EE);
+        // }
+        outputString.add(Unicode.WA);
       case Location.FINAL:
         switch (currentChar) {
-          // case Menksoft.FINA_WA_MVS:
-          //   outputString.add(Unicode.WA);
-          //   outputString.add(Unicode.FVS1);
+          case Menksoft.FINA_WA_FVS1:
+            outputString.add(Unicode.WA);
+            outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_WA:
             outputString.add(Unicode.WA);
             outputString.add(Unicode.MONGOLIAN_NIRUGU);

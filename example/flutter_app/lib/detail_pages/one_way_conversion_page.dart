@@ -34,6 +34,7 @@ class _OneWayConversionPageState extends State<OneWayConversionPage> {
                   onPressed: () {
                     setState(() {
                       _isMenksoftToUnicode = !_isMenksoftToUnicode;
+                      _convertText(_inputController.text);
                     });
                   },
                 ),
@@ -51,6 +52,7 @@ class _OneWayConversionPageState extends State<OneWayConversionPage> {
                     _isMenksoftToUnicode ? 'Menksoft Input' : 'Unicode Input',
               ),
               maxLines: 3,
+              onChanged: _convertText,
             ),
           ),
           Expanded(
@@ -58,21 +60,14 @@ class _OneWayConversionPageState extends State<OneWayConversionPage> {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  Text(_original, style: TextStyle(fontSize: 40)),
-                  Text(_conversion, style: TextStyle(fontSize: 40)),
+                  SelectableText(_original, style: TextStyle(fontSize: 40)),
+                  SelectableText(_conversion, style: TextStyle(fontSize: 40)),
                   Text('Input'),
-                  Text(_inputCode, style: TextStyle(fontSize: 12)),
-                  Text(_outputCode, style: TextStyle(fontSize: 12)),
+                  SelectableText(_inputCode, style: TextStyle(fontSize: 12)),
+                  SelectableText(_outputCode, style: TextStyle(fontSize: 12)),
                   Text('Output'),
                 ],
               ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: ElevatedButton(
-              onPressed: _convertText,
-              child: Text('Convert'),
             ),
           ),
         ],
@@ -80,8 +75,8 @@ class _OneWayConversionPageState extends State<OneWayConversionPage> {
     );
   }
 
-  void _convertText() {
-    _original = _convertToString(_inputController.text);
+  void _convertText(String text) {
+    _original = _convertToString(text);
     final String output;
     if (_isMenksoftToUnicode) {
       output = convertMenksoftToUnicode(_original);

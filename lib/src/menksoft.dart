@@ -481,7 +481,12 @@ class Menksoft {
   }
 
   static bool isMenksoftVowel(int character) {
-    return isMenksoftLetter(character) && !isMenksoftConsonant(character);
+    return character >= A_START && character < NA_START;
+  }
+
+  static bool isMasculineVowel(int character) {
+    return (character >= A_START && character < E_START) ||
+        (character >= O_START && character < OE_START);
   }
 
   static bool isMenksoftInitialIsolateGlyph(int character) {
