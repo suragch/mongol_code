@@ -541,5 +541,18 @@ void main() {
           '\uE2C1\uE26D\uE314\uE2F4\uE26C\uE301\uE276\uE326\uE31D\uE27B\uE274';
       expect(result, expected);
     });
+
+    test('biligmonkheWord', () async {
+      final unicode =
+          '\u182A\u1822\u182F\u1822\u182D\u182E\u1825\u180B\u1829\u182C\u1821';
+      final result = convertUnicodeToMenksoft(unicode);
+      // small feminine medial G
+      // final expected =
+      //     '\uE2C1\uE27F\uE2FA\uE27E\uE2EF\uE2F5\uE29C\uE2BD\uE2DA\uE275';
+      // large feminine medial G and extended M arm
+      final expected =
+          '\uE2C1\uE27F\uE2FA\uE27E\uE2EB\uE2F6\uE29C\uE2BD\uE2DA\uE275';
+      expect(result, expected);
+    });
   });
 }

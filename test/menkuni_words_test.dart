@@ -599,21 +599,12 @@ void main() {
           '\u182A\u1822\u182F\u1822\u182D\u180C\u182A\u1820\u182D\u1820\u1832\u1824\u1837';
       expect(result, expected);
     });
+
+    test('yinWord', () async {
+      final menksoft = '\uE321\uE27E\uE2B5';
+      final result = convertMenksoftToUnicode(menksoft);
+      final expected = '\u1836\u180B\u1822\u1828';
+      expect(result, expected);
+    });
   });
-
-  // initial: '\uE2C1\uE26D\uE2FA\uE313\uE26C\uE2B8\uE32C\uE317\uE27E\uE325'
-  // unicode: '\u182A\u1820\u182F\u1833\u1820\u1828\u1827\u1834\u1822\u1837'
-  // result:  '\uE2C1\uE26D\uE2FA\uE313\uE26C\uE2B7\uE2B0\uE317\uE27E\uE325'
-
-  // test('baldanOchirWord', () async {
-  //   final menksoft =
-  //       '\uE2C1\uE26D\uE2FA\uE313\uE26C\uE2B8\uE32C\uE317\uE27E\uE325';
-  //   final result = convertMenksoftToUnicode(menksoft);
-  //   final expected =
-  //       '\u182A\u1820\u182F\u1833\u1820\u1828\u180C\u1827\u1834\u1822\u1837';
-  //   expect(result, expected);
-  // });
-
-  // \uE2C1\uE27F\uE2FA\uE27E\uE2F0\uE2C5\uE26D\uE2EA\uE26C\uE30B\uE291\uE325
-  // \u182A\u1822\u182F\u1822\u182D\u180C\u182A\u1820\u182D\u1820\u1832\u1824\u1837
 }

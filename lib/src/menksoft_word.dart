@@ -1527,7 +1527,7 @@ class MenksoftWord {
         }
       case Location.INITIAL:
         switch (currentChar) {
-          case Menksoft.MEDI_YA:
+          case Menksoft.INIT_YA_FVS1:
             outputString.add(Unicode.YA);
             outputString.add(Unicode.FVS1);
           default:
