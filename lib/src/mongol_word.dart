@@ -175,9 +175,9 @@ class MongolWord {
       // handle each letter separately
       switch (currentChar) {
         case Unicode.A:
-          _handleA(renderedWord, charAbove);
+          _handleA(renderedWord, charAbove, charBelow);
         case Unicode.E:
-          _handleE(renderedWord, charAbove);
+          _handleE(renderedWord, charAbove, charBelow);
         case Unicode.I:
           _handleI(renderedWord, i, charAbove, charBelow);
         case Unicode.O:
@@ -275,7 +275,7 @@ class MongolWord {
     return renderedWord.reversed.toList();
   }
 
-  void _handleA(List<int> renderedWord, int charAbove) {
+  void _handleA(List<int> renderedWord, int charAbove, int charBelow) {
     _gender = Gender.MASCULINE;
     switch (_location) {
       case Location.ISOLATE:
@@ -299,14 +299,24 @@ class MongolWord {
       case Location.MEDIAL:
         if (_fvs == fvs1) {
           renderedWord.add(Menksoft.MEDI_A_FVS1);
+          _glyphShapeBelow = Shape.TOOTH;
+        } else if (charBelow == Unicode.MVS) {
+          // Not defined in Chinese standard
+          if (_isRoundLetter(charAbove)) {
+            renderedWord.add(Menksoft.FINA_A_BP);
+            _glyphShapeBelow = Shape.TOOTH;
+          } else {
+            renderedWord.add(Menksoft.FINA_A);
+            _glyphShapeBelow = Shape.STEM;
+          }
         } else {
           if (_isRoundLetter(charAbove)) {
             renderedWord.add(Menksoft.MEDI_A_BP); // After BPFK
           } else {
             renderedWord.add(Menksoft.MEDI_A); // normal
           }
+          _glyphShapeBelow = Shape.TOOTH;
         }
-        _glyphShapeBelow = Shape.TOOTH;
       case Location.FINAL:
         if (_fvs == fvs1) {
           renderedWord.add(Menksoft.FINA_A_FVS1); // left sweeping tail
@@ -334,7 +344,7 @@ class MongolWord {
     }
   }
 
-  void _handleE(List<int> renderedWord, int charAbove) {
+  void _handleE(List<int> renderedWord, int charAbove, int charBelow) {
     _gender = Gender.FEMININE;
     switch (_location) {
       case Location.ISOLATE:
@@ -350,12 +360,23 @@ class MongolWord {
           renderedWord.add(Menksoft.INIT_E); // normal
         }
       case Location.MEDIAL:
-        if (_isRoundLetterIncludingQG(charAbove)) {
-          renderedWord.add(Menksoft.MEDI_E_BP); // After BPFK
+        if (charBelow == Unicode.MVS) {
+          // Not defined in Chinese standard
+          if (_isRoundLetter(charAbove)) {
+            renderedWord.add(Menksoft.FINA_E_BP);
+            _glyphShapeBelow = Shape.TOOTH;
+          } else {
+            renderedWord.add(Menksoft.FINA_E);
+            _glyphShapeBelow = Shape.STEM;
+          }
         } else {
-          renderedWord.add(Menksoft.MEDI_E); // normal
+          if (_isRoundLetterIncludingQG(charAbove)) {
+            renderedWord.add(Menksoft.MEDI_E_BP); // After BPFK
+          } else {
+            renderedWord.add(Menksoft.MEDI_E); // normal
+          }
+          _glyphShapeBelow = Shape.TOOTH;
         }
-        _glyphShapeBelow = Shape.TOOTH;
       case Location.FINAL:
         if (_fvs == fvs1) {
           renderedWord.add(Menksoft.FINA_E_FVS1); // left sweeping tail
