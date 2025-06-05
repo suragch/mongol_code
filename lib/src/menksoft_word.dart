@@ -449,7 +449,7 @@ class MenksoftWord {
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.O);
           case Menksoft.FINA_O_FVS1:
-          case Menksoft.FINA_O_BP:
+          case Menksoft.FINA_O_FVS1_BP:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.O);
             outputString.add(Unicode.FVS1);
@@ -594,11 +594,10 @@ class MenksoftWord {
             outputString.add(Unicode.OE);
             outputString.add(Unicode.FVS1);
           case Menksoft.FINA_OE_FVS2:
-          case Menksoft.FINA_OE_BP:
+          case Menksoft.FINA_OE_FVS2_BP:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
-            // substituting because undefined in unicode
             outputString.add(Unicode.O);
-            outputString.add(Unicode.FVS1);
+            outputString.add(Unicode.FVS2);
           case Menksoft.MEDI_OE_FVS2:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.OE);
@@ -694,11 +693,10 @@ class MenksoftWord {
             outputString.add(Unicode.UE);
             outputString.add(Unicode.FVS1);
           case Menksoft.FINA_UE_FVS2:
-          case Menksoft.FINA_UE_BP:
+          case Menksoft.FINA_UE_FVS2_BP:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
-            // substituting because undefined in unicode
-            outputString.add(Unicode.U);
-            outputString.add(Unicode.FVS1);
+            outputString.add(Unicode.UE);
+            outputString.add(Unicode.FVS2);
           case Menksoft.MEDI_UE_FVS2:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.UE);
@@ -1131,7 +1129,7 @@ class MenksoftWord {
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
           case Menksoft.MEDI_GA_FVS2_STEM:
           case Menksoft.MEDI_GA_FVS2_TOOTH:
-            outputString.add(Unicode.FVS3);
+            outputString.add(Unicode.FVS2);
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
         }
     }

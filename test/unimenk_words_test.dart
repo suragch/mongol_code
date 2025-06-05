@@ -552,5 +552,16 @@ void main() {
           '\uE2C1\uE27F\uE2FA\uE27E\uE2EB\uE2F6\uE29C\uE2BD\uE2DA\uE275';
       expect(result, expected);
     });
+
+    test('jalboaWord', () async {
+      final unicode = '\u1835\u1820\u182F\u182A\u1824\u180E\u1820';
+      final result = convertUnicodeToMenksoft(unicode);
+      final expected = '\uE31A\uE26C\uE2FB\uE2C6\uE28F\uE26A';
+      expect(result, expected);
+    });
+
+    // initial: '\uE31A\uE26C\uE2FB\uE2C6\uE28F\uE26A'
+    // unicode: '\u1835\u1820\u182F\u182A\u1824\u180E\u1820'
+    // result:  '\uE31A\uE26C\uE2FB\uE2C6\uE28D\uE26A'
   });
 }

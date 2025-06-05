@@ -112,8 +112,8 @@ class Menksoft {
   static const int MEDI_O_BP = 0xE28A;
   static const int MEDI_O_FVS1 = 0xE288;
   static const int FINA_O = 0xE285; // swirl
-  static const int FINA_O_BP = 0xE287;
   static const int FINA_O_FVS1 = 0xE286; // gedes
+  static const int FINA_O_FVS1_BP = 0xE287;
 
   static const int U_START = 0xE28B;
   static const int ISOL_U = 0xE28B;

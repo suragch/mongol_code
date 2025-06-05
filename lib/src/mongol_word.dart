@@ -468,7 +468,11 @@ class MongolWord {
           renderedWord.add(Menksoft.MEDI_O_FVS1); // tooth + O
         } else if (charBelow == Unicode.MVS) {
           // Not defined in Chinese standard
-          renderedWord.add(Menksoft.FINA_O);
+          if (_isRoundLetter(charAbove)) {
+            renderedWord.add(Menksoft.FINA_O_FVS1_BP);
+          } else {
+            renderedWord.add(Menksoft.FINA_O);
+          }
         } else {
           if (_isRoundLetter(charAbove)) {
             renderedWord.add(Menksoft.MEDI_O_BP); // After BPFK
@@ -483,7 +487,7 @@ class MongolWord {
           renderedWord.add(Menksoft.FINA_O);
         } else {
           if (_isRoundLetter(charAbove)) {
-            renderedWord.add(Menksoft.FINA_O_BP); // After BPFK
+            renderedWord.add(Menksoft.FINA_O_FVS1_BP); // After BPFK
           } else {
             renderedWord.add(Menksoft.FINA_O); // normal
           }
@@ -513,7 +517,11 @@ class MongolWord {
           renderedWord.add(Menksoft.MEDI_U_FVS1); // tooth + O
         } else if (charBelow == Unicode.MVS) {
           // Not defined in Chinese standard
-          renderedWord.add(Menksoft.FINA_U);
+          if (_isRoundLetter(charAbove)) {
+            renderedWord.add(Menksoft.FINA_U_FVS1_BP);
+          } else {
+            renderedWord.add(Menksoft.FINA_U);
+          }
         } else {
           if (_isRoundLetter(charAbove)) {
             renderedWord.add(Menksoft.MEDI_U_BP); // After BPFK
@@ -574,7 +582,11 @@ class MongolWord {
           ); // extra tooth for 2 part name
         } else if (charBelow == Unicode.MVS) {
           // Not defined in Chinese standard
-          renderedWord.add(Menksoft.FINA_OE);
+          if (_isRoundLetter(charAbove)) {
+            renderedWord.add(Menksoft.FINA_OE_FVS2_BP);
+          } else {
+            renderedWord.add(Menksoft.FINA_OE);
+          }
         } else {
           if (MongolCode.needsLongToothU(_inputWord, positionInWord)) {
             // *** first syllable long tooth rule ***
@@ -658,7 +670,11 @@ class MongolWord {
           ); // extra tooth for 2 part name
         } else if (charBelow == Unicode.MVS) {
           // Not defined in Chinese standard
-          renderedWord.add(Menksoft.FINA_UE);
+          if (_isRoundLetter(charAbove)) {
+            renderedWord.add(Menksoft.FINA_UE_FVS2_BP);
+          } else {
+            renderedWord.add(Menksoft.FINA_UE);
+          }
         } else {
           if (MongolCode.needsLongToothU(_inputWord, positionInWord)) {
             // *** first syllable long tooth rule ***
