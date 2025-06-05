@@ -1329,18 +1329,7 @@ class MongolWord {
             Menksoft.MEDI_MA_BP,
           ); // tail extended for round letter
         } else if (charAbove == Unicode.GA) {
-          if (_gender == Gender.NEUTER) {
-            _gender = MongolCode.genderOf(
-              word: _inputWord,
-              beforeIndex: positionInWord,
-            );
-          }
-          if (_gender != Gender.MASCULINE ||
-              // feminine G when between consonants
-              (positionInWord > 1 &&
-                  (MongolCode.isConsonant(_inputWord[positionInWord - 2]) ||
-                      _inputWord[positionInWord - 2] ==
-                          Unicode.MONGOLIAN_NIRUGU))) {
+          if (_isFeminineG(positionInWord)) {
             renderedWord.add(
               Menksoft.MEDI_MA_BP,
             ); // tail extended for round letter
@@ -1361,6 +1350,19 @@ class MongolWord {
         renderedWord.add(Menksoft.FINA_MA);
         _glyphShapeBelow = Shape.STEM;
     }
+  }
+
+  // assumes letter at position is M or L and charAbove is G
+  bool _isFeminineG(int position) {
+    final gender = MongolCode.genderOf(word: _inputWord, beforeIndex: position);
+    if (gender != Gender.MASCULINE) {
+      return true;
+    }
+
+    // feminine G when between consonants
+    return position > 1 &&
+        (MongolCode.isConsonant(_inputWord[position - 2]) ||
+            _inputWord[position - 2] == Unicode.MONGOLIAN_NIRUGU);
   }
 
   void _handleLA(
@@ -1389,18 +1391,7 @@ class MongolWord {
             Menksoft.MEDI_LA_BP,
           ); // tail extended for round letter
         } else if (charAbove == Unicode.GA) {
-          if (_gender == Gender.NEUTER) {
-            _gender = MongolCode.genderOf(
-              word: _inputWord,
-              beforeIndex: positionInWord,
-            );
-          }
-          if (_gender != Gender.MASCULINE ||
-              // feminine G when between consonants
-              (positionInWord > 1 &&
-                  (MongolCode.isConsonant(_inputWord[positionInWord - 2]) ||
-                      _inputWord[positionInWord - 2] ==
-                          Unicode.MONGOLIAN_NIRUGU))) {
+          if (_isFeminineG(positionInWord)) {
             renderedWord.add(
               Menksoft.MEDI_LA_BP,
             ); // tail extended for round letter

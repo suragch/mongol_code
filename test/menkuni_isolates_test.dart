@@ -2,6 +2,8 @@ import 'package:mongol_code/alternative/convert_menksoft.dart';
 import 'package:mongol_code/mongol_code.dart';
 import 'package:test/test.dart';
 
+import 'print_result.dart';
+
 void main() {
   group('Menksoft -> Unicode: all isolate values', () {
     test('isolateE234', () async {
@@ -839,7 +841,7 @@ void main() {
     test('isolateE294', () async {
       final menksoft = '\uE294';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = String.fromCharCodes([Unicode.UE, Unicode.FVS1]);
+      final expected = String.fromCharCodes([Unicode.OE, Unicode.FVS1]);
       expect(result, expected);
     });
 
@@ -890,8 +892,8 @@ void main() {
       final result = convertMenksoftToUnicode(menksoft);
       final expected = String.fromCharCodes([
         Unicode.MONGOLIAN_NIRUGU,
-        Unicode.O,
-        Unicode.FVS1,
+        Unicode.OE,
+        Unicode.FVS2,
       ]);
       expect(result, expected);
     });
@@ -901,8 +903,8 @@ void main() {
       final result = convertMenksoftToUnicode(menksoft);
       final expected = String.fromCharCodes([
         Unicode.MONGOLIAN_NIRUGU,
-        Unicode.O,
-        Unicode.FVS1,
+        Unicode.OE,
+        Unicode.FVS2,
       ]);
       expect(result, expected);
     });
@@ -1026,8 +1028,8 @@ void main() {
       final result = convertMenksoftToUnicode(menksoft);
       final expected = String.fromCharCodes([
         Unicode.MONGOLIAN_NIRUGU,
-        Unicode.U,
-        Unicode.FVS1,
+        Unicode.UE,
+        Unicode.FVS2,
       ]);
       expect(result, expected);
     });
@@ -1037,8 +1039,8 @@ void main() {
       final result = convertMenksoftToUnicode(menksoft);
       final expected = String.fromCharCodes([
         Unicode.MONGOLIAN_NIRUGU,
-        Unicode.U,
-        Unicode.FVS1,
+        Unicode.UE,
+        Unicode.FVS2,
       ]);
       expect(result, expected);
     });

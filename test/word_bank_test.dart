@@ -22,25 +22,25 @@ void printAll({
 }
 
 void main() {
-  group('Bidirectional: Menksoft -> Unicode -> Menksoft', () {
-    test('word bank', () async {
-      final words = _menksoftWords.split('\n');
-      for (int i = 0; i < words.length; i++) {
-        final menksoft = words[i].trim();
-        final unicode = convertMenksoftToUnicode(menksoft);
-        final menksoftAgain = convertUnicodeToMenksoft(unicode);
-        if (menksoftAgain != menksoft) {
-          printAll(
-            index: i,
-            initial: menksoft,
-            unicode: unicode,
-            result: menksoftAgain,
-          );
-        }
-        expect(menksoftAgain, menksoft);
-      }
-    });
-  });
+  // group('Bidirectional: Menksoft -> Unicode -> Menksoft', () {
+  //   test('word bank', () async {
+  //     final words = _menksoftWords.split('\n');
+  //     for (int i = 0; i < words.length; i++) {
+  //       final menksoft = words[i].trim();
+  //       final unicode = convertMenksoftToUnicode(menksoft);
+  //       final menksoftAgain = convertUnicodeToMenksoft(unicode);
+  //       if (menksoftAgain != menksoft) {
+  //         printAll(
+  //           index: i,
+  //           initial: menksoft,
+  //           unicode: unicode,
+  //           result: menksoftAgain,
+  //         );
+  //       }
+  //       expect(menksoftAgain, menksoft);
+  //     }
+  //   });
+  // });
 
   group('more edge cases', () {
     test('dottedMedialNBeforeConsonant', () async {

@@ -573,5 +573,14 @@ void main() {
       final expected = '\uE31A\uE276\uE311\uE274';
       expect(result, expected);
     });
+
+    test('lhamutogmedWord', () async {
+      final unicode =
+          '\u1840\u1820\u182E\u1824\u1832\u1823\u182D\u182E\u1821\u1833';
+      final result = convertUnicodeToMenksoft(unicode);
+      final expected =
+          '\uE34B\uE26C\uE2F5\uE291\uE30B\uE289\uE2EE\uE2F4\uE276\uE311';
+      expect(result, expected);
+    });
   });
 }

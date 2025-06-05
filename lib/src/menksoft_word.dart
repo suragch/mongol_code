@@ -579,8 +579,7 @@ class MenksoftWord {
       case Location.ISOLATE:
         switch (currentChar) {
           case Menksoft.ISOL_OE_FVS1:
-            // substituting UE because it is defined in Unicode
-            outputString.add(Unicode.UE);
+            outputString.add(Unicode.OE);
             outputString.add(Unicode.FVS1);
           case Menksoft.INIT_OE:
             outputString.add(Unicode.OE);
@@ -596,7 +595,7 @@ class MenksoftWord {
           case Menksoft.FINA_OE_FVS2:
           case Menksoft.FINA_OE_FVS2_BP:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
-            outputString.add(Unicode.O);
+            outputString.add(Unicode.OE);
             outputString.add(Unicode.FVS2);
           case Menksoft.MEDI_OE_FVS2:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
