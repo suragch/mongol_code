@@ -566,5 +566,12 @@ void main() {
       final expected = '\uE31A\uE291\uE2FB\uE268\uE26A';
       expect(result, expected);
     });
+
+    test('jedeeWord', () async {
+      final unicode = '\u1835\u1821\u1833\u180E\u1821';
+      final result = convertUnicodeToMenksoft(unicode);
+      final expected = '\uE31A\uE276\uE311\uE274';
+      expect(result, expected);
+    });
   });
 }

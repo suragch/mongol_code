@@ -1552,6 +1552,10 @@ class MongolWord {
         if (_fvs == fvs1) {
           renderedWord.add(Menksoft.MEDI_DA_FVS1); // left slanting
           _glyphShapeBelow = Shape.TOOTH;
+        } else if (charBelow == Unicode.MVS) {
+          // Not defined in Chinese standard
+          renderedWord.add(Menksoft.FINA_DA);
+          _glyphShapeBelow = Shape.STEM;
         } else {
           if (MongolCode.isVowel(charBelow)) {
             renderedWord.add(Menksoft.MEDI_DA_FVS1); // left slanting
