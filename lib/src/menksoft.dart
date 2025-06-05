@@ -467,9 +467,9 @@ class Menksoft {
   static const int SPACE = 0x0020;
 
   static bool isMenksoftSpace(int codeUnit) {
-    return codeUnit == NONBREAKING_SPACE ||
-        codeUnit == UNKNOWN_SPACE ||
-        codeUnit == SPACE;
+    return codeUnit == NONBREAKING_SPACE || codeUnit == UNKNOWN_SPACE;
+    //  ||
+    // codeUnit == SPACE;
   }
 
   static bool isMenksoftLetter(int character) {

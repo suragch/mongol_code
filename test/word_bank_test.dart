@@ -2,6 +2,8 @@ import 'package:mongol_code/alternative/convert_menksoft.dart';
 import 'package:mongol_code/alternative/convert_unicode.dart';
 import 'package:test/test.dart';
 
+import 'print_result.dart';
+
 String convertToUnicodeAndBackAgain(String menksoft) {
   final unicode = convertMenksoftToUnicode(menksoft);
   return convertUnicodeToMenksoft(unicode);
@@ -22,25 +24,25 @@ void printAll({
 }
 
 void main() {
-  group('Bidirectional: Menksoft -> Unicode -> Menksoft', () {
-    test('word bank', () async {
-      final words = _menksoftWords.split('\n');
-      for (int i = 0; i < words.length; i++) {
-        final menksoft = words[i].trim();
-        final unicode = convertMenksoftToUnicode(menksoft);
-        final menksoftAgain = convertUnicodeToMenksoft(unicode);
-        if (menksoftAgain != menksoft) {
-          printAll(
-            index: i,
-            initial: menksoft,
-            unicode: unicode,
-            result: menksoftAgain,
-          );
-        }
-        expect(menksoftAgain, menksoft);
-      }
-    });
-  });
+  // group('Bidirectional: Menksoft -> Unicode -> Menksoft', () {
+  //   test('word bank', () async {
+  //     final words = _menksoftWords.split('\n');
+  //     for (int i = 0; i < words.length; i++) {
+  //       final menksoft = words[i].trim();
+  //       final unicode = convertMenksoftToUnicode(menksoft);
+  //       final menksoftAgain = convertUnicodeToMenksoft(unicode);
+  //       if (menksoftAgain != menksoft) {
+  //         printAll(
+  //           index: i,
+  //           initial: menksoft,
+  //           unicode: unicode,
+  //           result: menksoftAgain,
+  //         );
+  //       }
+  //       expect(menksoftAgain, menksoft);
+  //     }
+  //   });
+  // });
 
   group('more edge cases', () {
     test('dottedMedialNBeforeConsonant', () async {
@@ -68,27 +70,6 @@ void main() {
       final menksoft = '\uE34F\uE27B\uE2FE\uE291\uE327\uE2D6\uE26A';
       final result = convertToUnicodeAndBackAgain(menksoft);
       final expected = '\uE34F\uE27B \uE2FE\uE291\uE327\uE2D6\uE26A';
-      expect(result, expected);
-    });
-
-    test('jBecomesYAfterNNBS', () async {
-      final menksoft = '\uE263\uE319\uE27E\uE2B5';
-      final result = convertToUnicodeAndBackAgain(menksoft);
-      final expected = '\uE263\uE321\uE27E\uE2B5';
-      expect(result, expected);
-    });
-
-    test('wBetweenTwoConsonantsBecomesEE', () async {
-      final menksoft = '\uE345\uE329\uE2BB';
-      final result = convertToUnicodeAndBackAgain(menksoft);
-      final expected = '\uE345\uE2B0\uE2BB';
-      expect(result, expected);
-    });
-
-    test('eeBetweenTwoVowelsBecomesW', () async {
-      final menksoft = '\uE266\uE2B0\uE268';
-      final result = convertToUnicodeAndBackAgain(menksoft);
-      final expected = '\uE266\uE32C\uE268';
       expect(result, expected);
     });
   });

@@ -1,6 +1,8 @@
 import 'package:mongol_code/alternative/convert_menksoft.dart';
 import 'package:test/test.dart';
 
+import 'print_result.dart';
+
 void main() {
   group('Menksoft -> Unicode: Words', () {
     test('bichigWord', () async {
@@ -219,7 +221,9 @@ void main() {
       final menksoft =
           '\uE2FD\uE27E\uE2EB\uE301\uE27E\uE2EB\uE2FC\uE276\uE2DD\uE2A7';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = 'ᠰᠢᠭᠰᠢᠭᠯᠡᠬᠦ'; // SIGSIGLEQU
+      final expected =
+          '\u1830\u1822\u182D\u1830\u1822\u182D\u182F\u1821\u182C\u1826';
+      // 'ᠰᠢᠭᠰᠢᠭᠯᠡᠬᠦ'; // SIGSIGLEQU
       expect(result, expected);
     });
 
@@ -597,6 +601,41 @@ void main() {
       final menksoft = '\uE321\uE27E\uE2B5';
       final result = convertMenksoftToUnicode(menksoft);
       final expected = '\u1836\u180B\u1822\u1828';
+      expect(result, expected);
+    });
+
+    test('toWord', () async {
+      final menksoft = '\uE309\uE285';
+      final result = convertMenksoftToUnicode(menksoft);
+      final expected = '\u1832\u1823\u180C';
+      expect(result, expected);
+    });
+
+    test('tuWord', () async {
+      final menksoft = '\uE309\uE28D';
+      final result = convertMenksoftToUnicode(menksoft);
+      final expected = '\u1832\u1824\u180C';
+      expect(result, expected);
+    });
+
+    test('toeWord', () async {
+      final menksoft = '\uE309\uE296';
+      final result = convertMenksoftToUnicode(menksoft);
+      final expected = '\u1832\u1825\u180D';
+      expect(result, expected);
+    });
+
+    test('tueWord', () async {
+      final menksoft = '\uE309\uE2A3';
+      final result = convertMenksoftToUnicode(menksoft);
+      final expected = '\u1832\u1826\u180D';
+      expect(result, expected);
+    });
+
+    test('bulugtueWord', () async {
+      final menksoft = '\uE2C2\uE2AA\uE2FB\uE2AB\uE2E8\u0020\uE309\uE2A3';
+      final result = convertMenksoftToUnicode(menksoft);
+      final expected = '\u182A\u1826\u182F\u1826\u182D\u0020\u1832\u1826\u180D';
       expect(result, expected);
     });
   });

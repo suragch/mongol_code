@@ -10,34 +10,38 @@ List<int>? checkFixedSequenceMenkToUni(List<int> menksoft) {
   return unicode.codeUnits;
 }
 
+// MCC - Mongolian combining consonant （B, P, F, K, KH)
+// NCC - Mongolian non-combining consonant (N, M, L, S, etc.)
+// MCCC - Mongolian conditional combining consonant (Q, G)
+
 const Map<String, String> _fixedTwoLetterWordsMenkToUni = {
   // Corresponding to original: 1. NCC|MCCC + A
-  '\uE2B3\uE268': '\u1828\u1820',
-  '\uE2F2\uE268': '\u182E\u1820',
-  '\uE2F8\uE268': '\u182F\u1820',
-  '\uE2FE\uE268': '\u1830\u1820',
-  '\uE304\uE268': '\u1831\u1820',
-  '\uE309\uE268': '\u1832\u1820',
-  '\uE315\uE268': '\u1834\u1820',
-  '\uE31A\uE268': '\u1835\u1820',
-  '\uE31E\uE268': '\u1836\u1820',
-  '\uE322\uE268': '\u1837\u1820',
-  '\uE329\uE268': '\u1838\u1820',
-  '\uE33F\uE268': '\u183C\u1820',
-  '\uE342\uE268': '\u183D\u1820',
-  '\uE345\uE268': '\u183E\u1820',
-  '\uE348\uE268': '\u183F\u1820',
-  '\uE34B\uE268': '\u1840\u1820',
-  '\uE2D2\uE268': '\u182C\u1820',
-  '\uE2E4\uE268': '\u182D\u1820',
-
+  '\uE2B3\uE268': '\u1828\u1820', // N
+  '\uE2F2\uE268': '\u182E\u1820', // M
+  '\uE2F8\uE268': '\u182F\u1820', // L
+  '\uE2FE\uE268': '\u1830\u1820', // S
+  '\uE304\uE268': '\u1831\u1820', // SH
+  '\uE309\uE268': '\u1832\u1820', // T
+  '\uE315\uE268': '\u1834\u1820', // CH
+  '\uE31A\uE268': '\u1835\u1820', // J
+  '\uE31E\uE268': '\u1836\u1820', // Y
+  '\uE322\uE268': '\u1837\u1820', // R
+  '\uE329\uE268': '\u1838\u1820', // W
+  '\uE33F\uE268': '\u183C\u1820', // TS
+  '\uE342\uE268': '\u183D\u1820', // Z
+  '\uE345\uE268': '\u183E\u1820', // H
+  '\uE348\uE268': '\u183F\u1820', // ZR
+  '\uE34B\uE268': '\u1840\u1820', // LH
+  '\uE34E\uE268': '\u1841\u1820', // ZHI
+  '\uE34F\uE268': '\u1842\u1820', // CHI
+  '\uE2D2\uE268': '\u182C\u1820', // Q
+  '\uE2E4\uE268': '\u182D\u1820', // G
   // Corresponding to original: 2. MCC + A
-  '\uE2C1\uE26B': '\u182A\u1820',
-  '\uE2C8\uE26B': '\u182B\u1820',
-  '\uE32D\uE26B': '\u1839\u1820',
-  '\uE333\uE26B': '\u183A\u1820',
-  '\uE339\uE26B': '\u183B\u1820',
-
+  '\uE2C1\uE26B': '\u182A\u1820', // B
+  '\uE2C8\uE26B': '\u182B\u1820', // P
+  '\uE32D\uE26B': '\u1839\u1820', // F
+  '\uE333\uE26B': '\u183A\u1820', // K
+  '\uE339\uE26B': '\u183B\u1820', // KH
   // Corresponding to original: 3. NCC + E
   '\uE2B3\uE273': '\u1828\u1821',
   '\uE2F2\uE273': '\u182E\u1821',
@@ -55,6 +59,8 @@ const Map<String, String> _fixedTwoLetterWordsMenkToUni = {
   '\uE345\uE273': '\u183E\u1821',
   '\uE348\uE273': '\u183F\u1821',
   '\uE34B\uE273': '\u1840\u1821',
+  '\uE34E\uE273': '\u1841\u1821',
+  '\uE34F\uE273': '\u1842\u1821',
 
   // Corresponding to original: 4. MCC|MCCC + E
   '\uE2C1\uE275': '\u182A\u1821',
@@ -82,6 +88,8 @@ const Map<String, String> _fixedTwoLetterWordsMenkToUni = {
   '\uE345\uE286': '\u183E\u1823', // O
   '\uE348\uE286': '\u183F\u1823', // O
   '\uE34B\uE286': '\u1840\u1823', // O
+  '\uE34E\uE286': '\u1841\u1823', // O
+  '\uE34F\uE286': '\u1842\u1823', // O
   '\uE2CE\uE286': '\u182C\u1823', // O
   '\uE2E1\uE286': '\u182D\u1823', // O
   '\uE2C2\uE287': '\u182A\u1823', // O
@@ -105,6 +113,8 @@ const Map<String, String> _fixedTwoLetterWordsMenkToUni = {
   '\uE345\uE28E': '\u183E\u1824', // U
   '\uE348\uE28E': '\u183F\u1824', // U
   '\uE34B\uE28E': '\u1840\u1824', // U
+  '\uE34E\uE28E': '\u1841\u1824', // U
+  '\uE34F\uE28E': '\u1842\u1824', // U
   '\uE2CE\uE28E': '\u182C\u1824', // U
   '\uE2E1\uE28E': '\u182D\u1824', // U
   '\uE2C2\uE28F': '\u182A\u1824', // U
@@ -129,6 +139,8 @@ const Map<String, String> _fixedTwoLetterWordsMenkToUni = {
   '\uE345\uE297': '\u183E\u1825', // OE
   '\uE348\uE297': '\u183F\u1825', // OE
   '\uE34B\uE297': '\u1840\u1825', // OE
+  '\uE34E\uE297': '\u1841\u1825', // UE
+  '\uE34F\uE297': '\u1842\u1825', // UE
   '\uE2D4\uE298': '\u182C\u1825', // OE
   '\uE2E6\uE298': '\u182D\u1825', // OE
   '\uE2C2\uE298': '\u182A\u1825', // OE
@@ -152,6 +164,8 @@ const Map<String, String> _fixedTwoLetterWordsMenkToUni = {
   '\uE345\uE2A4': '\u183E\u1826', // UE
   '\uE348\uE2A4': '\u183F\u1826', // UE
   '\uE34B\uE2A4': '\u1840\u1826', // UE
+  '\uE34E\uE2A4': '\u1841\u1826', // UE
+  '\uE34F\uE2A4': '\u1842\u1826', // UE
   '\uE2D4\uE2A5': '\u182C\u1826', // UE
   '\uE2E6\uE2A5': '\u182D\u1826', // UE
   '\uE2C2\uE2A5': '\u182A\u1826', // UE
@@ -174,8 +188,6 @@ const Map<String, String> _fixedTwoLetterWordsMenkToUni = {
 };
 
 const Map<String, String> _fixedSuffixesMenkToUni = {
-  // Original values are now keys. Comments refer to the original Uni sequences (now values).
-
   // A
   '\uE263\uE26A': '\u180E\u1820',
   // E
@@ -277,11 +289,13 @@ const Map<String, String> _fixedSuffixesMenkToUni = {
   '\uE263\uE310\uE268': '\u180E\u1833\u1820',
   // DE
   '\uE263\uE310\uE273': '\u180E\u1833\u1821',
+  // UU (not a suffix but adding for backward compatibility)
+  '\uE263\uE292\uE28D': '\u180E\u1824\u1824',
+  // UEUE (not a suffix but adding for backward compatibility)
+  '\uE263\uE2AC\uE2A3': '\u180E\u1826\u1826',
 };
 
 const Map<String, String> _fixedWordsMenkToUni = {
-  // Original values are now keys. Comments refer to the original Uni sequences (now values).
-
   // UU
   '\uE292\uE28D': '\u1824\u1824',
   // UEUE

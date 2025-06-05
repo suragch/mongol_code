@@ -1,6 +1,8 @@
 import 'package:mongol_code/alternative/convert_menksoft.dart';
 import 'package:test/test.dart';
 
+import 'print_result.dart';
+
 void main() {
   group('Menksoft -> Unicode: Suffixes', () {
     test('yinSuffix', () async {
@@ -347,16 +349,20 @@ void main() {
     });
 
     test('uuSuffix', () async {
+      // ueue is not a suffix but it should still look the same if preceded
+      // by a NonBreaking space
       final menksoft = '\uE263\uE292\uE28D';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = '\u180Eᠤᠤ';
+      final expected = '\u180E\u1824\u1824';
       expect(result, expected);
     });
 
     test('ueueSuffix', () async {
+      // ueue is not a suffix but it should still look the same if preceded
+      // by a NonBreaking space
       final menksoft = '\uE263\uE2AC\uE2A3';
       final result = convertMenksoftToUnicode(menksoft);
-      final expected = '\u180Eᠦᠦ';
+      final expected = '\u180E\u1826\u1826';
       expect(result, expected);
     });
 

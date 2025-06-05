@@ -492,6 +492,10 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.FINA_O_FVS1:
             outputString.add(Unicode.FVS1);
+          case Menksoft.FINA_O:
+            if (_inputWord.length == 2) {
+              outputString.add(Unicode.FVS2);
+            }
           case Menksoft.MEDI_O_FVS1:
             outputString.add(Unicode.FVS1);
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
@@ -538,8 +542,8 @@ class MenksoftWord {
             outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_U:
           case Menksoft.MEDI_U_BP:
-            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.U);
+            outputString.add(Unicode.FVS1);
           default:
             outputString.add(Unicode.U);
         }
@@ -556,6 +560,10 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.FINA_U_FVS1:
             outputString.add(Unicode.FVS1);
+          case Menksoft.FINA_U:
+            if (_inputWord.length == 2) {
+              outputString.add(Unicode.FVS2);
+            }
           case Menksoft.MEDI_U_FVS1:
             outputString.add(Unicode.FVS1);
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
@@ -649,6 +657,10 @@ class MenksoftWord {
           case Menksoft.FINA_OE_FVS1:
           case Menksoft.FINA_OE_FVS1_BP:
             outputString.add(Unicode.FVS1);
+          case Menksoft.FINA_OE:
+            if (_inputWord.length == 2) {
+              outputString.add(Unicode.FVS3);
+            }
           case Menksoft.MEDI_OE_FVS2:
             outputString.add(Unicode.FVS2);
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
@@ -708,19 +720,19 @@ class MenksoftWord {
         }
       case Location.INITIAL:
         switch (currentChar) {
-          case Menksoft.MEDI_UE_FVS2:
-            outputString.add(Unicode.MONGOLIAN_NIRUGU);
-            outputString.add(Unicode.UE);
-            outputString.add(Unicode.FVS2);
+          case Menksoft.INIT_UE_FVS1:
           case Menksoft.MEDI_UE:
-          case Menksoft.MEDI_UE_BP:
-            outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.UE);
+            outputString.add(Unicode.FVS1);
           case Menksoft.MEDI_UE_FVS1:
           case Menksoft.MEDI_UE_FVS1_BP:
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
             outputString.add(Unicode.UE);
             outputString.add(Unicode.FVS1);
+          case Menksoft.MEDI_UE_FVS2:
+            outputString.add(Unicode.MONGOLIAN_NIRUGU);
+            outputString.add(Unicode.UE);
+            outputString.add(Unicode.FVS2);
           default:
             outputString.add(Unicode.UE);
         }
@@ -745,6 +757,10 @@ class MenksoftWord {
           case Menksoft.FINA_UE_FVS1:
           case Menksoft.FINA_UE_FVS1_BP:
             outputString.add(Unicode.FVS1);
+          case Menksoft.FINA_UE:
+            if (_inputWord.length == 2) {
+              outputString.add(Unicode.FVS3);
+            }
           case Menksoft.MEDI_UE_FVS2:
             outputString.add(Unicode.FVS2);
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
@@ -790,13 +806,7 @@ class MenksoftWord {
             outputString.add(Unicode.EE);
         }
       case Location.MEDIAL:
-        // replace EE between two vowels with W
-        if (Menksoft.isMenksoftVowel(charAbove) &&
-            Menksoft.isMenksoftVowel(charBelow)) {
-          outputString.add(Unicode.WA);
-        } else {
-          outputString.add(Unicode.EE);
-        }
+        outputString.add(Unicode.EE);
       case Location.FINAL:
         switch (currentChar) {
           case Menksoft.MEDI_EE:

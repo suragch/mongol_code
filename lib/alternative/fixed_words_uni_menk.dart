@@ -33,6 +33,8 @@ const _fixedTwoLetterWordsUniToMenk = {
   '\u183E\u1820': '\uE345\uE268',
   '\u183F\u1820': '\uE348\uE268',
   '\u1840\u1820': '\uE34B\uE268',
+  '\u1841\u1820': '\uE34E\uE268',
+  '\u1842\u1820': '\uE34F\uE268',
   '\u182C\u1820': '\uE2D2\uE268',
   '\u182D\u1820': '\uE2E4\uE268',
 
@@ -60,6 +62,8 @@ const _fixedTwoLetterWordsUniToMenk = {
   '\u183E\u1821': '\uE345\uE273',
   '\u183F\u1821': '\uE348\uE273',
   '\u1840\u1821': '\uE34B\uE273',
+  '\u1841\u1821': '\uE34E\uE273',
+  '\u1842\u1821': '\uE34F\uE273',
 
   // 4. MCC|MCCC + E
   '\u182A\u1821': '\uE2C1\uE275',
@@ -87,6 +91,8 @@ const _fixedTwoLetterWordsUniToMenk = {
   '\u183E\u1823': '\uE345\uE286',
   '\u183F\u1823': '\uE348\uE286',
   '\u1840\u1823': '\uE34B\uE286',
+  '\u1841\u1823': '\uE34E\uE286',
+  '\u1842\u1823': '\uE34F\uE286',
   '\u182C\u1823': '\uE2CE\uE286',
   '\u182D\u1823': '\uE2E1\uE286',
   '\u182A\u1823': '\uE2C2\uE287',
@@ -110,6 +116,8 @@ const _fixedTwoLetterWordsUniToMenk = {
   '\u183E\u1824': '\uE345\uE28E',
   '\u183F\u1824': '\uE348\uE28E',
   '\u1840\u1824': '\uE34B\uE28E',
+  '\u1841\u1824': '\uE34E\uE28E',
+  '\u1842\u1824': '\uE34F\uE28E',
   '\u182C\u1824': '\uE2CE\uE28E',
   '\u182D\u1824': '\uE2E1\uE28E',
   '\u182A\u1824': '\uE2C2\uE28F',
@@ -135,6 +143,8 @@ const _fixedTwoLetterWordsUniToMenk = {
   '\u183E\u1825': '\uE345\uE297',
   '\u183F\u1825': '\uE348\uE297',
   '\u1840\u1825': '\uE34B\uE297',
+  '\u1841\u1825': '\uE34E\uE297',
+  '\u1842\u1825': '\uE34F\uE297',
   '\u182C\u1825': '\uE2D4\uE298',
   '\u182D\u1825': '\uE2E6\uE298',
   '\u182A\u1825': '\uE2C2\uE298',
@@ -158,6 +168,8 @@ const _fixedTwoLetterWordsUniToMenk = {
   '\u183E\u1826': '\uE345\uE2A4',
   '\u183F\u1826': '\uE348\uE2A4',
   '\u1840\u1826': '\uE34B\uE2A4',
+  '\u1841\u1826': '\uE34E\uE2A4',
+  '\u1842\u1826': '\uE34F\uE2A4',
   '\u182C\u1826': '\uE2D4\uE2A5',
   '\u182D\u1826': '\uE2E6\uE2A5',
   '\u182A\u1826': '\uE2C2\uE2A5',
@@ -282,6 +294,10 @@ const _fixedSuffixesUniToMenk = {
   '\u180E\u1833\u1820': '\uE263\uE310\uE268',
   // DE
   '\u180E\u1833\u1821': '\uE263\uE310\uE273',
+  // UU (not a suffix but adding for backward compatibility)
+  '\u180E\u1824\u1824': '\uE263\uE292\uE28D',
+  // UEUE (not a suffix but adding for backward compatibility)
+  '\u180E\u1826\u1826': '\uE263\uE2AC\uE2A3',
 };
 
 const _fixedWordsUniToMenk = {
