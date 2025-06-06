@@ -638,5 +638,21 @@ void main() {
       final expected = '\u182A\u1826\u182F\u1826\u182D\u0020\u1832\u1826\u180D';
       expect(result, expected);
     });
+
+    test('ogyoWord', () async {
+      final menksoft = '\uE284\uE2EF\uE320\uE28D';
+      final result = convertMenksoftToUnicode(menksoft);
+      final expected = '\u1823\u182D\u180C\u1836\u1824';
+      expect(result, expected);
+    });
+
+    test('rinchintogmedWord', () async {
+      final menksoft =
+          '\uE323\uE27E\uE2BA\uE317\uE27E\uE2B8\uE30B\uE289\uE2EB\uE2F6\uE276\uE311';
+      final result = convertMenksoftToUnicode(menksoft);
+      final expected =
+          '\u1837\u1822\u1828\u1834\u1822\u1828\u1832\u1823\u182D\u180C\u182E\u1821\u1833';
+      expect(result, expected);
+    });
   });
 }

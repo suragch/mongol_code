@@ -602,5 +602,21 @@ void main() {
           '\uE2E1\uE26C\uE2FA\uE301\uE26C\uE2BE\uE31D\uE27E\uE2EB\uE2F6\uE276\uE311';
       expect(result, expected);
     });
+
+    test('ogyuWord', () async {
+      final unicode = '\u1823\u182D\u180C\u1836\u1824';
+      final result = convertUnicodeToMenksoft(unicode);
+      final expected = '\uE284\uE2EF\uE320\uE28D';
+      expect(result, expected);
+    });
+
+    test('rinchintogmedWord', () async {
+      final menksoft =
+          '\u1837\u1822\u1828\u1834\u1822\u1828\u1832\u1823\u182D\u180C\u182E\u1821\u1833';
+      final result = convertUnicodeToMenksoft(menksoft);
+      final expected =
+          '\uE323\uE27E\uE2BA\uE317\uE27E\uE2B8\uE30B\uE289\uE2EB\uE2F6\uE276\uE311';
+      expect(result, expected);
+    });
   });
 }

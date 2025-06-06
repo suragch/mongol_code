@@ -170,7 +170,8 @@ class MongolWord {
 
       _location = _getLocation(i);
 
-      int charAbove = (i > 0) ? _inputWord[i - 1] : 0;
+      // int charAbove = (i > 0) ? _inputWord[i - 1] : 0;
+      int charAbove = _getCharAbove(i);
 
       // handle each letter separately
       switch (currentChar) {
@@ -273,6 +274,15 @@ class MongolWord {
 
     // Glyphs were added from the bottom up so need to reverse it before returning.
     return renderedWord.reversed.toList();
+  }
+
+  int _getCharAbove(int index) {
+    final charAbove = (index > 0) ? _inputWord[index - 1] : 0;
+    if (MongolCode.isFVS(charAbove)) {
+      return (index > 1) ? _inputWord[index - 2] : 0;
+    } else {
+      return charAbove;
+    }
   }
 
   void _handleA(List<int> renderedWord, int charAbove, int charBelow) {

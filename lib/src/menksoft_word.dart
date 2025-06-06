@@ -1001,7 +1001,6 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_QA_STEM:
           case Menksoft.MEDI_QA_TOOTH:
-          case Menksoft.MEDI_QA_FVS2_CONS:
             // If a medial Q is being used like a G before
             // a consonant, then interpret it as a G.
             if (Menksoft.isMenksoftConsonant(charBelow)) {
@@ -1013,6 +1012,17 @@ class MenksoftWord {
           case Menksoft.MEDI_QA_FVS1_MVS:
             // treat the dotted masculine Q as a G
             outputString.add(Unicode.GA);
+          case Menksoft.MEDI_QA_FVS2:
+          case Menksoft.MEDI_QA_FVS2_OU:
+          case Menksoft.MEDI_QA_FVS2_CONS:
+            if (_inputWordContainsMasculineVowel() &&
+                Menksoft.isMenksoftConsonant(charBelow)) {
+              // treat feminine QA before a consonant as a GA
+              outputString.add(Unicode.GA);
+              outputString.add(Unicode.FVS2);
+            } else {
+              outputString.add(Unicode.QA);
+            }
           default:
             outputString.add(Unicode.QA);
         }
@@ -1097,6 +1107,8 @@ class MenksoftWord {
         switch (currentChar) {
           case Menksoft.MEDI_GA_FVS2_TOOTH:
           case Menksoft.MEDI_GA_FVS2_STEM:
+          case Menksoft.MEDI_GA_FVS2:
+          case Menksoft.MEDI_GA_FVS2_OU:
             outputString.add(Unicode.GA);
             // If word contains masculine vowel and not surrounded by consonants
             if (_inputWordContainsMasculineVowel() &&
