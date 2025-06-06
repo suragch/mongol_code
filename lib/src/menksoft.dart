@@ -489,6 +489,15 @@ class Menksoft {
         (character >= O_START && character < OE_START);
   }
 
+  static bool isFeminineVowel(int character) {
+    return (character >= E_START && character < I_START) ||
+        (character >= OE_START && character < NA_START);
+  }
+
+  static bool isI(int character) {
+    return character >= I_START && character < O_START;
+  }
+
   static bool isMenksoftInitialIsolateGlyph(int character) {
     if (character == 0) return false;
     return character == ISOL_A ||

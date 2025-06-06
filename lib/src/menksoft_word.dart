@@ -1111,7 +1111,8 @@ class MenksoftWord {
           case Menksoft.MEDI_GA_FVS2_OU:
             outputString.add(Unicode.GA);
             // If word contains masculine vowel and not surrounded by consonants
-            if (_inputWordContainsMasculineVowel() &&
+            if (_isNotFeminineOrI(charBelow) &&
+                _inputWordContainsMasculineVowel() &&
                 (_isVowel(charAbove) || _isVowel(charBelow))) {
               outputString.add(Unicode.FVS2);
             }
@@ -1144,6 +1145,10 @@ class MenksoftWord {
             outputString.add(Unicode.MONGOLIAN_NIRUGU);
         }
     }
+  }
+
+  bool _isNotFeminineOrI(int char) {
+    return !Menksoft.isFeminineVowel(char) && !Menksoft.isI(char);
   }
 
   bool _inputWordContainsMasculineVowel() {
