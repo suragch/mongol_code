@@ -1,6 +1,8 @@
 import 'package:mongol_code/alternative/convert_unicode.dart';
 import 'package:test/test.dart';
 
+import 'print_result.dart';
+
 void main() {
   group('Unicode -> Menksoft: Words', () {
     test('bichigWord', () async {
@@ -580,6 +582,24 @@ void main() {
       final result = convertUnicodeToMenksoft(unicode);
       final expected =
           '\uE34B\uE26C\uE2F5\uE291\uE30B\uE289\uE2EE\uE2F4\uE276\uE311';
+      expect(result, expected);
+    });
+
+    test('galsangjigmedWord', () async {
+      final unicode =
+          '\u182D\u1820\u182F\u1830\u1820\u1829\u1835\u1822\u182D\u182E\u1821\u1833';
+      final result = convertUnicodeToMenksoft(unicode);
+      final expected =
+          '\uE2E1\uE26C\uE2FA\uE301\uE26C\uE2BE\uE31D\uE27E\uE2EB\uE2F6\uE276\uE311';
+      expect(result, expected);
+    });
+
+    test('galsangjig2medWord', () async {
+      final unicode =
+          '\u182D\u1820\u182F\u1830\u1820\u1829\u1835\u1822\u182D\u180C\u182E\u1821\u1833';
+      final result = convertUnicodeToMenksoft(unicode);
+      final expected =
+          '\uE2E1\uE26C\uE2FA\uE301\uE26C\uE2BE\uE31D\uE27E\uE2EB\uE2F6\uE276\uE311';
       expect(result, expected);
     });
   });

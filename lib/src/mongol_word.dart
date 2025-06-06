@@ -1121,6 +1121,7 @@ class MongolWord {
           } else {
             renderedWord.add(Menksoft.INIT_GA_FVS2);
           }
+          _glyphShapeBelow = Shape.ROUND;
         } else if (_fvs == fvs3) {
           if (_glyphShapeBelow == Shape.STEM) {
             renderedWord.add(Menksoft.INIT_GA_STEM); // normal (masculine) stem
@@ -1135,6 +1136,7 @@ class MongolWord {
           } else {
             renderedWord.add(Menksoft.INIT_GA_FVS4);
           }
+          _glyphShapeBelow = Shape.ROUND;
         } else {
           if (MongolCode.isFeminineVowel(charBelow) || charBelow == Unicode.I) {
             if (_isOuVowel(charBelow)) {
@@ -1142,10 +1144,12 @@ class MongolWord {
             } else {
               renderedWord.add(Menksoft.INIT_GA_FVS2); // feminine
             }
+            _glyphShapeBelow = Shape.ROUND;
           } else {
             if (MongolCode.isConsonant(charBelow)) {
               // *** feminine form before consonant in foreign words ***
               renderedWord.add(Menksoft.INIT_GA_FVS2); // feminine
+              _glyphShapeBelow = Shape.ROUND;
             } else if (_glyphShapeBelow == Shape.STEM) {
               renderedWord.add(
                 Menksoft.INIT_GA_STEM,
@@ -1157,6 +1161,7 @@ class MongolWord {
             }
           }
         }
+        _adjustMaLaAfterRoundedGa(renderedWord);
       case Location.MEDIAL:
         if (_fvs == fvs1) {
           if (charBelow == Unicode.MVS) {
@@ -1180,6 +1185,11 @@ class MongolWord {
             } else {
               renderedWord.add(Menksoft.MEDI_GA_FVS2);
             }
+          } else if (charBelow == Unicode.NA ||
+              charBelow == Unicode.MA ||
+              charBelow == Unicode.LA) {
+            // BIG Fem G looks better for medial N, M, L
+            renderedWord.add(Menksoft.MEDI_GA_FVS2);
           } else {
             if (_glyphShapeBelow == Shape.STEM) {
               renderedWord.add(Menksoft.MEDI_GA_FVS2_STEM);
@@ -1278,6 +1288,7 @@ class MongolWord {
             }
           }
         }
+        _adjustMaLaAfterRoundedGa(renderedWord);
       case Location.FINAL:
         if (_fvs == fvs1) {
           renderedWord.add(Menksoft.FINA_GA_FVS1); // masculine
@@ -1303,6 +1314,20 @@ class MongolWord {
     }
   }
 
+  void _adjustMaLaAfterRoundedGa(List<int> renderedWord) {
+    final length = renderedWord.length;
+    if (_glyphShapeBelow == Shape.ROUND && length > 1) {
+      final renderedChar = renderedWord[length - 2];
+      if (renderedChar == Menksoft.MEDI_MA_TOOTH ||
+          renderedChar == Menksoft.MEDI_MA_STEM_LONG) {
+        renderedWord[length - 2] = Menksoft.MEDI_MA_BP;
+      } else if (renderedChar == Menksoft.MEDI_LA_TOOTH ||
+          renderedChar == Menksoft.MEDI_LA_STEM_LONG) {
+        renderedWord[length - 2] = Menksoft.MEDI_LA_BP;
+      }
+    }
+  }
+
   void _handleMA(
     List<int> renderedWord,
     int positionInWord,
@@ -1324,18 +1349,12 @@ class MongolWord {
           _glyphShapeBelow = Shape.STEM;
           break;
         }
+        // It's quite complicated to check if there is a rounded G above. So
+        // instead, later if we have a rounded GA, we'll replace the tooth or
+        // stem M with the MEDI_MA_BP. See medial GA logic.
         if (_isRoundLetter(charAbove) || charAbove == Unicode.ANG) {
-          renderedWord.add(
-            Menksoft.MEDI_MA_BP,
-          ); // tail extended for round letter
-        } else if (charAbove == Unicode.GA) {
-          if (_isFeminineG(positionInWord)) {
-            renderedWord.add(
-              Menksoft.MEDI_MA_BP,
-            ); // tail extended for round letter
-          } else {
-            renderedWord.add(Menksoft.MEDI_MA_TOOTH); // tooth
-          }
+          // tail extended for round letter
+          renderedWord.add(Menksoft.MEDI_MA_BP);
         } else if (_glyphShapeBelow != Shape.TOOTH ||
             // use the longer stem if M/L is below
             charBelow == Unicode.MA ||
@@ -1343,26 +1362,13 @@ class MongolWord {
             charBelow == Unicode.LHA) {
           renderedWord.add(Menksoft.MEDI_MA_STEM_LONG);
         } else {
-          renderedWord.add(Menksoft.MEDI_MA_TOOTH); // tooth
+          renderedWord.add(Menksoft.MEDI_MA_TOOTH);
         }
         _glyphShapeBelow = Shape.TOOTH;
       case Location.FINAL:
         renderedWord.add(Menksoft.FINA_MA);
         _glyphShapeBelow = Shape.STEM;
     }
-  }
-
-  // assumes letter at position is M or L and charAbove is G
-  bool _isFeminineG(int position) {
-    final gender = MongolCode.genderOf(word: _inputWord, beforeIndex: position);
-    if (gender != Gender.MASCULINE) {
-      return true;
-    }
-
-    // feminine G when between consonants
-    return position > 1 &&
-        (MongolCode.isConsonant(_inputWord[position - 2]) ||
-            _inputWord[position - 2] == Unicode.MONGOLIAN_NIRUGU);
   }
 
   void _handleLA(
@@ -1386,18 +1392,12 @@ class MongolWord {
           _glyphShapeBelow = Shape.STEM;
           break;
         }
+        // It's quite complicated to check if there is a rounded G above. So
+        // instead, later if we have a rounded GA, we'll replace the tooth or
+        // stem L with the MEDI_LA_BP. See medial GA logic.
         if (_isRoundLetter(charAbove) || charAbove == Unicode.ANG) {
-          renderedWord.add(
-            Menksoft.MEDI_LA_BP,
-          ); // tail extended for round letter
-        } else if (charAbove == Unicode.GA) {
-          if (_isFeminineG(positionInWord)) {
-            renderedWord.add(
-              Menksoft.MEDI_LA_BP,
-            ); // tail extended for round letter
-          } else {
-            renderedWord.add(Menksoft.MEDI_LA_TOOTH);
-          }
+          // tail extended for round letter
+          renderedWord.add(Menksoft.MEDI_LA_BP);
         } else if (_glyphShapeBelow != Shape.TOOTH ||
             // use the longer stem if M/L is below
             charBelow == Unicode.MA ||
