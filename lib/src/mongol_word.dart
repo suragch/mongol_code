@@ -1188,8 +1188,13 @@ class MongolWord {
           } else if (charBelow == Unicode.NA ||
               charBelow == Unicode.MA ||
               charBelow == Unicode.LA) {
-            // BIG Fem G looks better for medial N, M, L
-            renderedWord.add(Menksoft.MEDI_GA_FVS2);
+            if (_isFinalNaMaLa(renderedWord.last)) {
+              // make exception for words like CHECHEGM_A
+              renderedWord.add(Menksoft.MEDI_GA_FVS2_STEM);
+            } else {
+              // BIG Fem G looks better for medial N, M, L
+              renderedWord.add(Menksoft.MEDI_GA_FVS2);
+            }
           } else {
             if (_glyphShapeBelow == Shape.STEM) {
               renderedWord.add(Menksoft.MEDI_GA_FVS2_STEM);
@@ -1258,11 +1263,7 @@ class MongolWord {
               if (charBelow == Unicode.NA ||
                   charBelow == Unicode.MA ||
                   charBelow == Unicode.LA) {
-                final renderedCharBelow = renderedWord.last;
-                if (renderedCharBelow == Menksoft.FINA_MA ||
-                    renderedCharBelow == Menksoft.FINA_LA ||
-                    renderedCharBelow == Menksoft.FINA_NA ||
-                    renderedCharBelow == Menksoft.FINA_NA_FVS1) {
+                if (_isFinalNaMaLa(renderedWord.last)) {
                   // make exception for words like CHECHEGM_A
                   renderedWord.add(
                     Menksoft.MEDI_GA_FVS2_STEM,
@@ -1312,6 +1313,13 @@ class MongolWord {
         }
         _glyphShapeBelow = Shape.TOOTH;
     }
+  }
+
+  bool _isFinalNaMaLa(int character) {
+    return character == Menksoft.FINA_MA ||
+        character == Menksoft.FINA_LA ||
+        character == Menksoft.FINA_NA ||
+        character == Menksoft.FINA_NA_FVS1;
   }
 
   void _adjustMaLaAfterRoundedGa(List<int> renderedWord) {
