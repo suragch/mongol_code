@@ -1,8 +1,8 @@
-import 'package:mongol_code/alternative/fixed_words_uni_menk.dart';
+import 'package:mongol_code/src/unicode/fixed_words_uni_menk.dart';
 
-import '../mongol_code.dart';
-import '../src/mongol_word.dart';
-import 'maps.dart';
+import '../../mongol_code.dart';
+import 'mongol_word.dart';
+import 'punctuation.dart';
 
 String convertUnicodeToMenksoft(String input) {
   final output = <int>[];
@@ -55,7 +55,7 @@ bool _isMongolianSegmentCharacter(int codeUnit) {
 bool _isMongolianWordCharacter(int codeUnit) {
   return _isControlCharacter(codeUnit) ||
       _isMongolianLetter(codeUnit) ||
-      codeUnit == Unicode.MONGOLIAN_BIRGA;
+      codeUnit == Mongol.birga;
 }
 
 // FVS or MVS
@@ -68,20 +68,12 @@ bool _isMongolianLetter(int codeUnit) {
 }
 
 bool _isBackSupportChar(int codeUnit) {
-  return codeUnit == Unicode.NNBS;
+  return codeUnit == Mongol.nnbs;
 }
 
 bool _isTodoSibeManchu(int codeUnit) {
   return codeUnit >= 0x1843 && codeUnit <= 0x18AA;
 }
-
-// bool _isFVS(int? codeUnit) {
-//   if (codeUnit == null) return false;
-//   return codeUnit == Unicode.FVS1 || //
-//       codeUnit == Unicode.FVS2 ||
-//       codeUnit == Unicode.FVS3 ||
-//       codeUnit == Unicode.FVS4;
-// }
 
 // A segment may include multiple words or suffixes separated by MVS
 List<int> _processMongolianSegment(List<int> segment) {
@@ -115,10 +107,10 @@ bool _containsTodoSibeManchu(List<int> codeUnits) {
 
 void _replaceDeprecatedChars(List<int> segment) {
   for (int i = 0; i < segment.length; i++) {
-    if (segment[i] == Unicode.NNBS) {
-      segment[i] = Unicode.MVS;
-    } else if (segment[i] == Unicode.ZWJ) {
-      segment[i] = Unicode.MONGOLIAN_NIRUGU;
+    if (segment[i] == Mongol.nnbs) {
+      segment[i] = Mongol.mvs;
+    } else if (segment[i] == Mongol.zwj) {
+      segment[i] = Mongol.nirugu;
     }
   }
 }
@@ -155,7 +147,7 @@ List<List<int>> _splitByMvsWords(List<int> segment) {
 }
 
 bool _isMvs(int codeUnit) {
-  return codeUnit == Unicode.MVS;
+  return codeUnit == Mongol.mvs;
 }
 
 bool _isMvsAeWord(int index, List<int> segment) {
@@ -168,12 +160,10 @@ bool _isMvsAeWord(int index, List<int> segment) {
 }
 
 bool _isMongolianAe(int codeUnit) {
-  return codeUnit == Unicode.A || codeUnit == Unicode.E;
+  return codeUnit == Mongol.a || codeUnit == Mongol.e;
 }
 
 List<int> _processMongolianWord(List<int> unicode) {
-  // --- Apply Rules in Priority Order ---
-
   // 1. Check Fixed Sequences (GBT+25914-2023 Appendix D)
   final fixedSequence = checkFixedSequenceUniToMenk(unicode);
   if (fixedSequence != null) {

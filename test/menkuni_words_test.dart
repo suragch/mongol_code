@@ -1,7 +1,5 @@
-import 'package:mongol_code/alternative/convert_menksoft.dart';
+import 'package:mongol_code/mongol_code.dart';
 import 'package:test/test.dart';
-
-import 'print_result.dart';
 
 void main() {
   group('Menksoft -> Unicode: Words', () {

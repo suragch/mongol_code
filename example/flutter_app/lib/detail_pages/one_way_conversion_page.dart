@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mongol_code/alternative/convert_menksoft.dart';
-import 'package:mongol_code/alternative/convert_unicode.dart';
+import 'package:mongol_code/mongol_code.dart';
 
 class OneWayConversionPage extends StatefulWidget {
   const OneWayConversionPage({super.key});

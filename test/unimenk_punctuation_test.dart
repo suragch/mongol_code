@@ -1,338 +1,331 @@
-import 'package:mongol_code/alternative/convert_unicode.dart';
 import 'package:mongol_code/mongol_code.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('Unicode -> Menksoft: Punctuation', () {
     test('punctuationBirga', () async {
-      final unicode = Unicode.MONGOLIAN_BIRGA;
+      final unicode = Mongol.birga;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.BIRGA);
+      final expected = String.fromCharCode(Menksoft.birga);
       expect(result, expected);
     });
 
     test('punctuationEllipsis', () async {
-      final unicode = Unicode.MONGOLIAN_ELLIPSIS;
+      final unicode = Mongol.ellipsis;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.ELLIPSIS);
+      final expected = String.fromCharCode(Menksoft.ellipsis);
       expect(result, expected);
     });
 
     test('punctuationComma', () async {
-      final unicode = Unicode.MONGOLIAN_COMMA;
+      final unicode = Mongol.comma;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.COMMA);
+      final expected = String.fromCharCode(Menksoft.comma);
       expect(result, expected);
     });
 
     test('punctuationFullStop', () async {
-      final unicode = Unicode.MONGOLIAN_FULL_STOP;
+      final unicode = Mongol.fullStop;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.FULL_STOP);
+      final expected = String.fromCharCode(Menksoft.fullStop);
       expect(result, expected);
     });
     test('punctuationColon', () async {
-      final unicode = Unicode.MONGOLIAN_COLON;
+      final unicode = Mongol.colon;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.COLON);
+      final expected = String.fromCharCode(Menksoft.colon);
       expect(result, expected);
     });
 
     test('punctuationFourDots', () async {
-      final unicode = Unicode.MONGOLIAN_FOUR_DOTS;
+      final unicode = Mongol.fourDots;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.FOUR_DOTS);
+      final expected = String.fromCharCode(Menksoft.fourDots);
       expect(result, expected);
     });
 
     test('punctuationTodoSoftHyphen', () async {
-      final unicode = Unicode.MONGOLIAN_TODO_SOFT_HYPHEN;
+      final unicode = Mongol.todoSoftHyphen;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.TODO_SOFT_HYPHEN);
+      final expected = String.fromCharCode(Menksoft.todoSoftHyphen);
       expect(result, expected);
     });
 
     test('punctuationSibeSyllableBoundaryMarker', () async {
-      final unicode = Unicode.MONGOLIAN_SIBE_SYLLABLE_BOUNDARY_MARKER;
+      final unicode = Mongol.sibeSyllableBoundaryMarker;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(
-        Menksoft.SIBE_SYLLABLE_BOUNDARY_MARKER,
-      );
+      final expected = String.fromCharCode(Menksoft.sibeSyllableBoundaryMarker);
       expect(result, expected);
     });
 
     test('punctuationManchuComma', () async {
-      final unicode = Unicode.MONGOLIAN_MANCHU_COMMA;
+      final unicode = Mongol.manchuComma;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.MANCHU_COMMA);
+      final expected = String.fromCharCode(Menksoft.manchuComma);
       expect(result, expected);
     });
 
     test('punctuationManchuFullStop', () async {
-      final unicode = Unicode.MONGOLIAN_MANCHU_FULL_STOP;
+      final unicode = Mongol.manchuFullStop;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.MANCHU_FULL_STOP);
+      final expected = String.fromCharCode(Menksoft.manchuFullStop);
       expect(result, expected);
     });
 
     test('punctuationNirugu', () async {
-      final unicode = Unicode.MONGOLIAN_NIRUGU;
+      final unicode = Mongol.nirugu;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.NIRUGU);
+      final expected = String.fromCharCode(Menksoft.nirugu);
       expect(result, expected);
     });
 
     test('punctuationBirgaDecoration', () async {
       final unicode = '\u1800\u180B';
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = String.fromCharCode(Menksoft.BIRGA_WITH_ORNAMENT);
+      final expected = String.fromCharCode(Menksoft.birgaWithOrnament);
       expect(result, expected);
     });
 
     test('punctuationBirgaRotated', () async {
       final unicode = '\u1800\u180C';
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = String.fromCharCode(Menksoft.ROTATED_BIRGA);
+      final expected = String.fromCharCode(Menksoft.rotatedBirga);
       expect(result, expected);
     });
 
     test('punctuationBirgaDouble', () async {
       final unicode = '\u1800\u180D';
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = String.fromCharCode(Menksoft.DOUBLE_BIRGA_WITH_ORNAMENT);
+      final expected = String.fromCharCode(Menksoft.doubleBirgaWithOrnament);
       expect(result, expected);
     });
 
     test('punctuationBirgaTriple', () async {
       final unicode = '\u1800\u180F';
       final result = convertUnicodeToMenksoft(unicode);
-      final expected = String.fromCharCode(Menksoft.TRIPLE_BIRGA_WITH_ORNAMENT);
+      final expected = String.fromCharCode(Menksoft.tripleBirgaWithOrnament);
       expect(result, expected);
     });
 
     test('punctuationMiddleDot', () async {
-      final unicode = Unicode.MIDDLE_DOT;
+      final unicode = Mongol.middleDot;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.MIDDLE_DOT);
+      final expected = String.fromCharCode(Menksoft.middleDot);
       expect(result, expected);
     });
 
     test('punctuationZero', () async {
-      final unicode = Unicode.MONGOLIAN_DIGIT_ZERO;
+      final unicode = Mongol.digitZero;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.ZERO);
+      final expected = String.fromCharCode(Menksoft.zero);
       expect(result, expected);
     });
 
     test('punctuationOne', () async {
-      final unicode = Unicode.MONGOLIAN_DIGIT_ONE;
+      final unicode = Mongol.digitOne;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.ONE);
+      final expected = String.fromCharCode(Menksoft.one);
       expect(result, expected);
     });
 
     test('punctuationTwo', () async {
-      final unicode = Unicode.MONGOLIAN_DIGIT_TWO;
+      final unicode = Mongol.digitTwo;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.TWO);
+      final expected = String.fromCharCode(Menksoft.two);
       expect(result, expected);
     });
 
     test('punctuationThree', () async {
-      final unicode = Unicode.MONGOLIAN_DIGIT_THREE;
+      final unicode = Mongol.digitThree;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.THREE);
+      final expected = String.fromCharCode(Menksoft.three);
       expect(result, expected);
     });
 
     test('punctuationFour', () async {
-      final unicode = Unicode.MONGOLIAN_DIGIT_FOUR;
+      final unicode = Mongol.digitFour;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.FOUR);
+      final expected = String.fromCharCode(Menksoft.four);
       expect(result, expected);
     });
 
     test('punctuationFive', () async {
-      final unicode = Unicode.MONGOLIAN_DIGIT_FIVE;
+      final unicode = Mongol.digitFive;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.FIVE);
+      final expected = String.fromCharCode(Menksoft.five);
       expect(result, expected);
     });
 
     test('punctuationSix', () async {
-      final unicode = Unicode.MONGOLIAN_DIGIT_SIX;
+      final unicode = Mongol.digitSix;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.SIX);
+      final expected = String.fromCharCode(Menksoft.six);
       expect(result, expected);
     });
 
     test('punctuationSeven', () async {
-      final unicode = Unicode.MONGOLIAN_DIGIT_SEVEN;
+      final unicode = Mongol.digitSeven;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.SEVEN);
+      final expected = String.fromCharCode(Menksoft.seven);
       expect(result, expected);
     });
 
     test('punctuationEight', () async {
-      final unicode = Unicode.MONGOLIAN_DIGIT_EIGHT;
+      final unicode = Mongol.digitEight;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.EIGHT);
+      final expected = String.fromCharCode(Menksoft.eight);
       expect(result, expected);
     });
 
     test('punctuationNine', () async {
-      final unicode = Unicode.MONGOLIAN_DIGIT_NINE;
+      final unicode = Mongol.digitNine;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.NINE);
+      final expected = String.fromCharCode(Menksoft.nine);
       expect(result, expected);
     });
 
     test('punctuationQuestionExclamation', () async {
-      final unicode = Unicode.QUESTION_EXCLAMATION;
+      final unicode = Mongol.questionExclamation;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.QUESTION_EXCLAMATION);
+      final expected = String.fromCharCode(Menksoft.questionExclamation);
       expect(result, expected);
     });
 
     test('punctuationExclamationQuestion', () async {
-      final unicode = Unicode.EXCLAMATION_QUESTION;
+      final unicode = Mongol.exclamationQuestion;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.EXCLAMATION_QUESTION);
+      final expected = String.fromCharCode(Menksoft.exclamationQuestion);
       expect(result, expected);
     });
 
     test('punctuationExclamation', () async {
-      final unicode = Unicode.FULLWIDTH_EXCLAMATION;
+      final unicode = Mongol.fullwidthExclamation;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.EXCLAMATION);
+      final expected = String.fromCharCode(Menksoft.exclamation);
       expect(result, expected);
     });
 
     test('punctuationQuestion', () async {
-      final unicode = Unicode.FULLWIDTH_QUESTION;
+      final unicode = Mongol.fullwidthQuestion;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.QUESTION);
+      final expected = String.fromCharCode(Menksoft.question);
       expect(result, expected);
     });
 
     test('punctuationSemicolon', () async {
-      final unicode = Unicode.FULLWIDTH_SEMICOLON;
+      final unicode = Mongol.fullwidthSemicolon;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.SEMICOLON);
+      final expected = String.fromCharCode(Menksoft.semicolon);
       expect(result, expected);
     });
 
     test('punctuationLeftParenthesis', () async {
-      final unicode = Unicode.FULLWIDTH_LEFT_PARENTHESIS;
+      final unicode = Mongol.fullwidthLeftParenthesis;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.LEFT_PARENTHESIS);
+      final expected = String.fromCharCode(Menksoft.leftParenthesis);
       expect(result, expected);
     });
 
     test('punctuationRightParenthesis', () async {
-      final unicode = Unicode.FULLWIDTH_RIGHT_PARENTHESIS;
+      final unicode = Mongol.fullwidthRightParenthesis;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.RIGHT_PARENTHESIS);
+      final expected = String.fromCharCode(Menksoft.rightParenthesis);
       expect(result, expected);
     });
 
     test('punctuationLeftAngleBracket', () async {
-      final unicode = Unicode.LEFT_ANGLE_BRACKET;
+      final unicode = Mongol.leftAngleBracket;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.LEFT_ANGLE_BRACKET);
+      final expected = String.fromCharCode(Menksoft.leftAngleBracket);
       expect(result, expected);
     });
 
     test('punctuationRightAngleBracket', () async {
-      final unicode = Unicode.RIGHT_ANGLE_BRACKET;
+      final unicode = Mongol.rightAngleBracket;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.RIGHT_ANGLE_BRACKET);
+      final expected = String.fromCharCode(Menksoft.rightAngleBracket);
       expect(result, expected);
     });
 
     test('punctuationLeftBracket', () async {
-      final unicode = Unicode.VERTICAL_LEFT_TORTOISE_SHELL_BRACKET;
+      final unicode = Mongol.verticalLeftTortoiseShellBracket;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(
-        Menksoft.LEFT_TORTOISE_SHELL_BRACKET,
-      );
+      final expected = String.fromCharCode(Menksoft.leftTortoiseShellBracket);
       expect(result, expected);
     });
 
     test('punctuationRightBracket', () async {
-      final unicode = Unicode.VERTICAL_RIGHT_TORTOISE_SHELL_BRACKET;
+      final unicode = Mongol.verticalRightTortoiseShellBracket;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(
-        Menksoft.RIGHT_TORTOISE_SHELL_BRACKET,
-      );
+      final expected = String.fromCharCode(Menksoft.rightTortoiseShellBracket);
       expect(result, expected);
     });
 
     test('punctuationLeftDoubleAngleBracket', () async {
-      final unicode = Unicode.LEFT_DOUBLE_ANGLE_BRACKET;
+      final unicode = Mongol.leftDoubleAngleBracket;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.LEFT_DOUBLE_ANGLE_BRACKET);
+      final expected = String.fromCharCode(Menksoft.leftDoubleAngleBracket);
       expect(result, expected);
     });
 
     test('punctuationRightDoubleAngleBracket', () async {
-      final unicode = Unicode.RIGHT_DOUBLE_ANGLE_BRACKET;
+      final unicode = Mongol.rightDoubleAngleBracket;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.RIGHT_DOUBLE_ANGLE_BRACKET);
+      final expected = String.fromCharCode(Menksoft.rightDoubleAngleBracket);
       expect(result, expected);
     });
 
     test('punctuationLeftWhiteCornerBracket', () async {
-      final unicode = Unicode.VERTICAL_LEFT_WHITE_CORNER_BRACKET;
+      final unicode = Mongol.verticalLeftWhiteCornerBracket;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.LEFT_WHITE_CORNER_BRACKET);
+      final expected = String.fromCharCode(Menksoft.leftWhiteCornerBracket);
       expect(result, expected);
     });
 
     test('punctuationRightWhiteCornerBracket', () async {
-      final unicode = Unicode.VERTICAL_RIGHT_WHITE_CORNER_BRACKET;
+      final unicode = Mongol.verticalRightWhiteCornerBracket;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.RIGHT_WHITE_CORNER_BRACKET);
+      final expected = String.fromCharCode(Menksoft.rightWhiteCornerBracket);
       expect(result, expected);
     });
 
     test('punctuationFullWidthComma', () async {
-      final unicode = Unicode.VERTICAL_COMMA;
+      final unicode = Mongol.verticalComma;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.FULL_WIDTH_COMMA);
+      final expected = String.fromCharCode(Menksoft.fullWidthComma);
       expect(result, expected);
     });
 
     test('punctuationX', () async {
-      final unicode = Unicode.PUNCTUATION_X;
+      final unicode = Mongol.punctuationX;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.X);
+      final expected = String.fromCharCode(Menksoft.x);
       expect(result, expected);
     });
 
     test('punctuationReferenceMark', () async {
-      final unicode = Unicode.REFERENCE_MARK;
+      final unicode = Mongol.referenceMark;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.REFERENCE_MARK);
+      final expected = String.fromCharCode(Menksoft.referenceMark);
       expect(result, expected);
     });
 
     test('punctuationEnDash', () async {
-      final unicode = Unicode.VERTICAL_EN_DASH;
+      final unicode = Mongol.verticalEnDash;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.EN_DASH);
+      final expected = String.fromCharCode(Menksoft.enDash);
       expect(result, expected);
     });
 
     test('punctuationEmDash', () async {
-      final unicode = Unicode.VERTICAL_EM_DASH;
+      final unicode = Mongol.verticalEmDash;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
-      final expected = String.fromCharCode(Menksoft.EM_DASH);
+      final expected = String.fromCharCode(Menksoft.emDash);
       expect(result, expected);
     });
 
     test('punctuationSuffixSpace', () async {
-      final unicode = Unicode.NNBS;
+      final unicode = Mongol.nnbs;
       final result = convertUnicodeToMenksoft(String.fromCharCode(unicode));
       final expected =
           ''; // empty string, NNBS converted to MVS, which is invalid alone

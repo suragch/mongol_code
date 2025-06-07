@@ -1,5 +1,4 @@
-import 'package:mongol_code/alternative/convert_menksoft.dart';
-import 'package:mongol_code/alternative/convert_unicode.dart';
+import 'package:mongol_code/mongol_code.dart';
 
 void main() {
   // Unicode to Menksoft code

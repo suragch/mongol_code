@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mongol_code/alternative/convert_unicode.dart';
 import 'package:mongol_code/mongol_code.dart';
 
 class MvsPage extends StatefulWidget {
@@ -10,11 +9,9 @@ class MvsPage extends StatefulWidget {
 }
 
 class _MvsPageState extends State<MvsPage> {
-  final code = MongolCode.instance;
-
-  final mvs = String.fromCharCode(Unicode.MVS);
-  final nirugu = String.fromCharCode(Unicode.MONGOLIAN_NIRUGU);
-  final a = String.fromCharCode(Unicode.A);
+  final mvs = String.fromCharCode(Mongol.mvs);
+  final nirugu = String.fromCharCode(Mongol.nirugu);
+  final a = String.fromCharCode(Mongol.a);
 
   Widget _buildVariantRow(
     String label,

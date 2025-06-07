@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mongol_code/alternative/convert_unicode.dart';
 import 'package:mongol_code/mongol_code.dart';
 
 class WordsPage extends StatefulWidget {
@@ -10,8 +9,6 @@ class WordsPage extends StatefulWidget {
 }
 
 class _WordsPageState extends State<WordsPage> {
-  final code = MongolCode.instance;
-
   Widget _buildVariantRow(
     String unicode,
     String menksoft, {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mongol_code/alternative/convert_unicode.dart';
 import 'package:mongol_code/mongol_code.dart';
 
 class FvsPage extends StatefulWidget {
@@ -10,13 +9,11 @@ class FvsPage extends StatefulWidget {
 }
 
 class _FvsPageState extends State<FvsPage> {
-  final code = MongolCode.instance;
-
-  final fvs1 = String.fromCharCode(Unicode.FVS1);
-  final fvs2 = String.fromCharCode(Unicode.FVS2);
-  final fvs3 = String.fromCharCode(Unicode.FVS3);
-  final fvs4 = String.fromCharCode(Unicode.FVS4);
-  final nirugu = String.fromCharCode(Unicode.MONGOLIAN_NIRUGU);
+  final fvs1 = String.fromCharCode(Mongol.fvs1);
+  final fvs2 = String.fromCharCode(Mongol.fvs2);
+  final fvs3 = String.fromCharCode(Mongol.fvs3);
+  final fvs4 = String.fromCharCode(Mongol.fvs4);
+  final nirugu = String.fromCharCode(Mongol.nirugu);
 
   final List<String> mongolianCharacters = List.generate(
     0x1842 - 0x1820 + 1,

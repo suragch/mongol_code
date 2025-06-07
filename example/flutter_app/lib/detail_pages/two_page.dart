@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mongol_code/alternative/convert_unicode.dart';
 import 'package:mongol_code/mongol_code.dart';
 
 class TwoLetterWordPage extends StatefulWidget {
@@ -15,28 +14,19 @@ class _TwoLetterWordPageState extends State<TwoLetterWordPage> {
   @override
   void initState() {
     super.initState();
-    for (int char = Unicode.A; char <= Unicode.CHI; char++) {
+    for (int char = Mongol.a; char <= Mongol.chi; char++) {
       final letterList = <String>[];
-      letterList.add(String.fromCharCodes([char, Unicode.A]));
-      letterList.add(String.fromCharCodes([char, Unicode.E]));
-      letterList.add(String.fromCharCodes([char, Unicode.I]));
-      letterList.add(String.fromCharCodes([char, Unicode.O]));
-      letterList.add(String.fromCharCodes([char, Unicode.U]));
-      letterList.add(String.fromCharCodes([char, Unicode.OE]));
-      letterList.add(String.fromCharCodes([char, Unicode.UE]));
-      letterList.add(String.fromCharCodes([char, Unicode.EE]));
+      letterList.add(String.fromCharCodes([char, Mongol.a]));
+      letterList.add(String.fromCharCodes([char, Mongol.e]));
+      letterList.add(String.fromCharCodes([char, Mongol.i]));
+      letterList.add(String.fromCharCodes([char, Mongol.o]));
+      letterList.add(String.fromCharCodes([char, Mongol.u]));
+      letterList.add(String.fromCharCodes([char, Mongol.oe]));
+      letterList.add(String.fromCharCodes([char, Mongol.ue]));
+      letterList.add(String.fromCharCodes([char, Mongol.ee]));
       list.add(letterList);
     }
   }
-
-  // Widget _buildVariantRow(String text) {
-
-  //   return Row(
-  //     children: [
-
-  //     ],
-  //   );
-  // }
 
   String _rowText(List<String> letters) {
     final buffer = StringBuffer();

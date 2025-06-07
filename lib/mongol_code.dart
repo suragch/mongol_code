@@ -1,7 +1,7 @@
-export 'src/mongol_code.dart';
-export 'src/gender.dart';
-export 'src/location.dart';
-export 'src/menksoft.dart';
-export 'src/shape.dart';
-export 'src/suffix.dart';
-export 'src/unicode.dart';
+export 'src/shared/gender.dart';
+export 'src/shared/location.dart';
+export 'src/menksoft/menksoft.dart';
+export 'src/unicode/suffix.dart';
+export 'src/unicode/mongol.dart';
+export 'src/unicode/convert_unicode.dart';
+export 'src/menksoft/convert_menksoft.dart';
