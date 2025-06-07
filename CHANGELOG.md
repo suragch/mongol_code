@@ -1,3 +1,7 @@
+## 1.0.3
+
+- Update the README link (yet again) so that the image is visible on Pub.
+
 ## 1.0.2
 
 - Update the README link (again) so that the image is visible on Pub.
