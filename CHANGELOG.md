@@ -1,3 +1,8 @@
+## 1.0.0
+
+- Full update for the GBT+25914-2023 standard.
+- Renamed many constants and function names.
+
 ## 0.3.0
 
 - Null safety release
