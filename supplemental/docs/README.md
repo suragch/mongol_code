@@ -1,0 +1,1 @@
+Documents in this folder retain the copyright of the original authors and are not affected by the LICENSE of the mongol_code repository.
