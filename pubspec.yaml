@@ -1,6 +1,6 @@
 name: mongol_code
 description: Unicode conversion package for traditional Mongolian scripts
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/suragch/mongol_code
 
 environment:

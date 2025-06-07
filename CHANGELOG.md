@@ -1,7 +1,12 @@
+## 1.0.1
+
+- Update the README links so that the targets are visible on Pub.
+
 ## 1.0.0
 
 - Full update for the GBT+25914-2023 standard.
 - Renamed many constants and function names.
+- Released code to the public domain (CC0).
 
 ## 0.3.0
 
