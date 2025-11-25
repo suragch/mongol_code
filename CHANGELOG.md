@@ -1,5 +1,7 @@
 ## 1.0.4
-- Fix Suffix barIyar banIyan
+
+- Fix Suffix bar/iyar ban/iyan (@amjil)
+- Add more suffix tests (@amjil)
 
 ## 1.0.3
 
