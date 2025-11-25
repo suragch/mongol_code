@@ -165,15 +165,15 @@ class Suffix {
   static String barIyar(Gender previousWordGender, int previousWordLastChar) {
     if (Mongol.isVowel(previousWordLastChar)) {
       if (previousWordGender == Gender.masculine) {
-        return Suffix.IYAR;
-      } else {
-        return Suffix.IYER;
-      }
-    } else {
-      if (previousWordGender == Gender.masculine) {
         return Suffix.BAR;
       } else {
         return Suffix.BER;
+      }
+    } else {
+      if (previousWordGender == Gender.masculine) {
+        return Suffix.IYAR;
+      } else {
+        return Suffix.IYER;
       }
     }
   }
@@ -185,15 +185,15 @@ class Suffix {
   static String banIyan(Gender previousWordGender, int previousWordLastChar) {
     if (Mongol.isVowel(previousWordLastChar)) {
       if (previousWordGender == Gender.masculine) {
-        return Suffix.IYAN;
-      } else {
-        return Suffix.IYEN;
-      }
-    } else {
-      if (previousWordGender == Gender.masculine) {
         return Suffix.BAN;
       } else {
         return Suffix.BEN;
+      }
+    } else {
+      if (previousWordGender == Gender.masculine) {
+        return Suffix.IYAN;
+      } else {
+        return Suffix.IYEN;
       }
     }
   }

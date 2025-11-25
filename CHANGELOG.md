@@ -1,3 +1,6 @@
+## 1.0.4
+- Fix Suffix barIyar banIyan
+
 ## 1.0.3
 
 - Update the README link (yet again) so that the image is visible on Pub.
