@@ -143,7 +143,7 @@ void main() {
       expect(result, expected);
     });
 
-    /// BAR comes after a vowel, IYAR comes after a consonant.
+    /// BAR comes after a vowel, IYAR comes after a non vowel.
     test('getSuffixBarIyar_forMasculineWordEndingWithVowel', () async {
       final wordLastChar = Mongol.a;
       final result = Suffix.barIyar(Gender.masculine, wordLastChar);
