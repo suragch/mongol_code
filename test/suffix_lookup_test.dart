@@ -142,5 +142,70 @@ void main() {
       final expected = Suffix.UEN;
       expect(result, expected);
     });
+
+    /// BAR comes after a vowel, IYAR comes after a consonant.
+    test('getSuffixBarIyar_forMasculineWordEndingWithVowel', () async {
+      final wordLastChar = Mongol.a;
+      final result = Suffix.barIyar(Gender.masculine, wordLastChar);
+      final expected = Suffix.BAR;
+      expect(result, expected);
+    });
+
+    test('getSuffixBarIyar_forFeminineWordEndingWithVowel', () async {
+      final wordLastChar = Mongol.ga;
+      final result = Suffix.barIyar(Gender.feminine, wordLastChar);
+      final expected = Suffix.IYER;
+      expect(result, expected);
+    });
+
+    test('getSuffixBanIyan_forMasculineWordEndingWithVowel', () async {
+      final wordLastChar = Mongol.ra;
+      final result = Suffix.banIyan(Gender.masculine, wordLastChar);
+      final expected = Suffix.IYAN;
+      expect(result, expected);
+    });
+
+    test('getSuffixBanIyan_forFeminineWordEndingWithVowel', () async {
+      final wordLastChar = Mongol.e;
+      final result = Suffix.banIyan(Gender.feminine, wordLastChar);
+      final expected = Suffix.BEN;
+      expect(result, expected);
+    });
+
+    test('getSuffixAchaEche_forMasculineWord', () async {
+      final result = Suffix.achaEche(Gender.masculine);
+      final expected = Suffix.ACHA;
+      expect(result, expected);
+    });
+
+    test('getSuffixAchaEche_forFeminineWord', () async {
+      final result = Suffix.achaEche(Gender.feminine);
+      final expected = Suffix.ECHE;
+      expect(result, expected);
+    });
+
+    test('getSuffixTaiTei_forMasculineWord', () async {
+      final result = Suffix.taiTei(Gender.masculine);
+      final expected = Suffix.TAI;
+      expect(result, expected);
+    });
+
+    test('getSuffixTaiTei_forFeminineWord', () async {
+      final result = Suffix.taiTei(Gender.feminine);
+      final expected = Suffix.TEI;
+      expect(result, expected);
+    });
+
+    test('getSuffixUu_forMasculineWord', () async {
+      final result = Suffix.uu(Gender.masculine);
+      final expected = Suffix.UU;
+      expect(result, expected);
+    });
+
+    test('getSuffixUu_forFeminineWord', () async {
+      final result = Suffix.uu(Gender.feminine);
+      final expected = Suffix.UEUE;
+      expect(result, expected);
+    });
   });
 }
