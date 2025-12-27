@@ -1,3 +1,7 @@
+## 1.0.5
+
+- Remove link to GB/T+25914-2023 PDF file. Apparently the standards committee doesn't want it publicly published yet.
+
 ## 1.0.4
 
 - Fix Suffix bar/iyar ban/iyan (@amjil)
