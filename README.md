@@ -2,7 +2,7 @@
 
 Unicode conversion library in Dart for traditional Mongolian script 
 
-Version 1.0 is a full rewrite according to the [GBT+25914-2023 standard](https://github.com/suragch/mongol_code/blob/master/supplemental/docs/GBT%2B25914-2023.pdf). If you find any behavior that doesn't adhere to the standard, please open an issue about it.
+Version 1.0 is a full rewrite according to the GB/T+25914-2023 standard. If you find any behavior that doesn't adhere to the standard, please open an issue about it.
 
 ## Usage
 
