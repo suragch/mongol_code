@@ -1,0 +1,381 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - lcov.info - menksoft/fixed_words_menk_uni.dart</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../index.html" title="Click to go to top-level">top level</a> - <a href="index.html" title="Click to go to directory menksoft">menksoft</a> - fixed_words_menk_uni.dart</td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">lcov.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntry">6</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2025-12-29 17:40:06</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryHi">-</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">0</td>
+          </tr>
+                  <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : // GBT+25924-2023 Appendix D</span>
+<span id="L2"><span class="lineNum">       2</span>              : </span>
+<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">           5 : List&lt;int&gt;? checkFixedSequenceMenkToUni(List&lt;int&gt; menksoft) {</span></span>
+<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">           5 :   final word = String.fromCharCodes(menksoft);</span></span>
+<span id="L5"><span class="lineNum">       5</span>              :   final unicode =</span>
+<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">           5 :       _fixedTwoLetterWordsMenkToUni[word] ??</span></span>
+<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">           5 :       _fixedSuffixesMenkToUni[word] ??</span></span>
+<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">           5 :       _fixedWordsMenkToUni[word];</span></span>
+<span id="L9"><span class="lineNum">       9</span>              :   if (unicode == null) return null;</span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">           3 :   return unicode.codeUnits;</span></span>
+<span id="L11"><span class="lineNum">      11</span>              : }</span>
+<span id="L12"><span class="lineNum">      12</span>              : </span>
+<span id="L13"><span class="lineNum">      13</span>              : // MCC - Mongolian combining consonant （B, P, F, K, KH)</span>
+<span id="L14"><span class="lineNum">      14</span>              : // NCC - Mongolian non-combining consonant (N, M, L, S, etc.)</span>
+<span id="L15"><span class="lineNum">      15</span>              : // MCCC - Mongolian conditional combining consonant (Q, G)</span>
+<span id="L16"><span class="lineNum">      16</span>              : </span>
+<span id="L17"><span class="lineNum">      17</span>              : const Map&lt;String, String&gt; _fixedTwoLetterWordsMenkToUni = {</span>
+<span id="L18"><span class="lineNum">      18</span>              :   // Corresponding to original: 1. NCC|MCCC + A</span>
+<span id="L19"><span class="lineNum">      19</span>              :   '\uE2B3\uE268': '\u1828\u1820', // N</span>
+<span id="L20"><span class="lineNum">      20</span>              :   '\uE2F2\uE268': '\u182E\u1820', // M</span>
+<span id="L21"><span class="lineNum">      21</span>              :   '\uE2F8\uE268': '\u182F\u1820', // L</span>
+<span id="L22"><span class="lineNum">      22</span>              :   '\uE2FE\uE268': '\u1830\u1820', // S</span>
+<span id="L23"><span class="lineNum">      23</span>              :   '\uE304\uE268': '\u1831\u1820', // SH</span>
+<span id="L24"><span class="lineNum">      24</span>              :   '\uE309\uE268': '\u1832\u1820', // T</span>
+<span id="L25"><span class="lineNum">      25</span>              :   '\uE315\uE268': '\u1834\u1820', // CH</span>
+<span id="L26"><span class="lineNum">      26</span>              :   '\uE31A\uE268': '\u1835\u1820', // J</span>
+<span id="L27"><span class="lineNum">      27</span>              :   '\uE31E\uE268': '\u1836\u1820', // Y</span>
+<span id="L28"><span class="lineNum">      28</span>              :   '\uE322\uE268': '\u1837\u1820', // R</span>
+<span id="L29"><span class="lineNum">      29</span>              :   '\uE329\uE268': '\u1838\u1820', // W</span>
+<span id="L30"><span class="lineNum">      30</span>              :   '\uE33F\uE268': '\u183C\u1820', // TS</span>
+<span id="L31"><span class="lineNum">      31</span>              :   '\uE342\uE268': '\u183D\u1820', // Z</span>
+<span id="L32"><span class="lineNum">      32</span>              :   '\uE345\uE268': '\u183E\u1820', // H</span>
+<span id="L33"><span class="lineNum">      33</span>              :   '\uE348\uE268': '\u183F\u1820', // ZR</span>
+<span id="L34"><span class="lineNum">      34</span>              :   '\uE34B\uE268': '\u1840\u1820', // LH</span>
+<span id="L35"><span class="lineNum">      35</span>              :   '\uE34E\uE268': '\u1841\u1820', // ZHI</span>
+<span id="L36"><span class="lineNum">      36</span>              :   '\uE34F\uE268': '\u1842\u1820', // CHI</span>
+<span id="L37"><span class="lineNum">      37</span>              :   '\uE2D2\uE268': '\u182C\u1820', // Q</span>
+<span id="L38"><span class="lineNum">      38</span>              :   '\uE2E4\uE268': '\u182D\u1820', // G</span>
+<span id="L39"><span class="lineNum">      39</span>              :   // Corresponding to original: 2. MCC + A</span>
+<span id="L40"><span class="lineNum">      40</span>              :   '\uE2C1\uE26B': '\u182A\u1820', // B</span>
+<span id="L41"><span class="lineNum">      41</span>              :   '\uE2C8\uE26B': '\u182B\u1820', // P</span>
+<span id="L42"><span class="lineNum">      42</span>              :   '\uE32D\uE26B': '\u1839\u1820', // F</span>
+<span id="L43"><span class="lineNum">      43</span>              :   '\uE333\uE26B': '\u183A\u1820', // K</span>
+<span id="L44"><span class="lineNum">      44</span>              :   '\uE339\uE26B': '\u183B\u1820', // KH</span>
+<span id="L45"><span class="lineNum">      45</span>              :   // Corresponding to original: 3. NCC + E</span>
+<span id="L46"><span class="lineNum">      46</span>              :   '\uE2B3\uE273': '\u1828\u1821',</span>
+<span id="L47"><span class="lineNum">      47</span>              :   '\uE2F2\uE273': '\u182E\u1821',</span>
+<span id="L48"><span class="lineNum">      48</span>              :   '\uE2F8\uE273': '\u182F\u1821',</span>
+<span id="L49"><span class="lineNum">      49</span>              :   '\uE2FE\uE273': '\u1830\u1821',</span>
+<span id="L50"><span class="lineNum">      50</span>              :   '\uE304\uE273': '\u1831\u1821',</span>
+<span id="L51"><span class="lineNum">      51</span>              :   '\uE309\uE273': '\u1832\u1821',</span>
+<span id="L52"><span class="lineNum">      52</span>              :   '\uE315\uE273': '\u1834\u1821',</span>
+<span id="L53"><span class="lineNum">      53</span>              :   '\uE31A\uE273': '\u1835\u1821',</span>
+<span id="L54"><span class="lineNum">      54</span>              :   '\uE31E\uE273': '\u1836\u1821',</span>
+<span id="L55"><span class="lineNum">      55</span>              :   '\uE322\uE273': '\u1837\u1821',</span>
+<span id="L56"><span class="lineNum">      56</span>              :   '\uE329\uE273': '\u1838\u1821',</span>
+<span id="L57"><span class="lineNum">      57</span>              :   '\uE33F\uE273': '\u183C\u1821',</span>
+<span id="L58"><span class="lineNum">      58</span>              :   '\uE342\uE273': '\u183D\u1821',</span>
+<span id="L59"><span class="lineNum">      59</span>              :   '\uE345\uE273': '\u183E\u1821',</span>
+<span id="L60"><span class="lineNum">      60</span>              :   '\uE348\uE273': '\u183F\u1821',</span>
+<span id="L61"><span class="lineNum">      61</span>              :   '\uE34B\uE273': '\u1840\u1821',</span>
+<span id="L62"><span class="lineNum">      62</span>              :   '\uE34E\uE273': '\u1841\u1821',</span>
+<span id="L63"><span class="lineNum">      63</span>              :   '\uE34F\uE273': '\u1842\u1821',</span>
+<span id="L64"><span class="lineNum">      64</span>              : </span>
+<span id="L65"><span class="lineNum">      65</span>              :   // Corresponding to original: 4. MCC|MCCC + E</span>
+<span id="L66"><span class="lineNum">      66</span>              :   '\uE2C1\uE275': '\u182A\u1821',</span>
+<span id="L67"><span class="lineNum">      67</span>              :   '\uE2C8\uE275': '\u182B\u1821',</span>
+<span id="L68"><span class="lineNum">      68</span>              :   '\uE32D\uE275': '\u1839\u1821',</span>
+<span id="L69"><span class="lineNum">      69</span>              :   '\uE333\uE275': '\u183A\u1821',</span>
+<span id="L70"><span class="lineNum">      70</span>              :   '\uE339\uE275': '\u183B\u1821',</span>
+<span id="L71"><span class="lineNum">      71</span>              :   '\uE2D0\uE275': '\u182C\u1821',</span>
+<span id="L72"><span class="lineNum">      72</span>              :   '\uE2E3\uE275': '\u182D\u1821',</span>
+<span id="L73"><span class="lineNum">      73</span>              : </span>
+<span id="L74"><span class="lineNum">      74</span>              :   // Corresponding to original: 5. Consonant + O|U</span>
+<span id="L75"><span class="lineNum">      75</span>              :   '\uE2B3\uE286': '\u1828\u1823', // O</span>
+<span id="L76"><span class="lineNum">      76</span>              :   '\uE2F1\uE286': '\u182E\u1823', // O</span>
+<span id="L77"><span class="lineNum">      77</span>              :   '\uE2F7\uE286': '\u182F\u1823', // O</span>
+<span id="L78"><span class="lineNum">      78</span>              :   '\uE2FD\uE286': '\u1830\u1823', // O</span>
+<span id="L79"><span class="lineNum">      79</span>              :   '\uE303\uE286': '\u1831\u1823', // O</span>
+<span id="L80"><span class="lineNum">      80</span>              :   '\uE308\uE286': '\u1832\u1823', // O</span>
+<span id="L81"><span class="lineNum">      81</span>              :   '\uE315\uE286': '\u1834\u1823', // O</span>
+<span id="L82"><span class="lineNum">      82</span>              :   '\uE319\uE286': '\u1835\u1823', // O</span>
+<span id="L83"><span class="lineNum">      83</span>              :   '\uE31E\uE286': '\u1836\u1823', // O</span>
+<span id="L84"><span class="lineNum">      84</span>              :   '\uE323\uE286': '\u1837\u1823', // O</span>
+<span id="L85"><span class="lineNum">      85</span>              :   '\uE329\uE286': '\u1838\u1823', // O</span>
+<span id="L86"><span class="lineNum">      86</span>              :   '\uE33F\uE286': '\u183C\u1823', // O</span>
+<span id="L87"><span class="lineNum">      87</span>              :   '\uE342\uE286': '\u183D\u1823', // O</span>
+<span id="L88"><span class="lineNum">      88</span>              :   '\uE345\uE286': '\u183E\u1823', // O</span>
+<span id="L89"><span class="lineNum">      89</span>              :   '\uE348\uE286': '\u183F\u1823', // O</span>
+<span id="L90"><span class="lineNum">      90</span>              :   '\uE34B\uE286': '\u1840\u1823', // O</span>
+<span id="L91"><span class="lineNum">      91</span>              :   '\uE34E\uE286': '\u1841\u1823', // O</span>
+<span id="L92"><span class="lineNum">      92</span>              :   '\uE34F\uE286': '\u1842\u1823', // O</span>
+<span id="L93"><span class="lineNum">      93</span>              :   '\uE2CE\uE286': '\u182C\u1823', // O</span>
+<span id="L94"><span class="lineNum">      94</span>              :   '\uE2E1\uE286': '\u182D\u1823', // O</span>
+<span id="L95"><span class="lineNum">      95</span>              :   '\uE2C2\uE287': '\u182A\u1823', // O</span>
+<span id="L96"><span class="lineNum">      96</span>              :   '\uE2C9\uE287': '\u182B\u1823', // O</span>
+<span id="L97"><span class="lineNum">      97</span>              :   '\uE32E\uE287': '\u1839\u1823', // O</span>
+<span id="L98"><span class="lineNum">      98</span>              :   '\uE334\uE287': '\u183A\u1823', // O</span>
+<span id="L99"><span class="lineNum">      99</span>              :   '\uE33A\uE287': '\u183B\u1823', // O</span>
+<span id="L100"><span class="lineNum">     100</span>              :   '\uE2B3\uE28E': '\u1828\u1824', // U</span>
+<span id="L101"><span class="lineNum">     101</span>              :   '\uE2F1\uE28E': '\u182E\u1824', // U</span>
+<span id="L102"><span class="lineNum">     102</span>              :   '\uE2F7\uE28E': '\u182F\u1824', // U</span>
+<span id="L103"><span class="lineNum">     103</span>              :   '\uE2FD\uE28E': '\u1830\u1824', // U</span>
+<span id="L104"><span class="lineNum">     104</span>              :   '\uE303\uE28E': '\u1831\u1824', // U</span>
+<span id="L105"><span class="lineNum">     105</span>              :   '\uE308\uE28E': '\u1832\u1824', // U</span>
+<span id="L106"><span class="lineNum">     106</span>              :   '\uE315\uE28E': '\u1834\u1824', // U</span>
+<span id="L107"><span class="lineNum">     107</span>              :   '\uE319\uE28E': '\u1835\u1824', // U</span>
+<span id="L108"><span class="lineNum">     108</span>              :   '\uE31E\uE28E': '\u1836\u1824', // U</span>
+<span id="L109"><span class="lineNum">     109</span>              :   '\uE323\uE28E': '\u1837\u1824', // U</span>
+<span id="L110"><span class="lineNum">     110</span>              :   '\uE329\uE28E': '\u1838\u1824', // U</span>
+<span id="L111"><span class="lineNum">     111</span>              :   '\uE33F\uE28E': '\u183C\u1824', // U</span>
+<span id="L112"><span class="lineNum">     112</span>              :   '\uE342\uE28E': '\u183D\u1824', // U</span>
+<span id="L113"><span class="lineNum">     113</span>              :   '\uE345\uE28E': '\u183E\u1824', // U</span>
+<span id="L114"><span class="lineNum">     114</span>              :   '\uE348\uE28E': '\u183F\u1824', // U</span>
+<span id="L115"><span class="lineNum">     115</span>              :   '\uE34B\uE28E': '\u1840\u1824', // U</span>
+<span id="L116"><span class="lineNum">     116</span>              :   '\uE34E\uE28E': '\u1841\u1824', // U</span>
+<span id="L117"><span class="lineNum">     117</span>              :   '\uE34F\uE28E': '\u1842\u1824', // U</span>
+<span id="L118"><span class="lineNum">     118</span>              :   '\uE2CE\uE28E': '\u182C\u1824', // U</span>
+<span id="L119"><span class="lineNum">     119</span>              :   '\uE2E1\uE28E': '\u182D\u1824', // U</span>
+<span id="L120"><span class="lineNum">     120</span>              :   '\uE2C2\uE28F': '\u182A\u1824', // U</span>
+<span id="L121"><span class="lineNum">     121</span>              :   '\uE2C9\uE28F': '\u182B\u1824', // U</span>
+<span id="L122"><span class="lineNum">     122</span>              :   '\uE32E\uE28F': '\u1839\u1824', // U</span>
+<span id="L123"><span class="lineNum">     123</span>              :   '\uE334\uE28F': '\u183A\u1824', // U</span>
+<span id="L124"><span class="lineNum">     124</span>              :   '\uE33A\uE28F': '\u183B\u1824', // U</span>
+<span id="L125"><span class="lineNum">     125</span>              :   // Corresponding to original: 6. Consonant + OE|UE</span>
+<span id="L126"><span class="lineNum">     126</span>              :   '\uE2B3\uE297': '\u1828\u1825', // OE</span>
+<span id="L127"><span class="lineNum">     127</span>              :   '\uE2F1\uE297': '\u182E\u1825', // OE</span>
+<span id="L128"><span class="lineNum">     128</span>              :   '\uE2F7\uE297': '\u182F\u1825', // OE</span>
+<span id="L129"><span class="lineNum">     129</span>              :   '\uE2FD\uE297': '\u1830\u1825', // OE</span>
+<span id="L130"><span class="lineNum">     130</span>              :   '\uE303\uE297': '\u1831\u1825', // OE</span>
+<span id="L131"><span class="lineNum">     131</span>              :   '\uE308\uE297': '\u1832\u1825', // OE</span>
+<span id="L132"><span class="lineNum">     132</span>              :   '\uE315\uE297': '\u1834\u1825', // OE</span>
+<span id="L133"><span class="lineNum">     133</span>              :   '\uE319\uE297': '\u1835\u1825', // OE</span>
+<span id="L134"><span class="lineNum">     134</span>              :   '\uE31E\uE297': '\u1836\u1825', // OE</span>
+<span id="L135"><span class="lineNum">     135</span>              :   '\uE323\uE297': '\u1837\u1825', // OE</span>
+<span id="L136"><span class="lineNum">     136</span>              :   '\uE329\uE297': '\u1838\u1825', // OE</span>
+<span id="L137"><span class="lineNum">     137</span>              :   '\uE33F\uE297': '\u183C\u1825', // OE</span>
+<span id="L138"><span class="lineNum">     138</span>              :   '\uE342\uE297': '\u183D\u1825', // OE</span>
+<span id="L139"><span class="lineNum">     139</span>              :   '\uE345\uE297': '\u183E\u1825', // OE</span>
+<span id="L140"><span class="lineNum">     140</span>              :   '\uE348\uE297': '\u183F\u1825', // OE</span>
+<span id="L141"><span class="lineNum">     141</span>              :   '\uE34B\uE297': '\u1840\u1825', // OE</span>
+<span id="L142"><span class="lineNum">     142</span>              :   '\uE34E\uE297': '\u1841\u1825', // UE</span>
+<span id="L143"><span class="lineNum">     143</span>              :   '\uE34F\uE297': '\u1842\u1825', // UE</span>
+<span id="L144"><span class="lineNum">     144</span>              :   '\uE2D4\uE298': '\u182C\u1825', // OE</span>
+<span id="L145"><span class="lineNum">     145</span>              :   '\uE2E6\uE298': '\u182D\u1825', // OE</span>
+<span id="L146"><span class="lineNum">     146</span>              :   '\uE2C2\uE298': '\u182A\u1825', // OE</span>
+<span id="L147"><span class="lineNum">     147</span>              :   '\uE2C9\uE298': '\u182B\u1825', // OE</span>
+<span id="L148"><span class="lineNum">     148</span>              :   '\uE32E\uE298': '\u1839\u1825', // OE</span>
+<span id="L149"><span class="lineNum">     149</span>              :   '\uE334\uE298': '\u183A\u1825', // OE</span>
+<span id="L150"><span class="lineNum">     150</span>              :   '\uE33A\uE298': '\u183B\u1825', // OE</span>
+<span id="L151"><span class="lineNum">     151</span>              :   '\uE2B3\uE2A4': '\u1828\u1826', // UE</span>
+<span id="L152"><span class="lineNum">     152</span>              :   '\uE2F1\uE2A4': '\u182E\u1826', // UE</span>
+<span id="L153"><span class="lineNum">     153</span>              :   '\uE2F7\uE2A4': '\u182F\u1826', // UE</span>
+<span id="L154"><span class="lineNum">     154</span>              :   '\uE2FD\uE2A4': '\u1830\u1826', // UE</span>
+<span id="L155"><span class="lineNum">     155</span>              :   '\uE303\uE2A4': '\u1831\u1826', // UE</span>
+<span id="L156"><span class="lineNum">     156</span>              :   '\uE308\uE2A4': '\u1832\u1826', // UE</span>
+<span id="L157"><span class="lineNum">     157</span>              :   '\uE315\uE2A4': '\u1834\u1826', // UE</span>
+<span id="L158"><span class="lineNum">     158</span>              :   '\uE319\uE2A4': '\u1835\u1826', // UE</span>
+<span id="L159"><span class="lineNum">     159</span>              :   '\uE31E\uE2A4': '\u1836\u1826', // UE</span>
+<span id="L160"><span class="lineNum">     160</span>              :   '\uE323\uE2A4': '\u1837\u1826', // UE</span>
+<span id="L161"><span class="lineNum">     161</span>              :   '\uE329\uE2A4': '\u1838\u1826', // UE</span>
+<span id="L162"><span class="lineNum">     162</span>              :   '\uE33F\uE2A4': '\u183C\u1826', // UE</span>
+<span id="L163"><span class="lineNum">     163</span>              :   '\uE342\uE2A4': '\u183D\u1826', // UE</span>
+<span id="L164"><span class="lineNum">     164</span>              :   '\uE345\uE2A4': '\u183E\u1826', // UE</span>
+<span id="L165"><span class="lineNum">     165</span>              :   '\uE348\uE2A4': '\u183F\u1826', // UE</span>
+<span id="L166"><span class="lineNum">     166</span>              :   '\uE34B\uE2A4': '\u1840\u1826', // UE</span>
+<span id="L167"><span class="lineNum">     167</span>              :   '\uE34E\uE2A4': '\u1841\u1826', // UE</span>
+<span id="L168"><span class="lineNum">     168</span>              :   '\uE34F\uE2A4': '\u1842\u1826', // UE</span>
+<span id="L169"><span class="lineNum">     169</span>              :   '\uE2D4\uE2A5': '\u182C\u1826', // UE</span>
+<span id="L170"><span class="lineNum">     170</span>              :   '\uE2E6\uE2A5': '\u182D\u1826', // UE</span>
+<span id="L171"><span class="lineNum">     171</span>              :   '\uE2C2\uE2A5': '\u182A\u1826', // UE</span>
+<span id="L172"><span class="lineNum">     172</span>              :   '\uE2C9\uE2A5': '\u182B\u1826', // UE</span>
+<span id="L173"><span class="lineNum">     173</span>              :   '\uE32E\uE2A5': '\u1839\u1826', // UE</span>
+<span id="L174"><span class="lineNum">     174</span>              :   '\uE334\uE2A5': '\u183A\u1826', // UE</span>
+<span id="L175"><span class="lineNum">     175</span>              :   '\uE33A\uE2A5': '\u183B\u1826', // UE</span>
+<span id="L176"><span class="lineNum">     176</span>              :   // Corresponding to original: 7. DA + Vowel</span>
+<span id="L177"><span class="lineNum">     177</span>              :   '\uE310\uE268': '\u1833\u1820',</span>
+<span id="L178"><span class="lineNum">     178</span>              :   '\uE310\uE273': '\u1833\u1821',</span>
+<span id="L179"><span class="lineNum">     179</span>              :   '\uE310\uE27B': '\u1833\u1822',</span>
+<span id="L180"><span class="lineNum">     180</span>              :   '\uE310\uE286': '\u1833\u1823',</span>
+<span id="L181"><span class="lineNum">     181</span>              :   '\uE310\uE28E': '\u1833\u1824',</span>
+<span id="L182"><span class="lineNum">     182</span>              :   '\uE310\uE297': '\u1833\u1825',</span>
+<span id="L183"><span class="lineNum">     183</span>              :   '\uE310\uE2A4': '\u1833\u1826',</span>
+<span id="L184"><span class="lineNum">     184</span>              :   '\uE310\uE2AF': '\u1833\u1827',</span>
+<span id="L185"><span class="lineNum">     185</span>              : </span>
+<span id="L186"><span class="lineNum">     186</span>              :   // Corresponding to original: 8. SHA + I</span>
+<span id="L187"><span class="lineNum">     187</span>              :   '\uE303\uE27B': '\u1831\u1822',</span>
+<span id="L188"><span class="lineNum">     188</span>              : };</span>
+<span id="L189"><span class="lineNum">     189</span>              : </span>
+<span id="L190"><span class="lineNum">     190</span>              : const Map&lt;String, String&gt; _fixedSuffixesMenkToUni = {</span>
+<span id="L191"><span class="lineNum">     191</span>              :   // A</span>
+<span id="L192"><span class="lineNum">     192</span>              :   '\uE263\uE26A': '\u180E\u1820',</span>
+<span id="L193"><span class="lineNum">     193</span>              :   // E</span>
+<span id="L194"><span class="lineNum">     194</span>              :   '\uE263\uE274': '\u180E\u1821',</span>
+<span id="L195"><span class="lineNum">     195</span>              :   // ACHA</span>
+<span id="L196"><span class="lineNum">     196</span>              :   '\uE263\uE267\uE317\uE268': '\u180E\u1820\u1834\u1820',</span>
+<span id="L197"><span class="lineNum">     197</span>              :   // ACHAGAN</span>
+<span id="L198"><span class="lineNum">     198</span>              :   '\uE263\uE267\uE317\uE26C\uE2EA\uE26C\uE2B5':</span>
+<span id="L199"><span class="lineNum">     199</span>              :       '\u180E\u1820\u1834\u1820\u182D\u1820\u1828',</span>
+<span id="L200"><span class="lineNum">     200</span>              :   // I</span>
+<span id="L201"><span class="lineNum">     201</span>              :   '\uE263\uE282': '\u180E\u1822',</span>
+<span id="L202"><span class="lineNum">     202</span>              :   // IYAR</span>
+<span id="L203"><span class="lineNum">     203</span>              :   '\uE263\uE280\uE321\uE26C\uE325': '\u180E\u1822\u1836\u1820\u1837',</span>
+<span id="L204"><span class="lineNum">     204</span>              :   // IYER</span>
+<span id="L205"><span class="lineNum">     205</span>              :   '\uE263\uE280\uE321\uE276\uE325': '\u180E\u1822\u1836\u1821\u1837',</span>
+<span id="L206"><span class="lineNum">     206</span>              :   // IYAN</span>
+<span id="L207"><span class="lineNum">     207</span>              :   '\uE263\uE280\uE321\uE26C\uE2B5': '\u180E\u1822\u1836\u1820\u1828',</span>
+<span id="L208"><span class="lineNum">     208</span>              :   // IYEN</span>
+<span id="L209"><span class="lineNum">     209</span>              :   '\uE263\uE280\uE321\uE276\uE2B5': '\u180E\u1822\u1836\u1821\u1828',</span>
+<span id="L210"><span class="lineNum">     210</span>              :   // U</span>
+<span id="L211"><span class="lineNum">     211</span>              :   '\uE263\uE28D': '\u180E\u1824',</span>
+<span id="L212"><span class="lineNum">     212</span>              :   // UE</span>
+<span id="L213"><span class="lineNum">     213</span>              :   '\uE263\uE2A3': '\u180E\u1826',</span>
+<span id="L214"><span class="lineNum">     214</span>              :   // UN</span>
+<span id="L215"><span class="lineNum">     215</span>              :   '\uE263\uE292\uE2B5': '\u180E\u1824\u1828',</span>
+<span id="L216"><span class="lineNum">     216</span>              :   // UEN</span>
+<span id="L217"><span class="lineNum">     217</span>              :   '\uE263\uE2AC\uE2B5': '\u180E\u1826\u1828',</span>
+<span id="L218"><span class="lineNum">     218</span>              :   // UD</span>
+<span id="L219"><span class="lineNum">     219</span>              :   '\uE263\uE292\uE311': '\u180E\u1824\u1833',</span>
+<span id="L220"><span class="lineNum">     220</span>              :   // UED</span>
+<span id="L221"><span class="lineNum">     221</span>              :   '\uE263\uE2AC\uE311': '\u180E\u1826\u1833',</span>
+<span id="L222"><span class="lineNum">     222</span>              :   // CHU</span>
+<span id="L223"><span class="lineNum">     223</span>              :   '\uE263\uE315\uE28D': '\u180E\u1834\u1824',</span>
+<span id="L224"><span class="lineNum">     224</span>              :   // CHUE</span>
+<span id="L225"><span class="lineNum">     225</span>              :   '\uE263\uE315\uE2A3': '\u180E\u1834\u1826',</span>
+<span id="L226"><span class="lineNum">     226</span>              :   // TU</span>
+<span id="L227"><span class="lineNum">     227</span>              :   '\uE263\uE309\uE28D': '\u180E\u1832\u1824',</span>
+<span id="L228"><span class="lineNum">     228</span>              :   // TUE</span>
+<span id="L229"><span class="lineNum">     229</span>              :   '\uE263\uE309\uE2A3': '\u180E\u1832\u1826',</span>
+<span id="L230"><span class="lineNum">     230</span>              :   // TUER</span>
+<span id="L231"><span class="lineNum">     231</span>              :   '\uE263\uE309\uE2AB\uE325': '\u180E\u1832\u1826\u1837',</span>
+<span id="L232"><span class="lineNum">     232</span>              :   // TUENI</span>
+<span id="L233"><span class="lineNum">     233</span>              :   '\uE263\uE309\uE2AB\uE2B7\uE27B': '\u180E\u1832\u1826\u1828\u1822',</span>
+<span id="L234"><span class="lineNum">     234</span>              :   // YUEGEN</span>
+<span id="L235"><span class="lineNum">     235</span>              :   '\uE263\uE31E\uE2AB\uE2EB\uE277\uE2B5':</span>
+<span id="L236"><span class="lineNum">     236</span>              :       '\u180E\u1836\u1826\u182D\u1821\u1828',</span>
+<span id="L237"><span class="lineNum">     237</span>              :   // LUEGE</span>
+<span id="L238"><span class="lineNum">     238</span>              :   '\uE263\uE2F8\uE2AB\uE2EB\uE275': '\u180E\u182F\u1826\u182D\u1821',</span>
+<span id="L239"><span class="lineNum">     239</span>              :   // NUEGUED</span>
+<span id="L240"><span class="lineNum">     240</span>              :   '\uE263\uE2B3\uE2AB\uE2ED\uE2AC\uE311':</span>
+<span id="L241"><span class="lineNum">     241</span>              :       '\u180E\u1828\u1826\u182D\u1826\u1833',</span>
+<span id="L242"><span class="lineNum">     242</span>              :   // NUEGEN</span>
+<span id="L243"><span class="lineNum">     243</span>              :   '\uE263\uE2B3\uE2AB\uE2EB\uE276\uE2B5':</span>
+<span id="L244"><span class="lineNum">     244</span>              :       '\u180E\u1828\u1826\u182D\u1821\u1828',</span>
+<span id="L245"><span class="lineNum">     245</span>              :   // YUEM</span>
+<span id="L246"><span class="lineNum">     246</span>              :   '\uE263\uE31E\uE2AB\uE2F3': '\u180E\u1836\u1826\u182E',</span>
+<span id="L247"><span class="lineNum">     247</span>              :   // YUEMSEN</span>
+<span id="L248"><span class="lineNum">     248</span>              :   '\uE263\uE31E\uE2AB\uE2F5\uE301\uE276\uE2B5':</span>
+<span id="L249"><span class="lineNum">     249</span>              :       '\u180E\u1836\u1826\u182E\u1830\u1821\u1828',</span>
+<span id="L250"><span class="lineNum">     250</span>              :   // QU</span>
+<span id="L251"><span class="lineNum">     251</span>              :   '\uE263\uE2D4\uE2A7': '\u180E\u182C\u1826',</span>
+<span id="L252"><span class="lineNum">     252</span>              :   // YI</span>
+<span id="L253"><span class="lineNum">     253</span>              :   '\uE263\uE321\uE27B': '\u180E\u1836\u1822',</span>
+<span id="L254"><span class="lineNum">     254</span>              :   // YIN</span>
+<span id="L255"><span class="lineNum">     255</span>              :   '\uE263\uE321\uE27E\uE2B5': '\u180E\u1836\u1822\u1828',</span>
+<span id="L256"><span class="lineNum">     256</span>              :   // DAGAN</span>
+<span id="L257"><span class="lineNum">     257</span>              :   '\uE263\uE310\uE26C\uE2EA\uE26C\uE2B5':</span>
+<span id="L258"><span class="lineNum">     258</span>              :       '\u180E\u1833\u1820\u182D\u1820\u1828',</span>
+<span id="L259"><span class="lineNum">     259</span>              :   // DEGEN</span>
+<span id="L260"><span class="lineNum">     260</span>              :   '\uE263\uE310\uE276\uE2EB\uE277\uE2B5':</span>
+<span id="L261"><span class="lineNum">     261</span>              :       '\u180E\u1833\u1821\u182D\u1821\u1828',</span>
+<span id="L262"><span class="lineNum">     262</span>              :   // DU</span>
+<span id="L263"><span class="lineNum">     263</span>              :   '\uE263\uE310\uE28D': '\u180E\u1833\u1824',</span>
+<span id="L264"><span class="lineNum">     264</span>              :   // DUE</span>
+<span id="L265"><span class="lineNum">     265</span>              :   '\uE263\uE310\uE2A3': '\u180E\u1833\u1826',</span>
+<span id="L266"><span class="lineNum">     266</span>              :   // DAG</span>
+<span id="L267"><span class="lineNum">     267</span>              :   '\uE263\uE310\uE26C\uE2E7': '\u180E\u1833\u1820\u182D',</span>
+<span id="L268"><span class="lineNum">     268</span>              :   // DEG</span>
+<span id="L269"><span class="lineNum">     269</span>              :   '\uE263\uE310\uE276\uE2E8': '\u180E\u1833\u1821\u182D',</span>
+<span id="L270"><span class="lineNum">     270</span>              :   // DAQI</span>
+<span id="L271"><span class="lineNum">     271</span>              :   '\uE263\uE310\uE26C\uE2DA\uE27C': '\u180E\u1833\u1820\u182C\u1822',</span>
+<span id="L272"><span class="lineNum">     272</span>              :   // DEQI</span>
+<span id="L273"><span class="lineNum">     273</span>              :   '\uE263\uE310\uE276\uE2DA\uE27C': '\u180E\u1833\u1821\u182C\u1822',</span>
+<span id="L274"><span class="lineNum">     274</span>              :   // DUR</span>
+<span id="L275"><span class="lineNum">     275</span>              :   '\uE263\uE310\uE291\uE325': '\u180E\u1833\u1824\u1837',</span>
+<span id="L276"><span class="lineNum">     276</span>              :   // DUER</span>
+<span id="L277"><span class="lineNum">     277</span>              :   '\uE263\uE310\uE2AB\uE325': '\u180E\u1833\u1826\u1837',</span>
+<span id="L278"><span class="lineNum">     278</span>              :   // DUNI</span>
+<span id="L279"><span class="lineNum">     279</span>              :   '\uE263\uE310\uE291\uE2B7\uE27B': '\u180E\u1833\u1824\u1828\u1822',</span>
+<span id="L280"><span class="lineNum">     280</span>              :   // DUENI</span>
+<span id="L281"><span class="lineNum">     281</span>              :   '\uE263\uE310\uE2AB\uE2B7\uE27B': '\u180E\u1833\u1826\u1828\u1822',</span>
+<span id="L282"><span class="lineNum">     282</span>              :   // DUGAR</span>
+<span id="L283"><span class="lineNum">     283</span>              :   '\uE263\uE310\uE291\uE2EC\uE26C\uE325':</span>
+<span id="L284"><span class="lineNum">     284</span>              :       '\u180E\u1833\u1824\u182D\u1820\u1837',</span>
+<span id="L285"><span class="lineNum">     285</span>              :   // DUEGER</span>
+<span id="L286"><span class="lineNum">     286</span>              :   '\uE263\uE310\uE2AB\uE2EB\uE276\uE325':</span>
+<span id="L287"><span class="lineNum">     287</span>              :       '\u180E\u1833\u1826\u182D\u1821\u1837',</span>
+<span id="L288"><span class="lineNum">     288</span>              :   // DA</span>
+<span id="L289"><span class="lineNum">     289</span>              :   '\uE263\uE310\uE268': '\u180E\u1833\u1820',</span>
+<span id="L290"><span class="lineNum">     290</span>              :   // DE</span>
+<span id="L291"><span class="lineNum">     291</span>              :   '\uE263\uE310\uE273': '\u180E\u1833\u1821',</span>
+<span id="L292"><span class="lineNum">     292</span>              :   // UU (not a suffix but adding for backward compatibility)</span>
+<span id="L293"><span class="lineNum">     293</span>              :   '\uE263\uE292\uE28D': '\u180E\u1824\u1824',</span>
+<span id="L294"><span class="lineNum">     294</span>              :   // UEUE (not a suffix but adding for backward compatibility)</span>
+<span id="L295"><span class="lineNum">     295</span>              :   '\uE263\uE2AC\uE2A3': '\u180E\u1826\u1826',</span>
+<span id="L296"><span class="lineNum">     296</span>              : };</span>
+<span id="L297"><span class="lineNum">     297</span>              : </span>
+<span id="L298"><span class="lineNum">     298</span>              : const Map&lt;String, String&gt; _fixedWordsMenkToUni = {</span>
+<span id="L299"><span class="lineNum">     299</span>              :   // UU</span>
+<span id="L300"><span class="lineNum">     300</span>              :   '\uE292\uE28D': '\u1824\u1824',</span>
+<span id="L301"><span class="lineNum">     301</span>              :   // UEUE</span>
+<span id="L302"><span class="lineNum">     302</span>              :   '\uE2AC\uE2A3': '\u1826\u1826',</span>
+<span id="L303"><span class="lineNum">     303</span>              :   // BUEUE</span>
+<span id="L304"><span class="lineNum">     304</span>              :   '\uE2C2\uE2AC\uE2A3': '\u182A\u1826\u1826',</span>
+<span id="L305"><span class="lineNum">     305</span>              : };</span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.4-0</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>
